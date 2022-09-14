@@ -1,0 +1,14 @@
+{
+  "hash": "cfec39a69e27a89a9c2b220e152a4d42",
+  "result": {
+    "markdown": "---\ntitle: \"Exercises in Probability Theory\"\nauthor: \"Marcos Abreu\"\ndate: \"2022-09-14\"\ncategories: [stat]\nimage: naser-tamimi-yG9pCqSOrAg-unsplash.jpg\n---\n\n\nOs exercícios abaixo foram retirados do capítulo 2 do livro [Introduction to Econometrics with R](https://www.econometrics-with-r.org/).\n\n![Photo by Naser Tamimi on Unsplash](naser-tamimi-yG9pCqSOrAg-unsplash.jpg)\n\nPhoto by [Naser Tamimi](https://unsplash.com/@tamiminaser?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unplash](https://unsplash.com/s/photos/probability?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).\n\n1.  Amostragem\n\nComo gerar números aleatórios a partir de um conjunto? Para jogar na mega-sena é preciso escolher 6 números dentre 60 de 00 até 59. Como selecionar em R 6 números aleatórios para jogar na mega-sena?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nset.seed(123)\nsample(0:59, 6)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 30 14 50 13  2 41\n```\n:::\n:::\n\n\nComo escolher 2 frutas aleatórias do conjunto: pêra, maçã, banana, mamão e jabuticaba?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nset.seed(123)\nfrutas = c(\"pêra\", \"maçã\", \"banana\", \"mamão\", \"jabuticaba\")\nsample(frutas, 2)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"banana\" \"maçã\"  \n```\n:::\n:::\n\n\n2.  Função de Densidade Probabilística (FDP)\n\nConsidere a variável aleatória *X* com função de densidade probabilística igual a:\n\n$$\nf(x) = \\frac{x}{4} e^{-x^2/8}, x > 0\n$$\n\nDefina uma função em R com esta equação:\n\n\n::: {.cell}\n\n```{.r .cell-code}\npdf_x <- function(x) {\n  (x/4) * (exp(-1*(x^2)/8))\n}\n\npdf_x(0)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 0\n```\n:::\n\n```{.r .cell-code}\npdf_x(1)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 0.2206242\n```\n:::\n\n```{.r .cell-code}\npdf_x(c(2,4,6))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 0.30326533 0.13533528 0.01666349\n```\n:::\n\n```{.r .cell-code}\npdf_x(Inf)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] NaN\n```\n:::\n:::\n\n\nPara que _f(x)_ seja uma FDP sua integral sobre o domínio deverá ser 1:\n\n$$\n\\int_{0}^{\\infty} f(x)dx = 1\n$$\nEm R, a função _integrate_ permite calcular a integral passando como parâmetros a função e os limites:\n\n::: {.cell}\n\n```{.r .cell-code}\nintegrate(pdf_x, 0, Inf)$value\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 1\n```\n:::\n:::\n\n\nLembrando que a função está definida para _x > 0_\nO _$value_ após a função permite capturar o retorno da mesma. Pesquise por _integrate_ no help do R.\n\n\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

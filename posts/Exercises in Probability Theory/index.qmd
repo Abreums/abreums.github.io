@@ -1,0 +1,74 @@
+---
+title: "Exercises in Probability Theory"
+author: "Marcos Abreu"
+date: "2022-09-14"
+categories: [stat]
+image: naser-tamimi-yG9pCqSOrAg-unsplash.jpg
+---
+
+Os exercícios abaixo foram retirados do capítulo 2 do livro [Introduction to Econometrics with R](https://www.econometrics-with-r.org/).
+
+![Photo by Naser Tamimi on Unsplash](naser-tamimi-yG9pCqSOrAg-unsplash.jpg)
+
+Photo by [Naser Tamimi](https://unsplash.com/@tamiminaser?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unplash](https://unsplash.com/s/photos/probability?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+
+**1.  Amostragem**
+
+Como gerar números aleatórios a partir de um conjunto? Para jogar na mega-sena é preciso escolher 6 números dentre 60 de 00 até 59. Como selecionar em R 6 números aleatórios para jogar na mega-sena?
+
+```{r}
+set.seed(123)
+sample(0:59, 6)
+```
+
+Como escolher 2 frutas aleatórias do conjunto: pêra, maçã, banana, mamão e jabuticaba?
+
+```{r}
+set.seed(123)
+frutas = c("pêra", "maçã", "banana", "mamão", "jabuticaba")
+sample(frutas, 2)
+```
+
+**2.  Função de Densidade Probabilística (FDP)**
+
+Considere a variável aleatória *X* com função de densidade probabilística igual a:
+
+$$
+f(x) = \frac{x}{4} e^{-x^2/8}, x > 0
+$$
+
+Defina uma função em R com esta equação:
+
+```{r}
+pdf_x <- function(x) {
+  (x/4) * (exp(-1*(x^2)/8))
+}
+
+pdf_x(0)
+pdf_x(1)
+pdf_x(c(2,4,6))
+pdf_x(Inf)
+```
+
+Para que _f(x)_ seja uma FDP sua integral sobre o domínio deverá ser 1:
+
+$$
+\int_{0}^{\infty} f(x)dx = 1
+$$
+Em R, a função _integrate_ permite calcular a integral passando como parâmetros a função e os limites:
+```{r}
+integrate(pdf_x, 0, Inf)$value
+```
+
+Lembrando que a função está definida para _x > 0_.     
+
+O _$value_ após a função permite capturar o retorno da mesma. Pesquise por _integrate_ no help do R.
+
+
+**3. Valor Esperado e Variância**
+
+
+
+
+
+
