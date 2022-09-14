@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/indicador-da-possibilidade-de-mudan-a/index.html",
+    "href": "posts/indicador-da-possibilidade-de-mudan-a/index.html",
+    "title": "Indicador da intenção de mudança",
+    "section": "",
+    "text": "A probabilidade de uma pessoa mudar de comportamento é chamada pela teoria de Gestão de Mudanças de “intenção de mudar”.\nA intenção de mudar é influenciada por três fatores principais:\nPara exemplificar, considere que desejamos modificar o comportamento de uma pessoa em relação a forma como ela trata o lixo doméstico que produz em sua residência.\nAs **atitudes** se referem às crenças que esta pessoa possuir em relação a fatores como a necessidade social e econômica de tratamento do lixo e de reutilização de materiais, o entendimento desta pessoa sobre a contaminação do solo e das águas por resíduos não tratados, e outros entendimentos relacionados ao tratamento do lixo.\nPor **normas sociais** estamos nos referindo às crenças desta pessoa em relação ao que ela acredita que seus vizinhos, amigos e parentes pensam em relação aos mesmos fatores.\nPor fim, **controle comportamental** diz respeito às crenças da pessoa se o comportamento dela fará ou não diferença e se ela possui os conhecimentos necessários para mudar efetivamente seu próprio comportamento, por exemplo, identificar como cada resíduo deve ser separado.\nA importância para determinação do comportamento de cada um fatores dependerá tanto do comportamento em análise quanto da população sendo analisada.\nPor exemplo, para um mesmo grupo alvo, @fishbein2006role relatam que, para uma população de pessoas acima de 40 anos, identificaram diferentes fatores influenciando a intensão de realizar uma colonoscopia e a intensão de fazer exercícios regulares (diferentes comportamentos, diferentes fatores, mesmo público analisado). O que leva a considerar que para um dos casos para a mesma população seria necessário ter estratégias de comunicação diferentes."
+  },
+  {
+    "objectID": "posts/indicador-da-possibilidade-de-mudan-a/index.html#medindo-a-intensão-de-mudar",
+    "href": "posts/indicador-da-possibilidade-de-mudan-a/index.html#medindo-a-intensão-de-mudar",
+    "title": "Indicador da intenção de mudança",
+    "section": "Medindo a intensão de mudar",
+    "text": "Medindo a intensão de mudar\nPara podermos medir a intensão de mudar é preciso primeiro descrever o comportamento desejado. Neste caso, é importante diferenciar entre comportamentos, categorias, e objetivos. Quanto mais específico melhor. Por exemplo, “caminhar 20min 3 vezes por semana” (comportamento) é melhor do que “exercitar-se” (categoria), e também do que “perder peso” (objetivo).\nPara auxiliar na elaboração de uma mensagem de suporte ao processo de mudança, é preciso conhecer a importância relativa entre as atitudes, normas sociais e controle comportamental. Neste caso o primeiro passo é identificar os _determinantes_ que existem por trás de cada um dos fatores."
+  },
+  {
+    "objectID": "posts/indicador-da-possibilidade-de-mudan-a/index.html#referências",
+    "href": "posts/indicador-da-possibilidade-de-mudan-a/index.html#referências",
+    "title": "Indicador da intenção de mudança",
+    "section": "Referências",
+    "text": "Referências"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Marcos Abreu's blog",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 14, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nSep 11, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\n  \n\n\n\n\nIndicador da intenção de mudança\n\n\n\n\n\n\n\nchange management\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2020\n\n\nMarcos Abreu\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Marcos Abreu works as Project Manager and Change Manager. His experience includes Data Analytics, cloud base systems, e-commerce, sales and marketing systems, financial and procurement systems, portfolio management, program managent and agile practices.\nHe also act as professor in University teaching Project Management, ITIL and Change Management.\nData analysis and statistics are his favorite subjects."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\nFundação Getúlio Vargas\nMBA in Project Management | 2002 - 2003.\nUNICAMP\nElectric Engineering | 1987 - 1991"
+  },
+  {
+    "objectID": "about.html#recent-experience",
+    "href": "about.html#recent-experience",
+    "title": "About",
+    "section": "Recent Experience",
+    "text": "Recent Experience\nExxon Mobil | Change Management Advisor | August 2021 - Present\nG4F | Project Manager | November 2020 - July 2021\nNTT Data | Abril 2016 - February 2020\nICG | September 2013 - January 2016\nKonsultex | July 2012 - August 2013\nPM21 | July 2003 - November 2011"
+  }
+]

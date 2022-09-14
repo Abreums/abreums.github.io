@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Marcos Abreu's blog"
+  navbar:
+    right:
+      - about.qmd
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+
+editor: visual
+

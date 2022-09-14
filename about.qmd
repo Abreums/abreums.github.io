@@ -1,0 +1,46 @@
+---
+title: "About"
+image: images/marcos_abreu.jpg
+about:
+  template: trestles
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/abreums
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/marcos-abreu-82216b/
+    - icon: github
+      text: Github
+      href: https://github.com/Abreums
+---
+
+## Bio
+
+Marcos Abreu works as Project Manager and Change Manager. His experience includes Data Analytics, cloud base systems, e-commerce, sales and marketing systems, financial and procurement systems, portfolio management, program managent and agile practices.     
+He also act as professor in University teaching Project Management, ITIL and Change Management.      
+Data analysis and statistics are his favorite subjects.     
+
+## Education
+
+**Fundação Getúlio Vargas**      
+
+MBA in Project Management | 2002 - 2003.     
+
+**UNICAMP**      
+
+Electric Engineering | 1987 - 1991    
+
+## Recent Experience     
+
+**Exxon Mobil** | Change Management Advisor | August 2021 - Present     
+
+**G4F** | Project Manager | November 2020 - July 2021      
+
+**NTT Data** | Abril 2016 - February 2020     
+
+**ICG** | September 2013 - January 2016     
+
+**Konsultex** | July 2012 - August 2013     
+
+**PM21** | July 2003 - November 2011    
