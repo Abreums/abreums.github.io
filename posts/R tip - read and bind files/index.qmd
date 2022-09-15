@@ -1,0 +1,23 @@
+---
+title: "R tip - Read and bind files"
+author: "Marcos Abreu"
+date: "2022-05-17"
+image: r_tip_read_and_bind.png
+categories: [R, ]
+---
+
+R tip - This is how to read and bind data from many excel files:
+
+```{r}
+library(tidyverse)
+library(readxl)
+
+files_list <- list.files(path = ".",
+                         pattern = "^plan(.)*.xlsx",
+                         full.names = TRUE)
+
+df <- 
+  files_list %>% 
+  map(read_excel) %>% 
+  reduce(bind_rows)
+```
