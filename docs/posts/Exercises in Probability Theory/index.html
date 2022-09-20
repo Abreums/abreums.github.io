@@ -9,7 +9,7 @@
 <meta name="author" content="Marcos Abreu">
 <meta name="dcterms.date" content="2022-09-14">
 
-<title>Marcos Abreu’s blog - Exercises in Probability Theory</title>
+<title>Marcos Abreu’s blog - Exercícios em R sobre Probabilidade</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,7 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Exercises in Probability Theory</h1>
+      <h1 class="title">Exercícios em R sobre Probabilidade</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">stat</div>
               </div>
@@ -195,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>Os exercícios abaixo foram retirados do capítulo 2 do livro <a href="https://www.econometrics-with-r.org/">Introduction to Econometrics with R</a>.</p>
+<p>Os exercícios e conceitos apresentados abaixo foram retirados do capítulo 2 do livro <a href="https://www.econometrics-with-r.org/">Introduction to Econometrics with R</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="naser-tamimi-yG9pCqSOrAg-unsplash.jpg" class="img-fluid figure-img"></p>
@@ -203,9 +203,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </figure>
 </div>
 <p>Photo by <a href="https://unsplash.com/@tamiminaser?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Naser Tamimi</a> on <a href="https://unsplash.com/s/photos/probability?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unplash</a>.</p>
-<ol type="1">
-<li>Amostragem</li>
-</ol>
+<section id="amostragem" class="level3">
+<h3 class="anchored" data-anchor-id="amostragem">1. Amostragem</h3>
 <p>Como gerar números aleatórios a partir de um conjunto? Para jogar na mega-sena é preciso escolher 6 números dentre 60 de 00 até 59. Como selecionar em R 6 números aleatórios para jogar na mega-sena?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
@@ -223,32 +222,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] "banana" "maçã"  </code></pre>
 </div>
 </div>
-<ol start="2" type="1">
-<li>Função de Densidade Probabilística (FDP)</li>
-</ol>
+</section>
+<section id="variância" class="level3">
+<h3 class="anchored" data-anchor-id="variância">2. Variância</h3>
+<p>A variância de uma variável discreta <strong>Y</strong> é descrita como:</p>
+<p><span class="math display">\[
+\sigma_Y^2 = Var(Y) = E[(Y - \mu_y)^2] = \sum_{i = 1}^{k}(y_i - \mu_i)^2p_i
+\]</span> sendo o desvio padrão de <strong>Y</strong>, denominado <span class="math inline">\(\sigma_Y\)</span>, a raiz quadrada da variância.</p>
+<p>Importante notar que R não possui uma função que calcula a variância. A função <strong>var()</strong> calcula a <em>variância de uma amostra</em> cuja equação é dada por:</p>
+<p><span class="math display">\[
+\sigma_Y^2 = {1 \over (n - 1)} \sum_{i = 1}^{n}(y_i - \overline{y})^2
+\]</span> que é diferente da equação da <em>variância de uma população</em> dada por:</p>
+<p><span class="math display">\[
+Var(Y) {1 \over N} \sum_{i = 1}^{n}(y_i - \mu_Y)^2
+\]</span> A diferença fica clara quando comparamos os resultados para um exemplo de um jogo de dados:</p>
+<p><span class="math display">\[
+Var(Y) = {1 \over 6} \sum_{i = 1}^{6}(d_i - 3.5)^2 =
+\]</span></p>
+<p><span class="math display">\[
+= {1 \over 6}[(1 - 3.5)^2 + (2 - 3.5)^2 + (3 - 3.5)^2 + (4 - 3.5)^2 + (5 - 3.5)^2 + (6 - 3.5)^2] =
+\]</span></p>
+<p><span class="math display">\[
+= {1 \over 6}[6.25 + 2.25 + 0.25 + 0.25 + 2.25 + 6.25] = 2.92
+\]</span></p>
+<p>enquanto que em R a variância da população:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variância:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>var_y <span class="ot">&lt;-</span> <span class="fu">sum</span>((y <span class="sc">-</span> <span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>var_y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.916667</code></pre>
+</div>
+</div>
+<p>e a variância da amostra:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variância da amostra:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.5</code></pre>
+</div>
+</div>
+</section>
+<section id="função-de-densidade-probabilística-fdp" class="level3">
+<h3 class="anchored" data-anchor-id="função-de-densidade-probabilística-fdp">3. Função de Densidade Probabilística (FDP)</h3>
 <p>Considere a variável aleatória <em>X</em> com função de densidade probabilística igual a:</p>
 <p><span class="math display">\[
 f(x) = \frac{x}{4} e^{-x^2/8}, x &gt; 0
 \]</span></p>
 <p>Defina uma função em R com esta equação:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pdf_x <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  (x<span class="sc">/</span><span class="dv">4</span>) <span class="sc">*</span> (<span class="fu">exp</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">*</span>(x<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">8</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_x</span>(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pdf_x <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  (x<span class="sc">/</span><span class="dv">4</span>) <span class="sc">*</span> (<span class="fu">exp</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">*</span>(x<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">8</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_x</span>(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_x</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_x</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2206242</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_x</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_x</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.30326533 0.13533528 0.01666349</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_x</span>(<span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_x</span>(<span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NaN</code></pre>
 </div>
@@ -258,14 +299,120 @@ f(x) = \frac{x}{4} e^{-x^2/8}, x &gt; 0
 \int_{0}^{\infty} f(x)dx = 1
 \]</span> Em R, a função <em>integrate</em> permite calcular a integral passando como parâmetros a função e os limites:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(pdf_x, <span class="dv">0</span>, <span class="cn">Inf</span>)<span class="sc">$</span>value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(pdf_x, <span class="dv">0</span>, <span class="cn">Inf</span>)<span class="sc">$</span>value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
 </div>
-<p>Lembrando que a função está definida para <em>x &gt; 0</em> O <em>$value</em> após a função permite capturar o retorno da mesma. Pesquise por <em>integrate</em> no help do R.</p>
+<p>O parâmetro <em>value</em> após a função permite capturar o retorno da mesma. Pesquise por <em>integrate</em> no help do R.</p>
+</section>
+<section id="valor-esperado-e-variância" class="level3">
+<h3 class="anchored" data-anchor-id="valor-esperado-e-variância">4. Valor Esperado e Variância</h3>
+<p>Vamos calcular o valor esperado e a variância de uma variável contínua considerando a função <em>f(x)</em> definida anterioremente.</p>
+<p>O valor esperado é dado por (Lembrando que a função está definida para x &gt;= 0):</p>
+<p><span class="math display">\[
+E(x) = \int_{0}^{\infty}x f_X(x)dx
+\]</span></p>
+<p>Utilizaremos a função <em>pdf_x</em> definida no exemplo anterior.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">*</span><span class="fu">pdf_x</span>(x)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>expected_value <span class="ot">&lt;-</span> <span class="fu">integrate</span>(ex, <span class="dv">0</span>, <span class="cn">Inf</span>)<span class="sc">$</span>value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A variância é obtida por:</p>
+<p><span class="math display">\[
+Var(X) = E(X^2) - E(X)^2, onde E(X^2) = \int_{0}^{\infty}x^2f_X(x)dx
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ex2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fu">pdf_x</span>(x)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>variance <span class="ot">&lt;-</span> <span class="fu">integrate</span>(ex2, <span class="dv">0</span>, <span class="cn">Inf</span>)<span class="sc">$</span>value <span class="sc">-</span> expected_value<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.716815</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Distribuição Normal</li>
+</ol>
+<p>Em R a distribuição normal padrão possui uma série de funções:</p>
+<ul>
+<li><em>rnorm(n, mean = 0, sd = 1)</em></li>
+</ul>
+<p>Retorna <em>n</em> elementos de uma distribuição normal com <span class="math inline">\(\mu\)</span> = 0 e <span class="math inline">\(\sigma\)</span> = 1:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.55870831 0.07050839 0.12928774</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">3</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  3.5725975  1.6913743 -0.8975919</code></pre>
+</div>
+</div>
+<ul>
+<li><em>dnorm(x, mean = 0, sd = 1, log = FALSE)</em></li>
+</ul>
+<p>Retorna a densidade da distribuição para os valores de x:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.004431848</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.241970725 0.053990967 0.004431848</code></pre>
+</div>
+</div>
+<ul>
+<li><em>pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)</em></li>
+<li><em>qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)</em></li>
+</ul>
+<p><em>pnorm</em> calcula a probabilidade: <span class="math inline">\(P(x \leq q)\)</span> para um valor de q.</p>
+<p><span class="math inline">\(P(x \leq -1)\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1586553</code></pre>
+</div>
+</div>
+<p><em>qnorm</em> calcula o valor de q para a probabilidade indicada: $P(x q) = 0.975 $P(x q) = 0.975</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.959964</code></pre>
+</div>
+</div>
+<section id="exercícios" class="level4">
+<h4 class="anchored" data-anchor-id="exercícios">Exercícios</h4>
+<ol type="1">
+<li>Qual a P(|x| )?</li>
+</ol>
+<p><span class="math display">\[
+P(|x| \leq 1.64) =
+= P(-1.64 \leq x \leq 1.64)  =
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.64</span>)<span class="sc">-</span><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.64</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8989948</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Considere a distribuição normal <em>N</em>(5, 25). Calcule o quantile com 99% desta distribuição. Ou seja <span class="math inline">\(\phi({{x-5}\over{5}}) = 0.99\)</span></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.99</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="dv">25</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16.63174</code></pre>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
