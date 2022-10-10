@@ -7,8 +7,6 @@ categories: [news]
 
 This is the first post in a my blog. Welcome!
 
-![](DSC_2274.jpeg)
+I hope you enjoy the ideas I'm sharing here.
 
-I hope you enjoy the ideas I'm sharing here.    
-
-Thanks.   
+Thanks.

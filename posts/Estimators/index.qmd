@@ -4,10 +4,10 @@ author: "Marcos Abreu"
 date: "2021-06-10"
 categories: [stat]
 ---
+
 ```{r setup}
 library(tidyverse)
 ```
-
 
 Vamos definir uma função que implementa o seguinte estimador para a média de uma distribuição:
 
@@ -51,7 +51,6 @@ df %>%
 
 ```
 
-
 Exemplo - Eficiência de um Estimador
 
 Um estimador é eficiente se os pesos somados resultam em 1.
@@ -88,4 +87,3 @@ df %>%
   geom_vline(xintercept = 5, color = "red")
 var(est_tilde2)
 ```
-
