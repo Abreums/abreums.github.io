@@ -1,0 +1,70 @@
+---
+title: "Teste de Hipótese"
+author: "Marcos Abreu"
+date: "2021-06-11"
+categories: [stat]
+---
+
+```{r setup}
+library(tidyverse)
+library(readxl)
+```
+
+Carregando dados
+
+```{r}
+cps <- read_excel(path = "~/Downloads/cps_ch3.xlsx")
+```
+Vamos testar se a média é maior do que 23.50 com $\alpha = 0.05$.
+
+Ou seja:
+
+$H_0: \mu_{Y_ahe} \leq 23.5 vs  $       
+      
+$H_1: \mu_{Y_ahe} > 23.5$       
+      
+ t-statistic é definido como:
+ $$
+ t-statistic = \frac{\bar{Y} - \mu_{Y0} }{S_Y / \sqrt{n}}
+ $$
+ 
+```{r}
+# calculate t-statistic
+tstat <- (mean(cps$ahe08) - 23.5)/(sd(cps$ahe08)/sqrt(length(cps$ahe08)))
+
+# use tstat to accept or reject the null
+tstat > qnorm(0.95)
+
+```
+ 
+ 
+ 
+```{r}
+pval= 1 - pnorm(tstat) 
+
+pval < 0.05
+```
+ 
+ Utilizando a função t.test
+ 
+```{r}
+
+cps %>% 
+  ggplot(aes(x = ahe08)) +
+  geom_histogram()
+
+tstat <- t.test(cps$ahe08, alternative = "greater", mu = 23.5)$statistic
+pvalue <- t.test(cps$ahe08, alternative = "greater", mu = 23.5)$p.value
+
+pvalue - pval
+```
+ 
+ 
+```{r}
+library(ismev)
+data("portpirie")
+data("fremantle")
+t.test(portpirie, fremantle)
+```
+ 
+ 

@@ -53,7 +53,7 @@
     "href": "index.html",
     "title": "Marcos Abreu's blog",
     "section": "",
-    "text": "stat\n\n\n\n\n\n\n\n\n\n\n\nSep 14, 2022\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nMay 17, 2022\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nchange management\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2020\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2019\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2019\n\n\nMarcos Abreu\n\n\n\n\n\n\nNo matching items"
+    "text": "R\n\n\n\n\n\n\n\n\n\n\n\nMay 17, 2022\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstat\n\n\n\n\n\n\n\n\n\n\n\nJun 10, 2021\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nchange management\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2020\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2019\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2019\n\n\nMarcos Abreu\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -75,5 +75,12 @@
     "title": "About",
     "section": "Recent Experience",
     "text": "Recent Experience\nExxon Mobil | Change Management Advisor | August 2021 - Present\nG4F | Project Manager | November 2020 - July 2021\nNTT Data | Abril 2016 - February 2020\nICG | September 2013 - January 2016\nKonsultex | July 2012 - August 2013\nPM21 | July 2003 - November 2011"
+  },
+  {
+    "objectID": "posts/Estimators/index.html",
+    "href": "posts/Estimators/index.html",
+    "title": "Estimadores",
+    "section": "",
+    "text": "Vamos definir uma função que implementa o seguinte estimador para a média de uma distribuição:\n\\[\n\\tilde{Y} =  \\frac{1}{n-1} \\sum_{i = 1}^{n}Y_i\n\\]\n\n# defined estimator of Y_tilde\nY_tilde <- function(y) {\n  (1/(length(y)-1))*sum(y)\n}\n\n# get 5 observations from N(10,25)\nobservations <- rnorm(5, mean = 10, sqrt(25))\nY_tilde(observations)\n\n[1] 11.16919\n\n# repeat 10000 times\nset.seed(123)\nest_bias <- replicate(10000, Y_tilde(rnorm(5, mean = 10, sqrt(25))))\n\ndf <- tibble(est_bias = est_bias)\ndf %>% \n  ggplot(aes(x = est_bias)) +\n  geom_histogram() +\n  geom_vline(xintercept = 10, color = \"red\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nVamos repetir o exercício com amostrar maiores de 1000 elementos por amostra:\n\n# repeat 10000 times para amostras de tamanho 1000\nset.seed(123)\nest_bias <- replicate(10000, Y_tilde(rnorm(1000, mean = 10, sqrt(25))))\n\ndf <- tibble(est_bias = est_bias)\ndf %>% \n  ggplot(aes(x = est_bias)) +\n  geom_histogram() +\n  geom_vline(xintercept = 10, color = \"red\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nExemplo - Eficiência de um Estimador\nUm estimador é eficiente se os pesos somados resultam em 1.\n\ny_tilde1 <- function(y) {\n  (1/length(y))*sum(y)\n}\nset.seed(123)\nest_bar1 <- replicate(10000, y_tilde1(rnorm(100, mean = 5, sqrt(10))))\ndf <- tibble(est_bias = est_bar1)\ndf %>% \n  ggplot(aes(x = est_bias)) +\n  geom_histogram() +\n  geom_vline(xintercept = 5, color = \"red\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\nvar(est_bar1)\n\n[1] 0.09953755\n\n\nUsando pesos diferentes para os 50 primeiros e 50 últimos.\n\nn = 100\nw = c(rep((1+0.5)/n, n/2), rep((1-0.5)/n, n/2))\n\ny_tilde2 <- function(y) {\n  sum(w*y)\n}\n\nest_tilde2 <- replicate(10000, expr = y_tilde2(rnorm(100, mean = 5, sqrt(10))))\ndf <- tibble(est_bias = est_tilde2)\ndf %>% \n  ggplot(aes(x = est_bias)) +\n  geom_histogram() +\n  geom_vline(xintercept = 5, color = \"red\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\nvar(est_tilde2)\n\n[1] 0.1248949"
   }
 ]

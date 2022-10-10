@@ -1,0 +1,91 @@
+---
+title: "Estimadores"
+author: "Marcos Abreu"
+date: "2021-06-10"
+categories: [stat]
+---
+```{r setup}
+library(tidyverse)
+```
+
+
+Vamos definir uma função que implementa o seguinte estimador para a média de uma distribuição:
+
+$$
+\tilde{Y} =  \frac{1}{n-1} \sum_{i = 1}^{n}Y_i
+$$
+
+```{r}
+# defined estimator of Y_tilde
+Y_tilde <- function(y) {
+  (1/(length(y)-1))*sum(y)
+}
+
+# get 5 observations from N(10,25)
+observations <- rnorm(5, mean = 10, sqrt(25))
+Y_tilde(observations)
+
+# repeat 10000 times
+set.seed(123)
+est_bias <- replicate(10000, Y_tilde(rnorm(5, mean = 10, sqrt(25))))
+
+df <- tibble(est_bias = est_bias)
+df %>% 
+  ggplot(aes(x = est_bias)) +
+  geom_histogram() +
+  geom_vline(xintercept = 10, color = "red")
+```
+
+Vamos repetir o exercício com amostrar maiores de 1000 elementos por amostra:
+
+```{r}
+# repeat 10000 times para amostras de tamanho 1000
+set.seed(123)
+est_bias <- replicate(10000, Y_tilde(rnorm(1000, mean = 10, sqrt(25))))
+
+df <- tibble(est_bias = est_bias)
+df %>% 
+  ggplot(aes(x = est_bias)) +
+  geom_histogram() +
+  geom_vline(xintercept = 10, color = "red")
+
+```
+
+
+Exemplo - Eficiência de um Estimador
+
+Um estimador é eficiente se os pesos somados resultam em 1.
+
+```{r}
+y_tilde1 <- function(y) {
+  (1/length(y))*sum(y)
+}
+set.seed(123)
+est_bar1 <- replicate(10000, y_tilde1(rnorm(100, mean = 5, sqrt(10))))
+df <- tibble(est_bias = est_bar1)
+df %>% 
+  ggplot(aes(x = est_bias)) +
+  geom_histogram() +
+  geom_vline(xintercept = 5, color = "red")
+var(est_bar1)
+```
+
+Usando pesos diferentes para os 50 primeiros e 50 últimos.
+
+```{r}
+n = 100
+w = c(rep((1+0.5)/n, n/2), rep((1-0.5)/n, n/2))
+
+y_tilde2 <- function(y) {
+  sum(w*y)
+}
+
+est_tilde2 <- replicate(10000, expr = y_tilde2(rnorm(100, mean = 5, sqrt(10))))
+df <- tibble(est_bias = est_tilde2)
+df %>% 
+  ggplot(aes(x = est_bias)) +
+  geom_histogram() +
+  geom_vline(xintercept = 5, color = "red")
+var(est_tilde2)
+```
+
