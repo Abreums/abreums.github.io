@@ -2,7 +2,7 @@
 title: "count, percentuais e curly-curly"
 author: "Marcos Abreu"
 date: "2022-10-10"
-image: "./count_percent.png"
+image: "count_percent.png"
 categories: [R]
 ---
 
@@ -33,4 +33,4 @@ penguins %>%
 
 ```
 
-Para esta função funcionar é preciso utilizar o operador curly-curly *{{}}*.
+Para esta função funcionar é preciso utilizar o operador curly-curly*.*
