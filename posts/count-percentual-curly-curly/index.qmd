@@ -10,7 +10,7 @@ O método *count* do pacote *dplyr* é um dos que mais utilizo durante o trabalh
 
 Uma das coisas que gosto de fazer é acrescentar uma coluna com valores percentuais:
 
-```{r}
+```{r error=FALSE, warning=FALSE}
 library(dplyr)
 library(palmerpenguins)
 
@@ -21,7 +21,7 @@ penguins %>%
 
 Meu próximo passo foi começar a diminuir o copia e cola de código e escrever pequenas funções para ajudar no código:
 
-```{r}
+```{r error=FALSE, warning=FALSE}
 count_percent <- function(df, a_column) {
   df %>% 
     count({{a_column}}) %>% 

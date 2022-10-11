@@ -1,17 +1,10 @@
 [
   {
-    "objectID": "posts/count with percentual/index.html",
-    "href": "posts/count with percentual/index.html",
-    "title": "count e percentuais",
+    "objectID": "posts/HPE-Adam-Smith/index.html",
+    "href": "posts/HPE-Adam-Smith/index.html",
+    "title": "História do Pensamento Econômico - Adam Smith",
     "section": "",
-    "text": "Uma das coisas que gosto de fazer é acrescentar uma coluna com valores percentuais:\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(palmerpenguins)\n\npenguins %>% \n  count(species, sort = T) %>% \n  mutate(percent = scales::percent(n/sum(n)))\n\n# A tibble: 3 × 3\n  species       n percent\n  <fct>     <int> <chr>  \n1 Adelie      152 44.2%  \n2 Gentoo      124 36.0%  \n3 Chinstrap    68 19.8%"
-  },
-  {
-    "objectID": "posts/R tip - read and bind files/index.html",
-    "href": "posts/R tip - read and bind files/index.html",
-    "title": "R tip - Read and bind files",
-    "section": "",
-    "text": "library(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.3.6      ✔ purrr   0.3.4 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.4.1 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nlibrary(readxl)\n\nfiles_list <- list.files(path = \".\",\n                         pattern = \"^plan(.)*.xlsx\",\n                         full.names = TRUE)\n\ndf <- \n  files_list %>% \n  map(read_excel) %>% \n  reduce(bind_rows)"
+    "text": "Principais conceitos:\n\n\niluminismo:\nThe theory of moral sentiments:\nThe wealth of nations:\nmão invisível:\ndivisão do trabalho:\nlei da vantagem absoluta no mercado internacional:\nparadoxo água-diamante:\nteoria do valor do custo do trabalho\nteoria do valor controlado pelo trabalho:\ndoutrina das reservas de salários:\ndiferencas de equalização de salário:\nampliação do mercado:\nacúmulo de capital:\n\n\nQual o tema geral de Theory of moral sentiments, de Smith? Como esta relacionada com The Wealth of Nations?\nComo o titulo do tratado de Smith sobre as economias se relaciona com sua crítica ao mercantilismo? Como Smith define a riqueza das nações? Quais fatores se interagem para ocasionar aumentos na riqueza da nações?\nExplique o principal apontamento que Smith estava tentando fazer por meio de sua descrição da fábrica de alfinetes. Como essa descricao esta relacionada ao seu pedido por escolas públicas?\nEm quais circunsdncias Smith poderia ser chamado de um defensor do laissez-faire? Sobre quais bases alguem poderia contestar esse rOtulo?\nComo, de acordo com Smith, o bem social pode resultar da busca do interesse prOprio do individuo? Relate essa nNa-o para os modelos graficos no longo e curto prazos de um mercado de produtos perfeitamente competitivo. (Se necessario, releia um texto de principios econOmicos.)\nDe acordo com Smith, o que determina o valor de troca em uma economia primia? 0 que determina o valor de troca em uma economia desenvolvida? Por que Smith preferiu utilizar `controlado pelo trabalho” a “controlado pela moeda” como uma medida do valor de um bem?\n0 prN o natural definido por Smith e controlado pela oferta, pela demanda ou por ambas?\n\nExplique detalhadamente. 9. Por que a divisk) do trabalho ocasiona o aumento do aciimulo de capital (seta a da Figura 5-1), de acordo com Smith? Os economistas atuais incluiriam tambem uma seta oposta do controle do actimulo de capital para a divisaTo do trabalho. Explique por meio de exemplos atuais. 10. 0 que é um salario de eficiencia? Qual a func-ao desses salarios na teoria de desenvolvimento econOmico de Smith? Como os salarios de eficiencia poderiam contribuir para elevar as taxas de desemprego friccional e para as recessOes, de acordo com as teorias modernas sobre os salarios de eficiencia? 11. Voce concorda com a seguinte afirmac’ao: Adam Smith recorre justamente aos muitos eco- nomistas contempor’aneos porque, como Smith, eles tem uma concep o da natureza hu- r.ctrit-n?"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -21,18 +14,18 @@
     "text": "I hope you enjoy the ideas I’m sharing here.\nThanks."
   },
   {
-    "objectID": "posts/HPE - Adam Smith/index.html",
-    "href": "posts/HPE - Adam Smith/index.html",
-    "title": "História do Pensamento Econômico - Adam Smith",
-    "section": "",
-    "text": "Principais conceitos:\n\n\niluminismo:\nThe theory of moral sentiments:\nThe wealth of nations:\nmão invisível:\ndivisão do trabalho:\nlei da vantagem absoluta no mercado internacional:\nparadoxo água-diamante:\nteoria do valor do custo do trabalho\nteoria do valor controlado pelo trabalho:\ndoutrina das reservas de salários:\ndiferencas de equalização de salário:\nampliação do mercado:\nacúmulo de capital:\n\n\nQual o tema geral de Theory of moral sentiments, de Smith? Como esta relacionada com The Wealth of Nations?\nComo o titulo do tratado de Smith sobre as economias se relaciona com sua crítica ao mercantilismo? Como Smith define a riqueza das nações? Quais fatores se interagem para ocasionar aumentos na riqueza da nações?\nExplique o principal apontamento que Smith estava tentando fazer por meio de sua descrição da fábrica de alfinetes. Como essa descricao esta relacionada ao seu pedido por escolas públicas?\nEm quais circunsdncias Smith poderia ser chamado de um defensor do laissez-faire? Sobre quais bases alguem poderia contestar esse rOtulo?\nComo, de acordo com Smith, o bem social pode resultar da busca do interesse prOprio do individuo? Relate essa nNa-o para os modelos graficos no longo e curto prazos de um mercado de produtos perfeitamente competitivo. (Se necessario, releia um texto de principios econOmicos.)\nDe acordo com Smith, o que determina o valor de troca em uma economia primia? 0 que determina o valor de troca em uma economia desenvolvida? Por que Smith preferiu utilizar `controlado pelo trabalho” a “controlado pela moeda” como uma medida do valor de um bem?\n0 prN o natural definido por Smith e controlado pela oferta, pela demanda ou por ambas?\n\nExplique detalhadamente. 9. Por que a divisk) do trabalho ocasiona o aumento do aciimulo de capital (seta a da Figura 5-1), de acordo com Smith? Os economistas atuais incluiriam tambem uma seta oposta do controle do actimulo de capital para a divisaTo do trabalho. Explique por meio de exemplos atuais. 10. 0 que é um salario de eficiencia? Qual a func-ao desses salarios na teoria de desenvolvimento econOmico de Smith? Como os salarios de eficiencia poderiam contribuir para elevar as taxas de desemprego friccional e para as recessOes, de acordo com as teorias modernas sobre os salarios de eficiencia? 11. Voce concorda com a seguinte afirmac’ao: Adam Smith recorre justamente aos muitos eco- nomistas contempor’aneos porque, como Smith, eles tem uma concep o da natureza hu- r.ctrit-n?"
-  },
-  {
     "objectID": "posts/Estimators/index.html",
     "href": "posts/Estimators/index.html",
     "title": "Estimadores",
     "section": "",
     "text": "Vamos definir uma função que implementa o seguinte estimador para a média de uma distribuição:\n\\[\n\\tilde{Y} =  \\frac{1}{n-1} \\sum_{i = 1}^{n}Y_i\n\\]\n\n# defined estimator of Y_tilde\nY_tilde <- function(y) {\n  (1/(length(y)-1))*sum(y)\n}\n\n# get 5 observations from N(10,25)\nobservations <- rnorm(5, mean = 10, sqrt(25))\nY_tilde(observations)\n\n[1] 11.16919\n\n# repeat 10000 times\nset.seed(123)\nest_bias <- replicate(10000, Y_tilde(rnorm(5, mean = 10, sqrt(25))))\n\ndf <- tibble(est_bias = est_bias)\ndf %>% \n  ggplot(aes(x = est_bias)) +\n  geom_histogram() +\n  geom_vline(xintercept = 10, color = \"red\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nVamos repetir o exercício com amostrar maiores de 1000 elementos por amostra:\n\n# repeat 10000 times para amostras de tamanho 1000\nset.seed(123)\nest_bias <- replicate(10000, Y_tilde(rnorm(1000, mean = 10, sqrt(25))))\n\ndf <- tibble(est_bias = est_bias)\ndf %>% \n  ggplot(aes(x = est_bias)) +\n  geom_histogram() +\n  geom_vline(xintercept = 10, color = \"red\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nExemplo - Eficiência de um Estimador\nUm estimador é eficiente se os pesos somados resultam em 1.\n\ny_tilde1 <- function(y) {\n  (1/length(y))*sum(y)\n}\nset.seed(123)\nest_bar1 <- replicate(10000, y_tilde1(rnorm(100, mean = 5, sqrt(10))))\ndf <- tibble(est_bias = est_bar1)\ndf %>% \n  ggplot(aes(x = est_bias)) +\n  geom_histogram() +\n  geom_vline(xintercept = 5, color = \"red\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\nvar(est_bar1)\n\n[1] 0.09953755\n\n\nUsando pesos diferentes para os 50 primeiros e 50 últimos.\n\nn = 100\nw = c(rep((1+0.5)/n, n/2), rep((1-0.5)/n, n/2))\n\ny_tilde2 <- function(y) {\n  sum(w*y)\n}\n\nest_tilde2 <- replicate(10000, expr = y_tilde2(rnorm(100, mean = 5, sqrt(10))))\ndf <- tibble(est_bias = est_tilde2)\ndf %>% \n  ggplot(aes(x = est_bias)) +\n  geom_histogram() +\n  geom_vline(xintercept = 5, color = \"red\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\nvar(est_tilde2)\n\n[1] 0.1248949"
+  },
+  {
+    "objectID": "posts/R-tip-read-bind-Files/index.html",
+    "href": "posts/R-tip-read-bind-Files/index.html",
+    "title": "R tip - Read and bind files",
+    "section": "",
+    "text": "library(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.3.6      ✔ purrr   0.3.4 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.4.1 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nlibrary(readxl)\n\nfiles_list <- list.files(path = \".\",\n                         pattern = \"^plan(.)*.xlsx\",\n                         full.names = TRUE)\n\ndf <- \n  files_list %>% \n  map(read_excel) %>% \n  reduce(bind_rows)"
   },
   {
     "objectID": "posts/indicador-da-possibilidade-de-mudan-a/index.html",
@@ -54,6 +47,13 @@
     "title": "Indicador da intenção de mudança",
     "section": "Referências",
     "text": "Referências"
+  },
+  {
+    "objectID": "posts/count-percentual-curly-curly/index.html",
+    "href": "posts/count-percentual-curly-curly/index.html",
+    "title": "count, percentuais e curly-curly",
+    "section": "",
+    "text": "Uma das coisas que gosto de fazer é acrescentar uma coluna com valores percentuais:\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(palmerpenguins)\n\npenguins %>% \n  count(species, sort = T) %>% \n  mutate(percent = scales::percent(n/sum(n)))\n\n# A tibble: 3 × 3\n  species       n percent\n  <fct>     <int> <chr>  \n1 Adelie      152 44.2%  \n2 Gentoo      124 36.0%  \n3 Chinstrap    68 19.8%  \n\n\nMeu próximo passo foi começar a diminuir o copia e cola de código e escrever pequenas funções para ajudar no código:\n\ncount_percent <- function(df, a_column) {\n  df %>% \n    count({{a_column}}) %>% \n    mutate(percent = scales::percent(n/sum(n)))\n}\n\npenguins %>% \n  count_percent(species)\n\n# A tibble: 3 × 3\n  species       n percent\n  <fct>     <int> <chr>  \n1 Adelie      152 44.2%  \n2 Chinstrap    68 19.8%  \n3 Gentoo      124 36.0%  \n\n\nPara esta função funcionar é preciso utilizar o operador curly-curly."
   },
   {
     "objectID": "index.html",

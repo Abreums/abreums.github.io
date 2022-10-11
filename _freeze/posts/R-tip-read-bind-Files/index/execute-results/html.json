@@ -1,0 +1,14 @@
+{
+  "hash": "1a26228bb842f46d12f3f5c9f5e3f62f",
+  "result": {
+    "markdown": "---\ntitle: \"R tip - Read and bind files\"\nauthor: \"Marcos Abreu\"\ndate: \"2022-05-17\"\nimage: r_tip_read_and_bind.png\ncategories: [R, ]\n---\n\n\nR tip - This is how to read and bind data from many excel files:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.3.6      ✔ purrr   0.3.4 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.4.1 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n```\n:::\n\n```{.r .cell-code}\nlibrary(readxl)\n\nfiles_list <- list.files(path = \".\",\n                         pattern = \"^plan(.)*.xlsx\",\n                         full.names = TRUE)\n\ndf <- \n  files_list %>% \n  map(read_excel) %>% \n  reduce(bind_rows)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

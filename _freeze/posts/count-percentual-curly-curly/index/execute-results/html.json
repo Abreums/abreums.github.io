@@ -1,0 +1,14 @@
+{
+  "hash": "d5b5f2d5bf283acb1b8f7ade91efab67",
+  "result": {
+    "markdown": "---\ntitle: \"count, percentuais e curly-curly\"\nauthor: \"Marcos Abreu\"\ndate: \"2022-10-10\"\nimage: \"count_percent.png\"\ncategories: [R]\n---\n\n\nO método *count* do pacote *dplyr* é um dos que mais utilizo durante o trabalho de *data wrangling*.\n\nUma das coisas que gosto de fazer é acrescentar uma coluna com valores percentuais:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(dplyr)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n\nAttaching package: 'dplyr'\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n```\n:::\n\n```{.r .cell-code}\nlibrary(palmerpenguins)\n\npenguins %>% \n  count(species, sort = T) %>% \n  mutate(percent = scales::percent(n/sum(n)))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 3 × 3\n  species       n percent\n  <fct>     <int> <chr>  \n1 Adelie      152 44.2%  \n2 Gentoo      124 36.0%  \n3 Chinstrap    68 19.8%  \n```\n:::\n:::\n\n\nMeu próximo passo foi começar a diminuir o copia e cola de código e escrever pequenas funções para ajudar no código:\n\n\n::: {.cell}\n\n```{.r .cell-code}\ncount_percent <- function(df, a_column) {\n  df %>% \n    count({{a_column}}) %>% \n    mutate(percent = scales::percent(n/sum(n)))\n}\n\npenguins %>% \n  count_percent(species)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 3 × 3\n  species       n percent\n  <fct>     <int> <chr>  \n1 Adelie      152 44.2%  \n2 Chinstrap    68 19.8%  \n3 Gentoo      124 36.0%  \n```\n:::\n:::\n\n\nPara esta função funcionar é preciso utilizar o operador curly-curly*.*\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
