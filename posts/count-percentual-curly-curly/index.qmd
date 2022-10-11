@@ -31,6 +31,9 @@ count_percent <- function(df, a_column) {
 penguins %>% 
   count_percent(species)
 
+penguins %>% 
+  count_percent(island)
+
 ```
 
 Para esta função funcionar é preciso utilizar o operador curly-curly*.*
