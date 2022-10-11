@@ -2,6 +2,7 @@
 title: "count, percentuais e curly-curly"
 author: "Marcos Abreu"
 date: "2022-10-10"
+image: "./count_percent.png"
 categories: [R]
 ---
 
