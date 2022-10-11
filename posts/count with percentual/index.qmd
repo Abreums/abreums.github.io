@@ -1,0 +1,39 @@
+---
+title: "count e percentuais e curly-curly"
+author: "Marcos Abreu"
+date: "2022-10-10"
+categories: [R]
+---
+
+O método _count_ do pacote _dplyr_ é um dos que mais utilizo durante o trabalho de _data wrangling_.     
+
+Uma das coisas que gosto de fazer é acrescentar uma coluna com valores percentuais:    
+
+```{r}
+library(dplyr)
+library(palmerpenguins)
+
+penguins %>% 
+  count(species, sort = T) %>% 
+  mutate(percent = scales::percent(n/sum(n)))
+```
+
+Meu próximo passo foi começar a diminuir o copia e cola de código e escrever pequenas funções para ajudar no código:     
+      
+      
+```{r}
+count_percent <- function(df, a_column) {
+  df %>% 
+    count({{a_column}}) %>% 
+    mutate(percent = scales::percent(n/sum(n)))
+}
+
+penguins %>% 
+  count_percent(species)
+
+```
+      
+Para esta função funcionar é preciso utilizar o operador curly-curly _{{}}_.     
+
+
+
