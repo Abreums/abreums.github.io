@@ -6,17 +6,21 @@ image: "count_percent.png"
 categories: [R]
 ---
 
+```{r, setup, include=FALSE,message=FALSE, warning=FALSE}
+library(tidyverse, quitly=TRUE)
+library(scales, quitly=TRUE)
+library(palmerpenguins, quitly=TRUE)
+```
+
 O método *count* do pacote *dplyr* é um dos que mais utilizo durante o trabalho de *data wrangling*.
 
 Uma das coisas que gosto de fazer é acrescentar uma coluna com valores percentuais:
 
 ```{r error=FALSE, warning=FALSE}
-library(dplyr)
-library(palmerpenguins)
 
 penguins %>% 
   count(species, sort = T) %>% 
-  mutate(percent = scales::percent(n/sum(n)))
+  mutate(percent = scales::percent(n/sum(n), scale = 100))
 ```
 
 Meu próximo passo foi começar a diminuir o copia e cola de código e escrever pequenas funções para ajudar no código:
@@ -25,7 +29,7 @@ Meu próximo passo foi começar a diminuir o copia e cola de código e escrever 
 count_percent <- function(df, a_column) {
   df %>% 
     count({{a_column}}) %>% 
-    mutate(percent = scales::percent(n/sum(n)))
+    mutate(percent = scales::percent(n/sum(n), scale = 100))
 }
 
 penguins %>% 
