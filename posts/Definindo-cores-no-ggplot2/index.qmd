@@ -2,7 +2,7 @@
 title: "Definindo Cores no ggplo2"
 author: "Marcos Abreu"
 date: "2022-10-26"
-categories: [news]
+categories: [Rstat]
 ---
 
 Seguindo a regra de que se vc tiver que explicar alguma coisa mais de 3 vezes, então você deve escrever um post sobre o assunto. E considerando que neste caso, estou explicando para mim mesmo como definir cores no ggplo2, achei melhor escrever este post para me ajudar a lembrar destas informações na próxima vez que precisar delas.
@@ -93,7 +93,8 @@ penguins %>%
 Podemos usar diferentes cores para cada espécie de pinguim.
 
 ```{r}
-penguins %>% 
+penguins %>%
+  count(species) %>% 
   ggplot(aes(x = species, y = n, fill = species)) + 
   geom_col() +
   scale_fill_manual(values = unname(c(minhas_cores("laranja", "cinza", "amarelo")))) +

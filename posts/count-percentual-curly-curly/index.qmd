@@ -7,7 +7,7 @@ execute:
   erro: false
   
 image: "count_percent.png"
-categories: [R]
+categories: [Rstat]
 ---
 
 ```{r}
@@ -33,7 +33,6 @@ penguins %>%
 Whenever more than one column will be counted it is nice to write a small function for that.
 
 ```{r}
-#| 
 count_percent <- function(df, a_column) {
   df %>% 
     count({{a_column}}) %>% 
