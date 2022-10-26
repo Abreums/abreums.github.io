@@ -1,5 +1,5 @@
 ---
-title: "Definindo Cores no ggplo2"
+title: "Definindo Cores para variáveis discretas no ggplo2"
 author: "Marcos Abreu"
 date: "2022-10-26"
 categories: [Rstat]
