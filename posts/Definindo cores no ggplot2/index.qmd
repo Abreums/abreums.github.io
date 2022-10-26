@@ -11,11 +11,10 @@ Estou usando este [site](https://htmlcolorcodes.com) para buscar os códigos das
 
 ![palette1](./palette1.png)
 
-## Passo 1 - funções para lidar com cores  
+## Definindo funções para lidar com cores
 
-Vamos definir uma função para lidar com as cores que desejamos.     
-       
-       
+Vamos definir uma função para lidar com as cores que desejamos.
+
 ```{r}
 minhas_cores <- function(...) {
   cores <- c(
@@ -35,18 +34,15 @@ minhas_cores <- function(...) {
 }
 
 ```
-       
-A função acima permite acesso às cores:      
 
+A função acima permite acesso às cores:
 
 ```{r}
 minhas_cores("vermelho", "amarelo")
 
 ```
-         
-         
-Podemos criar conjuntos diferentes de paletas de cores a partir das cores definidas na função _minhas_cores_.       
 
+Podemos criar conjuntos diferentes de paletas de cores a partir das cores definidas na função *minhas_cores*.
 
 ```{r}
 minhas_paletas <- function(palette = "main", ...) {
@@ -58,26 +54,24 @@ minhas_paletas <- function(palette = "main", ...) {
 }
 
 ```
-      
-      
-Isto permite selecionar um subgrupo de cores:      
 
+Isto permite selecionar um subgrupo de cores:
 
 ```{r}
 minhas_paletas("main")
 ```
-         
-Podemos usar a função _scales::show_col_ para mostrar as cores de uma paleta:      
+
+Podemos usar a função *scales::show_col* para mostrar as cores de uma paleta:
 
 ```{r}
 scales::show_col(minhas_paletas("main"), cex_label = 2)
 
 ```
-      
-## Usando as cores     
-     
-Vamos utilizar as cores em alguns gráficos.     
-       
+
+## Usando as cores
+
+Vamos utilizar as cores em alguns gráficos.
+
 ```{r}
 library(tidyverse)
 library(palmerpenguins)
@@ -96,8 +90,8 @@ penguins %>%
         panel.grid.major.x = element_blank())
 ```
 
-Podemos usar diferentes cores para cada espécie de pinguim.     
-     
+Podemos usar diferentes cores para cada espécie de pinguim.
+
 ```{r}
 penguins %>% 
   ggplot(aes(x = species, y = n, fill = species)) + 
@@ -112,8 +106,7 @@ penguins %>%
 
 ```
 
-    
-Ou podemos associar cores às espécies. Para isso precisaríamos de um vetor nomeado com os nomes das espécies e os códigos das cores.      
+Ou podemos associar cores às espécies. Para isso precisaríamos de um vetor nomeado com os nomes das espécies e os códigos das cores.
 
 ```{r}
 penguins_colors <- minhas_cores("laranja", "azul", "vermelho")
@@ -122,7 +115,7 @@ penguins_colors
 
 ```
 
-e utilizar iste array com a função _scale_fill_manual_.     
+e utilizar iste array com a função *scale_fill_manual*.
 
 ```{r}
 penguins %>% 
@@ -138,10 +131,8 @@ penguins %>%
         panel.grid.major.x = element_blank())
 ```
 
-Também é possível gerar novas paletas com um número maior de cores geradas por interpolação através da função _colorRampPalette_. A função _colorRampPalette_ devolve uma função para a qual passaremos o número de cores que gostaríamos de gerar a partir da interpolação das cores da paleta fornecida.
+Também é possível gerar novas paletas com um número maior de cores geradas por interpolação através da função *colorRampPalette*. A função *colorRampPalette* devolve uma função para a qual passaremos o número de cores que gostaríamos de gerar a partir da interpolação das cores da paleta fornecida.
 
 ```{r}
 scales::show_col(colorRampPalette(minhas_paletas("main"))(12), cex_label = 1)
 ```
-
-
