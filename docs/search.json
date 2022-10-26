@@ -60,7 +60,7 @@
     "href": "index.html",
     "title": "Marcos Abreu's blog",
     "section": "",
-    "text": "R\n\n\n\n\n\n\n\n\n\n\n\nOct 10, 2022\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nMay 17, 2022\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstat\n\n\n\n\n\n\n\n\n\n\n\nJun 10, 2021\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nchange management\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2020\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMay 1, 2019\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2019\n\n\nMarcos Abreu\n\n\n\n\n\n\nNo matching items"
+    "text": "Definindo Cores no ggplo2\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nOct 26, 2022\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\nCounting percentuals with curly-curly\n\n\n\n\n\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nOct 10, 2022\n\n\nMarcos Abreu\n\n\n\n\n\n\n  \n\n\n\n\nR tip - Read and bind files\n\n\n\n\n\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nMay 17, 2022\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEstimadores\n\n\n\n\n\n\n\nstat\n\n\n\n\n\n\n\n\n\n\n\nJun 10, 2021\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIndicador da intenção de mudança\n\n\n\n\n\n\n\nchange management\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2020\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHistória do Pensamento Econômico - Adam Smith\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMay 1, 2019\n\n\nMarcos Abreu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2019\n\n\nMarcos Abreu\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -82,5 +82,26 @@
     "title": "About",
     "section": "Recent Experience",
     "text": "Recent Experience\nExxon Mobil | Change Management Advisor | August 2021 - Present\nG4F | Project Manager | November 2020 - July 2021\nNTT Data | Abril 2016 - February 2020\nICG | September 2013 - January 2016\nKonsultex | July 2012 - August 2013\nPM21 | July 2003 - November 2011"
+  },
+  {
+    "objectID": "posts/Definindo cores no ggplot2/index.html",
+    "href": "posts/Definindo cores no ggplot2/index.html",
+    "title": "Definindo Cores no ggplo2",
+    "section": "",
+    "text": "Seguindo a regra de que se vc tiver que explicar alguma coisa mais de 3 vezes, então você deve escrever um post sobre o assunto. E considerando que neste caso, estou explicando para mim mesmo como definir cores no ggplo2, achei melhor escrever este post para me ajudar a lembrar destas informações na próxima vez que precisar delas.\nEstou usando este site para buscar os códigos das cores. Vou utilizar a seguintes cores:"
+  },
+  {
+    "objectID": "posts/Definindo cores no ggplot2/index.html#passo-1---funções-para-lidar-com-cores",
+    "href": "posts/Definindo cores no ggplot2/index.html#passo-1---funções-para-lidar-com-cores",
+    "title": "Definindo Cores no ggplo2",
+    "section": "Passo 1 - funções para lidar com cores",
+    "text": "Passo 1 - funções para lidar com cores\nVamos definir uma função para lidar com as cores que desejamos.\n\nminhas_cores <- function(...) {\n  cores <- c(\n    \"laranja\" = \"#e59866\",\n    \"cinza\" = \"#979a9a\",\n    \"azul\" = \"#1b2631\",\n    \"vermelho\" = \"#641e16\",\n    \"agua\" = \"#d1f2eb\",\n    \"amarelo\" = \"#fcf3cf\"\n  )\n  cols <- c(...)\n  \n  if (is.null(cols))\n    return (cores)\n  \n  cores[cols]\n}\n\nA função acima permite acesso às cores:\n\nminhas_cores(\"vermelho\", \"amarelo\")\n\n vermelho   amarelo \n\"#641e16\" \"#fcf3cf\" \n\n\nPodemos criar conjuntos diferentes de paletas de cores a partir das cores definidas na função minhas_cores.\n\nminhas_paletas <- function(palette = \"main\", ...) {\n  minhas_paletas <- list(\n    \"main\" = minhas_cores(\"laranja\", \"cinza\", \"vermelho\", \"amarelo\"),\n    \"highlight\" = minhas_cores(\"agua\", \"azul\", \"amarelo\")\n  )\n  minhas_paletas[[palette]]\n}\n\nIsto permite selecionar um subgrupo de cores:\n\nminhas_paletas(\"main\")\n\n  laranja     cinza  vermelho   amarelo \n\"#e59866\" \"#979a9a\" \"#641e16\" \"#fcf3cf\" \n\n\nPodemos usar a função scales::show_col para mostrar as cores de uma paleta:\n\nscales::show_col(minhas_paletas(\"main\"), cex_label = 2)"
+  },
+  {
+    "objectID": "posts/Definindo cores no ggplot2/index.html#definindo-scale_color-e-scale_fill",
+    "href": "posts/Definindo cores no ggplot2/index.html#definindo-scale_color-e-scale_fill",
+    "title": "Definindo Cores no ggplo2",
+    "section": "Definindo scale_color e scale_fill",
+    "text": "Definindo scale_color e scale_fill"
   }
 ]

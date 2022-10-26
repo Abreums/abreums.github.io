@@ -1,0 +1,147 @@
+---
+title: "Definindo Cores no ggplo2"
+author: "Marcos Abreu"
+date: "2022-10-26"
+categories: [news]
+---
+
+Seguindo a regra de que se vc tiver que explicar alguma coisa mais de 3 vezes, então você deve escrever um post sobre o assunto. E considerando que neste caso, estou explicando para mim mesmo como definir cores no ggplo2, achei melhor escrever este post para me ajudar a lembrar destas informações na próxima vez que precisar delas.
+
+Estou usando este [site](https://htmlcolorcodes.com) para buscar os códigos das cores. Vou utilizar a seguintes cores:
+
+![palette1](./palette1.png)
+
+## Passo 1 - funções para lidar com cores  
+
+Vamos definir uma função para lidar com as cores que desejamos.     
+       
+       
+```{r}
+minhas_cores <- function(...) {
+  cores <- c(
+    "laranja" = "#e59866",
+    "cinza" = "#979a9a",
+    "azul" = "#1b2631",
+    "vermelho" = "#641e16",
+    "agua" = "#d1f2eb",
+    "amarelo" = "#fcf3cf"
+  )
+  cols <- c(...)
+  
+  if (is.null(cols))
+    return (cores)
+  
+  cores[cols]
+}
+
+```
+       
+A função acima permite acesso às cores:      
+
+
+```{r}
+minhas_cores("vermelho", "amarelo")
+
+```
+         
+         
+Podemos criar conjuntos diferentes de paletas de cores a partir das cores definidas na função _minhas_cores_.       
+
+
+```{r}
+minhas_paletas <- function(palette = "main", ...) {
+  minhas_paletas <- list(
+    "main" = minhas_cores("laranja", "cinza", "vermelho", "amarelo"),
+    "highlight" = minhas_cores("agua", "azul", "amarelo")
+  )
+  minhas_paletas[[palette]]
+}
+
+```
+      
+      
+Isto permite selecionar um subgrupo de cores:      
+
+
+```{r}
+minhas_paletas("main")
+```
+         
+Podemos usar a função _scales::show_col_ para mostrar as cores de uma paleta:      
+
+```{r}
+scales::show_col(minhas_paletas("main"), cex_label = 2)
+
+```
+      
+## Usando as cores     
+     
+Vamos utilizar as cores em alguns gráficos.     
+       
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+
+penguins <- palmerpenguins::penguins
+
+penguins %>% 
+  count(species) %>% 
+  ggplot(aes(x = species, y = n)) +
+  geom_col(fill = minhas_cores("laranja")) +
+  labs(title = "Contagem de espécies") +
+  scale_y_continuous(expand = expansion(mult = c(0,0.1))) +
+  theme_linedraw() +
+  theme(axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        panel.grid.major.x = element_blank())
+```
+
+Podemos usar diferentes cores para cada espécie de pinguim.     
+     
+```{r}
+penguins %>% 
+  ggplot(aes(x = species, y = n, fill = species)) + 
+  geom_col() +
+  scale_fill_manual(values = unname(c(minhas_cores("laranja", "cinza", "amarelo")))) +
+  labs(title = "Contagem de espécies") +
+  scale_y_continuous(expand = expansion(mult = c(0,0.1))) +
+  theme_linedraw() +
+  theme(axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        panel.grid.major.x = element_blank())
+
+```
+
+    
+Ou podemos associar cores às espécies. Para isso precisaríamos de um vetor nomeado com os nomes das espécies e os códigos das cores.      
+
+```{r}
+penguins_colors <- minhas_cores("laranja", "azul", "vermelho")
+penguins_colors <- setNames(penguins_colors, c("Adelie", "Chinstrap", "Gentoo"))
+penguins_colors
+
+```
+
+e utilizar iste array com a função _scale_fill_manual_.     
+
+```{r}
+penguins %>% 
+  count(species) %>% 
+  ggplot(aes(x = species, y = n, fill = species)) +
+  geom_col() +
+  scale_fill_manual(values = penguins_colors) +
+  labs(title = "Contagem de espécies") +
+  scale_y_continuous(expand = expansion(mult = c(0,0.1))) +
+  theme_linedraw() +
+  theme(axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        panel.grid.major.x = element_blank())
+```
+
+Também é possível gerar novas paletas com um número maior de cores geradas por interpolação através da função _colorRampPalette_. A função _colorRampPalette_ devolve uma função para a qual passaremos o número de cores que gostaríamos de gerar a partir da interpolação das cores da paleta fornecida.
+
+```{r}
+scales::show_col(colorRampPalette(minhas_paletas("main"))(12), cex_label = 1)
+```
+
+

@@ -1,0 +1,16 @@
+{
+  "hash": "197d3e64a84e74339aca21ed1dcc11e2",
+  "result": {
+    "markdown": "---\ntitle: \"Definindo Cores no ggplo2\"\nauthor: \"Marcos Abreu\"\ndate: \"2022-10-26\"\ncategories: [news]\n---\n\n\nSeguindo a regra de que se vc tiver que explicar alguma coisa mais de 3 vezes, então você deve escrever um post sobre o assunto. E considerando que neste caso, estou explicando para mim mesmo como definir cores no ggplo2, achei melhor escrever este post para me ajudar a lembrar destas informações na próxima vez que precisar delas.\n\nEstou usando este [site](https://htmlcolorcodes.com) para buscar os códigos das cores. Vou utilizar a seguintes cores:\n\n![palette1](./palette1.png)\n\n## Passo 1 - funções para lidar com cores  \n\nVamos definir uma função para lidar com as cores que desejamos.     \n       \n       \n\n::: {.cell}\n\n```{.r .cell-code}\nminhas_cores <- function(...) {\n  cores <- c(\n    \"laranja\" = \"#e59866\",\n    \"cinza\" = \"#979a9a\",\n    \"azul\" = \"#1b2631\",\n    \"vermelho\" = \"#641e16\",\n    \"agua\" = \"#d1f2eb\",\n    \"amarelo\" = \"#fcf3cf\"\n  )\n  cols <- c(...)\n  \n  if (is.null(cols))\n    return (cores)\n  \n  cores[cols]\n}\n```\n:::\n\n       \nA função acima permite acesso às cores:      \n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nminhas_cores(\"vermelho\", \"amarelo\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n vermelho   amarelo \n\"#641e16\" \"#fcf3cf\" \n```\n:::\n:::\n\n         \n         \nPodemos criar conjuntos diferentes de paletas de cores a partir das cores definidas na função _minhas_cores_.       \n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nminhas_paletas <- function(palette = \"main\", ...) {\n  minhas_paletas <- list(\n    \"main\" = minhas_cores(\"laranja\", \"cinza\", \"vermelho\", \"amarelo\"),\n    \"highlight\" = minhas_cores(\"agua\", \"azul\", \"amarelo\")\n  )\n  minhas_paletas[[palette]]\n}\n```\n:::\n\n      \n      \nIsto permite selecionar um subgrupo de cores:      \n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nminhas_paletas(\"main\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n  laranja     cinza  vermelho   amarelo \n\"#e59866\" \"#979a9a\" \"#641e16\" \"#fcf3cf\" \n```\n:::\n:::\n\n         \nPodemos usar a função _scales::show_col_ para mostrar as cores de uma paleta:      \n\n\n::: {.cell}\n\n```{.r .cell-code}\nscales::show_col(minhas_paletas(\"main\"), cex_label = 2)\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n\n      \n## Definindo scale_color e scale_fill\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
