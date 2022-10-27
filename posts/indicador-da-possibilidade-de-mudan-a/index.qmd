@@ -10,10 +10,15 @@ citation:
   issued: 2022/12/01
   url: https://abreums.github.io/posts/indicador-da-possibilidade-de-mudan-a/
   language: pt-br
+google-scholar: true  
 date: "2020-12-01"
 bibliography:  "https://api.citedrive.com/bib/0b0bdcef-b398-415b-89a3-afdc79e74a08/references.bib?x=eyJpZCI6ICIwYjBiZGNlZi1iMzk4LTQxNWItODlhMy1hZmRjNzllNzRhMDgiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogIjQ5Y2U1NDlkOTgzYjhlNGNjYTc5ZjZiY2YwOGVkNzBjMDcwMjlhMzhiMmM2NDlhNjNiMDEwZmI1M2E5Y2MzOTEifQ==/bibliography.bib"
 categories: [change management]
 ---
+
+```{r}
+#| echo: false
+```
 
 Conforme descrito por [@Arndtbussing2017Validation:74ee], a probabilidade de uma pessoa mudar de comportamento é chamada pela teoria de Gestão de Mudanças de "intenção de mudar".
 

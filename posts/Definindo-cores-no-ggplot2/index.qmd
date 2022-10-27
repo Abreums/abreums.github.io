@@ -10,6 +10,7 @@ citation:
   issued: 2022/10/26
   url: https://abreums.github.io/posts/Definindo-cores-no-ggplot2/
   language: pt-br
+google-scholar: true 
 date: "2022-10-26"
 bibliography: "https://api.citedrive.com/bib/092b439a-22cd-422b-9913-a61b66c8505d/references.bib?x=eyJpZCI6ICIwOTJiNDM5YS0yMmNkLTQyMmItOTkxMy1hNjFiNjZjODUwNWQiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogImNlMjYyNmViZmU5MjJlYTcyYmM2YjViOWZkMmE4ZDA0ZWIxMjRiYzA3M2RhY2RlNmUwNzJjODljNmY4ZWY3ZWMifQ==/bibliography.bib"
 categories: [Rstat]
