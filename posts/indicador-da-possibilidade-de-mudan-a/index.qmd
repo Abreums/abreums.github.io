@@ -1,34 +1,47 @@
 ---
 title: "Indicador da intenção de mudança"
-author: "Marcos Abreu"
+author: 
+  - name: "Marcos Abreu"
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  container-title: "Indicador da intenção de mudança"
+  publisher: "github"
+  issued: 2022/12/01
+  url: https://abreums.github.io/posts/indicador-da-possibilidade-de-mudan-a/
+  language: pt-br
 date: "2020-12-01"
+bibliography:  "https://api.citedrive.com/bib/0b0bdcef-b398-415b-89a3-afdc79e74a08/references.bib?x=eyJpZCI6ICIwYjBiZGNlZi1iMzk4LTQxNWItODlhMy1hZmRjNzllNzRhMDgiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogIjQ5Y2U1NDlkOTgzYjhlNGNjYTc5ZjZiY2YwOGVkNzBjMDcwMjlhMzhiMmM2NDlhNjNiMDEwZmI1M2E5Y2MzOTEifQ==/bibliography.bib"
 categories: [change management]
 ---
 
-A probabilidade de uma pessoa mudar de comportamento é chamada pela teoria de Gestão de Mudanças de "intenção de mudar".
+Conforme descrito por [@Arndtbussing2017Validation:74ee], a probabilidade de uma pessoa mudar de comportamento é chamada pela teoria de Gestão de Mudanças de "intenção de mudar".
 
 A intenção de mudar é influenciada por três fatores principais:
 
--   \*\*Atitudes\*\*: as crenças da pessoa a respeito do novo comportamento;
--   \*\*Normas sociais\*\*: as cresças da pessoa a respeito do que ela imagina que os outros acham do novo comportamento;
--   \*\*Controle comportamental\*\*: as crenças da pessoa sobre a própria capacidade de realizar ou não um novo comportamento.
+-   **Atitudes**: as crenças da pessoa a respeito do novo comportamento;
+-   **Normas sociais**: as cresças da pessoa a respeito do que ela imagina que os outros acham do novo comportamento;
+-   **Controle comportamental**: as crenças da pessoa sobre a própria capacidade de realizar ou não um novo comportamento.
 
 Para exemplificar, considere que desejamos modificar o comportamento de uma pessoa em relação a forma como ela trata o lixo doméstico que produz em sua residência.
 
-As \*\*atitudes\*\* se referem às crenças que esta pessoa possuir em relação a fatores como a necessidade social e econômica de tratamento do lixo e de reutilização de materiais, o entendimento desta pessoa sobre a contaminação do solo e das águas por resíduos não tratados, e outros entendimentos relacionados ao tratamento do lixo.
+As **atitudes** se referem às crenças que esta pessoa possuir em relação a fatores como a necessidade social e econômica de tratamento do lixo e de reutilização de materiais, o entendimento desta pessoa sobre a contaminação do solo e das águas por resíduos não tratados, e outros entendimentos relacionados ao tratamento do lixo.
 
-Por \*\*normas sociais\*\* estamos nos referindo às crenças desta pessoa em relação ao que ela acredita que seus vizinhos, amigos e parentes pensam em relação aos mesmos fatores.
+Por **normas sociais** estamos nos referindo às crenças desta pessoa em relação ao que ela acredita que seus vizinhos, amigos e parentes pensam em relação aos mesmos fatores.
 
-Por fim, \*\*controle comportamental\*\* diz respeito às crenças da pessoa se o comportamento dela fará ou não diferença e se ela possui os conhecimentos necessários para mudar efetivamente seu próprio comportamento, por exemplo, identificar como cada resíduo deve ser separado.
+Por fim, **controle comportamental** diz respeito às crenças da pessoa se o comportamento dela fará ou não diferença e se ela possui os conhecimentos necessários para mudar efetivamente seu próprio comportamento, por exemplo, identificar como cada resíduo deve ser separado.
 
 A importância para determinação do comportamento de cada um fatores dependerá tanto do comportamento em análise quanto da população sendo analisada.
 
-Por exemplo, para um mesmo grupo alvo, \@fishbein2006role relatam que, para uma população de pessoas acima de 40 anos, identificaram diferentes fatores influenciando a intensão de realizar uma colonoscopia e a intensão de fazer exercícios regulares (diferentes comportamentos, diferentes fatores, mesmo público analisado). O que leva a considerar que para um dos casos para a mesma população seria necessário ter estratégias de comunicação diferentes.
+Por exemplo, para um mesmo grupo alvo, [@Arndtbussing2017Validation:74ee] relatam que, para uma população de pessoas acima de 40 anos, identificaram diferentes fatores influenciando a intensão de realizar uma colonoscopia e a intensão de fazer exercícios regulares (diferentes comportamentos, diferentes fatores, mesmo público analisado). O que leva a considerar que para um dos casos para a mesma população seria necessário ter estratégias de comunicação diferentes.
 
 ## Medindo a intensão de mudar
 
 Para podermos medir a intensão de mudar é preciso primeiro descrever o comportamento desejado. Neste caso, é importante diferenciar entre comportamentos, categorias, e objetivos. Quanto mais específico melhor. Por exemplo, "caminhar 20min 3 vezes por semana" (comportamento) é melhor do que "exercitar-se" (categoria), e também do que "perder peso" (objetivo).
 
-Para auxiliar na elaboração de uma mensagem de suporte ao processo de mudança, é preciso conhecer a importância relativa entre as atitudes, normas sociais e controle comportamental. Neste caso o primeiro passo é identificar os \_determinantes\_ que existem por trás de cada um dos fatores.
+Para auxiliar na elaboração de uma mensagem de suporte ao processo de mudança, é preciso conhecer a importância relativa entre as atitudes, normas sociais e controle comportamental. Neste caso o primeiro passo é identificar os *determinantes* que existem por trás de cada um dos fatores.
 
 ## Referências
+
+::: {#refs}
+:::

@@ -1,6 +1,15 @@
 ---
 title: "Definindo Cores para variáveis discretas no ggplo2"
-author: "Marcos Abreu"
+author: 
+  - name: "Marcos Abreu"
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  container-title: "Definindo Cores para variáveis discretas no ggplo2"
+  publisher: "github"
+  issued: 2022/10/26
+  url: https://abreums.github.io/posts/Definindo-cores-no-ggplot2/
+  language: pt-br
 date: "2022-10-26"
 bibliography: "https://api.citedrive.com/bib/092b439a-22cd-422b-9913-a61b66c8505d/references.bib?x=eyJpZCI6ICIwOTJiNDM5YS0yMmNkLTQyMmItOTkxMy1hNjFiNjZjODUwNWQiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogImNlMjYyNmViZmU5MjJlYTcyYmM2YjViOWZkMmE4ZDA0ZWIxMjRiYzA3M2RhY2RlNmUwNzJjODljNmY4ZWY3ZWMifQ==/bibliography.bib"
 categories: [Rstat]
@@ -96,8 +105,7 @@ library(palmerpenguins)
 
 ```
 
-Podemos referenciar as cores com a função _minhas_cores_ definida anteriormente. Aqui, utilizamos o atributo _fill_ de _geom_col_ para definir a cor de preenchimento das barras do gráfico.      
-       
+Podemos referenciar as cores com a função *minhas_cores* definida anteriormente. Aqui, utilizamos o atributo *fill* de *geom_col* para definir a cor de preenchimento das barras do gráfico.
 
 ```{r}
 #| echo: fenced
@@ -118,7 +126,7 @@ penguins %>%
         panel.grid.major.x = element_blank())
 ```
 
-Através da função _scale_fill_manual_ podemos usar diferentes cores para cada espécie de pinguim.
+Através da função *scale_fill_manual* podemos usar diferentes cores para cada espécie de pinguim.
 
 ```{r}
 #| echo: fenced
@@ -138,8 +146,8 @@ penguins %>%
         panel.grid.major.x = element_blank())
 
 ```
-No caso anterior as cores de cada espécie ficam dependentes da sequência com que as espécies são apresentadas - ordem alfabética - e da sequência das cores. Em alguns casos, gostaríamos que as cores ficassem atreladas às espécies específicas e não mudassem conforme a ordem dos atributos (o que é muito útil quando temos muitos gráficos) com os mesmos dados. Para isso, podemos associar cores às espécies nomeando um vetor com os nomes das espécies e os códigos das cores.      
 
+No caso anterior as cores de cada espécie ficam dependentes da sequência com que as espécies são apresentadas - ordem alfabética - e da sequência das cores. Em alguns casos, gostaríamos que as cores ficassem atreladas às espécies específicas e não mudassem conforme a ordem dos atributos (o que é muito útil quando temos muitos gráficos) com os mesmos dados. Para isso, podemos associar cores às espécies nomeando um vetor com os nomes das espécies e os códigos das cores.
 
 ```{r}
 #| echo: fenced
@@ -153,7 +161,7 @@ scales::show_col(penguins_colors, cex_label = 2)
 
 ```
 
-e utilizar este array da @fig-named-colors com a função *scale_fill_manual*. As cores são atribuídas conforme nomeamos cada elemento do vetor de cores (por exemplo, "Adele = #641e16 (vermelho)". Se não tivéssemos feito isso, o sistema primeiro atribuiria as cores conforme a ordem alfabética como no código anterior e depois montaria o gráfico conforme a ordenação do _fct_reorder_.
+e utilizar este array da @fig-named-colors com a função *scale_fill_manual*. As cores são atribuídas conforme nomeamos cada elemento do vetor de cores (por exemplo, "Adele = #641e16 (vermelho)". Se não tivéssemos feito isso, o sistema primeiro atribuiria as cores conforme a ordem alfabética como no código anterior e depois montaria o gráfico conforme a ordenação do *fct_reorder*.
 
 ```{r}
 #| echo: fenced
@@ -173,7 +181,7 @@ penguins %>%
         panel.grid.major.x = element_blank())
 ```
 
-Em alguns gráficos pode ser necessário termos mais cores do que as disponíveis na paleta de cores. É possível gerar novas paletas com um número maior de cores por interpolação através da função *colorRampPalette*. A função *colorRampPalette* devolve uma função para a qual passaremos o número de cores que gostaríamos de gerar a partir da interpolação das cores da paleta fornecida.        
+Em alguns gráficos pode ser necessário termos mais cores do que as disponíveis na paleta de cores. É possível gerar novas paletas com um número maior de cores por interpolação através da função *colorRampPalette*. A função *colorRampPalette* devolve uma função para a qual passaremos o número de cores que gostaríamos de gerar a partir da interpolação das cores da paleta fornecida.
 
 ```{r}
 #| echo: fenced
@@ -184,7 +192,8 @@ penguins_12_colors <- colorRampPalette(minhas_paletas("highlight"))(12)
 
 scales::show_col(penguins_12_colors, cex_label = 1)
 ```
-Vamos colocar isto em uma função e testar.          
+
+Vamos colocar isto em uma função e testar.
 
 ```{r}
 #| echo: fenced
@@ -201,9 +210,7 @@ penguin_pal <- function(palette = "main", reverse = FALSE, ...) {
 scales::show_col(penguin_pal(palette = "two_colors", reverse = TRUE)(12))
 ```
 
-
-Considere o seguinte gráfico que usa uma escala contínua de cores:     
-
+Considere o seguinte gráfico que usa uma escala contínua de cores:
 
 ```{r}
 #| echo: fenced
@@ -215,10 +222,10 @@ penguins %>%
   ggplot(aes(bill_length_mm, bill_depth_mm, color = flipper_length_mm)) +
   geom_point() 
 ```
-     
-Gostaríamos de modificar a escala de cores utilizando as cores previamente definidas em _minhas_cores_ e _minhas_paletas_.        
-      
-Primeiro precisamos definir uma função que cria uma customização da função _scale_color_continuous_.       
+
+Gostaríamos de modificar a escala de cores utilizando as cores previamente definidas em *minhas_cores* e *minhas_paletas*.
+
+Primeiro precisamos definir uma função que cria uma customização da função *scale_color_continuous*.
 
 ```{r}
 #| echo: fenced
@@ -244,7 +251,7 @@ scale_color_penguin <- function(palette = "main", discrete = TRUE, reverse = FAL
 scale_color_penguin(palette = "highlight", discrete = FALSE)
 ```
 
-Vamos ajustar o último gráfico que fizemos para utilizar uma paleta de cores baseada na _minhas_paletas_("highlight").     
+Vamos ajustar o último gráfico que fizemos para utilizar uma paleta de cores baseada na *minhas_paletas*("highlight").
 
 ```{r}
 #| echo: fenced
@@ -258,7 +265,8 @@ penguins %>%
   geom_point() +
   scale_color_penguin("two_colors", discrete = FALSE)
 ```
-De forma similar à função _color_ que fizemos, podemos implementar uma função para _fill_:     
+
+De forma similar à função *color* que fizemos, podemos implementar uma função para *fill*:
 
 ```{r}
 #| echo: fenced
@@ -282,7 +290,6 @@ scale_fill_penguin <- function(palette = "main", discrete = TRUE, reverse = FALS
 }
 ```
 
-
 ```{r}
 #| echo: fenced
 #| fig-cap: "Cores de preenchimento geradas a partir de paleta específica"
@@ -297,13 +304,9 @@ penguins %>%
 
 ```
 
-Este último gráfico não faz muito sentido, mas está aí apenas para exemplificar o uso da função _scale_fill_penguin_.       
+Este último gráfico não faz muito sentido, mas está aí apenas para exemplificar o uso da função *scale_fill_penguin*.
 
 ### Referências
 
-:::{#refs}
+::: {#refs}
 :::
-
-
-
-

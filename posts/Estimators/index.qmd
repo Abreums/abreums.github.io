@@ -2,7 +2,7 @@
 title: "Estimadores"
 author: "Marcos Abreu"
 date: "2021-06-10"
-categories: [stat]
+categories: [Rstat]
 ---
 
 ```{r setup}

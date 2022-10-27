@@ -1,19 +1,29 @@
 ---
 title: "Lookahead planning in Last Planner system"
-author: "Marcos Abreu"
-date: "2022-10-26"
-categories: [news]
+author: 
+  - name: "Marcos Abreu"
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  container-title: "Lookahead planning in Last Planner system"
+  publisher: "github"
+  issued: 2022/10/27
+  url: https://abreums.github.io/posts/Last-Planner/
+  language: pt-br
+google-scholar: true  
+date: "2022-10-27"
+categories: [Gestão]
 ---
 
 ```{r}
-#| echo=false
+#| echo: false
 library(r2symbols)
 ```
 
-Ainda é muito comum encontrarmos uma visão tradicional do processo de planejamento estruturado na tentativa de tentar predizer a realidade. Este tipo de pensamento é comum quando se considera que o planejamento deve ser feito com o máximo de detalhes possível. Uma abordagem alternativa - e na minha opinião mais madura - está em considerar o planejamento como instrumento que precede e preside a ação para criar o futuro.       
-       
-Neste sentido o *Last Planner System*`r r2symbols::symbol("registered")` (LPS), através de conceitos *Lean* provê processos mais adequados para uma visão moderna do processo de planejamento.      
-       
-Um conceito importante do *Lean* é a disponibilização de um fluxo de trabalho confiável. Para isto é preciso garantir que a equipe não tenha surpresas para as tarefas que lhe são solicitadas. Esta é a função do *Lookahead Planning* no LPS: uma ação pró-ativa para redução da incerteza.       
-        
+Ainda é muito comum encontrarmos uma visão tradicional do processo de planejamento estruturado na tentativa de tentar predizer a realidade. Este tipo de pensamento é comum quando se considera que o planejamento deve ser feito com o máximo de detalhes possível. Uma abordagem alternativa - e na minha opinião mais madura - está em considerar o planejamento como instrumento que precede e preside a ação para criar o futuro.
+
+Neste sentido o *Last Planner System*`r r2symbols::symbol("registered")` (LPS), através de conceitos *Lean* provê processos mais adequados para uma visão moderna do processo de planejamento.
+
+Um conceito importante do *Lean* é a disponibilização de um fluxo de trabalho confiável. Para isto é preciso garantir que a equipe não tenha surpresas para as tarefas que lhe são solicitadas. Esta é a função do *Lookahead Planning* no LPS: uma ação pró-ativa para redução da incerteza.
+
 sdf

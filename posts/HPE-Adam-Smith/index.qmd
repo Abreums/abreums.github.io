@@ -2,7 +2,7 @@
 title: "História do Pensamento Econômico - Adam Smith"
 author: "Marcos Abreu"
 date: "2019-05-01"
-categories: [news]
+categories: [Economia]
 ---
 
 Seguem alguns pensamentos sobre Adam Smith e sua obra.
