@@ -1,0 +1,14 @@
+{
+  "hash": "dfa88698c7fe277af871e2d2f1dc00b6",
+  "result": {
+    "markdown": "---\ntitle: \"Lookahead planning in Last Planner system\"\nauthor: \"Marcos Abreu\"\ndate: \"2022-10-26\"\ncategories: [news]\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(r2symbols)\n```\n:::\n\n\nAinda é muito comum encontrarmos uma visão tradicional do processo de planejamento estruturado na tentativa de tentar predizer a realidade. Este tipo de pensamento é comum quando se considera que o planejamento deve ser feito com o máximo de detalhes possível. Uma abordagem alternativa - e na minha opinião mais madura - está em considerar o planejamento como instrumento que precede e preside a ação para criar o futuro. Neste sentido o sistema *Last Planner*`&#153;`{=html} , através de conceitos *Lean `&#174;`{=html}\\`.*\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
