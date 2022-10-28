@@ -1,17 +1,12 @@
 ---
 title: "Definindo Cores para variáveis discretas no ggplo2"
+date: 2022-10-26
 author: 
   - name: "Marcos Abreu"
+    url: https://abreums.github.io
     orcid: 0000-0003-4772-7955
 citation:
-  type: post-weblog
-  container-title: "Definindo Cores para variáveis discretas no ggplo2"
-  publisher: "github"
-  issued: 2022/10/26
-  url: https://abreums.github.io/posts/Definindo-cores-no-ggplot2/
   language: pt-br
-google-scholar: true 
-date: "2022-10-26"
 bibliography: "https://api.citedrive.com/bib/092b439a-22cd-422b-9913-a61b66c8505d/references.bib?x=eyJpZCI6ICIwOTJiNDM5YS0yMmNkLTQyMmItOTkxMy1hNjFiNjZjODUwNWQiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogImNlMjYyNmViZmU5MjJlYTcyYmM2YjViOWZkMmE4ZDA0ZWIxMjRiYzA3M2RhY2RlNmUwNzJjODljNmY4ZWY3ZWMifQ==/bibliography.bib"
 categories: [Rstat]
 ---

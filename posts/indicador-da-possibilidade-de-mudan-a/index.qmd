@@ -1,17 +1,13 @@
 ---
 title: "Indicador da intenção de mudança"
+description: "Uma descrição de quais são os fatores que constituem o indicador de intenção de mudança."
+date: 2020-12-01
 author: 
   - name: "Marcos Abreu"
+    url: https://abreums.github.io
     orcid: 0000-0003-4772-7955
 citation:
-  type: post-weblog
-  container-title: "Indicador da intenção de mudança"
-  publisher: "github"
-  issued: 2022/12/01
-  url: https://abreums.github.io/posts/indicador-da-possibilidade-de-mudan-a/
   language: pt-br
-google-scholar: true  
-date: "2020-12-01"
 bibliography:  "https://api.citedrive.com/bib/0b0bdcef-b398-415b-89a3-afdc79e74a08/references.bib?x=eyJpZCI6ICIwYjBiZGNlZi1iMzk4LTQxNWItODlhMy1hZmRjNzllNzRhMDgiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogIjQ5Y2U1NDlkOTgzYjhlNGNjYTc5ZjZiY2YwOGVkNzBjMDcwMjlhMzhiMmM2NDlhNjNiMDEwZmI1M2E5Y2MzOTEifQ==/bibliography.bib"
 categories: [change management]
 ---
