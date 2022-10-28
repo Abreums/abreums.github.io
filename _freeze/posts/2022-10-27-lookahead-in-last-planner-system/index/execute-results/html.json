@@ -1,0 +1,14 @@
+{
+  "hash": "6ba1e541068d210189656d9c899f4c1c",
+  "result": {
+    "markdown": "---\ntitle: \"Lookahead Planning in Last Planner System\"\ndescription: \"Lookahead concept in the Last Planner System\"\ndate: 2022-10-27\nauthor: \n  - name: Marcos Abreu\n    url: https://abreums.github.io\n    orcid: 0000-0003-4772-7955\ncitation:\n  type: post-weblog\n  url: https://abreums.github.io/posts/2022-10-27-lookahead-in-last-planner-system/\n  language: pt-br\nbibliography: \"https://api.citedrive.com/bib/7d86ad7e-72d0-4116-835b-375da64d6390/references.bib?x=eyJpZCI6ICI3ZDg2YWQ3ZS03MmQwLTQxMTYtODM1Yi0zNzVkYTY0ZDYzOTAiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogImM3NDVjYjIxMjZkZTRkMGE5ZjBkMDI4ZTgwZjU5NDNlMDA4NDMzYmE4MmIwMTBkMDY0YTcwNjdiOTkwNDJjOTMifQ==/bibliography.bib\"\ncategories: [Gestão]\n---\n\n::: {.cell}\n\n:::\n\n\nAinda é muito comum encontrarmos uma visão tradicional do processo de planejamento estruturado na tentativa de tentar predizer a realidade. Este tipo de pensamento é comum quando se considera que o planejamento deve ser feito com o máximo de detalhes possível. Uma abordagem alternativa - e na minha opinião mais madura - está em considerar o planejamento como instrumento que precede e preside a ação para criar o futuro.\n\nNeste sentido o *Last Planner System*`&#174;`{=html} (LPS), através de conceitos *Lean* provê processos mais adequados para uma visão moderna do processo de planejamento.\n\nUm conceito importante do *Lean* é a disponibilização de um fluxo de trabalho confiável. Para isto é preciso garantir que a equipe não tenha surpresas para as tarefas que lhe são solicitadas. Esta é a função do *Lookahead Planning* no LPS: uma ação pró-ativa para redução da incerteza.\n\n\\<continua\\>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
