@@ -1,0 +1,60 @@
+---
+title: "Regressão Linear"
+description: "Conceitos básicos para regressão linear"
+date: 2021-04-16
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2021-04-16-regressao-linear/
+  language: pt-br
+categories: [Rstat]
+---
+
+Os principais conceitos de regressão linear são:
+- asd
+- as
+- asdfa
+
+Vamos a alguns exemplos...
+
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+library(tidyverse)
+library(mlbench)
+data("BostonHousing2")
+BostonHousing2 %>% glimpse()
+```
+
+O dicionário de dados está disponível no help do R.     
+
+Nesta análise vamos comparar o número de habitações por residência (*rm*) e o valor médio das casas (*medv*).
+
+```{r}
+BostonHousing2 %>% 
+  ggplot(aes(x = rm, y = medv)) +
+  geom_point(alpha = 0.2) +
+  scale_y_continuous(expand = expansion(mult = 0.1)) +
+  theme_linedraw() +
+  labs(
+    title = "Valor médio das casas pelo número de quartos"
+  ) +
+  theme(axis.ticks = element_blank(),
+        axis.title = element_blank())
+```
+
+Compare com...
+
+```{r}
+diamonds %>% 
+  ggplot(aes(x = log10(carat), y = log10(price))) +
+  geom_point(alpha = 0.02) +
+  theme_linedraw()
+  
+```
+

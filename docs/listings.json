@@ -2,10 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2022-11-2-estimating-number-of-bugs/index.html",
       "/posts/2022-10-27-como-customizar-cores-no-ggplot2/index.html",
       "/posts/2022-10-27-lookahead-in-last-planner-system/index.html",
       "/posts/2022-05-17-r-tip-read-and-bind-files/index.html",
       "/posts/2021-06-10-estimadores/index.html",
+      "/posts/2021-04-16-regressao-linear/index.html",
       "/posts/2020-12-01-indicador-da-intencao-de-mudanca/index.html",
       "/posts/2022-10-10-counting-percentual-function-with-curly-curly/index.html",
       "/posts/2019-02-25-welcome/index.html"

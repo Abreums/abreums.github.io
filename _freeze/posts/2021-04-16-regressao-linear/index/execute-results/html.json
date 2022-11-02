@@ -1,0 +1,16 @@
+{
+  "hash": "cec57e261198b7c8274f78630ab1c177",
+  "result": {
+    "markdown": "---\ntitle: \"Regressão Linear\"\ndescription: \"Conceitos básicos para regressão linear\"\ndate: 2021-04-16\nauthor: \n  - name: Marcos Abreu\n    url: https://abreums.github.io\n    orcid: 0000-0003-4772-7955\ncitation:\n  type: post-weblog\n  url: https://abreums.github.io/posts/2021-04-16-regressao-linear/\n  language: pt-br\ncategories: [Rstat]\n---\n\n\nOs principais conceitos de regressão linear são:\n- asd\n- as\n- asdfa\n\nVamos a alguns exemplos...\n\n\n\n::: {.cell}\n\n````{.cell-code}\n```{{r}}\n#| warning: false\n#| message: false\nlibrary(tidyverse)\nlibrary(mlbench)\ndata(\"BostonHousing2\")\nBostonHousing2 %>% glimpse()\n```\n````\n\n::: {.cell-output .cell-output-stdout}\n```\nRows: 506\nColumns: 19\n$ town    <fct> Nahant, Swampscott, Swampscott, Marblehead, Marblehead, Marble…\n$ tract   <int> 2011, 2021, 2022, 2031, 2032, 2033, 2041, 2042, 2043, 2044, 20…\n$ lon     <dbl> -70.9550, -70.9500, -70.9360, -70.9280, -70.9220, -70.9165, -7…\n$ lat     <dbl> 42.2550, 42.2875, 42.2830, 42.2930, 42.2980, 42.3040, 42.2970,…\n$ medv    <dbl> 24.0, 21.6, 34.7, 33.4, 36.2, 28.7, 22.9, 27.1, 16.5, 18.9, 15…\n$ cmedv   <dbl> 24.0, 21.6, 34.7, 33.4, 36.2, 28.7, 22.9, 22.1, 16.5, 18.9, 15…\n$ crim    <dbl> 0.00632, 0.02731, 0.02729, 0.03237, 0.06905, 0.02985, 0.08829,…\n$ zn      <dbl> 18.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 12.5, 12.5, 12.5, 12.5, 1…\n$ indus   <dbl> 2.31, 7.07, 7.07, 2.18, 2.18, 2.18, 7.87, 7.87, 7.87, 7.87, 7.…\n$ chas    <fct> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ nox     <dbl> 0.538, 0.469, 0.469, 0.458, 0.458, 0.458, 0.524, 0.524, 0.524,…\n$ rm      <dbl> 6.575, 6.421, 7.185, 6.998, 7.147, 6.430, 6.012, 6.172, 5.631,…\n$ age     <dbl> 65.2, 78.9, 61.1, 45.8, 54.2, 58.7, 66.6, 96.1, 100.0, 85.9, 9…\n$ dis     <dbl> 4.0900, 4.9671, 4.9671, 6.0622, 6.0622, 6.0622, 5.5605, 5.9505…\n$ rad     <int> 1, 2, 2, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4,…\n$ tax     <int> 296, 242, 242, 222, 222, 222, 311, 311, 311, 311, 311, 311, 31…\n$ ptratio <dbl> 15.3, 17.8, 17.8, 18.7, 18.7, 18.7, 15.2, 15.2, 15.2, 15.2, 15…\n$ b       <dbl> 396.90, 396.90, 392.83, 394.63, 396.90, 394.12, 395.60, 396.90…\n$ lstat   <dbl> 4.98, 9.14, 4.03, 2.94, 5.33, 5.21, 12.43, 19.15, 29.93, 17.10…\n```\n:::\n:::\n\n\nO dicionário de dados está disponível no help do R.     \n\nNesta análise vamos comparar o número de habitações por residência (*rm*) e o valor médio das casas (*medv*).\n\n\n::: {.cell}\n\n```{.r .cell-code}\nBostonHousing2 %>% \n  ggplot(aes(x = rm, y = medv)) +\n  geom_point() +\n  scale_y_continuous(expand = expansion(mult = 0.1)) +\n  theme_linedraw() +\n  labs(\n    title = \"Valor médio das casas pelo número de quartos\"\n  ) +\n  theme(axis.ticks = element_blank(),\n        axis.title = element_blank())\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

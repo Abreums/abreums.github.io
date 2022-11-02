@@ -1,0 +1,57 @@
+---
+title: "Estimating the number of bugs"
+description: "How to estimate the number of bugs in a software deploy"
+date: 2022-11-02
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-02-estimating-number-of-bugs/
+  language: en
+bibliography: https://api.citedrive.com/bib/092b439a-22cd-422b-9913-a61b66c8505d/references.bib?x=eyJpZCI6ICIwOTJiNDM5YS0yMmNkLTQyMmItOTkxMy1hNjFiNjZjODUwNWQiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogImNlMjYyNmViZmU5MjJlYTcyYmM2YjViOWZkMmE4ZDA0ZWIxMjRiYzA3M2RhY2RlNmUwNzJjODljNmY4ZWY3ZWMifQ==/bibliography.bib
+categories: [Rstat]
+---
+
+Consider the following situation:
+
+For a software version 3 different testers found each one a different number of bugs in the system, but a total of 10 different bugs.
+
+Tester 1 found bugs number 1, 2, 3, 4, and 5.
+
+Tester 2 found bugs number 3, 5, 6, and 7 (two of the same bugs of Tester1, plus two other bugs not found by Tester 1).
+
+Tester 3 found bugs 1, 3, 5, 8, 9, and 10.
+
+Consider each bug is equally difficult/easy to be found.
+
+The 3 testers worked in an independent way. And they are equally efficient.
+
+How many bugs could we estimate exist in this version of the system?
+
+------------------------------------------------------------------------
+
+To solve this question let's use the Mark and Capture strategy for estimation of populations as described by [@WikipediaUnknownMark:8f76].
+
+```{r}
+library(Rcapture)
+
+bugs <- matrix(c(1,1,1,1,1,0,0,0,0,0,
+                 0,0,1,0,1,1,1,0,0,0,
+                 1,0,1,0,1,0,0,1,1,1), 
+               ncol = 3)
+
+closedp(bugs)
+
+```
+
+We can estimate a number of 13 + 3 \* stderr bugs, which is approximately 22 bugs.
+
+## Reference
+
+:::{#refs}
+:::
+
+
+
