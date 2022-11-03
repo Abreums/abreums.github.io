@@ -1,60 +1,121 @@
 ---
-title: "Regressão Linear"
-description: "Conceitos básicos para regressão linear"
-date: 2021-04-16
+title: "Regressão Linear com tidymodels"
+description: "Conceitos básicos para regressão linear e tidymodels"
+date: 2022-05-16
 author: 
   - name: Marcos Abreu
     url: https://abreums.github.io
     orcid: 0000-0003-4772-7955
 citation:
   type: post-weblog
-  url: https://abreums.github.io/posts/2021-04-16-regressao-linear/
+  url: https://abreums.github.io/posts/2022-05-16-regressao-linear/
   language: pt-br
 categories: [Rstat]
 ---
 
-Os principais conceitos de regressão linear são:
-- asd
-- as
-- asdfa
+```{r setup}
+#| echo: fenced
+#| warning: false
+#| message: false
 
-Vamos a alguns exemplos...
+library(tidyverse)
+library(tidymodels)
+library(performance)
+```
 
+A base *diamonds* do pacote ggplot2 traz as seguintes informações:
 
 ```{r}
 #| echo: fenced
 #| warning: false
 #| message: false
-library(tidyverse)
-library(mlbench)
-data("BostonHousing2")
-BostonHousing2 %>% glimpse()
+diamonds %>% 
+  glimpse()
 ```
+São 10 variáveis de 54 mil diamantes incluindo preço, cor, carat (medida de peso), qualidade do corte, etc.     
 
-O dicionário de dados está disponível no help do R.     
-
-Nesta análise vamos comparar o número de habitações por residência (*rm*) e o valor médio das casas (*medv*).
+A relação entre preço e carat é mostrada no gráfico a seguir.     
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| label: price-carat
+#| fig-cap: "Preço é função de carat"
+diamonds %>% 
+  ggplot(aes(x = carat, y = price)) +
+  geom_hex() +
+  theme_minimal()
+```
+A @price-carac não mostra uma relação linear entre as variáveis preço e carac. Mas é possível modificar isto utilizando o logarítmo dos valores, conforme mostrado na @log-proce-carac.     
 
 ```{r}
-BostonHousing2 %>% 
-  ggplot(aes(x = rm, y = medv)) +
-  geom_point(alpha = 0.2) +
-  scale_y_continuous(expand = expansion(mult = 0.1)) +
-  theme_linedraw() +
-  labs(
-    title = "Valor médio das casas pelo número de quartos"
-  ) +
-  theme(axis.ticks = element_blank(),
-        axis.title = element_blank())
-```
-
-Compare com...
-
-```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| label: log-price-carat
+#| fig-cap: "Logarítmo de preço e carat"
 diamonds %>% 
   ggplot(aes(x = log10(carat), y = log10(price))) +
-  geom_point(alpha = 0.02) +
+  geom_hex(bins = 50) +
   theme_linedraw()
   
 ```
+
+Utilizando o pacote _tidymodels_ o primeiro passo é especificar o modelo que desejamos utilizar.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+lm_spec <- 
+  linear_reg() %>% 
+  set_mode("regression") %>% 
+  set_engine("lm")
+
+```
+
+O segundo passo é adequar o modelo.     
+
+```{r}
+lm_fit <- fit(lm_spec, price ~ carat, data = diamonds) 
+
+lm_fit %>% 
+  summary()
+```
+
+Por fim, podemos validar o modelo.
+
+```{r}
+lm_fit %>% 
+  performance::check_model()
+```
+
+
+```{r}
+lm_fit %>% 
+  extract_fit_engine() %>%
+  check_heteroscedasticity()
+```
+
+
+O resultado da regressão linear fornece 4 gráficos que nos ajudam a avaliar a regressão obtida:
+
+### 1. Linearidade
+
+```{r}
+plot(lm_diamonds, which = 1)
+```
+
+### 2. Homocedasticidade
+
+```{r}
+plot(lm_diamonds, which = 3)
+```
+### 3. Normalidade
+
+```{r}
+plot(lm_diamonds, which = 2)
+```
+
+
 
