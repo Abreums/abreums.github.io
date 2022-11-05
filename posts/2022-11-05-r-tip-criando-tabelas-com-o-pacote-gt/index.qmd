@@ -1,0 +1,276 @@
+---
+title: "R tip: criando tabelas com o pacote gt"
+description: "Uso do pacote gt para formatar tabelas"
+date: 2022-11-05
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-05-r-tip-criando-tabelas-para-o-pacote-gt/
+categories: [Rstat]
+---
+
+```{r setup}
+#| echo: fenced
+#| warning: false
+#| message: false
+
+library(palmerpenguins)
+library(tidyverse)
+library(gt)
+```
+
+### Pinguins no formato padrão
+
+Vamos começar com esta tabela do número de pinguíns por espécie, sexo, ano e ilha.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer
+
+penguins_gt <- 
+  penguins %>% 
+  count(island, year, species, sex) %>% 
+  filter(!is.na(sex)) %>% 
+  pivot_wider(names_from = c(species, sex),
+              values_from = n,
+              names_glue = "{species} ({sex})",
+              values_fill = 0) %>% 
+  gt()
+
+penguins_gt
+```
+
+### 1. Retirar as linhas verticais
+
+A formatação padrão do pacote *gt()* já elimina as linhas verticais, senão esta seria nossa primeira tarefa.
+
+### 2. Alinhar os dados
+
+Em tabelas o alinhamento deve considerar:
+
+-   textos: alinhar à esquerda
+
+-   números: alinhar à direita
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer2
+
+penguins_gt <- 
+  penguins_gt %>% 
+  cols_align(align = "right", 
+             columns = c(`Adelie (female)`, `Adelie (male)`,
+                         `Gentoo (female)`, `Gentoo (male)`,
+                         `Chinstrap (female)`, `Chinstrap (male)`))
+penguins_gt
+```
+
+### 3. Título para a tabela
+
+Vamos acrescentar um título descrevendo as informações apresentadas.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer3
+
+penguins_gt <- 
+  penguins_gt %>% 
+  tab_header(title = "Pinguins no Arquipélago Palmer na Antártica",
+             subtitle = "palmerpinguins in R dataset") %>% 
+  opt_align_table_header(align = "left")
+
+penguins_gt
+```
+
+### 4. Melhorar os nomes das colunas
+
+Nomes das colunas são importantes em tabelas. No nosso caso, a repetição do nome da espécie para diferentes sexos torna a leitura entediante. Vamos agrupar as colunas por espécie.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer5
+
+penguins_gt <- 
+  penguins_gt %>% 
+  cols_label(
+    `Adelie (female)` = "female",
+    `Adelie (male)`   = "male",
+    `Gentoo (female)` = "female",
+    `Gentoo (male)`   = "male",
+    `Chinstrap (female)` = "female",
+    `Chinstrap (male)` = "male"
+  ) %>% 
+  tab_spanner(
+    label = c("Adele"),
+    columns = c(`Adelie (female)`, `Adelie (male)`)
+  ) %>% 
+  tab_spanner(
+    label = c("Gentoo"),
+    columns = c(`Gentoo (female)`, `Gentoo (male)`)
+  ) %>% 
+  tab_spanner(
+    label = c("Chinstrap"),
+    columns = c(`Chinstrap (female)`, `Chinstrap (male)`)
+  ) %>% 
+  tab_style(style = cell_text(weight = "bold"),
+            location = cells_column_spanners())
+
+penguins_gt
+```
+
+### 6. Agrupe colunas com dados que se repetem
+
+A coluna *island* é muito repetitiva e ao invés dela, podemos agrupar os dados em linhas agrupadoras.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer6
+
+penguins_gt <- 
+  penguins %>% 
+  count(island, year, species, sex) %>% 
+  filter(!is.na(sex)) %>% 
+  pivot_wider(names_from = c(species, sex),
+              values_from = n,
+              names_glue = "{species} ({sex})",
+              values_fill = 0) %>% 
+  gt(groupname_col = "island") %>% 
+  tab_header(title = "Pinguins no Arquipélago Palmer na Antártica",
+             subtitle = "palmerpinguins in R dataset") %>% 
+  cols_align(align = "right", 
+             columns = c(`Adelie (female)`, `Adelie (male)`,
+                         `Gentoo (female)`, `Gentoo (male)`,
+                         `Chinstrap (female)`, `Chinstrap (male)`)) %>%
+  cols_label(
+    `Adelie (female)` = "female",
+    `Adelie (male)`   = "male",
+    `Gentoo (female)` = "female",
+    `Gentoo (male)`   = "male",
+    `Chinstrap (female)` = "female",
+    `Chinstrap (male)` = "male"
+  ) %>% 
+  tab_spanner(
+    label = c("Adele"),
+    columns = c(`Adelie (female)`, `Adelie (male)`)
+  ) %>% 
+  tab_spanner(
+    label = c("Gentoo"),
+    columns = c(`Gentoo (female)`, `Gentoo (male)`)
+  ) %>% 
+  tab_spanner(
+    label = c("Chinstrap"),
+    columns = c(`Chinstrap (female)`, `Chinstrap (male)`)
+  ) %>% 
+  tab_style(style = cell_text(weight = "bold"),
+            location = cells_column_spanners()) %>% 
+  tab_style(style = cell_text(weight = "bold"),
+            location = cells_row_groups())
+  # An option for positioning the row_group label
+  # %>%
+  # tab_options(
+  #   row_group.as_column = TRUE
+  # )
+
+penguins_gt
+```
+
+### 7. Acrescentando linhas de sumarização
+
+Linhas de sumarização ajudam na leitura dos dados.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer7
+
+fns_labels <- 
+  list(
+   # avg = ~mean(., na.rm = TRUE),
+    subtotal = ~sum(., na.rm = TRUE)
+   #,
+   # s.d. = ~sd(., na.rm = TRUE)
+  )
+
+penguins_gt <- 
+  penguins_gt %>% 
+  summary_rows(
+    groups = TRUE,
+    columns = c(`Adelie (female)`, `Adelie (male)`,
+                `Gentoo (female)`, `Gentoo (male)`,
+                `Chinstrap (female)`, `Chinstrap (male)`),
+    fns = fns_labels,
+    formatter = fmt_number,
+    decimals = 0
+    ) %>% 
+  tab_style(style = cell_fill(color = "lightgray"),
+            location = cells_summary())
+
+penguins_gt
+```
+
+### 8. Eliminar os valores com zero
+
+Os zeros atrapalham a leitura. Vamos substituí-los por um hífen para facilitar a leitura.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer8
+
+penguins_gt <- 
+  penguins_gt %>% 
+  sub_zero(columns = c(`Adelie (female)`, `Adelie (male)`,
+                `Gentoo (female)`, `Gentoo (male)`,
+                `Chinstrap (female)`, `Chinstrap (male)`),
+           zero_text = "-")
+
+penguins_gt
+```
+
+### 9. Acrescentar uma linha de sumarização total no final
+
+Para sabermos o total de pinguins em todas as ilhas, vamos acrescentar uma linha contendo uma
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer9
+penguins_gt <- 
+  penguins_gt %>% 
+  grand_summary_rows(
+    columns = c(`Adelie (female)`, `Adelie (male)`,
+                `Gentoo (female)`, `Gentoo (male)`,
+                `Chinstrap (female)`, `Chinstrap (male)`),
+   fns = fns_labels,
+    formatter = fmt_number,
+    decimals = 0
+    ) %>% 
+  tab_style(style = cell_fill(color = "darkgray"),
+            location = cells_grand_summary())
+
+penguins_gt
+```

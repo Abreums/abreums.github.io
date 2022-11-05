@@ -1,0 +1,61 @@
+---
+title: "R tip: como fazer pivot_wider com mais de uma coluna"
+description: "pivot_wider com mais de uma coluna"
+date: 2022-11-05
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-05-r-tip-pivot-wider-com-mais-de-uma-coluna/
+  language: pt-br
+categories: [Rstat]
+---
+
+```{r setup}
+#| echo: fenced
+#| warning: false
+#| message: false
+
+library(palmerpenguins)
+library(tidyverse)
+library(gt)
+```
+
+É possível usar a função pivot_wider com mais de uma coluna.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Palmer Penguins - primeira versao"
+#| label: palmer1
+
+palmerpenguins::penguins %>% 
+  count(island, year, sex,species) %>% 
+  gt()
+  
+```
+
+Vamos fazer *pivot_wider* com as colunas *species* e *sex*. Queremos que o resultado tenha as colunas com nomes como "Adele (female)".
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Quantidade de pinguins por espécie e sexo"
+#| label: palmer2
+
+penguins %>% 
+  count(island, year, species, sex) %>% 
+  filter(!is.na(sex)) %>% 
+  pivot_wider(names_from = c(species, sex),
+              values_from = n,
+              names_glue = "{species} ({sex})",
+              values_fill = 0) %>% 
+  gt()
+
+```
+
+Ainda pode melhorar, veja como formatar tabelas com o pacote *gt* neste \[post\](https://abreums.github.io/posts/2022-11-05-r-tip-criando-tabelas-com-o-pacote-gt/).

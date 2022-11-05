@@ -1,7 +1,7 @@
 {
-  "hash": "e9e4450354c49e92cd788a6df617c787",
+  "hash": "12ba5de3211a53bc09bc253401532d8d",
   "result": {
-    "markdown": "---\ntitle: \"R tip: Read and bind files\"\ndate: 2022/05/17\nauthor: \n  - name: \"Marcos Abreu\"\n    orcid: 0000-0003-4772-7955\ncitation:\n  language: en\nimage: r_tip_read_and_bind.png\ncategories: [Rstat]\n---\n\n\nR tip - This is how to read and bind data from many excel files:\n\n\n::: {.cell}\n\n````{.cell-code}\n```{{r}}\n#| warning: false\n#| message: false\n\nlibrary(tidyverse)\nlibrary(readxl)\n\nfiles_list <- list.files(path = \".\",\n                         pattern = \"^plan(.)*.xlsx\",\n                         full.names = TRUE)\n\ndf <- \n  files_list %>% \n  map(read_excel) %>% \n  reduce(bind_rows)\n```\n````\n:::\n\n\nI love how the *reduce* and *map* functions make everything simpler.\n",
+    "markdown": "---\ntitle: \"R tip: Read and bind files\"\ndescription: \"First post in my new Quarto blog\"\ndate: 2022-05-17\nauthor: \n  - name: \"Marcos Abreu\"\n    url: https://abreums.github.io\n    orcid: 0000-0003-4772-7955\ncitation:\n  type: post-weblog\n  url: https://abreums.github.io/posts/2022-05-17-r-tip-read-and-bind-files/\n  language: pt-br\nimage: r_tip_read_and_bind.png\ncategories: [Rstat]\n---\n\n\nR tip - This is how to read and bind data from many excel files:\n\n\n::: {.cell}\n\n````{.cell-code}\n```{{r}}\n#| warning: false\n#| message: false\n\nlibrary(tidyverse)\nlibrary(readxl)\n\nfiles_list <- list.files(path = \".\",\n                         pattern = \"^plan(.)*.xlsx\",\n                         full.names = TRUE)\n\ndf <- \n  files_list %>% \n  map(read_excel) %>% \n  reduce(bind_rows)\n```\n````\n:::\n\n\nI love how the *reduce* and *map* functions make everything simpler.\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
