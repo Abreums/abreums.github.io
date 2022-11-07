@@ -120,12 +120,12 @@ penguins_gt <-
     columns = c(`Adelie (female)`, `Adelie (male)`)
   ) %>% 
   tab_spanner(
-    label = c("Gentoo"),
-    columns = c(`Gentoo (female)`, `Gentoo (male)`)
-  ) %>% 
-  tab_spanner(
     label = c("Chinstrap"),
     columns = c(`Chinstrap (female)`, `Chinstrap (male)`)
+  ) %>% 
+  tab_spanner(
+    label = c("Gentoo"),
+    columns = c(`Gentoo (female)`, `Gentoo (male)`)
   ) %>% 
   tab_style(style = cell_text(weight = "bold"),
             location = cells_column_spanners())
@@ -147,14 +147,17 @@ A coluna *island* é muito repetitiva e ao invés dela, podemos agrupar os dados
 penguins_gt <- 
   penguins %>% 
   count(island, year, species, sex) %>% 
+  mutate(island = str_c("Ilha: ", island)) %>% 
   filter(!is.na(sex)) %>% 
   pivot_wider(names_from = c(species, sex),
               values_from = n,
               names_glue = "{species} ({sex})",
-              values_fill = 0) %>% 
-  gt(groupname_col = "island") %>% 
+              values_fill = NA) %>% 
+  gt(rowname_col = "year",
+    groupname_col = "island") %>% 
   tab_header(title = "Pinguins no Arquipélago Palmer na Antártica",
              subtitle = "palmerpinguins in R dataset") %>% 
+  opt_align_table_header(align = "left") %>% 
   cols_align(align = "right", 
              columns = c(`Adelie (female)`, `Adelie (male)`,
                          `Gentoo (female)`, `Gentoo (male)`,
@@ -182,7 +185,11 @@ penguins_gt <-
   tab_style(style = cell_text(weight = "bold"),
             location = cells_column_spanners()) %>% 
   tab_style(style = cell_text(weight = "bold"),
-            location = cells_row_groups())
+            location = cells_row_groups()) %>% 
+  sub_missing(
+    columns = everything(),
+    missing_text = "-"
+  )
   # An option for positioning the row_group label
   # %>%
   # tab_options(
@@ -206,7 +213,7 @@ Linhas de sumarização ajudam na leitura dos dados.
 fns_labels <- 
   list(
    # avg = ~mean(., na.rm = TRUE),
-    subtotal = ~sum(., na.rm = TRUE)
+    `Média` = ~mean(., na.rm = TRUE)
    #,
    # s.d. = ~sd(., na.rm = TRUE)
   )
@@ -259,16 +266,23 @@ Para sabermos o total de pinguins em todas as ilhas, vamos acrescentar uma linha
 #| message: false
 #| fig-cap: "Quantidade de pinguins por espécie e sexo"
 #| label: palmer9
+
+fns_grand_labels <- 
+  list(
+    `Média Geral` = ~mean(., na.rm = TRUE)
+  )
+
 penguins_gt <- 
   penguins_gt %>% 
   grand_summary_rows(
     columns = c(`Adelie (female)`, `Adelie (male)`,
                 `Gentoo (female)`, `Gentoo (male)`,
                 `Chinstrap (female)`, `Chinstrap (male)`),
-   fns = fns_labels,
+    fns = fns_grand_labels,
     formatter = fmt_number,
-    decimals = 0
-    ) %>% 
+    decimals = 0,
+    missing_text = "-"
+  ) %>% 
   tab_style(style = cell_fill(color = "darkgray"),
             location = cells_grand_summary())
 
