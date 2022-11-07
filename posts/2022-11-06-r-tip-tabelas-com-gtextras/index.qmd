@@ -1,0 +1,89 @@
+---
+title: "R tip: tabelas com gtExtras"
+description: "Uso do pacote gtExtrsa para formatar tabelas"
+date: 2022-11-06
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-06-r-tip-tabelas-com-gtextras/
+image: penguins.png
+categories: [Rstat]
+---
+
+```{r setup}
+#| echo: fenced
+#| warning: false
+#| message: false
+
+library(palmerpenguins)
+library(tidyverse)
+library(gt)
+library(gtExtras)
+```
+
+### Pinguins com gtExtras
+
+No [post anterior](https://abreums.github.io/posts/2022-11-05-r-tip-criando-tabelas-com-o-pacote-gt/) apresentamos alguns recursos do pacote *gt* para produzir tabelas. Neste post vamos apresentar 2 recursos do pacote *gtExtras* o uso de cores para destacar informações e de *sparklines*.
+
+### *SPARKLINES*
+
+Vamos começar apresentando as informações de *palmerpenguins* destacando a evolução das quantidades conforme o ano de medição.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+penguins_gt <- 
+  penguins %>% 
+  count(species, year) %>% 
+  pivot_wider(names_from = year,
+              values_from = n) %>% 
+  gt() 
+
+penguins_gt
+```
+
+Queremos acrescentar *sparklines* indicando as variações de quantidades por ano.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+penguins_gt <- 
+  penguins %>% 
+  count(species, year) %>% 
+  group_by(species) %>% 
+  mutate(evolution = list(n)) %>% 
+  ungroup() %>% 
+  pivot_wider(names_from = year,
+              values_from = n) %>% 
+  relocate(evolution, .after = last_col()) %>% 
+  gt() %>% 
+  tab_header(title = "Pinguins no Arquipélago Palmer na Antártica",
+             subtitle = "palmerpinguins in R dataset") %>% 
+  opt_align_table_header(align = "left") %>% 
+  cols_align(align = "left", 
+             columns = c(species)) %>% 
+  cols_align(align = "right", 
+             columns = c(`2007`, `2008`, `2009`)) %>% 
+  cols_align(align = "center",
+             columns = c(evolution)) %>% 
+  cols_label(
+    species = "Espécie",
+    evolution = "Evolução"
+  ) %>% 
+  tab_spanner(
+    label = c("Ano de medição"),
+    columns = c(`2007`, `2008`, `2009`)
+  ) %>% 
+  gt_plt_sparkline(evolution)
+
+penguins_gt %>% 
+  gtsave(filename = "penguins.png",
+                       path = "./posts/2022-11-06-r-tip-tabelas-com-gtextras")
+
+penguins
+```
