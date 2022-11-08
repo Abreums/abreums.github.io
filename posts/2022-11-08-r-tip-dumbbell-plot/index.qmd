@@ -24,10 +24,12 @@ Compairing values are very trick in dataviz.
 library(tidyverse)
 library(ggtext)
 library(gapminder)
+
 south_america <- 
   c("Argentina", "Bolivia", "Brazil", "Chile",
     "Colombia", "Ecuador", "Paraguay", "Peru",
     "Uruguay", "Venezuela")
+
 south_america_pop <- 
   gapminder::gapminder %>% 
   filter(country %in% south_america) %>% 
@@ -37,7 +39,7 @@ south_america_pop <-
 
 Getting life expectancy from South America contries.
 
-```{r}
+```{r dodged_bar_plot}
 south_america_pop %>% 
   mutate(year = factor(as.character(year)),
          country = fct_reorder(country, pop)) %>% 
@@ -50,8 +52,64 @@ south_america_pop %>%
                `2007` = "<i style='color:#009E73'>2007</i>")
   ) +
   labs(title = "Evolução Populacional de
-                <span style='color:#D55E00;'>1952</span> a 
-                <span style='color:#009E73;'>2007</span>",
+                <span style='color:#D55E00;'><i>1952</i></span> a 
+                <span style='color:#009E73;'><i>2007</i></span>",
+       subtitle = "América do Sul",
+       x = NULL,
+       y = NULL,
+       fill = NULL) +
+  theme_minimal() +
+  theme(
+    #legend.position = "none",
+    plot.title = element_markdown(lineheight = 1.1),
+    legend.text = element_markdown(size = 11),
+    axis.text.x = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_blank()
+  ) +
+  coord_flip()
+```
+
+An alternative for the dodged bar plot is the dumbbell plot.
+
+Let's build one...
+
+```{r dumbbell_plot}
+
+# adjust data for segment plot
+segment_line <- 
+  south_america_pop %>% 
+    pivot_wider(names_from = year, values_from = pop, names_prefix = 'year_') %>% 
+    mutate(
+      change = year_2007 - year_1952,
+      country = fct_reorder(country, change)
+    )
+# adjust data for points plot
+south_america_pop <- 
+  south_america_pop %>% 
+  mutate(year = factor(year))
+
+dumbbell_plot <- 
+  ggplot() +
+  geom_segment(
+    data = segment_line,
+    aes(y = country, yend = country, x = year_1952, xend = year_2007),
+      col = 'grey60',
+      size = 1.25
+    ) +
+  geom_point(
+    data = south_america_pop,
+    aes(x = pop, y = country, colour = year), size = 4
+    ) +
+  scale_color_manual(
+    name = NULL,
+    values = c(`1952` = "#D55E00", `2007` = "#009E73"),
+    labels = c(`1952` = "<i style='color:#D55E00'>1952</i>",
+               `2007` = "<i style='color:#009E73'>2007</i>")
+  ) +
+  labs(title = "Evolução Populacional de
+                <span style='color:#D55E00;'><i>1952</i></span> a 
+                <span style='color:#009E73;'><i>2007</i></span>",
        subtitle = "América do Sul",
        x = NULL,
        y = NULL,
@@ -64,6 +122,9 @@ south_america_pop %>%
     axis.text.x = element_blank(),
     panel.grid.major.x = element_blank(),
     panel.grid.major.y = element_blank()
-  ) +
-  coord_flip()
+  ) 
+
+dumbbell_plot
+
+ggsave("dumbbell.png")
 ```
