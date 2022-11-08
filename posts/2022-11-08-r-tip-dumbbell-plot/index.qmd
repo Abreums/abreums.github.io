@@ -22,17 +22,48 @@ Compairing values are very trick in dataviz.
 #| message: false
 
 library(tidyverse)
+library(ggtext)
 library(gapminder)
-
+south_america <- 
+  c("Argentina", "Bolivia", "Brazil", "Chile",
+    "Colombia", "Ecuador", "Paraguay", "Peru",
+    "Uruguay", "Venezuela")
+south_america_pop <- 
+  gapminder::gapminder %>% 
+  filter(country %in% south_america) %>% 
+  filter(year == min(year) | year == max(year)) %>% 
+  select(country, year, pop)
 ```
 
 Getting life expectancy from South America contries.
 
 ```{r}
-south_america <- 
-  c("Argentina", "Bolivia", "Brazil", "Chile",
-    "Colombia", "Ecuador", "Paraguay", "Peru",
-    "Uruguay", "Venezuela")
-gapminder::gapminder %>% 
-  filter(country %in% south_america) 
+south_america_pop %>% 
+  mutate(year = factor(as.character(year)),
+         country = fct_reorder(country, pop)) %>% 
+  ggplot(aes(x = country, y = pop, fill = year)) +
+  geom_col(position = position_dodge2())  +
+  scale_fill_manual(
+    name = NULL,
+    values = c(`1952` = "#D55E00", `2007` = "#009E73"),
+    labels = c(`1952` = "<i style='color:#D55E00'>1952</i>",
+               `2007` = "<i style='color:#009E73'>2007</i>")
+  ) +
+  labs(title = "Evolução Populacional de
+                <span style='color:#D55E00;'>1952</span> a 
+                <span style='color:#009E73;'>2007</span>",
+       subtitle = "América do Sul",
+       x = NULL,
+       y = NULL,
+       fill = NULL) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_markdown(lineheight = 1.1),
+    legend.text = element_markdown(size = 11),
+    axis.text.x = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_blank()
+  ) +
+  coord_flip()
 ```
