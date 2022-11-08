@@ -26,7 +26,7 @@ library(gtExtras)
 
 ### Pinguins com gtExtras
 
-No [post anterior](https://abreums.github.io/posts/2022-11-05-r-tip-criando-tabelas-com-o-pacote-gt/) apresentamos alguns recursos do pacote *gt* para produzir tabelas. Neste post vamos apresentar 2 recursos do pacote *gtExtras* o uso de cores para destacar informações e de *sparklines*.
+No [post anterior](https://abreums.github.io/posts/2022-11-05-r-tip-criando-tabelas-com-o-pacote-gt/) apresentamos alguns recursos do pacote *gt* para produzir tabelas. Neste post vamos apresentar o recurso do pacote *gtExtras* para destacar informações através de *sparklines*.
 
 ### *SPARKLINES*
 
@@ -61,6 +61,7 @@ penguins_gt <-
   pivot_wider(names_from = year,
               values_from = n) %>% 
   relocate(evolution, .after = last_col()) %>% 
+  arrange(desc(`2009`)) %>% 
   gt() %>% 
   tab_header(title = "Pinguins no Arquipélago Palmer na Antártica",
              subtitle = "palmerpinguins in R dataset") %>% 
@@ -81,9 +82,10 @@ penguins_gt <-
   ) %>% 
   gt_plt_sparkline(evolution)
 
-penguins_gt %>% 
-  gtsave(filename = "penguins.png",
-                       path = "./posts/2022-11-06-r-tip-tabelas-com-gtextras")
+# my_path = str_c(getwd(), "/posts/2022-11-06-r-tip-tabelas-com-gtextras")
+# penguins_gt %>% 
+#   gtsave(filename = "new_penguins.png",
+#          path = my_path)
 
-penguins
+penguins_gt
 ```
