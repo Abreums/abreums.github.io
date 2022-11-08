@@ -1,0 +1,14 @@
+{
+  "hash": "7e4c7e1512a4004f09bb05bf62cd6229",
+  "result": {
+    "markdown": "---\ntitle: \"R tip: dumbbell plot\"\ndescription: \"Dumbbell plots are good to compaire different values of a measurement, showing difference. Similar to dodged bar charts, but much better\"\ndate: 2022-11-08\nauthor: \n  - name: Marcos Abreu\n    url: https://abreums.github.io\n    orcid: 0000-0003-4772-7955\ncitation:\n  type: post-weblog\n  url: https://abreums.github.io/posts/2022-11-08-r-tip-dumbbell-plot/\n  language: pt-br\nimage: dumbbell.png\ncategories: [Rstat]\n---\n\n\nCompairing values are very trick in dataviz.\n\n\n::: {.cell}\n\n````{.cell-code}\n```{{r setup}}\n#| warning: false\n#| message: false\n\nlibrary(tidyverse)\nlibrary(gapminder)\n```\n````\n:::\n\n\nGetting life expectancy from South America contries.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nsouth_america <- \n  c(\"Argentina\", \"Bolivia\", \"Brazil\", \"Chile\",\n    \"Colombia\", \"Ecuador\", \"Paraguay\", \"Peru\",\n    \"Uruguay\", \"Venezuela\")\ngapminder::gapminder %>% \n  filter(country %in% south_america) \n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 120 × 6\n   country   continent  year lifeExp      pop gdpPercap\n   <fct>     <fct>     <int>   <dbl>    <int>     <dbl>\n 1 Argentina Americas   1952    62.5 17876956     5911.\n 2 Argentina Americas   1957    64.4 19610538     6857.\n 3 Argentina Americas   1962    65.1 21283783     7133.\n 4 Argentina Americas   1967    65.6 22934225     8053.\n 5 Argentina Americas   1972    67.1 24779799     9443.\n 6 Argentina Americas   1977    68.5 26983828    10079.\n 7 Argentina Americas   1982    69.9 29341374     8998.\n 8 Argentina Americas   1987    70.8 31620918     9140.\n 9 Argentina Americas   1992    71.9 33958947     9308.\n10 Argentina Americas   1997    73.3 36203463    10967.\n# … with 110 more rows\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

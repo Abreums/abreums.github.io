@@ -1,0 +1,38 @@
+---
+title: "R tip: dumbbell plot"
+description: "Dumbbell plots are good to compaire different values of a measurement, showing difference. Similar to dodged bar charts, but much better"
+date: 2022-11-08
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-08-r-tip-dumbbell-plot/
+  language: pt-br
+image: dumbbell.png
+categories: [Rstat]
+---
+
+Compairing values are very trick in dataviz.
+
+```{r setup}
+#| echo: fenced
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(gapminder)
+
+```
+
+Getting life expectancy from South America contries.
+
+```{r}
+south_america <- 
+  c("Argentina", "Bolivia", "Brazil", "Chile",
+    "Colombia", "Ecuador", "Paraguay", "Peru",
+    "Uruguay", "Venezuela")
+gapminder::gapminder %>% 
+  filter(country %in% south_america) 
+```
