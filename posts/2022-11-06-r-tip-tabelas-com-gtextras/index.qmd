@@ -89,3 +89,5 @@ penguins_gt <-
 
 penguins_gt
 ```
+
+Also, we re-arranged the rows in descend order of values for 2009.
