@@ -167,7 +167,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">News</div>
+                <div class="quarto-category">Gestão</div>
+                <div class="quarto-category">Rstat</div>
               </div>
                   </div>
   </div>
@@ -232,61 +233,575 @@ SPI &amp;= \frac{EV}{PV} \\
 <div class="cell">
 
 </div>
-<p>O gráfico:</p>
+<p>Considere uma série de entregas intermediárias do projeto aqui representadas pelos indicadores <em>m1</em>, <em>m2</em>, <em>m3</em>, etc. Cada entrega possui um planejamento original e conforme o projeto avança, quinzenalmente a entrega é replanejada, conforme mostrado na tabela abaixo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># using the function from @Marcelo from this link </span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># https://stackoverflow.com/questions/43625341/reverse-datetime-posixct-data-axis-in-ggplot </span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to invert the data axis: </span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales) <span class="co"># for as.trans</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtext) <span class="co"># for markdown</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid) <span class="co"># arrow</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>c_trans <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, <span class="at">breaks =</span> b<span class="sc">$</span>breaks, <span class="at">format =</span> b<span class="sc">$</span>format) {</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">as.trans</span>(a)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">as.trans</span>(b)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  name <span class="ot">&lt;-</span> <span class="fu">paste</span>(a<span class="sc">$</span>name, b<span class="sc">$</span>name, <span class="at">sep =</span> <span class="st">"-"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  trans <span class="ot">&lt;-</span> <span class="cf">function</span>(x) a<span class="sc">$</span><span class="fu">trans</span>(b<span class="sc">$</span><span class="fu">trans</span>(x))</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  inv <span class="ot">&lt;-</span> <span class="cf">function</span>(x) b<span class="sc">$</span><span class="fu">inverse</span>(a<span class="sc">$</span><span class="fu">inverse</span>(x))</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trans_new</span>(name, trans, <span class="at">inverse =</span> inv, <span class="at">breaks =</span> breaks, <span class="at">format=</span>format)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>rev_date <span class="ot">&lt;-</span> <span class="fu">c_trans</span>(<span class="st">"reverse"</span>, <span class="st">"time"</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>y_breaks <span class="ot">&lt;-</span> entregas <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(status) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(status) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.POSIXct.Date</span>()</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>m_labels <span class="ot">&lt;-</span> entregas <span class="sc">%&gt;%</span> <span class="fu">filter</span>(status <span class="sc">&lt;=</span> <span class="fu">min</span>(status)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">status =</span> <span class="fu">as.POSIXct.Date</span>(status <span class="sc">-</span> <span class="dv">2</span>), <span class="at">previsto =</span> <span class="fu">as.POSIXct.Date</span>(previsto <span class="sc">+</span> <span class="dv">3</span>))</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>entregas <span class="sc">%&gt;%</span> </span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">status =</span> <span class="fu">as.POSIXct.Date</span>(status),</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">previsto =</span> <span class="fu">as.POSIXct.Date</span>(previsto)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> previsto, <span class="at">y =</span> status, <span class="at">group =</span> milestone, <span class="at">colour =</span> milestone)) <span class="sc">+</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> m_labels, <span class="fu">aes</span>(<span class="at">x =</span> previsto, <span class="at">y =</span> status, <span class="at">label =</span> milestone)) <span class="sc">+</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> rev_date, <span class="at">breaks =</span> y_breaks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">date_format</span>()) <span class="sc">+</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Previsão das Entregas"</span>,</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_markdown</span>(<span class="at">lineheight =</span> <span class="fl">1.1</span>),</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle =</span> <span class="dv">20</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">"inches"</span>), <span class="at">type =</span> <span class="st">"closed"</span>))</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>entregas <span class="sc">%&gt;%</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Planejamento de entregas"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_align_table_header</span>(<span class="at">align =</span> <span class="st">"left"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="st">"Data de Status"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Entregas"</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(m1, m2, m3, m4, m5)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sub_missing</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_date</span>(<span class="at">columns =</span> <span class="fu">c</span>(status, m1, m2, m3, m4, m5),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">date_style =</span> <span class="st">"m_day_year"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">12</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+
+<div id="fjraicmbal" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#fjraicmbal) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#fjraicmbal) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#fjraicmbal) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#fjraicmbal) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#fjraicmbal) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#fjraicmbal) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#fjraicmbal) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#fjraicmbal) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#fjraicmbal) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#fjraicmbal) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#fjraicmbal) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#fjraicmbal) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#fjraicmbal) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fjraicmbal) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#fjraicmbal) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#fjraicmbal) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fjraicmbal) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#fjraicmbal) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fjraicmbal) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#fjraicmbal) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fjraicmbal) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#fjraicmbal) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#fjraicmbal) .gt_left {
+  text-align: left;
+}
+
+:where(#fjraicmbal) .gt_center {
+  text-align: center;
+}
+
+:where(#fjraicmbal) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#fjraicmbal) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#fjraicmbal) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#fjraicmbal) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#fjraicmbal) .gt_super {
+  font-size: 65%;
+}
+
+:where(#fjraicmbal) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#fjraicmbal) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#fjraicmbal) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#fjraicmbal) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#fjraicmbal) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#fjraicmbal) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#fjraicmbal) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col">Data de Status</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5" scope="colgroup">
+        <span class="gt_column_spanner">Entregas</span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m4</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m5</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right">Mar 1, 2000</td>
+<td class="gt_row gt_right">Mar 10, 2000</td>
+<td class="gt_row gt_right">Mar 25, 2000</td>
+<td class="gt_row gt_right">Mar 31, 2000</td>
+<td class="gt_row gt_right">Apr 10, 2000</td>
+<td class="gt_row gt_right">Apr 30, 2000</td></tr>
+    <tr><td class="gt_row gt_right">Mar 15, 2000</td>
+<td class="gt_row gt_right">Mar 20, 2000</td>
+<td class="gt_row gt_right">Mar 30, 2000</td>
+<td class="gt_row gt_right">Mar 31, 2000</td>
+<td class="gt_row gt_right">Apr 10, 2000</td>
+<td class="gt_row gt_right">Apr 30, 2000</td></tr>
+    <tr><td class="gt_row gt_right">Apr 1, 2000</td>
+<td class="gt_row gt_right">Mar 22, 2000</td>
+<td class="gt_row gt_right">Apr 5, 2000</td>
+<td class="gt_row gt_right">Apr 15, 2000</td>
+<td class="gt_row gt_right">Apr 22, 2000</td>
+<td class="gt_row gt_right">May 5, 2000</td></tr>
+    <tr><td class="gt_row gt_right">Apr 15, 2000</td>
+<td class="gt_row gt_right">—</td>
+<td class="gt_row gt_right">Apr 10, 2000</td>
+<td class="gt_row gt_right">Apr 20, 2000</td>
+<td class="gt_row gt_right">Apr 30, 2000</td>
+<td class="gt_row gt_right">May 20, 2000</td></tr>
+    <tr><td class="gt_row gt_right">May 1, 2000</td>
+<td class="gt_row gt_right">—</td>
+<td class="gt_row gt_right">—</td>
+<td class="gt_row gt_right">Apr 25, 2000</td>
+<td class="gt_row gt_right">May 10, 2000</td>
+<td class="gt_row gt_right">May 30, 2000</td></tr>
+    <tr><td class="gt_row gt_right">May 15, 2000</td>
+<td class="gt_row gt_right">—</td>
+<td class="gt_row gt_right">—</td>
+<td class="gt_row gt_right">—</td>
+<td class="gt_row gt_right">May 25, 2000</td>
+<td class="gt_row gt_right">May 30, 2000</td></tr>
+  </tbody>
+  
+  
+</table>
 </div>
 </div>
-<p>O eixo y deste gráfico representa as diversas datas de status do projeto, enquanto o eixo x representa a data prevista ou realizada de uma entrega na referida data de status.</p>
+</div>
+<p>A cada 15 dias, os prazos são reavaliados ou a data real de conclusão é registrada. As informações mostradas na tabela podem ser representadas visualmente conforme mostra o gráfico a seguir.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># using the function from @Marcelo from this link </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># https://stackoverflow.com/questions/43625341/reverse-datetime-posixct-data-axis-in-ggplot </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to invert the data axis: </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales) <span class="co"># for as.trans</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtext) <span class="co"># for markdown</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid) <span class="co"># arrow</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>c_trans <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, <span class="at">breaks =</span> b<span class="sc">$</span>breaks, <span class="at">format =</span> b<span class="sc">$</span>format) {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">as.trans</span>(a)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">as.trans</span>(b)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  name <span class="ot">&lt;-</span> <span class="fu">paste</span>(a<span class="sc">$</span>name, b<span class="sc">$</span>name, <span class="at">sep =</span> <span class="st">"-"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  trans <span class="ot">&lt;-</span> <span class="cf">function</span>(x) a<span class="sc">$</span><span class="fu">trans</span>(b<span class="sc">$</span><span class="fu">trans</span>(x))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  inv <span class="ot">&lt;-</span> <span class="cf">function</span>(x) b<span class="sc">$</span><span class="fu">inverse</span>(a<span class="sc">$</span><span class="fu">inverse</span>(x))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trans_new</span>(name, trans, <span class="at">inverse =</span> inv, <span class="at">breaks =</span> breaks, <span class="at">format=</span>format)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>rev_date <span class="ot">&lt;-</span> <span class="fu">c_trans</span>(<span class="st">"reverse"</span>, <span class="st">"time"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>entregas <span class="ot">&lt;-</span> </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  entregas <span class="sc">%&gt;%</span> </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(m1, m2, m3, m4, m5),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"milestone"</span>, </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"previsto"</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>y_breaks <span class="ot">&lt;-</span> entregas <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(status) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(status) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.POSIXct.Date</span>()</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>m_labels <span class="ot">&lt;-</span> entregas <span class="sc">%&gt;%</span> <span class="fu">filter</span>(status <span class="sc">&lt;=</span> <span class="fu">min</span>(status)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">status =</span> <span class="fu">as.POSIXct.Date</span>(status <span class="sc">-</span> <span class="dv">2</span>), <span class="at">previsto =</span> <span class="fu">as.POSIXct.Date</span>(previsto <span class="sc">+</span> <span class="dv">3</span>))</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>entregas <span class="sc">%&gt;%</span> </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">status =</span> <span class="fu">as.POSIXct.Date</span>(status),</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">previsto =</span> <span class="fu">as.POSIXct.Date</span>(previsto)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> previsto, <span class="at">y =</span> status, <span class="at">group =</span> milestone, <span class="at">colour =</span> milestone)) <span class="sc">+</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> m_labels, <span class="fu">aes</span>(<span class="at">x =</span> previsto, <span class="at">y =</span> status, <span class="at">label =</span> milestone)) <span class="sc">+</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> rev_date, <span class="at">breaks =</span> y_breaks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">date_format</span>()) <span class="sc">+</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Previsão das Entregas"</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_markdown</span>(<span class="at">lineheight =</span> <span class="fl">1.1</span>),</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle =</span> <span class="dv">20</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">"inches"</span>), <span class="at">type =</span> <span class="st">"closed"</span>))</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>O eixo y deste gráfico representa as diversas datas de status do projeto, enquanto o eixo x representa a data prevista ou realizada de uma entrega na referida data de status (as datas planejadas/realizadas) estão suprimidas para facilitar a leitura do gráfico).</p>
+<p>A interpretação do gráfico mostra que existe uma inclinação nas diversas curvas de entrega dos resultados intermediários muito similar. Isto pode ser um indicativo de que a causa dos atrasos está mais relacionada com uma estimativa original errada do que com problemas de performance da equipe, o que geraria inclinações diferentes para cada uma das curvas das várias entregas.</p>
+</section>
+<section id="planejando-para-poder-controlar-as-entregas" class="level2">
+<h2 class="anchored" data-anchor-id="planejando-para-poder-controlar-as-entregas">Planejando para poder controlar as entregas</h2>
+<p>Para poder acompanhar um projeto desta forma é preciso a preparação adequada.</p>
+<p>O mais crítico aqui é conseguir criar bons entregáveis intermediários. As principais características destes resultados são:</p>
+<ul>
+<li><p>São mensuráveis. Em geral o indicador de realização é previamente definido junto com a fonte de medição.</p></li>
+<li><p>Geram valor ao cliente. Quando um resultado é entendido como um valor em si, isto ajuda a evitar que o trabalho relacionado seja alvo de modificações ou tenha seu conteúdo aumentado.</p></li>
+<li><p>São relativamente isolados de outros trabalhos. Isto é importante para podermos identificar causas de desvios observados. Por exemplo, se uma mesma equipe trabalha em paralelo em resultados diferentes, fica difícil identificar causas das variações que venham a ocorrer.</p></li>
+</ul>
+<p>O uso de gráficos de tendência combinados com um planejamento de entregas intermediárias é uma poderosa ferramenta de planejamento e controle para projetos. A aplicação desta ferramenta é simples e direta, porém a preparação para que a mesma possa ser usada de forma efetiva demanda que o trabalho seja estruturado de forma a colaborar com o uso da ferramenta, o que em geral é difícil, mas não é um problema, já que as diretrizes para isso são consideradas boas práticas de planejamento.</p>
 
 
 </section>

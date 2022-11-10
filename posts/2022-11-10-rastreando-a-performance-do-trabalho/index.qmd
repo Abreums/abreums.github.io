@@ -33,7 +33,7 @@ CPI &= \frac{EV}{AC} \\
 \end{align}
 $$
 
-Já o **SPI** é calculado através da razão entre o Valor Agregado e o Valor Planejado (**PV** - _Planned Value_). Se o mesmo projeto tivesse durado o dobro do tempo:
+Já o **SPI** é calculado através da razão entre o Valor Agregado e o Valor Planejado (**PV** - *Planned Value*). Se o mesmo projeto tivesse durado o dobro do tempo:
 
 $$
 \begin{align}
@@ -42,8 +42,7 @@ SPI &= \frac{EV}{PV} \\
     &= 1 \\
     &= 100\%
 \end{align}
-$$
-Isso mesmo, o SPI seria de 100%. Isto acontece porque a fórmula não mede prazo (_schedule_), ela mede escopo ao comparar o escopo entregue (Valor Agregado) contra o escopo planejado (Valor Planejado).
+$$ Isso mesmo, o SPI seria de 100%. Isto acontece porque a fórmula não mede prazo (*schedule*), ela mede escopo ao comparar o escopo entregue (Valor Agregado) contra o escopo planejado (Valor Planejado).
 
 ## Como estimar o prazo de término de um projeto
 
@@ -55,6 +54,7 @@ Primeiro vamos construir o gráfico e depois analisar o que é preciso fazer par
 #| echo: false
 #| warning: false
 #| error: false
+#| message: false
 library(tidyverse)
 entregas <- 
   tibble(status = c(as.Date("2000-03-01"), as.Date("2000-03-15"), 
@@ -74,20 +74,42 @@ entregas <-
                 as.Date("2000-05-05"), as.Date("2000-05-20"),
                 as.Date("2000-05-30"), as.Date("2000-05-30"))
          )
-entregas <- 
-  entregas %>% 
-  pivot_longer(cols = c(m1, m2, m3, m4, m5),
-               names_to = "milestone", 
-               values_to = "previsto")
+
 ```
 
-O gráfico:
+Considere uma série de entregas intermediárias do projeto aqui representadas pelos indicadores *m1*, *m2*, *m3*, etc. Cada entrega possui um planejamento original e conforme o projeto avança, quinzenalmente a entrega é replanejada, conforme mostrado na tabela abaixo.
 
 ```{r}
 #| echo: fenced
 #| warning: false
 #| message: false
 
+library(gt)
+entregas %>% 
+  gt() %>% 
+  tab_header(title = "Planejamento de entregas") %>% 
+  opt_align_table_header(align = "left") %>% 
+  cols_label(
+    status = "Data de Status"
+  ) %>% 
+  tab_spanner(
+    label = c("Entregas"),
+    columns = c(m1, m2, m3, m4, m5)
+  ) %>% 
+  sub_missing() %>% 
+  fmt_date(columns = c(status, m1, m2, m3, m4, m5),
+           date_style = "m_day_year") %>% 
+  tab_options(table.font.size = 12)
+  
+
+```
+
+A cada 15 dias, os prazos são reavaliados ou a data real de conclusão é registrada. As informações mostradas na tabela podem ser representadas visualmente conforme mostra o gráfico a seguir.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
 
 # using the function from @Marcelo from this link 
 # https://stackoverflow.com/questions/43625341/reverse-datetime-posixct-data-axis-in-ggplot 
@@ -107,6 +129,12 @@ c_trans <- function(a, b, breaks = b$breaks, format = b$format) {
   trans_new(name, trans, inverse = inv, breaks = breaks, format=format)
 }
 rev_date <- c_trans("reverse", "time")
+
+entregas <- 
+  entregas %>% 
+  pivot_longer(cols = c(m1, m2, m3, m4, m5),
+               names_to = "milestone", 
+               values_to = "previsto")
 
 y_breaks <- entregas %>% distinct(status) %>% arrange(status) %>% pull() %>% as.POSIXct.Date()
 
@@ -134,5 +162,21 @@ entregas %>%
   ) 
 
 ```
-O eixo y deste gráfico representa as diversas datas de status do projeto, enquanto o eixo x representa a data prevista ou realizada de uma entrega na referida data de status. 
 
+O eixo y deste gráfico representa as diversas datas de status do projeto, enquanto o eixo x representa a data prevista ou realizada de uma entrega na referida data de status (as datas planejadas/realizadas) estão suprimidas para facilitar a leitura do gráfico).
+
+A interpretação do gráfico mostra que existe uma inclinação nas diversas curvas de entrega dos resultados intermediários muito similar. Isto pode ser um indicativo de que a causa dos atrasos está mais relacionada com uma estimativa original errada do que com problemas de performance da equipe, o que geraria inclinações diferentes para cada uma das curvas das várias entregas.
+
+## Planejando para poder controlar as entregas
+
+Para poder acompanhar um projeto desta forma é preciso a preparação adequada.
+
+O mais crítico aqui é conseguir criar bons entregáveis intermediários. As principais características destes resultados são:
+
+-   São mensuráveis. Em geral o indicador de realização é previamente definido junto com a fonte de medição.
+
+-   Geram valor ao cliente. Quando um resultado é entendido como um valor em si, isto ajuda a evitar que o trabalho relacionado seja alvo de modificações ou tenha seu conteúdo aumentado.
+
+-   São relativamente isolados de outros trabalhos. Isto é importante para podermos identificar causas de desvios observados. Por exemplo, se uma mesma equipe trabalha em paralelo em resultados diferentes, fica difícil identificar causas das variações que venham a ocorrer.
+
+O uso de gráficos de tendência combinados com um planejamento de entregas intermediárias é uma poderosa ferramenta de planejamento e controle para projetos. A aplicação desta ferramenta é simples e direta, porém a preparação para que a mesma possa ser usada de forma efetiva demanda que o trabalho seja estruturado de forma a colaborar com o uso da ferramenta, o que em geral é difícil, mas não é um problema, já que as diretrizes para isso são consideradas boas práticas de planejamento.
