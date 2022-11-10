@@ -1,0 +1,138 @@
+---
+title: "Rastreando a performance do trabalho"
+description: "Esta técnica ajuda a visualizar a expectativa para término do trabalho."
+date: 2022-11-10
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2019-11-10-rastreando-a-performance-do-trabalho/
+  language: pt-br
+image: stream_diagram.png
+categories: [Gestão, Rstat]
+---
+
+Quando você trabalho como gerente de projetos a pergunta mais importante que você deve estar preparado para responder é: "Quando acaba?".
+
+A vantagem de se estimar a data de término é que esta envolve subjetivamente informações sobre benefícios, que se realizam com a disponibilização do resultado esperado. Mas ao contrário de outros fatores - como custo, efetividade do trabalho, ou qualidade do produto - a estimativa do prazo final, em geral é feita a partir de medições sobre o escopo.
+
+Tomemos, por exemplo, a técnica mais conhecida que é a *Análise do Valor Agregado.* Ela considera a estimativa do prazo final através do cálculo do escopo do trabalho, e por este motivo, a pode gerar distorções nas medições de performance.
+
+Podemos verificar isto através das equações utilizadas para calcular o índice de performance do custo (**CPI** - *Cost Performance Index*), e o índice de performance do prazo (**SPI** - *Schedule Performance Index*).
+
+O **CPI** é calculado através da razão entre o Valor Agregado (**EV** - *Earned Value*) e o Custo Real (**AC** - *Actual Cost*). Se considerarmos um projeto com valor de R\$ 100 mil com custo final de R\$ 200 mil (o dobro), o índice reflete isto indicando uma performance de 50%:
+
+$$
+\begin{align}
+CPI &= \frac{EV}{AC} \\
+    &= \frac{100.000}{200.000} \\
+    &= 0.5 \\
+    &= 50\%
+\end{align}
+$$
+
+Já o **SPI** é calculado através da razão entre o Valor Agregado e o Valor Planejado (**PV** - _Planned Value_). Se o mesmo projeto tivesse durado o dobro do tempo:
+
+$$
+\begin{align}
+SPI &= \frac{EV}{PV} \\
+    &= \frac{100.000}{100.000} \\
+    &= 1 \\
+    &= 100\%
+\end{align}
+$$
+Isso mesmo, o SPI seria de 100%. Isto acontece porque a fórmula não mede prazo (_schedule_), ela mede escopo ao comparar o escopo entregue (Valor Agregado) contra o escopo planejado (Valor Planejado).
+
+## Como estimar o prazo de término de um projeto
+
+Uma forma de conseguir estimar o prazo de entrega do projeto é através de um gráfico de tendências de entregas intermediárias.
+
+Primeiro vamos construir o gráfico e depois analisar o que é preciso fazer para
+
+```{r}
+#| echo: false
+#| warning: false
+#| error: false
+library(tidyverse)
+entregas <- 
+  tibble(status = c(as.Date("2000-03-01"), as.Date("2000-03-15"), 
+                  as.Date("2000-04-01"), as.Date("2000-04-15"), 
+                  as.Date("2000-05-01"), as.Date("2000-05-15")),
+         m1 = c(as.Date("2000-03-10"), as.Date("2000-03-20"), 
+                  as.Date("2000-03-22"), NA, NA, NA),
+         m2 = c(as.Date("2000-03-25"), as.Date("2000-03-30"), 
+                  as.Date("2000-04-05"), as.Date("2000-04-10"), NA, NA),
+         m3 = c(as.Date("2000-03-31"), as.Date("2000-03-31"), 
+                  as.Date("2000-04-15"), as.Date("2000-04-20"), 
+                  as.Date("2000-04-25"), NA),
+         m4 = c(as.Date("2000-04-10"), as.Date("2000-04-10"), 
+                  as.Date("2000-04-22"), as.Date("2000-04-30"), 
+                  as.Date("2000-05-10"), as.Date("2000-05-25")),
+         m5 = c(as.Date("2000-04-30"), as.Date("2000-04-30"),
+                as.Date("2000-05-05"), as.Date("2000-05-20"),
+                as.Date("2000-05-30"), as.Date("2000-05-30"))
+         )
+entregas <- 
+  entregas %>% 
+  pivot_longer(cols = c(m1, m2, m3, m4, m5),
+               names_to = "milestone", 
+               values_to = "previsto")
+```
+
+O gráfico:
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| message: false
+
+
+# using the function from @Marcelo from this link 
+# https://stackoverflow.com/questions/43625341/reverse-datetime-posixct-data-axis-in-ggplot 
+# to invert the data axis: 
+library(scales) # for as.trans
+library(ggtext) # for markdown
+library(grid) # arrow
+c_trans <- function(a, b, breaks = b$breaks, format = b$format) {
+  a <- as.trans(a)
+  b <- as.trans(b)
+
+  name <- paste(a$name, b$name, sep = "-")
+
+  trans <- function(x) a$trans(b$trans(x))
+  inv <- function(x) b$inverse(a$inverse(x))
+
+  trans_new(name, trans, inverse = inv, breaks = breaks, format=format)
+}
+rev_date <- c_trans("reverse", "time")
+
+y_breaks <- entregas %>% distinct(status) %>% arrange(status) %>% pull() %>% as.POSIXct.Date()
+
+m_labels <- entregas %>% filter(status <= min(status)) %>% mutate(status = as.POSIXct.Date(status - 2), previsto = as.POSIXct.Date(previsto + 3))
+
+entregas %>% 
+  mutate(status = as.POSIXct.Date(status),
+         previsto = as.POSIXct.Date(previsto)) %>% 
+  ggplot(aes(x = previsto, y = status, group = milestone, colour = milestone)) +
+  geom_point() +
+  geom_line() +
+  geom_text(data = m_labels, aes(x = previsto, y = status, label = milestone)) +
+  scale_y_continuous(trans = rev_date, breaks = y_breaks, labels = scales::date_format()) +
+  labs(title = "Previsão das Entregas",
+       x = NULL,
+       y = NULL) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_markdown(lineheight = 1.1),
+    axis.text.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(arrow = arrow(angle = 20, length = unit(0.1, "inches"), type = "closed"))
+  ) 
+
+```
+O eixo y deste gráfico representa as diversas datas de status do projeto, enquanto o eixo x representa a data prevista ou realizada de uma entrega na referida data de status. 
+

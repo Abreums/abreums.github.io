@@ -1,0 +1,23 @@
+---
+title: "Sobre valor e urgência"
+description: "Valor e urgência são dois componentes importantes para priorização de projetos. O entendimento destes conceitos pode mostrar que as melhores decisões nem sempre são fáceis de perceber. E muito mais difíceis de negociar."
+date: 2022-11-09
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-09-sobre-valor-e-urgencia/
+  language: pt-br
+images: costdelay.png
+categories: [News]
+---
+
+O uso de *dataviz* e estatística pode parecer exagerado quando falamos de gerenciamento de projetos ou (como eu prefiro) sobre a organização do trabalho. Mas o desafio é sempre o de priorizar e poder escolher entre alternativas, e neste caso, as melhores escolhas nem sempre são óbvias. Não é preciso matemática avançada para poder entender como funciona um bom processo de priorização, mas isto não quer dizer que por isto seja fácil de entender e de negociar.
+
+A priorização impacta também diretamente a organização do projeto na sequência como o trabalho deve ser realizado. Quando imaginamos a forma como o trabalho deve ser organizado somos diretamente influenciados pela estrutura de comunicação do local onde trabalhamos.
+
+Todos os envolvidos no projeto buscarão colaborar o melhor possível para a obtenção de resultados efetivos para a organização. E todos estarão analisando alternativas e enchergando o trabalho das suas perspectivas pessoas e de seus conhecimentos próprios. Por isto costumamos dizer que muito dos projetos são efetivos na gestão dos centavos e ineficientes na gestão dos milhões.
+
+\<under construction\>
