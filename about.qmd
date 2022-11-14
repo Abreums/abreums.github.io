@@ -4,12 +4,12 @@ image: images/marcos_abreu.jpg
 about:
   template: trestles
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/abreums
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/marcos-abreu-82216b/
+    - icon: mastodon
+      text: Mastodon
+      href: https://fosstodon.org/@abreums
     - icon: github
       text: Github
       href: https://github.com/Abreums
