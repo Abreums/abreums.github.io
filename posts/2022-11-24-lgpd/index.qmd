@@ -1,0 +1,44 @@
+---
+title: "LGPD"
+description: "Vamos falar sobre LGPD"
+date: 2022-11-24
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-24-lgpd/
+  language: pt-br
+categories: [Gestão]
+---
+
+Lei Geral de Proteção de Dados - Lei 13.709/2018 vigente a partir de setembro de 2020.
+
+GDPR - A União Européia só fará negócio com países com legislação de mesmo nível.
+
+[GDPR - General Data Protection Regulation](https://gdpr-info.eu) - Regulamento Geral de Proteção de Dados 2016 entrou em vigor em 2018
+
+Lei de proteção de dados pessoais e não de proibição de dados pessoais.
+
+Se conecta com o código de defesa do consumidor, por isso deve-se olhar as leis verticais que se aplicam. Por exemplo, CFM (Conselho Federal de Medicina) para questões de Tele medicina, ou BACEN para questões financeiras.
+
+Patrícia Peck
+
+Diferença do regulamento europeu: proteção do crédito.
+
+Exceção de consentimento: "ter certeza de que aquela pessoa é aquela pessoa".
+
+ANPD  - Autoridade Nacional de Proteção de Dados
+
+art 46 LGPD - insuficiência de aplicar as medidas técnicas de segurança - ex.: falhas de controle de acesso
+
+\-\--
+
+art 2
+
+proteção dos dados individuais x fomentar a inovação
+
+dado pessoal x dado pessoal sensível
+
+dado anonimizado x dado pseudo anonimizado

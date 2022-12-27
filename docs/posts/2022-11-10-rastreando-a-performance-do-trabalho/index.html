@@ -23,69 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -204,11 +141,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>Quando você trabalho como gerente de projetos a pergunta mais importante que você deve estar preparado para responder é: “Quando acaba?”.</p>
-<p>A vantagem de se estimar a data de término é que esta envolve subjetivamente informações sobre benefícios, que se realizam com a disponibilização do resultado esperado. Mas ao contrário de outros fatores - como custo, efetividade do trabalho, ou qualidade do produto - a estimativa do prazo final, em geral é feita a partir de medições sobre o escopo.</p>
-<p>Tomemos, por exemplo, a técnica mais conhecida que é a <em>Análise do Valor Agregado.</em> Ela considera a estimativa do prazo final através do cálculo do escopo do trabalho, e por este motivo, a pode gerar distorções nas medições de performance.</p>
+<p>“Quando acaba?”</p>
+<p>Esta é a principal pergunta que um gerente de projetos deve conseguir responder.</p>
+<p>Quando uma data de término é estimada é possível inferir outras informações, como o custo final esperado e os benefícios. E, é por isso que as pessoas preferem saber a estimativa da data de término do que outras estimativas.</p>
+<p>Ao contrário de outros fatores do projeto - como custos, efetividade do trabalho, ou qualidade do produto - a estimativa do prazo final, em geral, é feita a partir de medições sobre o escopo.</p>
+<p>A técnica de <em>Análise do Valor Agregado</em>, por exemplo, utiliza a medição do escopo para fazer estimativas de prazo. Por este motivo, esta técnica gera distorções nas estimativas de performance de prazo e deve ser utilizada com cuidado.</p>
 <p>Podemos verificar isto através das equações utilizadas para calcular o índice de performance do custo (<strong>CPI</strong> - <em>Cost Performance Index</em>), e o índice de performance do prazo (<strong>SPI</strong> - <em>Schedule Performance Index</em>).</p>
-<p>O <strong>CPI</strong> é calculado através da razão entre o Valor Agregado (<strong>EV</strong> - <em>Earned Value</em>) e o Custo Real (<strong>AC</strong> - <em>Actual Cost</em>). Se considerarmos um projeto com valor de R$ 100 mil com custo final de R$ 200 mil (o dobro), o índice reflete isto indicando uma performance de 50%:</p>
+<p>O <strong>CPI</strong> é calculado através da razão entre o Valor Agregado (<strong>EV</strong> - <em>Earned Value</em>) e o Custo Real (<strong>AC</strong> - <em>Actual Cost</em>). Se considerarmos um projeto cujo orçamento foi inicialmente estimado em R$ 100 mil, mas que devido a problemas terminou com custo real final de R$ 200 mil (o dobro), neste caso, percebemos que o CPI reflete o desvio de custo indicando uma performance de 50%:</p>
 <p><span class="math display">\[
 \begin{align}
 CPI &amp;= \frac{EV}{AC} \\
@@ -216,8 +155,8 @@ CPI &amp;= \frac{EV}{AC} \\
     &amp;= 0.5 \\
     &amp;= 50\%
 \end{align}
-\]</span></p>
-<p>Já o <strong>SPI</strong> é calculado através da razão entre o Valor Agregado e o Valor Planejado (<strong>PV</strong> - <em>Planned Value</em>). Se o mesmo projeto tivesse durado o dobro do tempo:</p>
+\]</span> O valor agregado (<strong>EV</strong> - <em>Earned Value</em>) ao final seria os estimados R$ 100 mil (quanto valia o que foi entregue dentro da estimativa inicial do orçamento), e o custo real (<strong>AC</strong> - <em>Actual Cost</em>) seria de R$ 200 mil (quanto custou de fato o que foi entregue), resultando num índice de performance de 50%. Ou seja, para cada real gasto o projeto agregou cinquenta centavos (na perspectiva de valor inicial).</p>
+<p>Já o <strong>SPI</strong> é calculado através da razão entre o Valor Agregado e o Valor Planejado (<strong>PV</strong> - <em>Planned Value</em>). Se o mesmo projeto além de ter custado o dobro, tivesse durado o dobro do tempo:</p>
 <p><span class="math display">\[
 \begin{align}
 SPI &amp;= \frac{EV}{PV} \\
@@ -225,45 +164,26 @@ SPI &amp;= \frac{EV}{PV} \\
     &amp;= 1 \\
     &amp;= 100\%
 \end{align}
-\]</span> Isso mesmo, o SPI seria de 100%. Isto acontece porque a fórmula não mede prazo (<em>schedule</em>), ela mede escopo ao comparar o escopo entregue (Valor Agregado) contra o escopo planejado (Valor Planejado).</p>
+\]</span></p>
+<p>Isso mesmo, o SPI seria de 100%, sem indicar o atraso. Isto acontece porque a fórmula - apesar do nome - não mede prazo (<em>schedule</em>), ela mede <strong>escopo</strong> (<em>scope</em>): o projeto levou o dobro do tempo, mas ao final entregou o escopo inicialmente planejado. Estamos comparando escopo entregue (Valor Agregado) contra o escopo planejado (Valor Planejado). E por este motivo, o SPI não é um bom instrumento para estimar a data de término.</p>
 <section id="como-estimar-o-prazo-de-término-de-um-projeto" class="level2">
 <h2 class="anchored" data-anchor-id="como-estimar-o-prazo-de-término-de-um-projeto">Como estimar o prazo de término de um projeto</h2>
-<p>Uma forma de conseguir estimar o prazo de entrega do projeto é através de um gráfico de tendências de entregas intermediárias.</p>
-<p>Primeiro vamos construir o gráfico e depois analisar o que é preciso fazer para</p>
+<p>Para seguirmos na nossa tentativa de conseguir avaliar a data de término do projeto, precisamos de uma outra estratégia.</p>
+<p>Uma forma de conseguir estimar o prazo de entrega do projeto é através de um gráfico de tendências de entregas intermediárias. Ou seja, eu ainda estou medindo escopo, mas desta vez numa perspectiva um pouco diferente. Neste <em>post</em> vou apresentar a lógica para utilizar esta técnica - para entender como construir o gráfico veja este <a href="https://abreums.github.io/posts/2019-11-10-como-criar-um-grafico-de-cordas/"><em>link</em></a>.</p>
 <div class="cell">
 
 </div>
-<p>Considere uma série de entregas intermediárias do projeto aqui representadas pelos indicadores <em>m1</em>, <em>m2</em>, <em>m3</em>, etc. Cada entrega possui um planejamento original e conforme o projeto avança, quinzenalmente a entrega é replanejada, conforme mostrado na tabela abaixo.</p>
+<p>Considere uma série de entregas intermediárias do projeto, previstas para ocorrer em datas específicas, aqui representadas pelos indicadores <em>m1</em>, <em>m2</em>, <em>m3</em>, etc. Cada entrega possui um planejamento original e conforme o projeto avança, a espectativa de prazo de entrega é replanejada, conforme mostrado na tabela <a href="#tbl-inicial">Table&nbsp;1</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>entregas <span class="sc">%&gt;%</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Planejamento de entregas"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_align_table_header</span>(<span class="at">align =</span> <span class="st">"left"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="st">"Data de Status"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Entregas"</span>),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(m1, m2, m3, m4, m5)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sub_missing</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_date</span>(<span class="at">columns =</span> <span class="fu">c</span>(status, m1, m2, m3, m4, m5),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">date_style =</span> <span class="st">"m_day_year"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">table.font.size =</span> <span class="dv">12</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div id="tbl-inicial" class="anchored">
 
-<div id="fjraicmbal" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cjqbfzfvpj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#fjraicmbal) .gt_table {
+:where(#cjqbfzfvpj) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -288,7 +208,7 @@ SPI &amp;= \frac{EV}{PV} \\
   border-left-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_heading {
+:where(#cjqbfzfvpj) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -300,7 +220,7 @@ SPI &amp;= \frac{EV}{PV} \\
   border-right-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_title {
+:where(#cjqbfzfvpj) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -312,7 +232,7 @@ SPI &amp;= \frac{EV}{PV} \\
   border-bottom-width: 0;
 }
 
-:where(#fjraicmbal) .gt_subtitle {
+:where(#cjqbfzfvpj) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -324,13 +244,13 @@ SPI &amp;= \frac{EV}{PV} \\
   border-top-width: 0;
 }
 
-:where(#fjraicmbal) .gt_bottom_border {
+:where(#cjqbfzfvpj) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_col_headings {
+:where(#cjqbfzfvpj) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -345,7 +265,7 @@ SPI &amp;= \frac{EV}{PV} \\
   border-right-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_col_heading {
+:where(#cjqbfzfvpj) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -365,7 +285,7 @@ SPI &amp;= \frac{EV}{PV} \\
   overflow-x: hidden;
 }
 
-:where(#fjraicmbal) .gt_column_spanner_outer {
+:where(#cjqbfzfvpj) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -377,15 +297,15 @@ SPI &amp;= \frac{EV}{PV} \\
   padding-right: 4px;
 }
 
-:where(#fjraicmbal) .gt_column_spanner_outer:first-child {
+:where(#cjqbfzfvpj) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#fjraicmbal) .gt_column_spanner_outer:last-child {
+:where(#cjqbfzfvpj) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#fjraicmbal) .gt_column_spanner {
+:where(#cjqbfzfvpj) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -397,7 +317,7 @@ SPI &amp;= \frac{EV}{PV} \\
   width: 100%;
 }
 
-:where(#fjraicmbal) .gt_group_heading {
+:where(#cjqbfzfvpj) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -422,7 +342,7 @@ SPI &amp;= \frac{EV}{PV} \\
   vertical-align: middle;
 }
 
-:where(#fjraicmbal) .gt_empty_group_heading {
+:where(#cjqbfzfvpj) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -437,15 +357,15 @@ SPI &amp;= \frac{EV}{PV} \\
   vertical-align: middle;
 }
 
-:where(#fjraicmbal) .gt_from_md > :first-child {
+:where(#cjqbfzfvpj) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#fjraicmbal) .gt_from_md > :last-child {
+:where(#cjqbfzfvpj) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#fjraicmbal) .gt_row {
+:where(#cjqbfzfvpj) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -464,7 +384,7 @@ SPI &amp;= \frac{EV}{PV} \\
   overflow-x: hidden;
 }
 
-:where(#fjraicmbal) .gt_stub {
+:where(#cjqbfzfvpj) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -477,7 +397,7 @@ SPI &amp;= \frac{EV}{PV} \\
   padding-right: 5px;
 }
 
-:where(#fjraicmbal) .gt_stub_row_group {
+:where(#cjqbfzfvpj) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -491,11 +411,11 @@ SPI &amp;= \frac{EV}{PV} \\
   vertical-align: top;
 }
 
-:where(#fjraicmbal) .gt_row_group_first td {
+:where(#cjqbfzfvpj) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#fjraicmbal) .gt_summary_row {
+:where(#cjqbfzfvpj) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -505,16 +425,16 @@ SPI &amp;= \frac{EV}{PV} \\
   padding-right: 5px;
 }
 
-:where(#fjraicmbal) .gt_first_summary_row {
+:where(#cjqbfzfvpj) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_first_summary_row.thick {
+:where(#cjqbfzfvpj) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#fjraicmbal) .gt_last_summary_row {
+:where(#cjqbfzfvpj) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -524,7 +444,7 @@ SPI &amp;= \frac{EV}{PV} \\
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_grand_summary_row {
+:where(#cjqbfzfvpj) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -534,7 +454,7 @@ SPI &amp;= \frac{EV}{PV} \\
   padding-right: 5px;
 }
 
-:where(#fjraicmbal) .gt_first_grand_summary_row {
+:where(#cjqbfzfvpj) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -544,11 +464,11 @@ SPI &amp;= \frac{EV}{PV} \\
   border-top-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_striped {
+:where(#cjqbfzfvpj) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#fjraicmbal) .gt_table_body {
+:where(#cjqbfzfvpj) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -557,7 +477,7 @@ SPI &amp;= \frac{EV}{PV} \\
   border-bottom-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_footnotes {
+:where(#cjqbfzfvpj) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -571,7 +491,7 @@ SPI &amp;= \frac{EV}{PV} \\
   border-right-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_footnote {
+:where(#cjqbfzfvpj) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -580,7 +500,7 @@ SPI &amp;= \frac{EV}{PV} \\
   padding-right: 5px;
 }
 
-:where(#fjraicmbal) .gt_sourcenotes {
+:where(#cjqbfzfvpj) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -594,7 +514,7 @@ SPI &amp;= \frac{EV}{PV} \\
   border-right-color: #D3D3D3;
 }
 
-:where(#fjraicmbal) .gt_sourcenote {
+:where(#cjqbfzfvpj) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -602,68 +522,1457 @@ SPI &amp;= \frac{EV}{PV} \\
   padding-right: 5px;
 }
 
-:where(#fjraicmbal) .gt_left {
+:where(#cjqbfzfvpj) .gt_left {
   text-align: left;
 }
 
-:where(#fjraicmbal) .gt_center {
+:where(#cjqbfzfvpj) .gt_center {
   text-align: center;
 }
 
-:where(#fjraicmbal) .gt_right {
+:where(#cjqbfzfvpj) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#fjraicmbal) .gt_font_normal {
+:where(#cjqbfzfvpj) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#fjraicmbal) .gt_font_bold {
+:where(#cjqbfzfvpj) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#fjraicmbal) .gt_font_italic {
+:where(#cjqbfzfvpj) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#fjraicmbal) .gt_super {
+:where(#cjqbfzfvpj) .gt_super {
   font-size: 65%;
 }
 
-:where(#fjraicmbal) .gt_footnote_marks {
+:where(#cjqbfzfvpj) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#fjraicmbal) .gt_asterisk {
+:where(#cjqbfzfvpj) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#fjraicmbal) .gt_indent_1 {
+:where(#cjqbfzfvpj) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#fjraicmbal) .gt_indent_2 {
+:where(#cjqbfzfvpj) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#fjraicmbal) .gt_indent_3 {
+:where(#cjqbfzfvpj) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#fjraicmbal) .gt_indent_4 {
+:where(#cjqbfzfvpj) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#fjraicmbal) .gt_indent_5 {
+:where(#cjqbfzfvpj) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table">
+<table class="gt_table"><caption>Table&nbsp;1:  Planejamento inicial </caption>
+  <thead class="gt_header">
+    <tr>
+      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col">Data de Status</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5" scope="colgroup">
+        <span class="gt_column_spanner">Entregas</span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m4</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m5</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right">Mar 1, 2000</td>
+<td class="gt_row gt_right">Mar 10, 2000</td>
+<td class="gt_row gt_right">Mar 25, 2000</td>
+<td class="gt_row gt_right">Mar 31, 2000</td>
+<td class="gt_row gt_right">Apr 10, 2000</td>
+<td class="gt_row gt_right">Apr 30, 2000</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>Esta tabela deve ser lida da seguinte forma: no dia 1 de março (data e status) a entrega m1 estava prevista para ocorrer no dia 10 de março, a entrega m2 estava prevista para ocorrer no dia 25 de março, a entrega m3 estava prevista para ocorrer no dia 31 de março, e assim por diante.</p>
+<p>Periodicamente (vamos considerar revisões quinzenais neste exemplo), os prazos são reavaliados ou a data real de conclusão é registrada.</p>
+<p>Assim, considere que no dia 15 de março foi feita uma verificação dos resultados obtidos e constatou-se que m1 não foi entregue na data prevista do dia 10, e que foi replanejado para ser entregue no dia 20. E que, em função deste atraso, não seria possível manter a data de m2 para o dia 25. Neste caso, m2 também teve sua data modificada para ser entregue no dia 30 de março. Apesar destes dois atrasos, vamos considerar que a equipe avaliou que poderia compensar o atraso e manter todas as demais entregas nas datas originalmente previstas.</p>
+<p>O resultado disto está mostrado na tabela <a href="#tbl-status-1">Table&nbsp;2</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-status-1" class="anchored">
+
+<div id="xqgpdhmhnw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#xqgpdhmhnw) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#xqgpdhmhnw) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#xqgpdhmhnw) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#xqgpdhmhnw) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#xqgpdhmhnw) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#xqgpdhmhnw) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#xqgpdhmhnw) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#xqgpdhmhnw) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#xqgpdhmhnw) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#xqgpdhmhnw) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#xqgpdhmhnw) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#xqgpdhmhnw) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#xqgpdhmhnw) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xqgpdhmhnw) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#xqgpdhmhnw) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#xqgpdhmhnw) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xqgpdhmhnw) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#xqgpdhmhnw) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xqgpdhmhnw) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#xqgpdhmhnw) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xqgpdhmhnw) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#xqgpdhmhnw) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#xqgpdhmhnw) .gt_left {
+  text-align: left;
+}
+
+:where(#xqgpdhmhnw) .gt_center {
+  text-align: center;
+}
+
+:where(#xqgpdhmhnw) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#xqgpdhmhnw) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#xqgpdhmhnw) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#xqgpdhmhnw) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#xqgpdhmhnw) .gt_super {
+  font-size: 65%;
+}
+
+:where(#xqgpdhmhnw) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#xqgpdhmhnw) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#xqgpdhmhnw) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#xqgpdhmhnw) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#xqgpdhmhnw) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#xqgpdhmhnw) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#xqgpdhmhnw) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table&nbsp;2:  Datas revistas após primeira reunião de acompanhamento </caption>
+  <thead class="gt_header">
+    <tr>
+      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col">Data de Status</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5" scope="colgroup">
+        <span class="gt_column_spanner">Entregas</span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m4</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m5</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right">Mar 1, 2000</td>
+<td class="gt_row gt_right">Mar 10, 2000</td>
+<td class="gt_row gt_right">Mar 25, 2000</td>
+<td class="gt_row gt_right">Mar 31, 2000</td>
+<td class="gt_row gt_right">Apr 10, 2000</td>
+<td class="gt_row gt_right">Apr 30, 2000</td></tr>
+    <tr><td class="gt_row gt_right">Mar 15, 2000</td>
+<td class="gt_row gt_right">Mar 20, 2000</td>
+<td class="gt_row gt_right">Mar 30, 2000</td>
+<td class="gt_row gt_right">Mar 31, 2000</td>
+<td class="gt_row gt_right">Apr 10, 2000</td>
+<td class="gt_row gt_right">Apr 30, 2000</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>Os dados desta tabela podem ser colocados num gráfico mostrado na <a href="#fig-1">Figure&nbsp;1</a> onde os eixos x e y são ambos “tempo”, mostrando a evolução histórica das previsões realizadas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Evolução das datas previsas após primeira avaliação de status do projeto</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O eixo y deste gráfico representa as diversas datas de status do projeto, enquanto o eixo x representa a data prevista ou realizada de uma entrega na referida data de status (as datas planejadas/realizadas) estão suprimidas para facilitar a leitura do gráfico).</p>
+</section>
+<section id="estimativa-visual-das-datas-de-compromisso-do-projeto" class="level2">
+<h2 class="anchored" data-anchor-id="estimativa-visual-das-datas-de-compromisso-do-projeto">Estimativa visual das datas de compromisso do projeto</h2>
+<p>O processo de aferir as datas de entrega e de avaliar o impacto do realizado sobre as entregas futuras deve ser repetido regularmente.</p>
+<p>Por exemplo, nossa história segue até a próxima data de avaliação do status no dia 1 de abril. Neste dia, registramos que m1 foi entregue de fato no dia 22 de março. Também m2 não foi entregue e foi replanejado para ser terminado no dia 5 de abril. E, m3 foi replanejado para o dia 15 de abril. Estes atrasos afetaram as previsões de entregas futuras que foram refeitas conforme: m4 foi reestimado para o dia 22 de abril, e m5 para o dia 5 de maio. Estas datas estão na <a href="#tbl-status-2">Table&nbsp;3</a> abaixo.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-status-2" class="anchored">
+
+<div id="oessajnrwx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#oessajnrwx) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#oessajnrwx) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#oessajnrwx) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#oessajnrwx) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#oessajnrwx) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#oessajnrwx) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#oessajnrwx) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#oessajnrwx) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#oessajnrwx) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#oessajnrwx) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#oessajnrwx) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#oessajnrwx) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#oessajnrwx) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#oessajnrwx) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#oessajnrwx) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#oessajnrwx) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#oessajnrwx) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#oessajnrwx) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#oessajnrwx) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#oessajnrwx) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#oessajnrwx) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#oessajnrwx) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#oessajnrwx) .gt_left {
+  text-align: left;
+}
+
+:where(#oessajnrwx) .gt_center {
+  text-align: center;
+}
+
+:where(#oessajnrwx) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#oessajnrwx) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#oessajnrwx) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#oessajnrwx) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#oessajnrwx) .gt_super {
+  font-size: 65%;
+}
+
+:where(#oessajnrwx) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#oessajnrwx) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#oessajnrwx) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#oessajnrwx) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#oessajnrwx) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#oessajnrwx) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#oessajnrwx) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table&nbsp;3:  Datas revistas após segunda reunião de acompanhamento </caption>
+  <thead class="gt_header">
+    <tr>
+      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col">Data de Status</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5" scope="colgroup">
+        <span class="gt_column_spanner">Entregas</span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m4</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">m5</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right">Mar 1, 2000</td>
+<td class="gt_row gt_right">Mar 10, 2000</td>
+<td class="gt_row gt_right">Mar 25, 2000</td>
+<td class="gt_row gt_right">Mar 31, 2000</td>
+<td class="gt_row gt_right">Apr 10, 2000</td>
+<td class="gt_row gt_right">Apr 30, 2000</td></tr>
+    <tr><td class="gt_row gt_right">Mar 15, 2000</td>
+<td class="gt_row gt_right">Mar 20, 2000</td>
+<td class="gt_row gt_right">Mar 30, 2000</td>
+<td class="gt_row gt_right">Mar 31, 2000</td>
+<td class="gt_row gt_right">Apr 10, 2000</td>
+<td class="gt_row gt_right">Apr 30, 2000</td></tr>
+    <tr><td class="gt_row gt_right">Apr 1, 2000</td>
+<td class="gt_row gt_right">Mar 22, 2000</td>
+<td class="gt_row gt_right">Apr 5, 2000</td>
+<td class="gt_row gt_right">Apr 15, 2000</td>
+<td class="gt_row gt_right">Apr 22, 2000</td>
+<td class="gt_row gt_right">May 5, 2000</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>Os dados desta tabela podem ser colocados num gráfico mostrado na <a href="#fig-2">Figure&nbsp;2</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Evolução das datas previsas após segunda avaliação de status do projeto</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Este processo de reavaliação de entregas intermediárias se repete durante a execução do projeto, produzindo um gráfico que com o tempo se assemelha ao mostrado abaixo.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-status-n" class="anchored">
+
+<div id="hbuwclwvpd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#hbuwclwvpd) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#hbuwclwvpd) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#hbuwclwvpd) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#hbuwclwvpd) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#hbuwclwvpd) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#hbuwclwvpd) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#hbuwclwvpd) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#hbuwclwvpd) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#hbuwclwvpd) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#hbuwclwvpd) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#hbuwclwvpd) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#hbuwclwvpd) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#hbuwclwvpd) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#hbuwclwvpd) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#hbuwclwvpd) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#hbuwclwvpd) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#hbuwclwvpd) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#hbuwclwvpd) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#hbuwclwvpd) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#hbuwclwvpd) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#hbuwclwvpd) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#hbuwclwvpd) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#hbuwclwvpd) .gt_left {
+  text-align: left;
+}
+
+:where(#hbuwclwvpd) .gt_center {
+  text-align: center;
+}
+
+:where(#hbuwclwvpd) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#hbuwclwvpd) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#hbuwclwvpd) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#hbuwclwvpd) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#hbuwclwvpd) .gt_super {
+  font-size: 65%;
+}
+
+:where(#hbuwclwvpd) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#hbuwclwvpd) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#hbuwclwvpd) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#hbuwclwvpd) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#hbuwclwvpd) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#hbuwclwvpd) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#hbuwclwvpd) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table&nbsp;4:  Evolução das datas de entregas durante o projeto </caption>
   <thead class="gt_header">
     <tr>
       <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
@@ -729,79 +2038,39 @@ SPI &amp;= \frac{EV}{PV} \\
 </div>
 </div>
 </div>
-<p>A cada 15 dias, os prazos são reavaliados ou a data real de conclusão é registrada. As informações mostradas na tabela podem ser representadas visualmente conforme mostra o gráfico a seguir.</p>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># using the function from @Marcelo from this link </span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># https://stackoverflow.com/questions/43625341/reverse-datetime-posixct-data-axis-in-ggplot </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to invert the data axis: </span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales) <span class="co"># for as.trans</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtext) <span class="co"># for markdown</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid) <span class="co"># arrow</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>c_trans <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, <span class="at">breaks =</span> b<span class="sc">$</span>breaks, <span class="at">format =</span> b<span class="sc">$</span>format) {</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">as.trans</span>(a)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">as.trans</span>(b)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  name <span class="ot">&lt;-</span> <span class="fu">paste</span>(a<span class="sc">$</span>name, b<span class="sc">$</span>name, <span class="at">sep =</span> <span class="st">"-"</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  trans <span class="ot">&lt;-</span> <span class="cf">function</span>(x) a<span class="sc">$</span><span class="fu">trans</span>(b<span class="sc">$</span><span class="fu">trans</span>(x))</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  inv <span class="ot">&lt;-</span> <span class="cf">function</span>(x) b<span class="sc">$</span><span class="fu">inverse</span>(a<span class="sc">$</span><span class="fu">inverse</span>(x))</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trans_new</span>(name, trans, <span class="at">inverse =</span> inv, <span class="at">breaks =</span> breaks, <span class="at">format=</span>format)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>rev_date <span class="ot">&lt;-</span> <span class="fu">c_trans</span>(<span class="st">"reverse"</span>, <span class="st">"time"</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>entregas <span class="ot">&lt;-</span> </span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  entregas <span class="sc">%&gt;%</span> </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(m1, m2, m3, m4, m5),</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"milestone"</span>, </span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"previsto"</span>)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>y_breaks <span class="ot">&lt;-</span> entregas <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(status) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(status) <span class="sc">%&gt;%</span> <span class="fu">pull</span>() <span class="sc">%&gt;%</span> <span class="fu">as.POSIXct.Date</span>()</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>m_labels <span class="ot">&lt;-</span> entregas <span class="sc">%&gt;%</span> <span class="fu">filter</span>(status <span class="sc">&lt;=</span> <span class="fu">min</span>(status)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">status =</span> <span class="fu">as.POSIXct.Date</span>(status <span class="sc">-</span> <span class="dv">2</span>), <span class="at">previsto =</span> <span class="fu">as.POSIXct.Date</span>(previsto <span class="sc">+</span> <span class="dv">3</span>))</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>entregas <span class="sc">%&gt;%</span> </span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">status =</span> <span class="fu">as.POSIXct.Date</span>(status),</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">previsto =</span> <span class="fu">as.POSIXct.Date</span>(previsto)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> previsto, <span class="at">y =</span> status, <span class="at">group =</span> milestone, <span class="at">colour =</span> milestone)) <span class="sc">+</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> m_labels, <span class="fu">aes</span>(<span class="at">x =</span> previsto, <span class="at">y =</span> status, <span class="at">label =</span> milestone)) <span class="sc">+</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> rev_date, <span class="at">breaks =</span> y_breaks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">date_format</span>()) <span class="sc">+</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Previsão das Entregas"</span>,</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_markdown</span>(<span class="at">lineheight =</span> <span class="fl">1.1</span>),</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle =</span> <span class="dv">20</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">"inches"</span>), <span class="at">type =</span> <span class="st">"closed"</span>))</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<div id="fig-n" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-n-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Evolução das datas previsas</figcaption><p></p>
+</figure>
 </div>
 </div>
-<p>O eixo y deste gráfico representa as diversas datas de status do projeto, enquanto o eixo x representa a data prevista ou realizada de uma entrega na referida data de status (as datas planejadas/realizadas) estão suprimidas para facilitar a leitura do gráfico).</p>
-<p>A interpretação do gráfico mostra que existe uma inclinação nas diversas curvas de entrega dos resultados intermediários muito similar. Isto pode ser um indicativo de que a causa dos atrasos está mais relacionada com uma estimativa original errada do que com problemas de performance da equipe, o que geraria inclinações diferentes para cada uma das curvas das várias entregas.</p>
+</div>
+</section>
+<section id="duas-implicações-do-processo-de-avaliação-de-entregas-intermediárias" class="level2">
+<h2 class="anchored" data-anchor-id="duas-implicações-do-processo-de-avaliação-de-entregas-intermediárias">Duas implicações do processo de avaliação de entregas intermediárias</h2>
+<p>A visibilidade da evolução dos compromissos intermediários durante a execução do projeto contribuem com 2 fatores importantes.</p>
+<p>O primeiro deles é que é possível identificar diferentes padrões de evolução de datas de compromissos, que podem ser mapeados em fatores como tecnologias diferentes, equipes, escopo, etc. E isto fornece percepções que ajudam a equipe a endereçar problemas localizados (ao invés de generalizá-los).</p>
+<p>Ou, em sentido contrário ajudam a identificar problemas gerais.</p>
+<p>Por exemplo, a <a href="#fig-n">Figure&nbsp;3</a> mostra que existe uma inclinação nas diversas curvas de entrega dos resultados intermediários muito similar. Isto pode ser um indicativo de que a causa dos atrasos está mais relacionada com uma estimativa original errada da capacidade de realização. Diferente, por exemplo de problemas com a performance da equipe, o que geraria inclinações diferentes para equipes diferentes.</p>
+<p>O segundo fator é que a visibilidade das evoluções históricas ajuda na construção de um entendimento e de um ambiente para a discussão de ajustes mais estratégicos.</p>
+<p>Parte da dificuldade em negociar cortes ou mudanças de escopo nos projetos, vêm do fato de que há sempre uma sensação de que as variações e atrasos ocorridos não são suficientes para justificar estas mudanças e cortes, principalmente porque é difícil visualizar o impacto destas variações no todo. E como é difícil enxergar estes impactos, escolhe-se a alternativa de vê-los como variações menores cujo impacto deve-se buscar compensar, a fim de se manter o compromisso original”.</p>
+<p>Um gráfico como o <a href="#fig-n">Figure&nbsp;3</a> ajuda na construção de uma visão mais realista do progresso do projeto, o que é muito útil para negociar mudanças e até mesmo cortes no escopo, ou aceitação da prorrogação de datas.</p>
 </section>
 <section id="planejando-para-poder-controlar-as-entregas" class="level2">
 <h2 class="anchored" data-anchor-id="planejando-para-poder-controlar-as-entregas">Planejando para poder controlar as entregas</h2>
 <p>Para poder acompanhar um projeto desta forma é preciso a preparação adequada.</p>
 <p>O mais crítico aqui é conseguir criar bons entregáveis intermediários. As principais características destes resultados são:</p>
 <ul>
-<li><p>São mensuráveis. Em geral o indicador de realização é previamente definido junto com a fonte de medição.</p></li>
-<li><p>Geram valor ao cliente. Quando um resultado é entendido como um valor em si, isto ajuda a evitar que o trabalho relacionado seja alvo de modificações ou tenha seu conteúdo aumentado.</p></li>
+<li><p>São mensuráveis na dimensão do negócio. Em geral o indicador de realização é previamente definido junto com a fonte de medição.</p></li>
+<li><p>Geram valor ao negócio. Quando um resultado é entendido como um valor em si, isto ajuda a evitar que o trabalho relacionado seja alvo de modificações ou tenha seu conteúdo aumentado.</p></li>
 <li><p>São relativamente isolados de outros trabalhos. Isto é importante para podermos identificar causas de desvios observados. Por exemplo, se uma mesma equipe trabalha em paralelo em resultados diferentes, fica difícil identificar causas das variações que venham a ocorrer.</p></li>
 </ul>
 <p>O uso de gráficos de tendência combinados com um planejamento de entregas intermediárias é uma poderosa ferramenta de planejamento e controle para projetos. A aplicação desta ferramenta é simples e direta, porém a preparação para que a mesma possa ser usada de forma efetiva demanda que o trabalho seja estruturado de forma a colaborar com o uso da ferramenta, o que em geral é difícil, mas não é um problema, já que as diretrizes para isso são consideradas boas práticas de planejamento.</p>
+<p>Um último tema que deve ser considerado é se a utilização deste tipo de ferramenta é possível em projetos ágeis. Mas este é um assunto que vou discutir neste outro link.</p>
 
 
 </section>

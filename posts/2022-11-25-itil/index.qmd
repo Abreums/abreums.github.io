@@ -1,0 +1,18 @@
+---
+title: "ITIL"
+description: "ITIL"
+date: 2022-11-25
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-25-itil/
+  language: pt-br
+categories: [Gestão]
+---
+
+ITIL - Information Technology Infrastructure Library
+
+demanda -\> sistema -\> valor

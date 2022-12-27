@@ -1,0 +1,63 @@
+---
+title: "Scrum"
+description: "O framework Scrum traz boas idéias para a organização do trabalho. Neste post eu gostaria de analisar o que há por trás destas idéias."
+date: 2022-11-23
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-23-scrum/
+  language: pt-br
+categories: [Agile]
+---
+
+O framework Scrum é a porta de entrada para práticas ágeis para um grande número de pessoas. Scrum traz boas idéias sobre a organização do trabalho. Estas idéias são práticas para conceitos básicos da organização do trabalho. Entender o conceito básico que existe sob a prática ajuda a implementá-la de forma efeitiva, e também ajuda a identificar outras práticas que não estão presentes no Scrum que também implementam o mesmo conceito e podem ser utilizadas em situações onde a prática Scrum precisa ser aprodundada.
+
+## Priorização
+
+A priorização é um dos principais conceitos do Scrum. E aqui estão
+
+*Work in Progress* é parte do processo de priorização.
+
+## Velocidade
+
+A Velocidade é necessária para que consigamos atender demandas em tempo hábil para obter benefícios. O segredo da velocidade está na estrutura da equipe. Isto porque a estrutura da equipe viabiliza duas coisas:
+
+1.  Especialização
+2.  Comunicação efetiva
+
+### Especialização
+
+Um desafio deste processo é que as equipes precisam ser estáveis para que a performance da equipe seja efetiva. De outro lado, é preciso que a estrutura das equipes seja dinâmica para que a solução se adeque rapidamente a novas demandas.
+
+Scrum\@scale propõe endereçar estes problemas através de um conjunto de papéis que deverão ser desempenhados por pessoas. Por exemplo, cada equipe deverá ter um Product Owner e haverá um Chief Product Owner priorizando trabalho entre equipes.
+
+A organização por papéis gera uma solução com baixa burocracia **quando nenhuma outra estrutura de poder existir**. Mas isto nem sempre é o caso porque nesta posição há muitas outras atribuições a serem realizadas além da priorização, como por exemplo gestão de custos e recursos. Então a questão é: a pessoa na posição
+
+Existe uma
+
+## *Feedback* (Aprendizagem)
+
+*Feedback* é um processo fundamental no processo de aprendizagem.
+
+### Definição de Pronto
+
+A definição de pronto muda o padrão de trabalho onde a validação é feita no final para que a validação seja a entrada do processo.
+
+### Terminar vs Começar
+
+Um dos problemas com a incerteza é que as pessoas gostaria de ver o todo para poder se comprometer com a solução. Ou seja, as pessoas não gostam de se comprometer com uma visão parcial, onde a incerteza ainda é presente. Por isso, é mais comum ver as pessoas se comprometerem com um conjunto grande de iniciativas ao invés de focar em terminar um conjunto pequeno.
+
+Quando se lida com incerteza há uma grande chance de ocorrer retrabalho. Qual a vantagem de terminar algo agora se há uma grande chance de termos que refazer no futuro? Melhor seria começar várias coisas ao mesmo tempo para não precisarmos bater o martelo em nenhuma delas até termos certeza do que precisamos ter.
+
+E é sim verdade que se decidirmos abraçar a incerteza, teremos sim uma boa quantidade de retrabalho. Mas não é verdade que se abrirmos muitas frentes o trabalho não vai acontecer, ao contrário, ele será maior.
+
+Resolver este problema não é trivial. Provavelmente serão necessárias várias ações em conjunto e ainda assim haverá uma parte da incerteza que estará incoberta.
+
+Uma das ações que ajudam a resolver este problema é a mudança para uma cultura de "Definição de Pronto". Neste caso, durante a construção da definição de pronto é preciso direcionar para uma validação fechada.
+
+## Gestão da Capacidade
+
+Durante a execução de uma sprint surgirão trabalhos não previstos. Duas ações são necessárias para tratar estes trabalhos: manter um percentual da capacidade da equipe disponível para assumir este trabalho, e ter um Product Owner capaz de avaliar a possibilidade de postergar estes trabalhos para outro momento no projeto.

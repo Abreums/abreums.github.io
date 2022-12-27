@@ -1,0 +1,140 @@
+---
+title: "Como construir um gráfico de tendência com datas"
+description: "Um gráfico de tendência com datas é uma ferramenta para ajudar na análise da performance do trabalho."
+date: 2022-11-10
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2019-11-10-como-criar-um-grafico-de-cordas/
+  language: pt-br
+image: grafico-cordas.png
+categories: [Gestão, Rstat]
+---
+
+Vou mostrar aqui como montar um gráfico de tendência com datas. Este gráfico é muito útil para acompanhar a performance do trabalho conforme descrito [aqui](https://abreums.github.io/posts/2019-11-10-rastreando-a-performance-do-trabalho/).
+
+## Office
+
+Para montar o gráfico, seja no MS-Office, ou no Google-Docs, ou ainda no LibreOffice, o processo é muito semelhante. Vou utilizar o Google-Docs, mas não há diferenças significativas para outros ambientes.
+
+Para iniciar os dados devem estar organizados em forma tabular conforme mostrado na
+
+![fig-1](fig-1.png) Selecionando a área dos dados, selecione *Incluir novo gráfico*, e o tipo "Gráfico de Dispersão" (*Scatter Diagram*).
+
+Você deve garantir que haja uma série de dados definida para cada coluna de cada resultado intermediário. Para cada uma das séries você deve solicitar que seja incluída uma linha de tendência.
+
+![Editor de Gráficos do Calc](fig-2.png)
+
+O que nos gera um gráfico na forma:
+
+![Scatter Diagram](grafico-cordas.png)
+
+Um problema com todas estas ferramentas é que não é possível transmutar os eixos e colocar o ponto (0,0) no canto superior esquerdo. Por isto, as tendências devem ser visualizadas da esquerda para a direita e não de cima para baixo.
+
+## GGPLOT2
+
+Outra opção é utilizar a biblioteca ggplot2 do tidyverse para construir um gráfico mais customizado.
+
+Neste caso, os dados são arrumados dentro de um _tibble_ conforme mostrado abaixo:
+
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| error: false
+#| message: false
+library(tidyverse)
+entregas <- 
+  tibble(status = c(as.Date("2000-03-01"), as.Date("2000-03-15"), 
+                  as.Date("2000-04-01"), as.Date("2000-04-15"), 
+                  as.Date("2000-05-01"), as.Date("2000-05-15")),
+         m1 = c(as.Date("2000-03-10"), as.Date("2000-03-20"), 
+                  as.Date("2000-03-22"), NA, NA, NA),
+         m2 = c(as.Date("2000-03-25"), as.Date("2000-03-30"), 
+                  as.Date("2000-04-05"), as.Date("2000-04-10"), NA, NA),
+         m3 = c(as.Date("2000-03-31"), as.Date("2000-03-31"), 
+                  as.Date("2000-04-15"), as.Date("2000-04-20"), 
+                  as.Date("2000-04-25"), NA),
+         m4 = c(as.Date("2000-04-10"), as.Date("2000-04-10"), 
+                  as.Date("2000-04-22"), as.Date("2000-04-30"), 
+                  as.Date("2000-05-10"), as.Date("2000-05-25")),
+         m5 = c(as.Date("2000-04-30"), as.Date("2000-04-30"),
+                as.Date("2000-05-05"), as.Date("2000-05-20"),
+                as.Date("2000-05-30"), as.Date("2000-05-30"))
+         )
+
+entregas |> glimpse()
+```
+
+Para desenharmos o gráfico como queremos precisamos de uma fun;áo que faça a transposição dos valores dos eixos, colocando o ponto (0,0) no canto superior esquerdo. 
+
+Para isto temos a função _c_trans_ definida no código a seguir.
+
+A estrutura do _tibble_ é modificada para ficar num formato _tidy_.
+
+Por fim, montamos o gráfico com pontos e linhas.
+
+
+```{r}
+#| label: fig-1
+#| echo: fenced
+#| warning: false
+#| message: false
+#| fig-cap: "Gráfico de cordas"
+
+# using the function from @Marcelo from this link 
+# https://stackoverflow.com/questions/43625341/reverse-datetime-posixct-data-axis-in-ggplot 
+# to invert the data axis: 
+library(scales) # for as.trans
+library(ggtext) # for markdown
+library(grid) # arrow
+c_trans <- function(a, b, breaks = b$breaks, format = b$format) {
+  a <- as.trans(a)
+  b <- as.trans(b)
+
+  name <- paste(a$name, b$name, sep = "-")
+
+  trans <- function(x) a$trans(b$trans(x))
+  inv <- function(x) b$inverse(a$inverse(x))
+
+  trans_new(name, trans, inverse = inv, breaks = breaks, format=format)
+}
+rev_date <- c_trans("reverse", "time")
+
+m_entregas <- 
+  entregas %>% 
+  pivot_longer(cols = c(m1, m2, m3, m4, m5),
+               names_to = "milestone", 
+               values_to = "previsto")
+
+y_breaks <- m_entregas %>% distinct(status) %>% arrange(status) %>% pull() %>% as.POSIXct.Date()
+
+m_labels <- m_entregas %>% filter(status <= min(status)) %>% mutate(status = as.POSIXct.Date(status - 2), previsto = as.POSIXct.Date(previsto + 3))
+
+m_entregas %>% 
+  mutate(status = as.POSIXct.Date(status),
+         previsto = as.POSIXct.Date(previsto)) %>% 
+  ggplot(aes(x = previsto, y = status, group = milestone, colour = milestone)) +
+  geom_point() +
+  geom_line() +
+  geom_text(data = m_labels, aes(x = previsto, y = status, label = milestone)) +
+  scale_y_continuous(trans = rev_date, breaks = y_breaks, labels = scales::date_format()) +
+  labs(title = "Previsão das Entregas",
+       x = NULL,
+       y = NULL) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_markdown(lineheight = 1.1),
+    axis.text.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(arrow = arrow(angle = 20, length = unit(0.1, "inches"), type = "closed"))
+  ) 
+
+```
+
+Um colega que trabalhava comigo costumava chamá-lo de **Gráfico de Cordas**.  Nunca achei referência que utiliza-se este nome, pois trata-se na verdade de um gráfico de dispersão composto com um gráfico de linhas (ou um de tendência como mostrei no exemplo em Calc), mas ainda assim costumo utilizar este nome.
