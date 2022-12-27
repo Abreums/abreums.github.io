@@ -8,7 +8,7 @@ author:
     orcid: 0000-0003-4772-7955
 citation:
   type: post-weblog
-  url: https://abreums.github.io/posts/2019-11-10-rastreando-a-performance-do-trabalho/
+  url: https://abreums.github.io/posts/2022-11-10-rastreando-a-performance-do-trabalho/
   language: pt-br
 image: stream_diagram.png
 categories: [Gestão, Rstat]
@@ -54,7 +54,7 @@ Isso mesmo, o SPI seria de 100%, sem indicar o atraso. Isto acontece porque a f�
 
 Para seguirmos na nossa tentativa de conseguir avaliar a data de término do projeto, precisamos de uma outra estratégia.
 
-Uma forma de conseguir estimar o prazo de entrega do projeto é através de um gráfico de tendências de entregas intermediárias. Ou seja, eu ainda estou medindo escopo, mas desta vez numa perspectiva um pouco diferente. Neste *post* vou apresentar a lógica para utilizar esta técnica - para entender como construir o gráfico veja este [_link_](https://abreums.github.io/posts/2019-11-10-como-criar-um-grafico-de-cordas/).
+Uma forma de conseguir estimar o prazo de entrega do projeto é através de um gráfico de tendências de entregas intermediárias. Ou seja, eu ainda estou medindo escopo, mas desta vez numa perspectiva um pouco diferente. Neste *post* vou apresentar a lógica para utilizar esta técnica - para entender como construir o gráfico veja este [*link*](https://abreums.github.io/posts/2022-11-10-como-criar-um-grafico-de-cordas/).
 
 ```{r}
 #| echo: false

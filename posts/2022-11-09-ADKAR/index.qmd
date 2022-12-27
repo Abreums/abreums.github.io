@@ -1,0 +1,162 @@
+---
+title: "Gestão de Mudanças com ADKAR"
+description: "A estrutura da gestão de mudanças através dos modelos da empresa Prosci, incluindo ADKAR, PCT e Ciclo de Vida."
+date: 2022-11-09
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-09-ADKAR/
+  language: pt-br
+categories: [News]
+---
+
+\## Gestão de Mudanças segundo a Prosci
+
+O modelo de gestão da mudança da Prosci está estruturado em 3 elementos:
+
+\- um ciclo de vida,
+
+\- o triângulo de mudança da Prosci, e
+
+\- o modelo ADKAR.
+
+Neste post farei uma introdução sobre estes componentes, dos conceitos envolvidos e como o modelo trata da Gestão da Mudança.
+
+Vamos iniciar pelo modelo ADKAR.
+
+O modelo ADKAR é descrito como:
+
+\>\> The ADKAR model presented in this book is a framework
+
+for understanding change at an individual level. ... The ADKAR model has five elements or objectives (...) It is useful to think of these elements as
+
+building blocks. All five elements must be in place for a change
+
+to be realized \[\@adkar pg I)
+
+Os 5 elementos do ADKAR são apresentados conforme:
+
+A (Awareness) Conscientização da necessidade de mudança.
+
+D (Desire) Desejo de apoiar a participar da mudança.
+
+K (Knowledge) Conhecimento de como mudar
+
+A (Ability) Capacidade de implementar habilidades e conhecimentos necessários
+
+R (Reinforcement) Reforço para sustentar a mudança
+
+O framework ADKAR considera também que estes 5 elementos possuem um encadeamento lógico:
+
+\>\> The elements of the ADKAR model fall into the natural order
+
+of how one person experiences change. *Desire* cannot come
+
+before *awareness* because it is the awareness of the need for
+
+change that stimulates our desire or triggers our resistance to
+
+that change. *Knowledge* cannot come before *desire* because we
+
+do not seek to know how to do something that we do not want
+
+to do. *Ability* cannot come before *knowledge* because we cannot
+
+implement what we do not know. *Reinforcement* cannot come
+
+before *ability* because we can only recognize and appreciate
+
+what has been achieved. \[adkar pg 3\].
+
+Desta forma a mudança pode ser obtida através do desenvolvimento em cada indivíduo de cada um dos elementos obedecendo a sequência lógica. Importante destacar que o modelo ADKAR é um modelo de gestão de mudança dentro da ótica do indivíduo: ADKAR represents the essential elements
+
+of change for a single person \[adkar pg 43\]
+
+\### Táticas
+
+O modelo sugere 5 tipos de atividades que colaboram para o desenvolvimento dos elementos ADKAR, conforme mostrado na figura a seguir \[ADKAR pg 46\[
+
+Atividades de Gestão de Mudanças   A \|  D  \|  K  \|  A  \|  R
+
+Communications                                     x     x
+
+Sponsorship                                             x    x                          x
+
+Coaching                                                  x    x      x        x        x
+
+Resistance Management                             x
+
+Training                                                                   x      x
+
+ 
+
+Detalhadamente, o modelo apresenta táticas para cada um dos elementos.
+
+Awareness
+
+1.  Comunicação Efetiva
+
+2.  Patrocínio Executivo
+
+3.  Coaching de gerentes e supervisores
+
+4.  Acesso facilitado a informações sobre o negócio
+
+Desire
+
+1.  Patrocinar efetivamente a mudança com os funcionários
+
+2.  Prepare os gerentes para serem líderes da mudança
+
+3.  Avalie os riscos e antecipe a resistência
+
+4.  Envolva os funcionários no processo da mudança
+
+5.  Alinhar programas de incentivo
+
+Knowledge
+
+1.  Treinamento efetivo e programas de educação
+
+2.  Auxiliares de trabalho
+
+3.  Coaching individual
+
+4.  Grupos de Usuários e fóruns
+
+Ability
+
+1.  Envolvimento diário dos supervisores
+
+2.  Acesso a especialistas no assunto
+
+3.  Monitoramento de performance
+
+4.  Exercícios práticos durante o treinamento
+
+5.   
+
+O modelo também sugere o grau de influência de participantes-chaves durante a execução da mudança conforme mostrado na tabela a seguir \[ADKAR pg 47\]:
+
+ 
+
+Participantes-chaves na Gestão da Mudança   A   \|   D   \|   K   \|   A   \|   R
+
+                                               Primary Sponsor      x         x                              x
+
+                                            Leadership Coalition  x        x
+
+                               Managers and supervisors     x         x         x         x       x
+
+                                                HR and Training                             x         x
+
+                                               Project Team                                  x          x
+
+ 
+
+Para cada um dos elementos do modelo são sugeridas táticas que podem ser aplicadas no desenvolvimento de cada elemento:
+
+ 

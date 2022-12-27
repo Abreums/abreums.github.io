@@ -14,7 +14,7 @@ image: grafico-cordas.png
 categories: [Gestão, Rstat]
 ---
 
-Vou mostrar aqui como montar um gráfico de tendência com datas. Este gráfico é muito útil para acompanhar a performance do trabalho conforme descrito [aqui](https://abreums.github.io/posts/2019-11-10-rastreando-a-performance-do-trabalho/).
+Vou mostrar aqui como montar um gráfico de tendência com datas. Este gráfico é muito útil para acompanhar a performance do trabalho conforme descrito [aqui](https://abreums.github.io/posts/2022-11-10-rastreando-a-performance-do-trabalho/).
 
 ## Office
 
@@ -38,8 +38,7 @@ Um problema com todas estas ferramentas é que não é possível transmutar os e
 
 Outra opção é utilizar a biblioteca ggplot2 do tidyverse para construir um gráfico mais customizado.
 
-Neste caso, os dados são arrumados dentro de um _tibble_ conforme mostrado abaixo:
-
+Neste caso, os dados são arrumados dentro de um *tibble* conforme mostrado abaixo:
 
 ```{r}
 #| echo: fenced
@@ -69,14 +68,13 @@ entregas <-
 entregas |> glimpse()
 ```
 
-Para desenharmos o gráfico como queremos precisamos de uma fun;áo que faça a transposição dos valores dos eixos, colocando o ponto (0,0) no canto superior esquerdo. 
+Para desenharmos o gráfico como queremos precisamos de uma fun;áo que faça a transposição dos valores dos eixos, colocando o ponto (0,0) no canto superior esquerdo.
 
-Para isto temos a função _c_trans_ definida no código a seguir.
+Para isto temos a função *c_trans* definida no código a seguir.
 
-A estrutura do _tibble_ é modificada para ficar num formato _tidy_.
+A estrutura do *tibble* é modificada para ficar num formato *tidy*.
 
 Por fim, montamos o gráfico com pontos e linhas.
-
 
 ```{r}
 #| label: fig-1
@@ -137,4 +135,4 @@ m_entregas %>%
 
 ```
 
-Um colega que trabalhava comigo costumava chamá-lo de **Gráfico de Cordas**.  Nunca achei referência que utiliza-se este nome, pois trata-se na verdade de um gráfico de dispersão composto com um gráfico de linhas (ou um de tendência como mostrei no exemplo em Calc), mas ainda assim costumo utilizar este nome.
+Um colega que trabalhava comigo costumava chamá-lo de **Gráfico de Cordas**. Nunca achei referência que utiliza-se este nome, pois trata-se na verdade de um gráfico de dispersão composto com um gráfico de linhas (ou um de tendência como mostrei no exemplo em Calc), mas ainda assim costumo utilizar este nome.
