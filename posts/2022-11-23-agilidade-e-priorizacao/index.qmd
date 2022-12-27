@@ -1,6 +1,6 @@
 ---
-title: "Scrum"
-description: "O framework Scrum traz boas idéias para a organização do trabalho. Neste post eu gostaria de analisar o que há por trás destas idéias."
+title: "Gestão do Fluxo e Priorização"
+description: "As práticas ágeis trazem boas idéias para a organização do trabalho. A necessidade de manter um processo de priorização junto com a gestão do fluxo é fator crítico para o sucesso da agilidade."
 date: 2022-11-23
 author: 
   - name: Marcos Abreu
@@ -8,7 +8,7 @@ author:
     orcid: 0000-0003-4772-7955
 citation:
   type: post-weblog
-  url: https://abreums.github.io/posts/2022-11-23-scrum/
+  url: https://abreums.github.io/posts/2022-11-23-agilidade-e-priorizacao/
   language: pt-br
 categories: [Agile]
 ---

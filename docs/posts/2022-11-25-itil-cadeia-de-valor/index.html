@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marcos Abreu">
-<meta name="dcterms.date" content="2022-11-23">
-<meta name="description" content="O framework Scrum traz boas idéias para a organização do trabalho. Neste post eu gostaria de analisar o que há por trás destas idéias.">
+<meta name="dcterms.date" content="2022-11-25">
+<meta name="description" content="ITIL v4 - Conceitos de valor e cadeia de valor">
 
-<title>Marcos Abreu’s blog - Scrum</title>
+<title>Marcos Abreu’s blog - ITIL v4 e a cadeia de valor</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,14 +96,14 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Scrum</h1>
+      <h1 class="title">ITIL v4 e a cadeia de valor</h1>
                   <div>
         <div class="description">
-          O framework Scrum traz boas idéias para a organização do trabalho. Neste post eu gostaria de analisar o que há por trás destas idéias.
+          ITIL v4 - Conceitos de valor e cadeia de valor
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Agile</div>
+                <div class="quarto-category">Gestão</div>
               </div>
                   </div>
   </div>
@@ -121,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 23, 2022</p>
+        <p class="date">November 25, 2022</p>
       </div>
     </div>
     
@@ -139,59 +139,44 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>O framework Scrum é a porta de entrada para práticas ágeis para um grande número de pessoas. Scrum traz boas idéias sobre a organização do trabalho. Estas idéias são práticas para conceitos básicos da organização do trabalho. Entender o conceito básico que existe sob a prática ajuda a implementá-la de forma efeitiva, e também ajuda a identificar outras práticas que não estão presentes no Scrum que também implementam o mesmo conceito e podem ser utilizadas em situações onde a prática Scrum precisa ser aprodundada.</p>
-<section id="priorização" class="level2">
-<h2 class="anchored" data-anchor-id="priorização">Priorização</h2>
-<p>A priorização é um dos principais conceitos do Scrum. E aqui estão</p>
-<p><em>Work in Progress</em> é parte do processo de priorização.</p>
+<p>##ITIL - Information Technology Infrastructure Library</p>
+<p>Recentemente fui convidado para ministrar curso sobre a ITIL versão 4.</p>
+<p>Confesso que nunca fui grande entusiasta da ITIL, apesar de reconhecer o valor que ela possui. A minha apatia se deve mais pela direação que não apenas a ITIL mais tanto ela, quanto outros sistemas que tentam propor padrões para a Tecnologia da Informação seguem, buscando prover um modelo que seja “completo”.</p>
+<p>Qual o problema em buscar criar um modelo completo?</p>
+<p>O problema é cair no erro que é tão bem descrito por Luis Carlos Borges em seu poema <em>Del rigor de la ciencia</em>, que pode ser lido na tradução para o portugês neste <a href="https://cosmosecontexto.org.br/do-rigor-da-ciencia/">link</a>, ou na sua versão original em espanhol lido pelo próprio Borges neste <a href="https://www.youtube.com/watch?v=zwDA3GmcwJU">vídeo no Youtube</a>.</p>
+<p>Não obstante minhas restrições em relação aos sistemas que tentam ser “completos”, encontrei nesta versão 4 da ITIL destaque para um tema que tenho muito apreço. E particularmente considero o destaque dado pela ITIL v4 a este tema adequado. Estou me referindo ao conceito de <strong>valor</strong>.</p>
+<section id="valor-e-utilidade" class="level2">
+<h2 class="anchored" data-anchor-id="valor-e-utilidade">Valor e Utilidade</h2>
+<p>Se existe um conceito que considero útil para o desenvolvimento de sistemas de software e particularmente para o gerenciamento e priorização de projetos é o de <em>Utilidade marginal</em>. E neste caso, me refiro explicitamente à definição conforme tratada pelos economistas.</p>
+<p>Sugiro uma busca na <a href="https://pt.wikipedia.org/wiki/Hist%C3%B3ria_do_pensamento_econ%C3%B3mico#Utilidade_marginal">Wikipedia</a> sobre temas como <a href="https://pt.wikipedia.org/wiki/Hist%C3%B3ria_do_pensamento_econ%C3%B3mico#Utilidade_marginal">História do Pensamento Econômico e Utilidade Marginal</a>, ou <a href="https://pt.wikipedia.org/wiki/Lei_da_utilidade_marginal">Lei da Utilidade Marginal</a>, ou ainda <a href="https://pt.wikipedia.org/wiki/Lei_da_utilidade_marginal">Paradoxo da água e do diamante</a>.</p>
+<p>Mas se você ainda não se convenceu da importância do tema e não está com vontade de ir atrás dos links acima, aqui vai minha explicação do motivo pelo qual este conceito é importante para a tecnologia da informação.</p>
+<p>Um dos desafios que temos quando estamos lidando com projetos de TI é o da priorização. O problema está na escolha do que deve ser considerado mais importante. Em geral, para o negócio, <strong>tudo é importante</strong>.</p>
+<p>Aqui entra a teoria da Utilidade Marginal. Primeiro é preciso distinguir valor de utilidade: um copo d’água é util para matar a cede. Se você está no conforto da sua casa e já se hidratou com um pouco de café ou chá o valor de um copo d’água é muito baixo. Mas, se você está perdido no deserto há 5 dias sem beber água, o valor de um copo d’água é absurdamente alto.</p>
+<p>Em projetos, ou na gestão da TI, se passa a mesma coisa. É óbvio que a funcionalidade de “Emissão de Nota Fiscal” é útil tanto quanto muitas outras funcionalidades que suportam o negócio, podemos dizer que <strong>tudo é útil</strong>. Mas dentro do contexto de um projeto, se ainda sequer temos uma base de informações de clientes disponível, a disponibilização da base de clientes possui - neste momento - maior valor que a funcionalidade de emissão de nota fiscal. É o contexto que atribui valor. E durante um projeto, o contexto muda.</p>
 </section>
-<section id="velocidade" class="level2">
-<h2 class="anchored" data-anchor-id="velocidade">Velocidade</h2>
-<p>A Velocidade é necessária para que consigamos atender demandas em tempo hábil para obter benefícios. O segredo da velocidade está na estrutura da equipe. Isto porque a estrutura da equipe viabiliza duas coisas:</p>
-<ol type="1">
-<li>Especialização</li>
-<li>Comunicação efetiva</li>
-</ol>
-<section id="especialização" class="level3">
-<h3 class="anchored" data-anchor-id="especialização">Especialização</h3>
-<p>Um desafio deste processo é que as equipes precisam ser estáveis para que a performance da equipe seja efetiva. De outro lado, é preciso que a estrutura das equipes seja dinâmica para que a solução se adeque rapidamente a novas demandas.</p>
-<p>Scrum@scale propõe endereçar estes problemas através de um conjunto de papéis que deverão ser desempenhados por pessoas. Por exemplo, cada equipe deverá ter um Product Owner e haverá um Chief Product Owner priorizando trabalho entre equipes.</p>
-<p>A organização por papéis gera uma solução com baixa burocracia <strong>quando nenhuma outra estrutura de poder existir</strong>. Mas isto nem sempre é o caso porque nesta posição há muitas outras atribuições a serem realizadas além da priorização, como por exemplo gestão de custos e recursos. Então a questão é: a pessoa na posição</p>
-<p>Existe uma</p>
-</section>
-</section>
-<section id="feedback-aprendizagem" class="level2">
-<h2 class="anchored" data-anchor-id="feedback-aprendizagem"><em>Feedback</em> (Aprendizagem)</h2>
-<p><em>Feedback</em> é um processo fundamental no processo de aprendizagem.</p>
-<section id="definição-de-pronto" class="level3">
-<h3 class="anchored" data-anchor-id="definição-de-pronto">Definição de Pronto</h3>
-<p>A definição de pronto muda o padrão de trabalho onde a validação é feita no final para que a validação seja a entrada do processo.</p>
-</section>
-<section id="terminar-vs-começar" class="level3">
-<h3 class="anchored" data-anchor-id="terminar-vs-começar">Terminar vs Começar</h3>
-<p>Um dos problemas com a incerteza é que as pessoas gostaria de ver o todo para poder se comprometer com a solução. Ou seja, as pessoas não gostam de se comprometer com uma visão parcial, onde a incerteza ainda é presente. Por isso, é mais comum ver as pessoas se comprometerem com um conjunto grande de iniciativas ao invés de focar em terminar um conjunto pequeno.</p>
-<p>Quando se lida com incerteza há uma grande chance de ocorrer retrabalho. Qual a vantagem de terminar algo agora se há uma grande chance de termos que refazer no futuro? Melhor seria começar várias coisas ao mesmo tempo para não precisarmos bater o martelo em nenhuma delas até termos certeza do que precisamos ter.</p>
-<p>E é sim verdade que se decidirmos abraçar a incerteza, teremos sim uma boa quantidade de retrabalho. Mas não é verdade que se abrirmos muitas frentes o trabalho não vai acontecer, ao contrário, ele será maior.</p>
-<p>Resolver este problema não é trivial. Provavelmente serão necessárias várias ações em conjunto e ainda assim haverá uma parte da incerteza que estará incoberta.</p>
-<p>Uma das ações que ajudam a resolver este problema é a mudança para uma cultura de “Definição de Pronto”. Neste caso, durante a construção da definição de pronto é preciso direcionar para uma validação fechada.</p>
-</section>
-</section>
-<section id="gestão-da-capacidade" class="level2">
-<h2 class="anchored" data-anchor-id="gestão-da-capacidade">Gestão da Capacidade</h2>
-<p>Durante a execução de uma sprint surgirão trabalhos não previstos. Duas ações são necessárias para tratar estes trabalhos: manter um percentual da capacidade da equipe disponível para assumir este trabalho, e ter um Product Owner capaz de avaliar a possibilidade de postergar estes trabalhos para outro momento no projeto.</p>
+<section id="cadeia-de-valor" class="level2">
+<h2 class="anchored" data-anchor-id="cadeia-de-valor">Cadeia de Valor</h2>
+<p>A ITIL v4 definie princípios que devem guiar a ação da TI nas empresas, e o princípio número 1 é “Foco no valor”.</p>
+<p>Também a forma como a discussão sobre valor é desenvolvida merece destaque.</p>
+<p>A visão de que a TI (ou uma organização) gera valor para seus clientes semelhante ao processo como uma empresa de encomendas entrega um pacote para um destinatário é bastante limitada, e restrita ao conceito de que um lado gera valor e outro consome.</p>
+<p>Esta visão por exemplo, exclui o consumidor do próprio processo de criação de valor, e não reflete toda a complexidade que existe na relação entre estas duas partes.</p>
+<p>Hoje, há reconhecimento de que o valor é uma criação conjunta entre fornecedor e receptor, e também de outras partes que atuam no processo.</p>
+<p>E esta visão de que o valor é uma construção coletiva e constante (porque muda) é a base para o conceito de <strong>cadeia de valor</strong> (<em>value chain</em>) na ITIL v4.</p>
+<p>Ao meu ver, foi uma contribuição significativa da ITIL e uma mudança importante para a gestão da Tecnologia da Informação.</p>
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2022,
   author = {Marcos Abreu},
-  title = {Scrum},
-  date = {2022-11-23},
-  url = {https://abreums.github.io/posts/2022-11-23-scrum/},
+  title = {ITIL v4 e a cadeia de valor},
+  date = {2022-11-25},
+  url = {https://abreums.github.io/posts/2022-11-25-itil-cadeia-de-valor/},
   langid = {pt-br}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abreu2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Marcos Abreu. 2022. <span>“Scrum.”</span> November 23, 2022. <a href="https://abreums.github.io/posts/2022-11-23-scrum/">https://abreums.github.io/posts/2022-11-23-scrum/</a>.
+Marcos Abreu. 2022. <span>“ITIL v4 e a cadeia de valor.”</span> November
+25, 2022. <a href="https://abreums.github.io/posts/2022-11-25-itil-cadeia-de-valor/">https://abreums.github.io/posts/2022-11-25-itil-cadeia-de-valor/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
