@@ -2,6 +2,7 @@
 title: "Gestão de Mudanças com ADKAR"
 description: "A estrutura da gestão de mudanças através dos modelos da empresa Prosci, incluindo ADKAR, PCT e Ciclo de Vida."
 date: 2022-11-09
+image: adkar.png
 author: 
   - name: Marcos Abreu
     url: https://abreums.github.io
@@ -143,20 +144,19 @@ O modelo sugere táticas que podem ser utilizadas para o desenvolvimento de cada
 
 **Reinforcement**
 
-1. Celebrações e reconhecimentos
+1.  Celebrações e reconhecimentos
 
-2. Premiações
+2.  Premiações
 
-3. Feedback dos empregados
+3.  Feedback dos empregados
 
-4. Sistemas de auditoria e de medição de performance
+4.  Sistemas de auditoria e de medição de performance
 
-5. Sistemas para distribuição de responsabilidades
+5.  Sistemas para distribuição de responsabilidades
 
 ## Participantes chaves
 
 O modelo também sugere o grau de influência de participantes-chaves durante a execução da mudança conforme mostrado na [@tbl-2]:
-
 
 ```{r}
 #| echo: false
@@ -228,4 +228,3 @@ De acordo com o modelo ADKAR a medição dos pontos com menor aderência indicar
 ## Conclusão
 
 Apresentei aqui um resumo das principais ideias do modelo ADKAR da Prosci. Uma avaliação destas ideias e da aplicabilidade das mesmas pode ser encontrada neste [link](https://abreums.github.io/posts/2022-11-09-ADKAR/).
-
