@@ -10,102 +10,106 @@ citation:
   type: post-weblog
   url: https://abreums.github.io/posts/2022-11-09-ADKAR/
   language: pt-br
+bibliography: references.bib
 categories: [News]
 ---
 
-\## Gestão de Mudanças segundo a Prosci
+A empresa Prosci é conhecida pelo seu modelo de Gestão de Mudanças chamado ADKAR. Mais recentemente a empresa incluiu dois outros componentes criando um conjunto de modelos para organizar a gestão de mudanças.
 
-O modelo de gestão da mudança da Prosci está estruturado em 3 elementos:
+Estes componentes são:
 
-\- um ciclo de vida,
+1.  Um ciclo de vida:
+    1.  O ciclo de vida de gestão de mudanças está organizado em 3 fases e descreve processos gerais por fase.
+2.  O modelo PCT (*Prosci's Change Triangle*):
+    1.  O PCT é basicamente um modelo de governança que descreve como a Gestão de Mudanças deve interagir com a liderança corporativa e com o projeto responsável pela implementação da mudança.
+3.  O modelo ADKAR
+    1.  Na visão da Prosci a mudança é um processo individual composto por 5 elementos cujas iniciais formam a sigla ADKAR: Awareness, Desire, Knowledge, Ability and Reinforcement.
 
-\- o triângulo de mudança da Prosci, e
+Há poucas referências sobre a aplicação do framework Prosci para a gestão de mudanças. A maior parte destes referências são da própria Prosci na forma de *blogs* ou *white papers*. Neste post faço um resumo dos principais conceitos confome a referências listadas ao final.
 
-\- o modelo ADKAR.
+Neste post vou resumir as principais características do modelo ADKAR segundo descrito em [@hiatt_adkar_2006].
 
-Neste post farei uma introdução sobre estes componentes, dos conceitos envolvidos e como o modelo trata da Gestão da Mudança.
+## ADKAR
 
-Vamos iniciar pelo modelo ADKAR.
+O modelo ADKAR é descrito Jeff Hiatt como:
 
-O modelo ADKAR é descrito como:
-
-\>\> The ADKAR model presented in this book is a framework
-
-for understanding change at an individual level. ... The ADKAR model has five elements or objectives (...) It is useful to think of these elements as
-
-building blocks. All five elements must be in place for a change
-
-to be realized \[\@adkar pg I)
+> > *The ADKAR model presented in this book is a framework for understanding change at an individual level. (...) The ADKAR model has five elements or objectives (...) It is useful to think of these elements as building blocks. All five elements must be in place for a change to be realized.* [@hiatt_adkar_2006, pg 1]
 
 Os 5 elementos do ADKAR são apresentados conforme:
 
-A (Awareness) Conscientização da necessidade de mudança.
+-   A (Awareness) Conscientização da necessidade de mudança.
 
-D (Desire) Desejo de apoiar a participar da mudança.
+-   D (Desire) Desejo de apoiar a participar da mudança.
 
-K (Knowledge) Conhecimento de como mudar
+-   K (Knowledge) Conhecimento de como mudar.
 
-A (Ability) Capacidade de implementar habilidades e conhecimentos necessários
+-   A (Ability) Capacidade de implementar habilidades e conhecimentos necessários
 
-R (Reinforcement) Reforço para sustentar a mudança
+-   R (Reinforcement) Reforço para sustentar a mudança
 
 O framework ADKAR considera também que estes 5 elementos possuem um encadeamento lógico:
 
-\>\> The elements of the ADKAR model fall into the natural order
+> > The elements of the ADKAR model fall into the natural order of how one person experiences change. *Desire* cannot come before *awareness* because it is the awareness of the need for change that stimulates our desire or triggers our resistance to that change. *Knowledge* cannot come before *desire* because we do not seek to know how to do something that we do not want to do. *Ability* cannot come before *knowledge* because we cannot implement what we do not know. *Reinforcement* cannot come before *ability* because we can only recognize and appreciate what has been achieved. [@hiatt_adkar_2006, pg 3].
 
-of how one person experiences change. *Desire* cannot come
+Desta forma, a mudança pode ser obtida através do desenvolvimento em cada indivíduo de cada um dos elementos obedecendo a sequência lógica.
 
-before *awareness* because it is the awareness of the need for
+Importante destacar que o modelo ADKAR é um modelo de gestão de mudança dentro da ótica do indivíduo:
 
-change that stimulates our desire or triggers our resistance to
+> > ADKAR represents the essential elements of change for a single person [@hiatt_adkar_2006, pg 43]
 
-that change. *Knowledge* cannot come before *desire* because we
+## Táticas
 
-do not seek to know how to do something that we do not want
+O modelo sugere 5 tipos de atividades que colaboram para o desenvolvimento dos elementos ADKAR, conforme mostrado na figura na [@tbl-1] [@hiatt_adkar_2006, pg 46]
 
-to do. *Ability* cannot come before *knowledge* because we cannot
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| tbl-cap: "Atividades que colaboram com o desenvolvimento dos elementos ADKAR"
+#| label: tbl-1
+library(tidyverse)
+library(gt)
 
-implement what we do not know. *Reinforcement* cannot come
+adkar_atv <- tibble(
+  Activity = c("Communications", "Sponsorship", "Coaching", "Resistance Management", "Training"),
+  Awareness = c("X", "X", "X", NA, NA),
+  Desire = c(NA, "X", "X", "X", NA),
+  Knowledge = c(NA,  NA,  "X", NA, "X"),
+  Ability = c(NA,  NA,  "X", NA, "X"),
+  Reinforcement = c(NA, "X",  "X", NA, NA)
+)
 
-before *ability* because we can only recognize and appreciate
+adkar_atv_tbl <- 
+  adkar_atv %>% 
+  gt() %>% 
+  cols_align(align = "center", 
+             columns = c(Awareness, Desire, Knowledge, Ability, Reinforcement)) %>% 
+  cols_align(align = "right",
+             columns = c(Activity)) %>% 
+tab_header(title = "Contribuição com elementos do ADKAR") %>% 
+  sub_missing(
+    columns = everything(),
+    missing_text = "") %>% 
+  tab_style(style = cell_fill(color = "lightgray"),
+            location = cells_stubhead())
 
-what has been achieved. \[adkar pg 3\].
 
-Desta forma a mudança pode ser obtida através do desenvolvimento em cada indivíduo de cada um dos elementos obedecendo a sequência lógica. Importante destacar que o modelo ADKAR é um modelo de gestão de mudança dentro da ótica do indivíduo: ADKAR represents the essential elements
+adkar_atv_tbl
+```
 
-of change for a single person \[adkar pg 43\]
+O modelo sugere táticas que podem ser utilizadas para o desenvolvimento de cada um dos elementos conforme listado a seguir:
 
-\### Táticas
-
-O modelo sugere 5 tipos de atividades que colaboram para o desenvolvimento dos elementos ADKAR, conforme mostrado na figura a seguir \[ADKAR pg 46\[
-
-Atividades de Gestão de Mudanças   A \|  D  \|  K  \|  A  \|  R
-
-Communications                                     x     x
-
-Sponsorship                                             x    x                          x
-
-Coaching                                                  x    x      x        x        x
-
-Resistance Management                             x
-
-Training                                                                   x      x
-
- 
-
-Detalhadamente, o modelo apresenta táticas para cada um dos elementos.
-
-Awareness
+**Awareness**
 
 1.  Comunicação Efetiva
 
 2.  Patrocínio Executivo
 
-3.  Coaching de gerentes e supervisores
+3.  Coaching por gerentes e supervisores
 
 4.  Acesso facilitado a informações sobre o negócio
 
-Desire
+**Desire**
 
 1.  Patrocinar efetivamente a mudança com os funcionários
 
@@ -117,7 +121,7 @@ Desire
 
 5.  Alinhar programas de incentivo
 
-Knowledge
+**Knowledge**
 
 1.  Treinamento efetivo e programas de educação
 
@@ -127,7 +131,7 @@ Knowledge
 
 4.  Grupos de Usuários e fóruns
 
-Ability
+**Ability**
 
 1.  Envolvimento diário dos supervisores
 
@@ -137,26 +141,91 @@ Ability
 
 4.  Exercícios práticos durante o treinamento
 
-5.   
+**Reinforcement**
 
-O modelo também sugere o grau de influência de participantes-chaves durante a execução da mudança conforme mostrado na tabela a seguir \[ADKAR pg 47\]:
+1. Celebrações e reconhecimentos
 
- 
+2. Premiações
 
-Participantes-chaves na Gestão da Mudança   A   \|   D   \|   K   \|   A   \|   R
+3. Feedback dos empregados
 
-                                               Primary Sponsor      x         x                              x
+4. Sistemas de auditoria e de medição de performance
 
-                                            Leadership Coalition  x        x
+5. Sistemas para distribuição de responsabilidades
 
-                               Managers and supervisors     x         x         x         x       x
+## Participantes chaves
 
-                                                HR and Training                             x         x
+O modelo também sugere o grau de influência de participantes-chaves durante a execução da mudança conforme mostrado na [@tbl-2]:
 
-                                               Project Team                                  x          x
 
- 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| tbl-cap: "Mapping of key players during change according to ADKAR"
+#| label: tbl-2
 
-Para cada um dos elementos do modelo são sugeridas táticas que podem ser aplicadas no desenvolvimento de cada elemento:
 
- 
+adkar_player <- tibble(
+  `Key Player` = c("Primary Sponsor", "Leadership Coallision", "Managers and supervisors", "HR and training", "Project team"),
+  Awareness = c("X", "X", "X", NA, NA),
+  Desire = c("X", "X", "X", NA, NA),
+  Knowledge = c(NA,  NA,  "X", "X", "X"),
+  Ability = c(NA,  NA,  "X", "X", "X"),
+  Reinforcement = c("X",  NA, "X", NA, NA)
+)
+
+adkar_player_tbl <- 
+  adkar_player %>% 
+  gt() %>% 
+  cols_align(align = "center", 
+             columns = c(Awareness, Desire, Knowledge, Ability, Reinforcement)) %>% 
+  cols_align(align = "right",
+             columns = c(`Key Player`)) %>% 
+tab_header(title = "Key Players Mapping") %>% 
+  sub_missing(
+    columns = everything(),
+    missing_text = "") %>% 
+  tab_style(style = cell_fill(color = "lightgray"),
+            location = cells_stubhead())
+
+
+adkar_player_tbl
+```
+
+## Medições
+
+Por fim o modelo ADKAR propõe que o estado de aderência do público alvo da mudança seja medido através de pesquisas questionando numa escala de 1 a 5 conforme mostrado na [@fig-1].
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-cap: "ADKAR Assessment"
+#| label: fig-1
+
+adkar_stt <- tibble(
+  adkar = c("Awareness", "Desire", "Knowledge", "Ability", "Reinforcement"),
+  level = c(5, 2, 3, 4, 3)
+)
+
+adkar_stt %>% 
+  mutate(adkar = factor(adkar, levels = c("Awareness", "Desire", "Knowledge", "Ability", "Reinforcement"))) %>% 
+  ggplot(aes(x = adkar, y = level)) +
+  geom_col() +
+  theme_minimal() +
+  labs(title = "ADKAR Assessment", 
+       y = NULL,
+       x = NULL) +
+  annotate("text", x = "Desire", y = 4, label = "Barrier point") +
+  geom_segment(aes(x = "Desire", y = 3.8, xend = "Desire", yend = 2.2),
+                  arrow = arrow(length = unit(0.5, "cm")))
+
+```
+
+De acordo com o modelo ADKAR a medição dos pontos com menor aderência indicariam "barreiras" para a aceitação da mudança, as quais deveriam ser trabalhadas e eliminadas.
+
+## Conclusão
+
+Apresentei aqui um resumo das principais ideias do modelo ADKAR da Prosci. Uma avaliação destas ideias e da aplicabilidade das mesmas pode ser encontrada neste [link](https://abreums.github.io/posts/2022-11-09-ADKAR/).
+

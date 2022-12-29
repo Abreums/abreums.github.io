@@ -23,6 +23,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -139,55 +158,529 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>## Gestão de Mudanças segundo a Prosci</p>
-<p>O modelo de gestão da mudança da Prosci está estruturado em 3 elementos:</p>
-<p>- um ciclo de vida,</p>
-<p>- o triângulo de mudança da Prosci, e</p>
-<p>- o modelo ADKAR.</p>
-<p>Neste post farei uma introdução sobre estes componentes, dos conceitos envolvidos e como o modelo trata da Gestão da Mudança.</p>
-<p>Vamos iniciar pelo modelo ADKAR.</p>
-<p>O modelo ADKAR é descrito como:</p>
-<p>&gt;&gt; The ADKAR model presented in this book is a framework</p>
-<p>for understanding change at an individual level. … The ADKAR model has five elements or objectives (…) It is useful to think of these elements as</p>
-<p>building blocks. All five elements must be in place for a change</p>
-<p>to be realized [@adkar pg I)</p>
+<p>A empresa Prosci é conhecida pelo seu modelo de Gestão de Mudanças chamado ADKAR. Mais recentemente a empresa incluiu dois outros componentes criando um conjunto de modelos para organizar a gestão de mudanças.</p>
+<p>Estes componentes são:</p>
+<ol type="1">
+<li>Um ciclo de vida:
+<ol type="1">
+<li>O ciclo de vida de gestão de mudanças está organizado em 3 fases e descreve processos gerais por fase.</li>
+</ol></li>
+<li>O modelo PCT (<em>Prosci’s Change Triangle</em>):
+<ol type="1">
+<li>O PCT é basicamente um modelo de governança que descreve como a Gestão de Mudanças deve interagir com a liderança corporativa e com o projeto responsável pela implementação da mudança.</li>
+</ol></li>
+<li>O modelo ADKAR
+<ol type="1">
+<li>Na visão da Prosci a mudança é um processo individual composto por 5 elementos cujas iniciais formam a sigla ADKAR: Awareness, Desire, Knowledge, Ability and Reinforcement.</li>
+</ol></li>
+</ol>
+<p>Há poucas referências sobre a aplicação do framework Prosci para a gestão de mudanças. A maior parte destes referências são da própria Prosci na forma de <em>blogs</em> ou <em>white papers</em>. Neste post faço um resumo dos principais conceitos confome a referências listadas ao final.</p>
+<p>Neste post vou resumir as principais características do modelo ADKAR segundo descrito em <span class="citation" data-cites="hiatt_adkar_2006">(<a href="#ref-hiatt_adkar_2006" role="doc-biblioref">Hiatt 2006</a>)</span>.</p>
+<section id="adkar" class="level2">
+<h2 class="anchored" data-anchor-id="adkar">ADKAR</h2>
+<p>O modelo ADKAR é descrito Jeff Hiatt como:</p>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p><em>The ADKAR model presented in this book is a framework for understanding change at an individual level. (…) The ADKAR model has five elements or objectives (…) It is useful to think of these elements as building blocks. All five elements must be in place for a change to be realized.</em> <span class="citation" data-cites="hiatt_adkar_2006">(<a href="#ref-hiatt_adkar_2006" role="doc-biblioref">Hiatt 2006</a>, pg 1)</span></p>
+</blockquote>
+</blockquote>
 <p>Os 5 elementos do ADKAR são apresentados conforme:</p>
-<p>A (Awareness) Conscientização da necessidade de mudança.</p>
-<p>D (Desire) Desejo de apoiar a participar da mudança.</p>
-<p>K (Knowledge) Conhecimento de como mudar</p>
-<p>A (Ability) Capacidade de implementar habilidades e conhecimentos necessários</p>
-<p>R (Reinforcement) Reforço para sustentar a mudança</p>
+<ul>
+<li><p>A (Awareness) Conscientização da necessidade de mudança.</p></li>
+<li><p>D (Desire) Desejo de apoiar a participar da mudança.</p></li>
+<li><p>K (Knowledge) Conhecimento de como mudar.</p></li>
+<li><p>A (Ability) Capacidade de implementar habilidades e conhecimentos necessários</p></li>
+<li><p>R (Reinforcement) Reforço para sustentar a mudança</p></li>
+</ul>
 <p>O framework ADKAR considera também que estes 5 elementos possuem um encadeamento lógico:</p>
-<p>&gt;&gt; The elements of the ADKAR model fall into the natural order</p>
-<p>of how one person experiences change. <em>Desire</em> cannot come</p>
-<p>before <em>awareness</em> because it is the awareness of the need for</p>
-<p>change that stimulates our desire or triggers our resistance to</p>
-<p>that change. <em>Knowledge</em> cannot come before <em>desire</em> because we</p>
-<p>do not seek to know how to do something that we do not want</p>
-<p>to do. <em>Ability</em> cannot come before <em>knowledge</em> because we cannot</p>
-<p>implement what we do not know. <em>Reinforcement</em> cannot come</p>
-<p>before <em>ability</em> because we can only recognize and appreciate</p>
-<p>what has been achieved. [adkar pg 3].</p>
-<p>Desta forma a mudança pode ser obtida através do desenvolvimento em cada indivíduo de cada um dos elementos obedecendo a sequência lógica. Importante destacar que o modelo ADKAR é um modelo de gestão de mudança dentro da ótica do indivíduo: ADKAR represents the essential elements</p>
-<p>of change for a single person [adkar pg 43]</p>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>The elements of the ADKAR model fall into the natural order of how one person experiences change. <em>Desire</em> cannot come before <em>awareness</em> because it is the awareness of the need for change that stimulates our desire or triggers our resistance to that change. <em>Knowledge</em> cannot come before <em>desire</em> because we do not seek to know how to do something that we do not want to do. <em>Ability</em> cannot come before <em>knowledge</em> because we cannot implement what we do not know. <em>Reinforcement</em> cannot come before <em>ability</em> because we can only recognize and appreciate what has been achieved. <span class="citation" data-cites="hiatt_adkar_2006">(<a href="#ref-hiatt_adkar_2006" role="doc-biblioref">Hiatt 2006</a>, pg 3)</span>.</p>
+</blockquote>
+</blockquote>
+<p>Desta forma, a mudança pode ser obtida através do desenvolvimento em cada indivíduo de cada um dos elementos obedecendo a sequência lógica.</p>
+<p>Importante destacar que o modelo ADKAR é um modelo de gestão de mudança dentro da ótica do indivíduo:</p>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>ADKAR represents the essential elements of change for a single person <span class="citation" data-cites="hiatt_adkar_2006">(<a href="#ref-hiatt_adkar_2006" role="doc-biblioref">Hiatt 2006</a>, pg 43)</span></p>
+</blockquote>
+</blockquote>
 <p>### Táticas</p>
-<p>O modelo sugere 5 tipos de atividades que colaboram para o desenvolvimento dos elementos ADKAR, conforme mostrado na figura a seguir [ADKAR pg 46[</p>
-<p>Atividades de Gestão de Mudanças&nbsp;&nbsp; A |&nbsp; D&nbsp; |&nbsp; K&nbsp; |&nbsp; A&nbsp; |&nbsp; R</p>
-<p>Communications&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp; &nbsp;&nbsp;x</p>
-<p>Sponsorship&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x</p>
-<p>Coaching&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x</p>
-<p>Resistance Management&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x</p>
-<p>Training&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x</p>
-<p>&nbsp;</p>
-<p>Detalhadamente, o modelo apresenta táticas para cada um dos elementos.</p>
-<p>Awareness</p>
+<p>O modelo sugere 5 tipos de atividades que colaboram para o desenvolvimento dos elementos ADKAR, conforme mostrado na figura na <a href="#tbl-1">Table&nbsp;1</a> <span class="citation" data-cites="hiatt_adkar_2006">(<a href="#ref-hiatt_adkar_2006" role="doc-biblioref">Hiatt 2006</a>, pg 46)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-1" class="anchored">
+
+<div id="grbnhwvvpy" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#grbnhwvvpy) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#grbnhwvvpy) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#grbnhwvvpy) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#grbnhwvvpy) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#grbnhwvvpy) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#grbnhwvvpy) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#grbnhwvvpy) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#grbnhwvvpy) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#grbnhwvvpy) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#grbnhwvvpy) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#grbnhwvvpy) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#grbnhwvvpy) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#grbnhwvvpy) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#grbnhwvvpy) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#grbnhwvvpy) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#grbnhwvvpy) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#grbnhwvvpy) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#grbnhwvvpy) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#grbnhwvvpy) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#grbnhwvvpy) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#grbnhwvvpy) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#grbnhwvvpy) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#grbnhwvvpy) .gt_left {
+  text-align: left;
+}
+
+:where(#grbnhwvvpy) .gt_center {
+  text-align: center;
+}
+
+:where(#grbnhwvvpy) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#grbnhwvvpy) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#grbnhwvvpy) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#grbnhwvvpy) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#grbnhwvvpy) .gt_super {
+  font-size: 65%;
+}
+
+:where(#grbnhwvvpy) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#grbnhwvvpy) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#grbnhwvvpy) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#grbnhwvvpy) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#grbnhwvvpy) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#grbnhwvvpy) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#grbnhwvvpy) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table&nbsp;1:  Atividades que colaboram com o desenvolvimento dos elementos ADKAR </caption>
+  <thead class="gt_header">
+    <tr>
+      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Contribuição com elementos do ADKAR</td>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">Activity</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Awareness</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Desire</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Knowledge</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Ability</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Reinforcement</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right">Communications</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_right">Sponsorship</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">X</td></tr>
+    <tr><td class="gt_row gt_right">Coaching</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td></tr>
+    <tr><td class="gt_row gt_right">Resistance Management</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_right">Training</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center"></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>O modelo sugere táticas que podem ser utilizadas para o desenvolvimento de cada um dos elementos conforme listado a seguir:</p>
+<p><strong>Awareness</strong></p>
 <ol type="1">
 <li><p>Comunicação Efetiva</p></li>
 <li><p>Patrocínio Executivo</p></li>
-<li><p>Coaching de gerentes e supervisores</p></li>
+<li><p>Coaching por gerentes e supervisores</p></li>
 <li><p>Acesso facilitado a informações sobre o negócio</p></li>
 </ol>
-<p>Desire</p>
+<p><strong>Desire</strong></p>
 <ol type="1">
 <li><p>Patrocinar efetivamente a mudança com os funcionários</p></li>
 <li><p>Prepare os gerentes para serem líderes da mudança</p></li>
@@ -195,36 +688,526 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Envolva os funcionários no processo da mudança</p></li>
 <li><p>Alinhar programas de incentivo</p></li>
 </ol>
-<p>Knowledge</p>
+<p><strong>Knowledge</strong></p>
 <ol type="1">
 <li><p>Treinamento efetivo e programas de educação</p></li>
 <li><p>Auxiliares de trabalho</p></li>
 <li><p>Coaching individual</p></li>
 <li><p>Grupos de Usuários e fóruns</p></li>
 </ol>
-<p>Ability</p>
+<p><strong>Ability</strong></p>
 <ol type="1">
 <li><p>Envolvimento diário dos supervisores</p></li>
 <li><p>Acesso a especialistas no assunto</p></li>
 <li><p>Monitoramento de performance</p></li>
 <li><p>Exercícios práticos durante o treinamento</p></li>
-<li><p>&nbsp;</p></li>
 </ol>
-<p>O modelo também sugere o grau de influência de participantes-chaves durante a execução da mudança conforme mostrado na tabela a seguir [ADKAR pg 47]:</p>
-<p>&nbsp;</p>
-<p>Participantes-chaves na Gestão da Mudança&nbsp;&nbsp; A&nbsp;&nbsp; |&nbsp;&nbsp; D&nbsp;&nbsp; |&nbsp;&nbsp; K&nbsp;&nbsp; |&nbsp;&nbsp; A&nbsp;&nbsp; |&nbsp;&nbsp; R</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primary Sponsor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leadership Coalition&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Managers and supervisors&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HR and Training&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Project Team&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x</p>
-<p>&nbsp;</p>
-<p>Para cada um dos elementos do modelo são sugeridas táticas que podem ser aplicadas no desenvolvimento de cada elemento:</p>
-<p>&nbsp;</p>
+<p><strong>Reinforcement</strong></p>
+<ol type="1">
+<li><p>Celebrações e reconhecimentos</p></li>
+<li><p>Premiações</p></li>
+<li><p>Feedback dos empregados</p></li>
+<li><p>Sistemas de auditoria e de medição de performance</p></li>
+<li><p>Sistemas para distribuição de responsabilidades</p></li>
+</ol>
+</section>
+<section id="participantes-chaves" class="level2">
+<h2 class="anchored" data-anchor-id="participantes-chaves">Participantes chaves</h2>
+<p>O modelo também sugere o grau de influência de participantes-chaves durante a execução da mudança conforme mostrado na <a href="#tbl-2">Table&nbsp;2</a>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-2" class="anchored">
+
+<div id="ltpfwqefup" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#ltpfwqefup) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#ltpfwqefup) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#ltpfwqefup) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#ltpfwqefup) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#ltpfwqefup) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#ltpfwqefup) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#ltpfwqefup) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#ltpfwqefup) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#ltpfwqefup) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#ltpfwqefup) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#ltpfwqefup) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#ltpfwqefup) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#ltpfwqefup) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ltpfwqefup) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#ltpfwqefup) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#ltpfwqefup) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ltpfwqefup) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#ltpfwqefup) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ltpfwqefup) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#ltpfwqefup) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ltpfwqefup) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ltpfwqefup) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ltpfwqefup) .gt_left {
+  text-align: left;
+}
+
+:where(#ltpfwqefup) .gt_center {
+  text-align: center;
+}
+
+:where(#ltpfwqefup) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#ltpfwqefup) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#ltpfwqefup) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#ltpfwqefup) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#ltpfwqefup) .gt_super {
+  font-size: 65%;
+}
+
+:where(#ltpfwqefup) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#ltpfwqefup) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#ltpfwqefup) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#ltpfwqefup) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#ltpfwqefup) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#ltpfwqefup) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#ltpfwqefup) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table&nbsp;2:  Mapping of key players during change according to ADKAR </caption>
+  <thead class="gt_header">
+    <tr>
+      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Key Players Mapping</td>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">Key Player</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Awareness</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Desire</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Knowledge</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Ability</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">Reinforcement</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right">Primary Sponsor</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">X</td></tr>
+    <tr><td class="gt_row gt_right">Leadership Coallision</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_right">Managers and supervisors</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td></tr>
+    <tr><td class="gt_row gt_right">HR and training</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_right">Project team</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center">X</td>
+<td class="gt_row gt_center"></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="medições" class="level2">
+<h2 class="anchored" data-anchor-id="medições">Medições</h2>
+<p>Por fim o modelo ADKAR propõe que o estado de aderência do público alvo da mudança seja medido através de pesquisas questionando numa escala de 1 a 5 conforme mostrado na <a href="#fig-1">Figure&nbsp;1</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: ADKAR Assessment</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>De acordo com o modelo ADKAR a medição dos pontos com menor aderência indicariam “barreiras” para a aceitação da mudança, as quais deveriam ser trabalhadas e eliminadas.</p>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<p>Apresentei aqui um resumo das principais ideias do modelo ADKAR da Prosci. Uma avaliação destas ideias e da aplicabilidade das mesmas pode ser encontrada neste <a href="https://abreums.github.io/posts/2022-11-09-ADKAR/">link</a>.</p>
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2022,
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-hiatt_adkar_2006" class="csl-entry" role="doc-biblioentry">
+Hiatt, Jeff. 2006. <em><span>ADKAR</span>: A Model for Change in Business, Government, and Our Community</em>. 1st ed. Loveland, Colorado: Prosci Learning Center Publications.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2022,
   author = {Marcos Abreu},
   title = {Gestão de Mudanças com ADKAR},
   date = {2022-11-09},

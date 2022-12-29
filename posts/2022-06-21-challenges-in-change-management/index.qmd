@@ -1,0 +1,20 @@
+---
+title: "Challenges in Change Management"
+description: "A check-list of what must be remembered in a CM process"
+date: 2022-06-21
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-06-21-challenges-in-change-management/
+  language: pt-br
+categories: [News]
+---
+
+As empresas estão sendo solicitadas a se adaptarem a novas situações com maior frequência. E por isto a capacidade de gerir mudanças de forma efetiva tornou-se uma das prioridades atuais.
+
+Mudanças são fenômenos dinâmicos, que surgem da interação de vários fatores. Em organizações a mudança está associada a ações que precisam ser realizadas por grupos cujas interações não são comuns de forma coletiva [@Nurse1].
+
+Uma outra característica marcante do fenômeno das mudanças é que não existe distinção entre a idéia de "boa" ou "má" mudança. Toda mudança envolve uma resposta de resistência, independente de sua natureza. Isto ocorre porque mesmo em situações consideradas "positivas" também há perdas. William Bridges descreve o caso de pessoas que reagem com desconforto a situações que deveriam ser consideradas boas, como por exemplo uma promoção no trabalho, destacando que mesmo nestas situações há perdas relacionadas: perda do círculo de amizades da antiga posição, e da incerteza diante de novas responsabilidades e da capacidade de realizá-las, que está relacinoado com a perda do sentimento de competência que havia com a posição anterior. Estas perdas relacionadas com a promoção profissional geram um desconforto que está até certo ponto relacionado com a perda de identidade em si [@William Bridge]. Por este motivo, a existência de resistência no processo de mudança nunca deve ser ignorado. A resistência à mudança aumenta o tempo para operar a mudança e seus custos.
