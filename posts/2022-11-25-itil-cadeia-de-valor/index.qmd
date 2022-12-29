@@ -13,7 +13,7 @@ citation:
 categories: [Gestão]
 ---
 
-**ITIL** - _Information Technology Infrastructure Library_
+**ITIL** - *Information Technology Infrastructure Library*
 
 Recentemente fui convidado para ministrar curso sobre a ITIL versão 4.
 

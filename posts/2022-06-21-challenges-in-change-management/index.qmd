@@ -10,7 +10,7 @@ citation:
   type: post-weblog
   url: https://abreums.github.io/posts/2022-06-21-challenges-in-change-management/
   language: pt-br
-categories: [News]
+categories: [Change Management]
 ---
 
 As empresas estão sendo solicitadas a se adaptarem a novas situações com maior frequência. E por isto a capacidade de gerir mudanças de forma efetiva tornou-se uma das prioridades atuais.

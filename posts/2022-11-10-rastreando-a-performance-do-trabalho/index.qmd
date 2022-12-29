@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-11-10-rastreando-a-performance-do-trabalho/
   language: pt-br
 image: stream_diagram.png
-categories: [Gestão, Rstat]
+categories: [Gestão]
 ---
 
 "Quando acaba?"

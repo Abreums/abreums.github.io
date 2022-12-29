@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-11-02-estimating-number-of-bugs/
   language: en
 bibliography: https://api.citedrive.com/bib/092b439a-22cd-422b-9913-a61b66c8505d/references.bib?x=eyJpZCI6ICIwOTJiNDM5YS0yMmNkLTQyMmItOTkxMy1hNjFiNjZjODUwNWQiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogImNlMjYyNmViZmU5MjJlYTcyYmM2YjViOWZkMmE4ZDA0ZWIxMjRiYzA3M2RhY2RlNmUwNzJjODljNmY4ZWY3ZWMifQ==/bibliography.bib
-categories: [Rstat]
+categories: [Rstat, Gestão]
 ---
 
 Consider the following situation:
@@ -50,8 +50,5 @@ We can estimate a number of 13 + 3 \* stderr bugs, which is approximately 22 bug
 
 ## Reference
 
-:::{#refs}
+::: {#refs}
 :::
-
-
-

@@ -12,7 +12,7 @@ citation:
   url: https://abreums.github.io/posts/2022-11-09-ADKAR/
   language: pt-br
 bibliography: references.bib
-categories: [News]
+categories: [Change Management]
 ---
 
 A empresa Prosci é conhecida pelo seu modelo de Gestão de Mudanças chamado ADKAR. Mais recentemente a empresa incluiu dois outros componentes criando um conjunto de modelos para organizar a gestão de mudanças.

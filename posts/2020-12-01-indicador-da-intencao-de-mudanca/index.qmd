@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2020-12-01-indicador-da-intencao-de-mudanca/
   language: pt-br
 bibliography:  "https://api.citedrive.com/bib/0b0bdcef-b398-415b-89a3-afdc79e74a08/references.bib?x=eyJpZCI6ICIwYjBiZGNlZi1iMzk4LTQxNWItODlhMy1hZmRjNzllNzRhMDgiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogIjQ5Y2U1NDlkOTgzYjhlNGNjYTc5ZjZiY2YwOGVkNzBjMDcwMjlhMzhiMmM2NDlhNjNiMDEwZmI1M2E5Y2MzOTEifQ==/bibliography.bib"
-categories: [change management]
+categories: [Change Management]
 ---
 
 ```{r}
