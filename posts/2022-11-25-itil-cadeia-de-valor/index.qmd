@@ -17,9 +17,9 @@ categories: [Gestão]
 
 Recentemente fui convidado para ministrar curso sobre a ITIL versão 4.
 
-Confesso que nunca fui grande entusiasta da ITIL, apesar de reconhecer o valor que ela possui. A minha apatia se deve mais pela direação que não apenas a ITIL mais tanto ela, quanto outros sistemas que tentam propor padrões para a Tecnologia da Informação seguem, buscando prover um modelo que seja "completo".
+Confesso que nunca fui grande entusiasta da ITIL, apesar de reconhecer o valor que ela possui. As minhas restrições se devem a todas os sistemas que buscam ser um modelo "completo" de determinado assunto. E isto não é característica apenas da ITIL, mas de outros modelos também.
 
-Qual o problema em buscar criar um modelo completo?
+Qual o problema em tentar criar um modelo completo?
 
 O problema é cair no erro que é tão bem descrito por Luis Carlos Borges em seu poema *Del rigor de la ciencia*, que pode ser lido na tradução para o portugês neste [link](https://cosmosecontexto.org.br/do-rigor-da-ciencia/), ou na sua versão original em espanhol lido pelo próprio Borges neste [vídeo no Youtube](https://www.youtube.com/watch?v=zwDA3GmcwJU).
 

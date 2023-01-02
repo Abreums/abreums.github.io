@@ -20,7 +20,7 @@ A empresa Prosci é conhecida pelo seu modelo de Gestão de Mudanças chamado AD
 Estes componentes são:
 
 1.  Um ciclo de vida:
-    1.  O ciclo de vida de gestão de mudanças está organizado em 3 fases e descreve processos gerais por fase.
+    1.  O ciclo de vida de gestão de mudanças está organizado em 3 fases e descreve processos genéricos por fase.
 2.  O modelo PCT (*Prosci's Change Triangle*):
     1.  O PCT é basicamente um modelo de governança que descreve como a Gestão de Mudanças deve interagir com a liderança corporativa e com o projeto responsável pela implementação da mudança.
 3.  O modelo ADKAR
@@ -66,7 +66,7 @@ O modelo sugere 5 tipos de atividades que colaboram para o desenvolvimento dos e
 #| echo: false
 #| warning: false
 #| message: false
-#| tbl-cap: "Atividades que colaboram com o desenvolvimento dos elementos ADKAR"
+#| tbl-cap: "Activities that contribute with the development of ADKAR elements"
 #| label: tbl-1
 library(tidyverse)
 library(gt)
@@ -87,7 +87,7 @@ adkar_atv_tbl <-
              columns = c(Awareness, Desire, Knowledge, Ability, Reinforcement)) %>% 
   cols_align(align = "right",
              columns = c(Activity)) %>% 
-tab_header(title = "Contribuição com elementos do ADKAR") %>% 
+tab_header(title = "") %>% 
   sub_missing(
     columns = everything(),
     missing_text = "") %>% 
