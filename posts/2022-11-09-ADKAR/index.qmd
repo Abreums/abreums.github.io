@@ -56,13 +56,13 @@ Desta forma, a mudança pode ser obtida através do desenvolvimento em cada indi
 
 Importante destacar que o modelo ADKAR é um modelo de gestão de mudança dentro da ótica do indivíduo:
 
->> ADKAR represents the essential elements of change for a single person [@hiatt_adkar_2006, pg 43].      
+>> ADKAR represents the essential elements of change for a single person [@hiatt_adkar_2006, pg 43].
 
-Esta visão coloca a mudança como um processo individual e não coletivo.     
+Esta visão coloca a mudança como um processo individual e não coletivo.
 
-## Táticas     
+## Táticas
 
-O  modelo sugere 5 tipos de atividades que colaboram para o desenvolvimento dos elementos ADKAR, conforme mostrado na figura na [@tbl-1] [@hiatt_adkar_2006, pg 46]..
+O modelo sugere 5 tipos de atividades que colaboram para o desenvolvimento dos elementos ADKAR, conforme mostrado na figura na [@tbl-1] [@hiatt_adkar_2006, pg 46].
 
 ```{r}
 #| echo: false
