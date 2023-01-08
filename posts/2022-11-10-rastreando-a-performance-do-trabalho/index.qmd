@@ -83,7 +83,7 @@ entregas <-
 
 ```
 
-Considere uma série de entregas intermediárias do projeto, previstas para ocorrer em datas específicas, aqui representadas pelos indicadores *m1*, *m2*, *m3*, etc. Cada entrega possui um planejamento original e conforme o projeto avança, a espectativa de prazo de entrega é replanejada, conforme mostrado na tabela @tbl-inicial.
+Considere uma série de entregas intermediárias do projeto, previstas para ocorrer em datas específicas, aqui representadas pelos indicadores *m1*, *m2*, *m3*, etc. Cada entrega possui um planejamento original e conforme o projeto avança, a expectativa de prazo de entrega é replanejada, conforme mostrado na tabela @tbl-inicial.
 
 ```{r}
 #| label: tbl-inicial

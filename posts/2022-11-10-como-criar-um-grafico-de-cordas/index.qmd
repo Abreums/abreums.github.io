@@ -68,7 +68,7 @@ entregas <-
 entregas |> glimpse()
 ```
 
-Para desenharmos o gráfico como queremos precisamos de uma fun;áo que faça a transposição dos valores dos eixos, colocando o ponto (0,0) no canto superior esquerdo.
+Para desenharmos o gráfico como queremos precisamos de uma função que faça a transposição dos valores dos eixos, colocando o ponto (0,0) no canto superior esquerdo.
 
 Para isto temos a função *c_trans* definida no código a seguir.
 

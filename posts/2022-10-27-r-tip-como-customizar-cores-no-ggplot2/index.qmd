@@ -14,7 +14,7 @@ bibliography: "https://api.citedrive.com/bib/092b439a-22cd-422b-9913-a61b66c8505
 categories: [Rstat]
 ---
 
-Seguindo a regra de que se vc tiver que explicar alguma coisa mais de 3 vezes, então você deve escrever um post sobre o assunto. E considerando que neste caso, estou explicando para mim mesmo como definir cores no ggplo2, achei melhor escrever este post para me ajudar a lembrar destas informações na próxima vez que precisar delas.
+Seguindo a regra de que se você tiver que explicar alguma coisa mais de 3 vezes, então você deve escrever um post sobre o assunto. E considerando que neste caso, estou explicando para mim mesmo como definir cores no ggplo2, achei melhor escrever este post para me ajudar a lembrar destas informações na próxima vez que precisar delas.
 
 Para escrever este post utilizei as seguintes referências: [@Garrickadenbuie2019Custom:9540], [@Simonjackson2018Creating:2c49] e [@Meghanhall2022Creating:40ec].
 

@@ -24,7 +24,7 @@ library(gt)
 
 ### Pinguins no formato padrão
 
-Vamos começar com esta tabela do número de pinguíns por espécie, sexo, ano e ilha.
+Vamos começar com esta tabela do número de pinguins por espécie, sexo, ano e ilha.
 
 ```{r}
 #| echo: fenced

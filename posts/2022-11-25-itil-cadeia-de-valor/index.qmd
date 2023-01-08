@@ -21,7 +21,7 @@ Confesso que nunca fui grande entusiasta da ITIL, apesar de reconhecer o valor q
 
 Qual o problema em tentar criar um modelo completo?
 
-O problema é cair no erro que é tão bem descrito por Luis Carlos Borges em seu poema *Del rigor de la ciencia*, que pode ser lido na tradução para o portugês neste [link](https://cosmosecontexto.org.br/do-rigor-da-ciencia/), ou na sua versão original em espanhol lido pelo próprio Borges neste [vídeo no Youtube](https://www.youtube.com/watch?v=zwDA3GmcwJU).
+O problema é cair no erro que é tão bem descrito por Luis Carlos Borges em seu poema *Del rigor de la ciencia*, que pode ser lido na tradução para o português neste [link](https://cosmosecontexto.org.br/do-rigor-da-ciencia/), ou na sua versão original em espanhol lido pelo próprio Borges neste [vídeo no Youtube](https://www.youtube.com/watch?v=zwDA3GmcwJU).
 
 Apesar das minhas restrições em relação aos sistemas que tentam ser "completos", encontrei nesta versão 4 da ITIL destaque para um tema que tenho muito apreço. E particularmente considero o destaque dado pela ITIL v4 a este tema adequado. Estou me referindo ao conceito de **valor**.
 
@@ -35,13 +35,13 @@ Mas se você ainda não se convenceu da importância do tema e não está com vo
 
 Um dos desafios que temos quando estamos lidando com projetos de TI é o da priorização. O problema está na escolha do que deve ser considerado mais importante. Em geral, para o negócio, **tudo é importante**.
 
-Aqui entra a teoria da Utilidade Marginal. Primeiro é preciso distinguir valor de utilidade: um copo d'água é util para matar a cede. Se você está no conforto da sua casa e já se hidratou com um pouco de café ou chá, o valor de um copo d'água é muito baixo. Mas, se você está perdido no deserto há 5 dias sem beber água, o valor de um copo d'água é absurdamente alto.
+Aqui entra a teoria da Utilidade Marginal. Primeiro é preciso distinguir valor de utilidade: um copo d'água é útil para matar a sede. Se você está no conforto da sua casa e já se hidratou com um pouco de café ou chá, o valor de um copo d'água é muito baixo. Mas, se você está perdido no deserto há 5 dias sem beber água, o valor de um copo d'água é absurdamente alto.
 
 Em projetos, ou na gestão da TI, se passa a mesma coisa. É óbvio que a funcionalidade de "Emissão de Nota Fiscal" é útil tanto quanto muitas outras funcionalidades que suportam o negócio. Podemos dizer que **tudo é útil**. Mas dentro do contexto de um projeto, se ainda sequer temos uma base de informações de clientes disponível, a disponibilização da base de clientes possui - neste momento - maior valor que a funcionalidade de emissão de nota fiscal. É o contexto que atribui valor. E durante um projeto, o contexto muda.
 
 ## Cadeia de Valor
 
-A ITIL v4 definie princípios que devem guiar a ação da TI nas empresas, e o princípio número 1 é "Foco no valor".
+A ITIL v4 define princípios que devem guiar a ação da TI nas empresas, e o princípio número 1 é "Foco no valor".
 
 Também a forma como a discussão sobre valor é desenvolvida merece destaque.
 
