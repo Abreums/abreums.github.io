@@ -9,6 +9,7 @@ author:
 citation:
   type: post-weblog
   url: https://abreums.github.io/posts/2022-11-05-r-tip-criando-tabelas-para-o-pacote-gt/
+image: gt_example.png
 categories: [Rstat]
 ---
 

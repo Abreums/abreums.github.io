@@ -1,0 +1,138 @@
+---
+title: "Construindo um geom_segment com ggimage"
+description: "Este post mostra como construir um geom_segment com um ggimage. Também tem dica de como usar fontes e formatar o tema do gráfico"
+date: 2023-01-25
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2023-01-25-ggimage/
+  language: pt-br
+image: "ggimage_test.png"
+categories: [Rstat]
+editor_options: 
+  chunk_output_type: console
+---
+
+Estou estudando [este código](https://github.com/nrennie/tidytuesday/tree/main/2023/2023-01-24) para aprender a utilizar ggimage. Todo o crédito é para a autora.
+
+```{r}
+library(tidyverse)
+library(showtext)
+library(camcorder)
+library(magick)
+library(ggimage)
+library(palmerpenguins)
+
+
+```
+
+Roboto é uma fonte muito mais agradável que o padrão do ggplot2. Também gostei do Cinzel Decorative para títulos.
+
+```{r}
+#load fonts
+font_add_google("Cinzel Decorative", "cinzel")
+font_add_google("Roboto", "roboto")
+showtext_auto()
+```
+
+Sempre podemos usar o dataset de Palmer Pinguins, é uma base muito versátil.
+
+```{r}
+# plot data
+plot_data <- 
+  penguins |> 
+  count(species) |> 
+  mutate(species = fct_reorder(species, n))
+
+```
+
+Copiei esta função do link acima, inclusive a referência para a fonte original.
+
+```{r}
+# Process images
+# custom function to apply border to circle image with magick
+# Code: https://github.com/tashapiro/tanya-data-viz/blob/main/spotify-artists/scripts/generate-image-labels.R
+border <- function(im) {
+  ii <- magick::image_info(im)
+  ii_min <- min(ii$width, ii$height)
+  
+  img <- magick::image_blank(width = ii_min, height = ii_min, color = "none")
+  drawing <- image_draw(img)
+  symbols(ii_min/2, ii_min/2, circles = ii_min/2, bg = 'white', inches = FALSE, add = TRUE)
+  dev.off()
+  
+  x = image_composite(image_scale(drawing, "x430"), image_scale(im, "x400"), offset = "+15+15")
+  
+  x
+}
+```
+
+E finalmente o gráfico.
+
+```{r}
+st <- "Amount of penguins in the Palmer Penguins library dataset"
+
+ggplot(data = plot_data) +
+  geom_segment(mapping = aes(x = 0, 
+                             xend = n,
+                             y = species,
+                             yend= species),
+               colour = "#f4f7f7",
+               size = 1) +
+  geom_image(mapping = aes(x = n,
+                           y = species,
+                           # image = paste0("posts/2023-01-25-ggimage/images/", species, ".png")),
+                           image = paste0("images/", species, ".png")),
+             asp = 2,
+             size = 0.12,
+             image_fun = border) +
+  geom_text(mapping = aes(x = n + 16, 
+                          y = species,
+                          label = species),
+            size = 9,
+            hjust = 0,
+            family = "roboto",
+            colour = "#f4f7f7") +
+    scale_y_discrete(limits = rev) +
+  scale_x_continuous(breaks = c(0, 50, 100, 150),
+                     limits = c(-5, 250),
+                     expand = c(0, 0)) +
+   labs(title = "PALMER PENGUINS",
+       subtitle = str_wrap(st, 70),
+       x = NULL,
+       y = NULL) +
+  theme(axis.text = element_text(family = "roboto",
+                                 size = 24,
+                                 lineheight = 0.4,
+                                 colour = "#f4f7f7"),
+        axis.text.y = element_blank(),
+        axis.title = element_text(family = "roboto",
+                                  size = 24,
+                                  lineheight = 0.4,
+                                  margin = margin(t = 10),
+                                  colour = "#f4f7f7"),
+        axis.ticks = element_blank(),
+        plot.subtitle = element_text(family = "roboto",
+                                     size = 18,
+                                     hjust = 0.5,
+                                     lineheight = 0.4,
+                                     margin = margin(b = 10),
+                                     colour = "#f4f7f7"),
+        plot.title = element_text(family = "cinzel",
+                                  size = 44,
+                                  hjust = 0.5,
+                                  margin = margin(b = 10),
+                                  colour = "#f4f7f7"),
+        plot.margin = margin(10, 10, 10, 10),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.y = element_blank(),
+        plot.title.position = "plot",
+        panel.grid.major.x = element_line(linetype = "dashed",
+                                          colour = alpha("#bb8899", 0.3)),
+        plot.background = element_rect(fill = "#203d58", colour = "#203d58"),
+        panel.background = element_rect(fill = "#203d58", colour = "#203d58"))
+
+```
