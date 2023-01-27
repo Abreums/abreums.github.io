@@ -1,7 +1,7 @@
 ---
 title: "Linear Regression with tidymodels"
 description: "Alguns exemplos de regressão linear em R e tidymodels"
-date: 2019-02-25
+date: 2023-01-25
 author: 
   - name: Marcos Abreu
     url: https://abreums.github.io
@@ -16,9 +16,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-Minha recomendação para aprender sobre regressões é o livro [*Regression and Other Stories*](https://avehtari.github.io/ROS-Examples/index.html) que está disponível para download.     
+Minha recomendação para aprender sobre regressões é o livro [*Regression and Other Stories*](https://avehtari.github.io/ROS-Examples/index.html) que está disponível para download.
 
-Minha sugestão é que a leitura seja feita com os exemplos disponibilizados por [Bill Behrman](https://github.com/behrman/ros) utilizando tidyverse. 
+Minha sugestão é que a leitura seja feita com os exemplos disponibilizados por [Bill Behrman](https://github.com/behrman/ros) utilizando tidyverse.
 
 Neste post e em posts futuros tentarei reproduzir os mesmos exemplos utilizando [tidymodels](https://www.tidymodels.org).
 
@@ -26,7 +26,7 @@ Para utilizar os exemplos de Bill Behrman precisa instalar o pacote *rosdata*, u
 
 > remotes::install_github("avehtari/ROS-Examples", subdir = "rpackage", force = TRUE)
 
-O _help de *?rosdata* lista os vários conjuntos de dados disponíveis no pacote.
+O \_help de *?rosdata* lista os vários conjuntos de dados disponíveis no pacote.
 
 Vamos gerar um gráfico com as informações do conjunto *hibbs* que contém os dados dos percentuais de votos do candidato incumbente e da taxa de crescimento econômico do mesmo ano.
 
@@ -101,7 +101,7 @@ my_plot
 
 No livro [*Regression and Other Stories*](https://avehtari.github.io/ROS-Examples/index.html) os autores fazem uma regressão linear com os dados utilizando *stan_glm*.
 
-*stan_glm* pertence ao pacote [rtanarm](https://mc-stan.org/rstanarm/index.html) e realiza a regressão linear utilizando inferência Bayesiana. Não é preciso entender como isto funciona neste post (pretendo escrever um post futuro sobre este pacote). O importante aqui é saber que esta função realiza a regressão linear através de uma técnica específica. 
+*stan_glm* pertence ao pacote [rstanarm](https://mc-stan.org/rstanarm/index.html) e realiza a regressão linear utilizando inferência Bayesiana. Não é preciso entender como isto funciona neste post (pretendo escrever um post futuro sobre este pacote). O importante aqui é saber que esta função realiza a regressão linear através de uma técnica específica.
 
 Para fazer a regressão linear os autores sugerem:
 
@@ -158,20 +158,23 @@ lm_fit <- fit(lm_spec, vote ~ growth, data = hibbs)
 lm_fit
 ```
 
-Ao invés de simplesmente chamar a função _stan_glm_ fizemos um monte de coisas. E qual a vantagem disto tudo ao invés de chamar o método diretamente.
+Ao invés de simplesmente chamar a função *stan_glm* fizemos um monte de coisas. E qual a vantagem disto tudo ao invés de chamar o método diretamente.
 
 A vantagem aparece nos casos onde queremos obter padronização para diferentes métodos de regressão (veremos em outro post como isto pode ser útil, por enquanto vamos entender os conceitos do **tidymodels**).
 
 Quem faz tudo isto é o pacote [parsnip](https://parsnip.tidymodels.org/index.html) que faz parte do **tidymodels**. A finalidade do parsnip é separar a definição do modelo do processo de cálculo da regressão:
-  - Quando escrevemos **linear_reg()** estamos definindo o **tipo** do modelo (um tipo diferente seria, por exemplo, um random forest: _rand_forest()_).
-  - **set_mode()** define o tipo de modelagem que será feita - as opções são tipicamente "classificatin" ou "regression".
-  - e finalmente **set_engine()** recebe como parâmetro o nome do pacote que contém o motor que será utilizado para executar o modelo.
-  
+
+-   Quando escrevemos **linear_reg()** estamos definindo o **tipo** do modelo (um tipo diferente seria, por exemplo, um random forest: *rand_forest()*).
+
+-   **set_mode()** define o tipo de modelagem que será feita - as opções são tipicamente "classificatin" ou "regression".
+
+-   e finalmente **set_engine()** recebe como parâmetro o nome do pacote que contém o motor que será utilizado para executar o modelo.
+
 Por sua fez, a função **fit()** calcula/ajusta o modelo conforme os parâmetros passados para ela.Este [link](https://diamondage.com/what-does-it-mean-to-fit-a-model-anyway/) contém uma boa explicação do que significa "ajustar" o modelo.
 
 Veremos em posts futuros que esta forma onde separamos a definição do cálculo em si é útil em diversas situações.
 
-Por fim, o pacote **broom** contém a função _tidy()_ que permite retornar os parâmetros calculados do modelo num formato "tidy" (especificamente para modelos do pacote _rstanarm_ temos que utilizar o método _tidy()_ do pacote _broom.mixed_).
+Por fim, o pacote **broom** contém a função *tidy()* que permite retornar os parâmetros calculados do modelo num formato "tidy" (especificamente para modelos do pacote *rstanarm* temos que utilizar o método *tidy()* do pacote *broom.mixed*).
 
 Isto nos permite ajustar o gráfico anterior de uma forma mais sistemática sem precisar copiar manualmente os valores dos parâmetros da regressão.
 
@@ -193,12 +196,19 @@ my_plot +
 ## Conclusão
 
 Neste post temos o exemplo do capítulo 1 do livro [*Regression and Other Stories*](https://avehtari.github.io/ROS-Examples/index.html) implementado utilizando **tidymodels**:
-  - tidymodels separa a definição do modelo de seu cálculo (pacote _parsnip_):
-    - definição do modelo: _linear_reg()_
-    - definição do modo do modelo: _set_mode("regression")_
-    - definição do motor/algoritmo que será utilizado: _set_engine("stan")_
-    - cálculo do modelo: _fit(...)_
-  - tidymodels permite acessar os resultados da regressão num formato tidy (pacote _broom_):
-    - _tidy(lm_fit)_
-    
-  
+
+-   tidymodels separa a definição do modelo de seu cálculo (pacote *parsnip*):
+
+    -   definição do modelo: *linear_reg()*
+
+    -   definição do modo do modelo: *set_mode("regression")*
+
+    -   definição do motor/algoritmo que será utilizado: *set_engine("stan")*
+
+    -   cálculo do modelo: *fit(...)*
+
+-   tidymodels permite acessar os resultados da regressão num formato tidy (pacote *broom*):
+
+    -   *tidy(lm_fit)*
+
+Este post implementou o primeiro exemplo do livro ROS utilizando tidymodels.
