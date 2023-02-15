@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2023-01-29-checking-model/
   language: pt-br
 images: "validacao.png"
-categories: [News]
+categories: [Rstat]
 ---
 
 Vamos validar um modelo e sua adequação utilizando dados falsos.
