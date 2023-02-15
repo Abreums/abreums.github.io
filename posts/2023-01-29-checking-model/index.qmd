@@ -1,0 +1,135 @@
+---
+title: "Validando um modelo e sua adequação usando dados falsos"
+description: "Procedimento para validar a adequação de um modelo baseado em dados falsos"
+date: 2023-01-29
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2023-01-29-checking-model/
+  language: pt-br
+images: "validacao.png"
+categories: [News]
+---
+
+Vamos validar um modelo e sua adequação utilizando dados falsos.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| error: false
+#| message: false
+
+# Packages
+library(tidyverse)
+library(tidymodels)
+library(rosdata)
+
+```
+
+Vamos utilizar os mesmos dados criados no [post anterior](https://abreums.github.io/2023-01-25-linear-regression).
+
+```{r}
+#| echo: false
+#| warning: false
+#| error: false
+#| message: false
+plot_data <- 
+  hibbs %>% 
+  mutate(
+    label = str_glue("  {inc_party_candidate} vs. {other_candidate} ({year})  "),
+    hjust = 
+      if_else(
+        year %in% c(1960, 1964, 1972, 1976, 1984, 1996, 2012),
+        "right",
+        "left"
+      ),
+    vjust =
+      case_when(
+        year == 1992 ~ 0,
+        year == 2000 ~ 0.2,
+        year %in% c(1960, 2008) ~ 1,
+        TRUE ~ 0.5
+      )
+  ) |> as_tibble()
+
+my_plot <-
+  plot_data |> 
+  ggplot(aes(growth, vote)) +
+  geom_hline(yintercept = 50, color = "lightgrey") +
+  geom_point()  +
+  geom_text(aes(label = label, hjust = hjust, vjust = vjust)) +
+  labs(
+    title = "Forecasting the election from economy",
+    x = "Average recent growth in personal income",
+    y = "Incumbent party's vote share"
+  ) +
+  scale_x_continuous(labels = scales::label_percent(accuracy = 1, scale = 1),
+                     expand = expansion(add = c(0.8, 1.2))) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1, scale = 1)) +
+  theme_minimal()
+
+# Primeiro passo é definir um modelo
+lm_spec <- linear_reg() %>%
+  set_mode("regression") %>%
+  set_engine("stan")
+
+# Segundo passo é ajustar o modelo
+lm_fit <- fit(lm_spec, vote ~ growth, data = hibbs)
+tidy_terms <- broom.mixed::tidy(lm_fit)
+
+my_intercept = tidy_terms$estimate[tidy_terms$term == "(Intercept)"]
+my_slope = tidy_terms$estimate[tidy_terms$term == "growth"]
+my_sigma = glance(lm_fit)$sigma[1]
+
+my_plot <- 
+  my_plot +
+  geom_abline(intercept = my_intercept,
+              slope = my_slope,
+              color = "#FF9977")
+my_plot
+```
+
+Vamos gerar dados aleatórios dentro de uma distribuição normal, utilizando os parâmetros da regressão realizada anteriormente.
+
+Ou seja, possíveis pontos da nossa distribuição seriam `r paste0("y = ", my_slope, "x + ", my_intercept, "+/- sigma = ", my_sigma)`.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| error: false
+#| message: false
+x = hibbs$growth
+n = length(x)
+y = my_slope * x + my_intercept + rnorm(n, 0, my_sigma)
+fake_data = tibble(
+  vote = y,
+  growth = x
+)
+fake_data
+
+
+```
+
+O próximo paso é ajustar uma regressão linear para estes dados.
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| error: false
+#| message: false
+
+
+# Primeiro passo é definir um modelo
+lm_spec <- linear_reg() %>%
+  set_mode("regression") %>%
+  set_engine("stan")
+
+# Segundo passo é ajustar o modelo
+lm_fit <- fit(lm_spec, vote ~ growth, data = fake_data)
+lm_fit
+```
+
+É isto.

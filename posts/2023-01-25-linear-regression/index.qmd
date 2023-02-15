@@ -158,7 +158,7 @@ lm_fit <- fit(lm_spec, vote ~ growth, data = hibbs)
 lm_fit
 ```
 
-Ao invés de simplesmente chamar a função *stan_glm* fizemos um monte de coisas. E qual a vantagem disto tudo ao invés de chamar o método diretamente.
+Ao invés de simplesmente chamar a função *stan_glm* fizemos um monte de coisas. E qual a vantagem disto tudo ao invés de chamar o método diretamente?
 
 A vantagem aparece nos casos onde queremos obter padronização para diferentes métodos de regressão (veremos em outro post como isto pode ser útil, por enquanto vamos entender os conceitos do **tidymodels**).
 
@@ -166,7 +166,7 @@ Quem faz tudo isto é o pacote [parsnip](https://parsnip.tidymodels.org/index.ht
 
 -   Quando escrevemos **linear_reg()** estamos definindo o **tipo** do modelo (um tipo diferente seria, por exemplo, um random forest: *rand_forest()*).
 
--   **set_mode()** define o tipo de modelagem que será feita - as opções são tipicamente "classificatin" ou "regression".
+-   **set_mode()** define o tipo de modelagem que será feita - as opções são tipicamente "classification" ou "regression".
 
 -   e finalmente **set_engine()** recebe como parâmetro o nome do pacote que contém o motor que será utilizado para executar o modelo.
 
@@ -184,7 +184,6 @@ Isto nos permite ajustar o gráfico anterior de uma forma mais sistemática sem 
 #| error: false
 #| message: false
 
-
 tidy_terms <- broom.mixed::tidy(lm_fit)
 tidy_terms
 my_plot +
@@ -199,16 +198,13 @@ Neste post temos o exemplo do capítulo 1 do livro [*Regression and Other Storie
 
 -   tidymodels separa a definição do modelo de seu cálculo (pacote *parsnip*):
 
-    -   definição do modelo: *linear_reg()*
-
+    -   definição do modelo: *lienar_reg()*
     -   definição do modo do modelo: *set_mode("regression")*
-
-    -   definição do motor/algoritmo que será utilizado: *set_engine("stan")*
-
     -   cálculo do modelo: *fit(...)*
 
--   tidymodels permite acessar os resultados da regressão num formato tidy (pacote *broom*):
+<!-- -->
 
+-   tidymodels permite acessar os resultados da regressão num formato tidy (pacote *broom*):
     -   *tidy(lm_fit)*
 
 Este post implementou o primeiro exemplo do livro ROS utilizando tidymodels.
