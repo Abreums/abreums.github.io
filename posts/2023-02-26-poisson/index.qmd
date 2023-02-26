@@ -102,9 +102,7 @@ Neste caso, queremos:
 
 $$
 P(X \geq 3)
-$$
-com:
-$$
+$$ com: $$
 k = 3  \\
 \lambda =  1.6
 $$
@@ -175,3 +173,20 @@ ppois(7, 4.5)
 $P(X = 7) \approx 0.0823 \implies P(X \leq 7) \approx 0.913$
 
 Se o objetivo é que menos de 10% das chamadas fiquem em espera, então ao menos 7 atendentes devem ser colocados em serviço.
+
+Exemplo 5:
+
+Se um site tem a média de 20 visitantes por hora, qual a probabilidade do site receber mais que 30 e 35 visitantes em uma determinada hora?
+
+```{r}
+(p30 = 1 - ppois(30, 20))
+(p35 = 1 - ppois(35, 20))
+
+```
+
+$$
+P(X \geq 30) \approx 0.0134 \\
+P(X \geq 40) \approx 0.0008 
+$$
+
+.
