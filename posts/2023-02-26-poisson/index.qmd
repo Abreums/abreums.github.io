@@ -1,0 +1,177 @@
+---
+title: "Distribuição Poisson"
+description: "Alguns exemplos de comom usar a distribuição de Poisson e como calcular com R"
+date: 2022-02-26
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-02-26-poisson/
+  language: pt-br
+image: "poisson.png"
+categories: [Rstat]
+---
+
+A distribuição Poisson é utilizada para aplicações onde a contagem do número de sucessos é um grande número de tentativas mas a probabilidade de sucesso de cada tentativa é pequena.
+
+As condições para uso da distribuição de Poisson incluem:
+
+-   k é o número positivo de vezes que um evento acontece dentro de um período de tempo. O valor de k deve ser algo como: 0, 1, 2, 3, 4, etc.
+
+-   A ocorrência de um evento não afeta a re-ocorrência do evento, ou seja, os evento ocorrem independentemente. Uma fraca dependência é aceitável principalmente quando o número de eventos é grande.
+
+-   O evento em análise não pode ocorrer duas vezes no mesmo momento.
+
+-   A probabilidade de um evento ocorrer em uma pequena parte do intervalo de tempo analisado é proporcional ao tamanho da pequena parte do intervalo.
+
+-   O número de tentativas é consideravelmente maior do que o número de vezes que o evento ocorre.
+
+## Fórmula
+
+A fórmula da distribuição de Poisson é:
+
+$$
+P(x,\mu) = \frac{e^{-\mu}\mu^x}{x!}  
+$$
+
+Onde,
+
+x = número de vezes em que o evento ocorre durante um período de tempo
+
+$\mu$ = média de ocorrência do evento.
+
+e = constante de Euler, aproximadamente 2,71828
+
+Exemplo 1:
+
+Considere que o número médio de vendas de um determinado modelo de televisão numa cadeia de lojas é de 5 aparelhos por dia.
+
+Qual é a probabilidade de serem vendidos 9 aparelhos no dia de hoje?
+
+$$
+\begin{align}
+P(x, \mu) & = \\
+& = P(9, 5) = \\
+& = \frac{e^{-5} 5^{9}}{9!} = \\
+& = 0.036
+\end{align}
+$$
+
+Utilizando R:
+
+```{r}
+#| echo: fenced
+#| warning: false
+#| error: false
+#| message: false
+
+dpois(x = 9, lambda = 5)
+
+```
+
+Exemplo 2:
+
+Uma lanchonete recebe em média 2.8 clientes por minuto.
+
+Considerando que o número de clientes que chegam na lanchonete segue uma distribuição Poisson, qual é a probabilidade de 4 clientes chegarem no próximo minuto?
+
+```{r}
+dpois(4, 2.8)
+```
+
+$$
+\begin{align}
+P(4, 2.8) & = \\
+& = \frac{e^{2.8} * 2.8^4}{4!} \\
+& = 0.15573  \\
+& = 15.5\%
+\end{align}
+$$
+
+Example 3:
+
+A distribuição de Poisson pode ser utilizada para calcular a probabilidade de "mais do que" ou "menos que" utilizando a regra da soma e as probabilidades complementares.
+
+Foi registrado que um cruzamento registra 1.6 carros chegando por minuto.
+
+Qual a probabilidade que 3 ou mais carros cheguem no cruzamento em um determinado minuto?
+
+Neste caso, queremos:
+
+$$
+P(X \geq 3)
+$$
+com:
+$$
+k = 3  \\
+\lambda =  1.6
+$$
+
+Como não há limite superior para k, este valor não pode ser calculado diretamente. Entretanto, podemos calcular a $P(X \leq 2)$ e obter seu complemento.
+
+```{r}
+p0 = dpois(0,1.6)
+p0
+p1 = dpois(1,1.6)
+p1
+p2 = dpois(2,1.6)
+p2
+
+p = p0 + p1 + p2
+p
+1-p
+# ou
+ppois(2, 1.6)
+```
+
+$$
+P(X \geq 3) = 1 - P(X \leq 2) \approx 0.2166
+$$
+
+ou:
+
+$$
+21.7\%
+$$
+
+Exemplo 4:
+
+Um call-center recebe uma média de 4,5 chamadas a cada 5 minutos. Cada atendente consegue atender uma destas chamadas no período de 5min. Se uma chamada chega ao call-center e não há atendentes disponíveis, a chamada é colocada em espera.
+
+Qual o número mínimo de atendentes que devem estar trabalhando para que o número de chamadas colocadas em espera não seja maior do que 10% do tempo.
+
+P(X \> k) \< 0.1
+
+Para resolver esta questão primeiro temos a constatação de que para uma chamada ficar em espera o número de chamadas recebidas deverá ser maior do que o número de atendentes.
+
+Se X é o número de chamadas recebidas e k o número de atendentes, então k deve ser determinado de forma que:
+
+$P(X > k) \leq 0.1$
+
+ou equivalentemente:
+
+$P(X \leq k) > 0.9$
+
+O número médio de chamadas é 4,5 ou seja:
+
+$\lambda = 4.5$
+
+```{r}
+(p0 = dpois(0, 4.5))
+(p1 = dpois(1, 4.5))
+(p2 = dpois(2, 4.5))
+(p3 = dpois(3, 4.5))
+(p4 = dpois(4, 4.5))
+(p5 = dpois(5, 4.5))
+(p6 = dpois(6, 4.5))
+(p7 = dpois(7, 4.5))
+1-p7
+# ou
+ppois(7, 4.5)
+```
+
+$P(X = 7) \approx 0.0823 \implies P(X \leq 7) \approx 0.913$
+
+Se o objetivo é que menos de 10% das chamadas fiquem em espera, então ao menos 7 atendentes devem ser colocados em serviço.

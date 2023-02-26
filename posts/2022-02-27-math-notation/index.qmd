@@ -1,0 +1,123 @@
+---
+title: "Welcome To My Blog"
+description: "First post in my new Quarto blog"
+date: 2019-02-25
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2019-02-25-welcome/
+  language: pt-br
+categories: [News]
+---
+
+Exemplos de como escrever equações matemáticas em Rmarkdown.
+
+Atenção: quando mostrada a sintaxe os sifrões de início e fechamento estarão incorretamente prescedidos de um barra para evitar a transformação dos mesmos. Ou seja, quando estiver indicado "\\\\$"utilize apenas "$".
+
+## Letras Gregas
+
+$\alpha$ : \\\$\\alpha \\\$
+
+$\beta$ : \\\$ \beta \\\$
+
+$\lambda$ : \\\$ \lambda \\\$
+
+$\lambda_1$ : \\\$ \lambda\_1 \\\$
+
+$\gamma^2$ : \\\$ \gamma\^2 \\\$
+
+$\mu$ : \\\$ \mu \\\$
+
+$\sigma$ : \\\$ \sigma \\\$
+
+$\sigma^2$ : \\\$ \sigma\^2 \\\$
+
+$\pi$ : \\\$ \pi \\\$
+
+$\theta$ : \\\$ \theta \\\$
+
+## Equações
+
+Para escrever a equação:
+
+$Y = \beta_0 + \beta_1X + \epsilon$
+
+escreva:
+
+\\\$ Y = \beta\_0 + \beta\_1X + \epsilon \\\$
+
+Para indicar um subscrição com mais de uma letra use chaves:
+
+$R^2_{adj}$ : \\\$ R\^2\_{adj} \\\$
+
+Múltiplas linhas
+
+$$
+\begin{align}
+a + 2 + b + 2a & = \\
+& = 3a + b + 2 
+\end{align}
+$$
+
+Use \begin{align} e \end{align} colocando um & antes dos sinais de =.
+
+\\ begin{align}
+
+a + 2 + b + 2a & = \\\\
+
+& = 3a + b + 2
+
+\\ end {align\|
+
+## Distribuição Estatística
+
+Para escrever uma Distribuição Estatística, o símbolo \~ é gerado com \sim.
+
+$Y_i \sim N(\mu, \sigma)$
+
+## Frações
+
+Para frações use o comando \frac{}{}:
+
+$\log \left( \frac{\pi_i}{1 - \pi_i}\right)$
+
+## Raiz Quadrada
+
+$\sqrt{p}$ : \\\$ \sqrt{p} \\\$
+
+fórmula da báscara:
+
+$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+
+\\\$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\\$
+
+## Valor médio (x chapéu)
+
+$\sum_{i = 1}^{n}{(\bar{x} - x_i)^2}$
+
+\\\$ \sum\_{x = i}\^{n}{(\\bar{x} - x_i) \^2} \\\$
+
+## Regra de Bayes
+
+$Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}$
+
+\\\$ Pr(\\theta \| y) = \frac{Pr(y \| \\theta)Pr(\\theta)}{Pr(y)} \\\$
+
+$Pr(\theta|y) \propto Pr(y|\theta)Pr(\theta)$
+
+\\\$ Pr(\\theta \| y) \propto Pr(y \| \theta) Pr(\\theta) \\\$
+
+## Readings
+
+Lista de simbolos:
+
+<https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols>
+
+Mais dicas:
+
+<https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#equations>
+
+<https://autarkaw.wordpress.com/2021/03/07/useful-hints-for-a-newbie-on-rmarkdown/#:~:text=Aligning%20equations%20to%20a%20character&text=This%20is%20simply%20done%20by,aligned%20character%20in%20all%20lines.>
