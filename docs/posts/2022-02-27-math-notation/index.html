@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marcos Abreu">
-<meta name="dcterms.date" content="2019-02-25">
-<meta name="description" content="First post in my new Quarto blog">
+<meta name="dcterms.date" content="2022-02-27">
+<meta name="description" content="How to write math equations and cool stuf with Rmarkdown">
 
-<title>Marcos Abreu’s blog - Welcome To My Blog</title>
+<title>Marcos Abreu’s blog - Math notation with Rmarkdown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,14 +97,14 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">Math notation with Rmarkdown</h1>
                   <div>
         <div class="description">
-          First post in my new Quarto blog
+          How to write math equations and cool stuf with Rmarkdown
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">News</div>
+                <div class="quarto-category">Rstat</div>
               </div>
                   </div>
   </div>
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 25, 2019</p>
+        <p class="date">February 27, 2022</p>
       </div>
     </div>
     
@@ -144,25 +144,31 @@ ul.task-list li input[type="checkbox"] {
 <p>Atenção: quando mostrada a sintaxe os sifrões de início e fechamento estarão incorretamente prescedidos de um barra para evitar a transformação dos mesmos. Ou seja, quando estiver indicado “\\<span class="math inline">\("utilize apenas "\)</span>”.</p>
 <section id="letras-gregas" class="level2">
 <h2 class="anchored" data-anchor-id="letras-gregas">Letras Gregas</h2>
-<p><span class="math inline">\(\alpha\)</span> : \$\alpha \$</p>
-<p><span class="math inline">\(\beta\)</span> : \$ \$</p>
-<p><span class="math inline">\(\lambda\)</span> : \$ \$</p>
-<p><span class="math inline">\(\lambda_1\)</span> : \$ _1 \$</p>
-<p><span class="math inline">\(\gamma^2\)</span> : \$ ^2 \$</p>
-<p><span class="math inline">\(\mu\)</span> : \$ \$</p>
-<p><span class="math inline">\(\sigma\)</span> : \$ \$</p>
-<p><span class="math inline">\(\sigma^2\)</span> : \$ ^2 \$</p>
-<p><span class="math inline">\(\pi\)</span> : \$ \$</p>
-<p><span class="math inline">\(\theta\)</span> : \$ \$</p>
+<p><span class="math inline">\(\alpha\)</span> : \alpha</p>
+<p><span class="math inline">\(\beta\)</span> : \beta</p>
+<p><span class="math inline">\(\lambda\)</span> : \lambda</p>
+<p><span class="math inline">\(\Lambda\)</span> : \Lambda</p>
+<p><span class="math inline">\(\lambda_1\)</span> : \lambda_1</p>
+<p><span class="math inline">\(\gamma^2\)</span> : \gamma^2</p>
+<p><span class="math inline">\(\Gamma\)</span> : \Gamma</p>
+<p><span class="math inline">\(\mu\)</span> : \mu</p>
+<p><span class="math inline">\(\phi\)</span> : \phi</p>
+<p><span class="math inline">\(\Phi\)</span> : \Phi</p>
+<p><span class="math inline">\(\xi\)</span> : \xi</p>
+<p><span class="math inline">\(\Xi\)</span> : \Xi</p>
+<p><span class="math inline">\(\sigma\)</span> : \sigma</p>
+<p><span class="math inline">\(\sigma^2\)</span> : \sigma^2</p>
+<p><span class="math inline">\(\pi\)</span> : \pi</p>
+<p><span class="math inline">\(\theta\)</span> : \theta</p>
 </section>
 <section id="equações" class="level2">
 <h2 class="anchored" data-anchor-id="equações">Equações</h2>
 <p>Para escrever a equação:</p>
 <p><span class="math inline">\(Y = \beta_0 + \beta_1X + \epsilon\)</span></p>
 <p>escreva:</p>
-<p>\$ Y = _0 + _1X + \$</p>
+<p>\Y = \beta_0 + \beta_1X + \epsilon</p>
 <p>Para indicar um subscrição com mais de uma letra use chaves:</p>
-<p><span class="math inline">\(R^2_{adj}\)</span> : \$ R^2_{adj} \$</p>
+<p><span class="math inline">\(R^2_{adj}\)</span> : R^2_{adj}</p>
 <p>Múltiplas linhas</p>
 <p><span class="math display">\[
 \begin{align}
@@ -174,36 +180,36 @@ a + 2 + b + 2a &amp; = \\
 <p>\ begin{align}</p>
 <p>a + 2 + b + 2a &amp; = \\</p>
 <p>&amp; = 3a + b + 2</p>
-<p>\ end {align|</p>
+<p>\ end {align}</p>
 </section>
 <section id="distribuição-estatística" class="level2">
 <h2 class="anchored" data-anchor-id="distribuição-estatística">Distribuição Estatística</h2>
-<p>Para escrever uma Distribuição Estatística, o símbolo ~ é gerado com .</p>
+<p>Para escrever uma Distribuição Estatística, o símbolo \~ é gerado com \sim.</p>
 <p><span class="math inline">\(Y_i \sim N(\mu, \sigma)\)</span></p>
 </section>
 <section id="frações" class="level2">
 <h2 class="anchored" data-anchor-id="frações">Frações</h2>
-<p>Para frações use o comando :</p>
+<p>Para frações use o comando \frac{}{}:</p>
 <p><span class="math inline">\(\log \left( \frac{\pi_i}{1 - \pi_i}\right)\)</span></p>
 </section>
 <section id="raiz-quadrada" class="level2">
 <h2 class="anchored" data-anchor-id="raiz-quadrada">Raiz Quadrada</h2>
-<p><span class="math inline">\(\sqrt{p}\)</span> : \$ \$</p>
+<p><span class="math inline">\(\sqrt{p}\)</span> : \sqrt{p}</p>
 <p>fórmula da báscara:</p>
 <p><span class="math inline">\(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</span></p>
-<p>\$ x = \$</p>
+<p>x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}</p>
 </section>
 <section id="valor-médio-x-chapéu" class="level2">
 <h2 class="anchored" data-anchor-id="valor-médio-x-chapéu">Valor médio (x chapéu)</h2>
 <p><span class="math inline">\(\sum_{i = 1}^{n}{(\bar{x} - x_i)^2}\)</span></p>
-<p>\$ _{x = i}^{n}{(\bar{x} - x_i) ^2} \$</p>
+<p>\sum_{x = i}^{n}{(\bar{x} - x_i)^2}</p>
 </section>
 <section id="regra-de-bayes" class="level2">
 <h2 class="anchored" data-anchor-id="regra-de-bayes">Regra de Bayes</h2>
 <p><span class="math inline">\(Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}\)</span></p>
-<p>\$ Pr(\theta | y) = \$</p>
+<p>Pr(\theta \| y) = \frac{Pr(y \| \theta)Pr(\theta)}{Pr(y)}</p>
 <p><span class="math inline">\(Pr(\theta|y) \propto Pr(y|\theta)Pr(\theta)\)</span></p>
-<p>\$ Pr(\theta | y) Pr(y | ) Pr(\theta) \$</p>
+<p>Pr(\theta \| y) \propto Pr(y \| \theta) Pr(\theta)</p>
 </section>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings">Readings</h2>
@@ -216,16 +222,16 @@ a + 2 + b + 2a &amp; = \\
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2019,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2022,
   author = {Marcos Abreu},
-  title = {Welcome To My Blog},
-  date = {2019-02-25},
-  url = {https://abreums.github.io/posts/2019-02-25-welcome/},
+  title = {Math notation with Rmarkdown},
+  date = {2022-02-27},
+  url = {https://abreums.github.io/posts/2022-02-27-math-notation/},
   langid = {pt-br}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abreu2019" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Marcos Abreu. 2019. <span>“Welcome To My Blog.”</span> February 25,
-2019. <a href="https://abreums.github.io/posts/2019-02-25-welcome/">https://abreums.github.io/posts/2019-02-25-welcome/</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abreu2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Marcos Abreu. 2022. <span>“Math notation with Rmarkdown.”</span>
+February 27, 2022. <a href="https://abreums.github.io/posts/2022-02-27-math-notation/">https://abreums.github.io/posts/2022-02-27-math-notation/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -1,16 +1,17 @@
 ---
-title: "Welcome To My Blog"
-description: "First post in my new Quarto blog"
-date: 2019-02-25
+title: "Math notation with Rmarkdown"
+description: "How to write math equations and cool stuf with Rmarkdown"
+date: 2022-02-27
 author: 
   - name: Marcos Abreu
     url: https://abreums.github.io
     orcid: 0000-0003-4772-7955
 citation:
   type: post-weblog
-  url: https://abreums.github.io/posts/2019-02-25-welcome/
+  url: https://abreums.github.io/posts/2022-02-27-math-notation/
   language: pt-br
-categories: [News]
+image: "math.png"
+categories: [Rstat]
 ---
 
 Exemplos de como escrever equações matemáticas em Rmarkdown.
@@ -19,25 +20,37 @@ Atenção: quando mostrada a sintaxe os sifrões de início e fechamento estarã
 
 ## Letras Gregas
 
-$\alpha$ : \\\$\\alpha \\\$
+$\alpha$ : \\alpha
 
-$\beta$ : \\\$ \beta \\\$
+$\beta$ :  \\beta
 
-$\lambda$ : \\\$ \lambda \\\$
+$\lambda$ : \\lambda
 
-$\lambda_1$ : \\\$ \lambda\_1 \\\$
+$\Lambda$ : \\Lambda
 
-$\gamma^2$ : \\\$ \gamma\^2 \\\$
+$\lambda_1$ : \\lambda_1
 
-$\mu$ : \\\$ \mu \\\$
+$\gamma^2$ : \\gamma^2
 
-$\sigma$ : \\\$ \sigma \\\$
+$\Gamma$ : \\Gamma
 
-$\sigma^2$ : \\\$ \sigma\^2 \\\$
+$\mu$ : \\mu
 
-$\pi$ : \\\$ \pi \\\$
+$\phi$ : \\phi
 
-$\theta$ : \\\$ \theta \\\$
+$\Phi$ : \\Phi
+
+$\xi$ : \\xi
+
+$\Xi$ : \\Xi
+
+$\sigma$ : \\sigma
+
+$\sigma^2$ : \\sigma^2
+
+$\pi$ : \\pi
+
+$\theta$ : \\theta
 
 ## Equações
 
@@ -47,11 +60,11 @@ $Y = \beta_0 + \beta_1X + \epsilon$
 
 escreva:
 
-\\\$ Y = \beta\_0 + \beta\_1X + \epsilon \\\$
+\\Y = \\beta_0 + \\beta_1X + \\epsilon
 
 Para indicar um subscrição com mais de uma letra use chaves:
 
-$R^2_{adj}$ : \\\$ R\^2\_{adj} \\\$
+$R^2_{adj}$ : R\^2\_{adj}
 
 Múltiplas linhas
 
@@ -70,45 +83,45 @@ a + 2 + b + 2a & = \\\\
 
 & = 3a + b + 2
 
-\\ end {align\|
+\\ end {align}
 
 ## Distribuição Estatística
 
-Para escrever uma Distribuição Estatística, o símbolo \~ é gerado com \sim.
+Para escrever uma Distribuição Estatística, o símbolo \\~ é gerado com \\sim.
 
 $Y_i \sim N(\mu, \sigma)$
 
 ## Frações
 
-Para frações use o comando \frac{}{}:
+Para frações use o comando \\frac{}{}:
 
 $\log \left( \frac{\pi_i}{1 - \pi_i}\right)$
 
 ## Raiz Quadrada
 
-$\sqrt{p}$ : \\\$ \sqrt{p} \\\$
+$\sqrt{p}$ : \\sqrt{p}
 
 fórmula da báscara:
 
 $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
 
-\\\$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\\$
+x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}
 
 ## Valor médio (x chapéu)
 
 $\sum_{i = 1}^{n}{(\bar{x} - x_i)^2}$
 
-\\\$ \sum\_{x = i}\^{n}{(\\bar{x} - x_i) \^2} \\\$
+\\sum_{x = i}^{n}{(\\bar{x} - x_i)^2}
 
 ## Regra de Bayes
 
 $Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}$
 
-\\\$ Pr(\\theta \| y) = \frac{Pr(y \| \\theta)Pr(\\theta)}{Pr(y)} \\\$
+Pr(\\theta \\| y) = \\frac{Pr(y \\| \\theta)Pr(\\theta)}{Pr(y)}
 
 $Pr(\theta|y) \propto Pr(y|\theta)Pr(\theta)$
 
-\\\$ Pr(\\theta \| y) \propto Pr(y \| \theta) Pr(\\theta) \\\$
+Pr(\\theta \\| y) \\propto Pr(y \\| \\theta) Pr(\\theta)
 
 ## Readings
 
