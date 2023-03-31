@@ -1,0 +1,53 @@
+---
+title: "LGPD 1"
+description: "Por que precisamos da LGPD?"
+date: 2022-11-15
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2022-11-15-LGPD-1/
+  language: pt-br
+bibliography: references.bib
+categories: [Change Management]
+---
+
+Começo aqui uma série de postagens sobre a LGPD - Lei Geral de Proteção de Dados.
+
+A LGPD é de grande importância para o bom funcionamento das relações entre empresas e consumidores e para a sociedade como um todo.
+
+Nesta série de postagens vou apresentar os principais conceitos da LGPD, e também vou discutir como a Gestão de Mudanças é fundamental para a incorporação de práticas e procedimentos dentro das organizações de forma a obter benefícios da aplição desta legislação.
+
+## Por que precisamos da LGPD?
+
+A Internet tornou-se parte estrutural da forma como nos comunicamos e transacionamos. Os benefícios que as tecnologias em torno da Internet trouxeram para as organizações e pessoas é inegável.
+
+Junto com estes benefícios surgiram algumas práticas que trouxeram riscos para as pessoas: as informações pessoas ficaram muito vulneráveis no ambiente da Internet.
+
+Empresas passaram a perceber grande vantagem financeira no acesso das informações das pessoas. Seja para prospectar oportunidades de vendas e possibilidades de serviços[@noauthor_google_2019], ou para influenciar as pessoas. Em relação a este último, os escândalos envolvendo as empresas Facebook[@noauthor_entenda_2018] e Cambridge Analítica e foram utilizados para influenciar as eleições americanas vencidas por Trump sobre Hillary Clinton e o processo de Brexit que levou o Reino Unido a sair da União Européia[@noauthor_entenda_2013].
+
+Hoje, as pessoas já tomam mais cuidado com o controle de suas informações. E já há demandas judiciais sobre o uso indevido dos dados. A forma como as empresas devem tratar os dados das pessoas fica clara neste trecho do processo judicial [@noauthor_recurso_nodate] expedido pela ministra Nancy Andrighi:
+
+> 9\. O fato, por si só, de se tratarem de dados usualmente fornecidos pelos próprios consumidores quando da realização de qualquer compra no comércio, não afasta a responsabilidade do gestor do banco de dados, na medida em que, quando o consumidor o faz não está, implícita e automaticamente, autorizando o comerciante a divulgá-los no mercado; está apenas cumprindo as condições necessárias à concretização do respectivo negócio jurídico entabulado apenas entre as duas partes, confiando ao fornecedor a proteção de suas informações pessoais.
+>
+> 10\. Do mesmo modo, o fato de alguém publicar em rede social uma informação de caráter pessoal não implica o consentimento, aos usuários que acessam o conteúdo, de utilização de seus dados para qualquer outra finalidade, ainda mais com fins lucrativos.
+
+Diante destas situações fica evidente a significância do tema e a necessidade de mecanismos de regulação.
+
+## Lei Geral de Proteção de Dados
+
+A LGPD [@noauthor_lei_2018] tem como objetivo "de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural".
+
+A construção da LGPD se deu por um longo processo de discussão que já vinha se desenvolvendo há anos, seja através de processos judiciais, seja através de outras leis que foram desenvolvidas tendo o tema como foco\[referência\].
+
+Podemos destacar que os direitos protegidos envolve o direito do indivíduo de controlar suas informações. O indivíduo tem o direito de se expor, de aceitar ser monitorado, porém desde que o faça de forma consciente.
+
+Esta consciência não ocorre simplesmente pela aceitação de um termo de contrato. Canto de Lima\[\@lima_lei_2020\] traz esta questão de forma pertinente:
+
+> O cidadão não compreende o cenário completo e nem os riscos aos quais se submete ao ceder seus dados, ou ao clicar que concorda com uma política de privacidade ou termos de uso sem ler suas cláusulas. Por outro lado, as empresas não costumam facilitar para que haja esta compreensão.
+
+Percebe-se aqui a aplicação adequada da lei, não é apenas uma questão de construção de procedimentos e regulações. A efetividade da mesma passa também por uma mudança de comportamento e consciência das pessoas.
+
+Para podermos construir uma estrutura que suporte este processo de transformação, é preciso antes entender conceitos e questões que fazem parte da LGPD, e das implicações existentes. Faremos isto na série de postagens que serão publicadas neste blog.
