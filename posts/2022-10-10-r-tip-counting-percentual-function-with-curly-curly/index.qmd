@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-10-10-r-tip-counting-percentual-function-with-curly-curly/
   language: pt-br
 image: "count_percent.png"
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 ```{r}

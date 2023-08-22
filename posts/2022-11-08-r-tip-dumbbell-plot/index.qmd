@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-11-08-r-tip-dumbbell-plot/
   language: pt-br
 image: dumbbell.png
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 Compairing values are very trick in dataviz.

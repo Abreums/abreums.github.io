@@ -1,0 +1,176 @@
+---
+title: "Análise de resultados de pesquisas"
+description: "Neste post vamos falar sobre a apresentação visual de resultados de pesquisas com perguntas no estilo likert"
+date: 2023-05-14
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2023-05-14-analysis-of-survey-results/
+  language: pt-br
+image: stackedbars.png
+categories: [Gestão de Mudanças, Rstats]
+---
+
+Uma das formas de apresentar o resultado de pesquisas é utilizar gráficos de barras empilhadas na horizontal. Vamos ver como isto funciona.
+
+Nossa pesquisa possui 2 perguntas inspiradas no levantamento de intenção:
+
+1.  O projeto trará mudanças que deixarão o trabalho mais efetivo.
+2.  Minha equipe considera que o projeto trará mudanças que deixarão o trabalho mais efetivo.
+
+Para cada pergunta o respondente seleciona um valor de 1 a 7, onde 1 significa que "Discorda totalmente" e 7 significa que "Concorda totalmente".
+
+Para este post basta saber que as perguntas visam comparar o que o entrevistado tem de atitude (pergunta 1) e de norma percebida (pergunta 2). Comparar as respostas destas perguntas nos permite avaliar como a percepção do associado é influenciada por suas atitudes ("o que ele acha") e pelas normas sociais que ele percebe ("o que ele acha que os outros acham"). Há um post no blog específico sobre como montar questões com este objetivo.
+
+Neste exemplo, as perguntas estão sendo utilizadas para demonstrar que em pesquisas é comum durante a análise dos resultados comparar as quantidades de respostas recebidas para diferentes perguntas.
+
+Então, a pergunta é: Qual é a melhor forma de comparar as respostas destas perguntas?
+
+Vamos construir um exemplo hipotético para avaliar as alternativas. Consideremos um universo de 50 entrevistados cujas as respostas oscilaram entre 1 e 7 aleatóriamente.
+
+```{r}
+library(tidyverse)
+
+set.seed(123)
+
+# just creating (almost) random numbers
+survey_data <- tibble(
+  Q1 = rnorm(100, mean = 5, sd = 3),
+  Q2 = rnorm(100, mean = 4.5, sd = 2)
+)
+survey_data <- 
+  survey_data |> 
+  mutate(Q1 = if_else(Q1 > 7, 7, Q1),
+         Q1 = if_else(Q1 < 1, 1, Q1),
+         Q2 = if_else(Q2 > 7, 7, Q2),
+         Q2 = if_else(Q2 < 1, 1, Q2)) |>
+  mutate(Q1 = if_else(Q1 > 4.5, ceiling(Q1), floor(Q1)),
+         Q2 = if_else(Q2 > 4.5, ceiling(Q2), floor(Q2))) |> 
+  mutate(Q1 = factor(as.character(Q1), 
+                     levels = c("1","2","3","4","5","6","7"),
+                     ordered = TRUE),
+         Q2 = factor(as.character(Q2), 
+                     levels = c("1","2","3","4","5","6","7"),
+                     ordered = TRUE))
+  
+```
+
+O primeiro passo é obter os percentuais para cada tipo de resposta.
+
+```{r}
+sQ1 <- 
+  survey_data |> 
+  count(Q1) |> 
+  mutate(p = n / sum(n),
+         question = "Q1") |> 
+  rename(level = Q1) |> 
+  select(question, level, p)
+sQ2 <- 
+  survey_data |> 
+  count(Q2) |> 
+  mutate(p = n / sum(n),
+         question = "Q2") |> 
+  rename(level = Q2) |> 
+  select(question, level, p)
+
+sdt <- rbind(sQ1, sQ2)
+```
+
+Vamos começar comparando *stacked bars* com *divergin stacked bars* (você já vai ver a diferença entre os dois).
+
+### Stacked Bars
+
+```{r}
+lik_colors = c("1" = "#C71E1D", "2" = "#D55457", "3" = "#E48F8F", "4" = "#B5AAB9", "5" = "#748CA5", "6" = "#17627B", "7" = "#174664")
+sdt |> 
+  ggplot(aes(question, p, label = paste0(as.character(100*p),"%"), fill = forcats::fct_rev(level))) +
+  geom_col(position = "stack") +
+  geom_text(size = 3, position = position_stack(vjust = 0.5)) +
+  theme_minimal() +
+  labs(title = "Respostas para as questões Q1 (atitude) e Q2 (norma percebida)",
+       x = NULL, y = NULL, fill = NULL) +
+  scale_fill_manual(values = lik_colors) +
+  coord_flip() +
+  theme(axis.text.x = element_blank(),
+        axis.title.x = element_blank(),
+        panel.grid = element_blank(),
+        legend.position = "none")
+```
+
+O gráfico nos mostra que mais de 50% dos entrevistados possui uma atitude (Q1) favorável ao questionamento. Mas esta posição é diferente quando avaliamos a norma percebida (Q2).
+
+Ou seja, os entrevistados concordam que a mudança trará benefícios, mas não estão certos se seus pares consideram o mesmo.
+
+Para fazermos esta comparação é útil avaliar os pesos das respostas nos extremos. O gráfico de barras empilhado nos ajuda nesta tarefa. Fica fácil comparar que as respostas de Q1 e Q2 diferem nos valores de 1 e 2, 6 e 7. Nestes casos importam menos as comparações entre as quantidades de respostas de 3, 4 e 5.
+
+### Diverging Stacked Bars
+
+Também são populares os gráficos de barras empilhados divergentes (*diverging stacked bars*). Vamos construir estes gráficos para os mesmos dados.
+
+Uma decisão importante nos gráficos divergentes é se vamos ou não incluir o valor neutro (4) no gráfico. Não há consenso sobre esta questão, e particularmente eu prefiro a opção de **não** incluir, conforme argumentado pelos autores deste [post](https://blog.datawrapper.de/divergingbars/ "The case against diverging stacked bars").
+
+```{r}
+library(scales)
+library(patchwork)
+
+# Separar o valor neutro
+sdt_neutral <- sdt |> filter(level == 4)
+sdt_nonneutral <- sdt |> filter(level != 4)
+
+p1 <-
+  sdt_nonneutral |> 
+  mutate(tlabel = paste0((100*p), "%"), # definir o label percentual
+         p = if_else(level %in% c(1,2,3), -p, p), # ajustar os valores
+         level = factor(level, levels = c("3", "2", "1", "4", "5", "6", "7"))) |> # ajustar a ordem de apresentação 
+  ggplot(aes(p, question, fill = fct_rev(level), label = tlabel)) +
+  geom_col() +
+  geom_text(size = 2.5, position = position_stack(vjust = 0.5)) +
+  scale_fill_manual(values = lik_colors) +
+  theme_bw() +
+  labs(x = NULL, y = NULL) +
+  scale_x_continuous(
+      breaks = seq(-1, 1, .2),
+      labels = ~ scales::percent(abs(.x)),
+      expand = c(0.01, 0),
+      limits = c(-.5, .6)
+    ) +
+  coord_cartesian(clip = "off") +
+  geom_vline(xintercept = 0)
+  
+p2 <- 
+  sdt_neutral |> 
+  mutate(tlabel = paste0((100*p), "%"),
+         p = if_else(level %in% c(1,2,3), -p, p),
+         level = factor(level, levels = c("3", "2", "1", "4", "5", "6", "7"))) |> 
+  ggplot(aes(p, question , fill = fct_rev(level), label = tlabel)) +
+  geom_col() +
+  geom_text(size = 2.5, position = position_stack(vjust = 0.5)) +
+  scale_fill_manual(values = lik_colors) +
+  theme_bw() +
+  labs(x = NULL, y = NULL) + 
+  scale_x_continuous(
+      breaks = seq(-1, 1, .1),
+      labels = ~ scales::percent(abs(.x)),
+      expand = c(0.01, 0),
+      limits = c(-0.001, 0.12)
+    )
+
+p1 + p2 +
+  plot_layout(widths = c(4, 1), guides = "collect") &
+  plot_annotation("Respostas para as questões Q1 (atitude) e Q2 (norma percebida)",
+                  theme=theme(plot.title=element_text(hjust=0.5))) &
+  theme(
+    legend.position = "none", 
+    # legend.margin = margin(5, 0, 5, 0), 
+    # legend.box.margin = margin(0, 0, -10, 0),
+    # legend.justification = "right",
+    plot.margin = margin(10, 10, 10, 10)
+  )
+```
+
+## Conclusões
+
+Os gráficos de barras empilhadas divergentes seriam úteis caso desejássemos comparar os valores intermediários (3 e 5, no caso). Para respostas da survey, é mais importante comparar os valores extremos, e por isto o gráfico empilhado permite uma comparação mais efetiva.

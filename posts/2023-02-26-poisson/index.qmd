@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-02-26-poisson/
   language: pt-br
 image: "poisson.png"
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 A distribuição Poisson é utilizada para aplicações onde a contagem do número de sucessos é um grande número de tentativas mas a probabilidade de sucesso de cada tentativa é pequena.

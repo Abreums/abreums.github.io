@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-10-27-r-tip-como-customizar-cores-no-ggplot2/
   language: pt-br
 bibliography: "https://api.citedrive.com/bib/092b439a-22cd-422b-9913-a61b66c8505d/references.bib?x=eyJpZCI6ICIwOTJiNDM5YS0yMmNkLTQyMmItOTkxMy1hNjFiNjZjODUwNWQiLCAidXNlciI6ICI4MjAiLCAic2lnbmF0dXJlIjogImNlMjYyNmViZmU5MjJlYTcyYmM2YjViOWZkMmE4ZDA0ZWIxMjRiYzA3M2RhY2RlNmUwNzJjODljNmY4ZWY3ZWMifQ==/bibliography.bib"
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 Seguindo a regra de que se você tiver que explicar alguma coisa mais de 3 vezes, então você deve escrever um post sobre o assunto. E considerando que neste caso, estou explicando para mim mesmo como definir cores no ggplo2, achei melhor escrever este post para me ajudar a lembrar destas informações na próxima vez que precisar delas.

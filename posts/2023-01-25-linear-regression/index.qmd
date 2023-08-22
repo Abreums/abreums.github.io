@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2023-01-25-linear-regression/
   language: pt-br
 image: "forecasting_election_from_economy.png"
-categories: [Rstat]
+categories: [Rstats]
 editor_options: 
   chunk_output_type: console
 ---

@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2019-11-10-como-criar-um-grafico-de-cordas/
   language: pt-br
 image: grafico-cordas.png
-categories: [Gestão, Rstat]
+categories: [Gestão, Rstats]
 ---
 
 Vou mostrar aqui como montar um gráfico de tendência com datas. Este gráfico é muito útil para acompanhar a performance do trabalho conforme descrito [aqui](https://abreums.github.io/posts/2022-11-10-rastreando-a-performance-do-trabalho/).

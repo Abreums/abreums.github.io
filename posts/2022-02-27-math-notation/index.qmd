@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-02-27-math-notation/
   language: pt-br
 image: "math.png"
-categories: [Rstat]
+categories: [Rstats, Latex]
 ---
 
 Exemplos de como escrever equações matemáticas em Rmarkdown.
@@ -22,7 +22,7 @@ Atenção: quando mostrada a sintaxe os sifrões de início e fechamento estarã
 
 $\alpha$ : \\alpha
 
-$\beta$ :  \\beta
+$\beta$ : \\beta
 
 $\lambda$ : \\lambda
 
@@ -30,7 +30,7 @@ $\Lambda$ : \\Lambda
 
 $\lambda_1$ : \\lambda_1
 
-$\gamma^2$ : \\gamma^2
+$\gamma^2$ : \\gamma\^2
 
 $\Gamma$ : \\Gamma
 
@@ -46,7 +46,7 @@ $\Xi$ : \\Xi
 
 $\sigma$ : \\sigma
 
-$\sigma^2$ : \\sigma^2
+$\sigma^2$ : \\sigma\^2
 
 $\pi$ : \\pi
 
@@ -87,7 +87,7 @@ a + 2 + b + 2a & = \\\\
 
 ## Distribuição Estatística
 
-Para escrever uma Distribuição Estatística, o símbolo \\~ é gerado com \\sim.
+Para escrever uma Distribuição Estatística, o símbolo \\\~ é gerado com \\sim.
 
 $Y_i \sim N(\mu, \sigma)$
 
@@ -105,23 +105,23 @@ fórmula da báscara:
 
 $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
 
-x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}
+x = \\frac{-b \\pm \\sqrt{b\^2 - 4ac}}{2a}
 
 ## Valor médio (x chapéu)
 
 $\sum_{i = 1}^{n}{(\bar{x} - x_i)^2}$
 
-\\sum_{x = i}^{n}{(\\bar{x} - x_i)^2}
+\\sum\_{x = i}\^{n}{(\\bar{x} - x_i)\^2}
 
 ## Regra de Bayes
 
 $Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}$
 
-Pr(\\theta \\| y) = \\frac{Pr(y \\| \\theta)Pr(\\theta)}{Pr(y)}
+Pr(\\theta \\\| y) = \\frac{Pr(y \\\| \\theta)Pr(\\theta)}{Pr(y)}
 
 $Pr(\theta|y) \propto Pr(y|\theta)Pr(\theta)$
 
-Pr(\\theta \\| y) \\propto Pr(y \\| \\theta) Pr(\\theta)
+Pr(\\theta \\\| y) \\propto Pr(y \\\| \\theta) Pr(\\theta)
 
 ## Readings
 

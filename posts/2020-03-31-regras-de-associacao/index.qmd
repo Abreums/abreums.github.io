@@ -1,0 +1,78 @@
+---
+title: "Regras de Associação"
+description: "Pesquisas de opinião - vamos às compras"
+date: 2020-03-31
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2020-03-31-regras-de-associacao/
+  language: pt-br
+categories: [Rstats]
+---
+
+Regras de associação são utilizadas para análise de comportamento de compras. Permitem identificar quais produtos possuem maior probabilidade de aparecerem em conjunto numa mesma cesta de compras.
+
+Neste post, vou utilizar o mesmo cálculo probabilístico para identificar padrões de respostas de uma pesquisa sobre engajamento.
+
+As análises serão realizadas com o pacote *arules*. A função *apriori* permite identificar facilmente os padrões ou regra (*rules*).
+
+Mas primeiro, vamos às compras.
+
+## Análise de Cestas de Compras
+
+O que é uma *regra*?
+
+Uma regra é uma notação para representar qual item(s) é frequentemente encontrado com qual outro item(s):
+
+LHS $\rightarrow$ RHS
+
+Isto significa que os items da direita são frequentemente comprados com os itens da esquerda.
+
+### Como medir a força de uma regra
+
+A função *apriori* identifica o conjunto mais significativo
+
+$$
+Suporte = \frac{Número.de.transações.com.A.e.B}{Número.total.de.transações} = \frac{P(A \cap B)}{N}
+$$
+
+$$
+Confiança = \frac{Número.de.transações.com.A.e.B}{Número.de.transações.com.A} = \frac{P(A \cap B)}{P(A)}
+$$
+
+$$
+Confiança Esperada = \frac{Número.de.transações.com.B}{Número.total.de.transações} = P(B)
+$$
+
+*lift*:
+
+$$
+Elevação = \frac{Confiança}{Confiança.Esperada} = \frac{P(A \cap B)}{P(A) . P(B)}
+$$
+
+### Exemplo:
+
+Considere as associações:
+
+ABC, ACD, BCD, ADE, BCE
+
+```{r}
+#| warning: false
+#| error: false
+#| include: false
+
+library(tidyverse)
+library(gt)
+
+tb <- tibble(
+  regra = c("A -> D", "C -> A", "A -> C", "B & C -> D"),
+  suporte = c("2/5", "2/5", "2/5", "1/5"),
+  confianca = c("2/3", "2/4", "2/3", "1/3"),
+  elevacao = c("10/9", "5/6", "5/6", "5/9")
+)
+
+tb |> gt()
+```

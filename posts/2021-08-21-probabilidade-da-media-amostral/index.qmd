@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2021-08-21-proabilidade-da-media-amostral/
   language: pt-br
 image: "distrib_facet_plot.png"
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 O **Teorema central do limite** - na teoria das probabilidades - afirma que quando o tamanho da amostra aumenta, a distribuição amostral da sua média aproxima-se de uma distribuição normal.

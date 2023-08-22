@@ -10,7 +10,7 @@ citation:
   type: post-weblog
   url: https://abreums.github.io/posts/2022-11-06-r-tip-tabelas-com-gtextras/
 image: penguins.png
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 ```{r setup}

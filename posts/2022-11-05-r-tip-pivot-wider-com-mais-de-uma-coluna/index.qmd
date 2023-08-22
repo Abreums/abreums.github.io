@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-11-05-r-tip-pivot-wider-com-mais-de-uma-coluna/
   language: pt-br
 image: pivot_wider_many_columns.png
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 ```{r setup}

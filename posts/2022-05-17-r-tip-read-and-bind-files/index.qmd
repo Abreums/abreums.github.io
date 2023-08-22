@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-05-17-r-tip-read-and-bind-files/
   language: pt-br
 image: r_tip_read_and_bind.png
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 R tip - This is how to read and bind data from many excel files:

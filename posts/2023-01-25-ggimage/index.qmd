@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2023-01-25-ggimage/
   language: pt-br
 image: "ggimage_test.png"
-categories: [Rstat]
+categories: [Rstats]
 editor_options: 
   chunk_output_type: console
 ---

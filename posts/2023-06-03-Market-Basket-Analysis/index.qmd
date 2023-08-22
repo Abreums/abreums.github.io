@@ -1,0 +1,208 @@
+---
+title: "Market Basket Analysis"
+description: "Conceitos de Market Basket Analysis"
+date: 2023-06-03
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2023-06-03-Market-Basket-Analysis/
+  language: pt-br
+images: plot.png
+categories: [Rstats]
+---
+
+*Market Basket Analysis* ou Análise de Cesta de Compras (também é conhecida como *Association Rule Mining* - mineração de regras de associação) permite a análise de associações de elementos.
+
+O valor desta técnica é descobrir associações não-óbvias que sirvam de insumo para a tomada de decisões.
+
+Para apresentar os principais conceitos vamos utilizar um universo de transações compostas por 6 transações cada uma com os itens:
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(gt)
+library(gtExtras)
+
+# trx1, trx2, trx3, trx4, trx5, trx6
+# ABC,  BD,   EF,   ABE,  ABCF, ABCDEF
+
+trx <- 
+  tibble(
+  trx = c(       "trx1", "trx2", "trx3", "trx4", "trx5", "trx6" ),
+  shirt = c(     TRUE,   FALSE,  FALSE,  TRUE,   FALSE,  TRUE),
+  umbrella = c(  TRUE,   TRUE,   FALSE,  TRUE,   TRUE,   TRUE),
+  headphones = c(TRUE,   FALSE,  FALSE,  FALSE,  TRUE,   TRUE),
+  book = c(      FALSE,  TRUE,   TRUE,   TRUE,  FALSE,  TRUE),
+  flask = c(     FALSE,  FALSE,  TRUE,   TRUE,   FALSE,  TRUE),
+  radio = c(     FALSE,  FALSE,  FALSE,  FALSE,  TRUE,   TRUE)
+) 
+
+trx |>
+  mutate(shirt = ifelse(shirt == TRUE, "shirt", NA),
+         umbrella = ifelse(umbrella == TRUE, "umbrella", NA),
+         headphones = ifelse(headphones == TRUE, "headphones", NA),
+         book = ifelse(book == TRUE, "book", NA),
+         flask = ifelse(flask == TRUE, "flask", NA),
+         radio = ifelse(radio == TRUE, "radio", NA)) |> 
+  gt() |>
+  gt_fa_column(shirt) |> 
+  gt_fa_column(umbrella) |> 
+  gt_fa_column(headphones) |> 
+  gt_fa_column(book) |> 
+  gt_fa_column(flask) |> 
+  gt_fa_column(radio)
+```
+
+## Principais conceitos para análise de associações
+
+Para realizarmos a análise vamos utilizar alguns conceitos.
+
+O primeiro dele é o de **Regra de Associação**, ou simplesmente **regra**. Uma regra é uma relação entre 2 ou mais produtos. A regra **A -\> B** significa a associação dos dois produtos A e B serem comprados juntos. Ou ainda **(A,C) -\> B** significa a análise se a compra de B e C está associada à compra de B.
+
+Na regra **A -\> B**, A é chamado LHS (*Left Hand Side*) e B é chamado de RHS (*Right Hand Side*).
+
+Para um produto ou uma regra podemos determinar as seguintes medições:
+
+1.  Suporte (*Support*)
+2.  Confiança (*Confidence*)
+3.  Sustentação (*Sustentação*)
+4.  Convicção (*Conviction*)
+
+Vamos analisar o significado de cada um deles.
+
+### Suporte
+
+Suporte é a probabilidade com que um produto ou regra de aparecer no universo de transações analisadas.
+
+$$
+\begin{aligned}
+\begin{split}
+Support & = \frac{Número\ de\ transações\ na\ qual\ X\ aparece}{Número\ total\ de\ transações}\\
+        & = P(X)
+\end{split}
+\end{aligned}
+$$
+
+No nosso exemplo, podemos teríamos para cada um dos elementos:
+
+Suporte também pode ser calculado para regras.
+
+O suporte de uma regra indica a probabilidade de uma regra aparecer dentro do conjunto de todas as transações.
+
+$$
+supp(A\ \rightarrow\ B) = P(A \cap B)
+$$
+
+Por exemplo, podemos calcular o supporte para as seguintes regras do nosso exemplo:
+
+-   supp((shirt, umbrella) -\> headphones) = ?
+
+-   supp(flask, radio) -\> shirt) = ?
+
+-   supp(headphone -\> radio) =?
+
+```{r}
+# rule1: "shirt", "umbrella", "headphones" 
+# rule2: "flask", "radio", "shirt"
+# rule3: "book", "flask"
+
+trx_product_list <- 
+  trx |> 
+  pivot_longer(cols = -trx,
+               names_to = "product",
+               values_to = "present") |> 
+  mutate(content = ifelse(present == TRUE, product, "")) |> 
+  select(-present) |> 
+  pivot_wider(names_from = product,
+              values_from = content) |> 
+  mutate(product_list = paste(shirt, umbrella, headphones, book, flask, radio, sep = " ")) |>   select(trx, product_list)
+
+n_total_trx <- nrow(trx_product_list)
+
+# rule1: "shirt", "umbrella", "headphones" 
+supp_rule1 = 
+  trx_product_list |> 
+  filter(str_detect(product_list, "shirt"),
+         str_detect(product_list, "umbrella"),
+         str_detect(product_list, "headphones")) |> 
+  nrow() / n_total_trx
+  
+# rule2: "flask", "radio", "shirt"
+supp_rule2 = 
+  trx_product_list |> 
+  filter(str_detect(product_list, "flask"),
+         str_detect(product_list, "radio"),
+         str_detect(product_list, "shirt")) |> 
+  nrow() / n_total_trx
+
+# rule3: "headphone", "radio"
+supp_rule3 = 
+  trx_product_list |> 
+  filter(str_detect(product_list, "book"),
+         str_detect(product_list, "flask")) |> 
+  nrow() / n_total_trx
+
+```
+
+Um conceito derivado do suporte é o do **limite do suporte** (*support threashold*).
+
+Chamamos de limite do suporte ao valor do suporte de um item ou regra que possua valor significativo para os lucros.
+
+Neste caso, consideraremos apenas as demais regras e items que estejam acima deste limite.
+
+## Confiança
+
+A confiança de uma regra indica a probabilidade condicional de A e B serem comprados dado que A é comprado.
+
+$$
+\begin{equation}
+\begin{split}
+Confidence(A\ \rightarrow\ B) & = \frac{Support(A, B)}{Support(A)}\\
+           & = \frac{P(A \cap B)}{P{A}}\\
+           & = P(B|A)
+\end{split}
+\end{equation}
+$$
+
+No nosso exemplo, podemos perguntar "Qual a confiança de que quando *umbrella* e *headphones* são comoprados, *radio* também será comprado"?
+
+$$
+Confidence((umbrella, headphones)\ \rightarrow\ radio) = ?
+$$
+
+Confiança é uma medida que traz um pequeno problema.
+
+Eventualmente o produto RHS (*right hand side*) possui um forte poder de venda por si só.
+
+Neste caso, a informação sobre a confiança não é necessariamente verdadeira: não sabemos se RHS (*right hand side*) está sendo comprado em função de LHS (*left hand side*) ou por si só.
+
+Para resolvermos isto, utilizamos outra medição chamada Sustentação (*lift*).
+
+### Sustentação
+
+A sustentação mede se a ocorrência da regra $A\ \rightarrow\ B$ é maior do que as ocorrências de $A$ e $B$ individualmente.
+
+O valor da sustentação indica quantas vezes é mais provável encontrarmos a regra do que seus componentes. Isto significa que se o valor for maior que 1, a regra é significativa. Se o valor for menor do que 1 a regra não é significativa.
+
+$$
+\begin{equation}
+\begin{split}
+Lift(A\ \rightarrow\ B) & = \frac{Confiança(A\ \rightarrow\ B)}{Support(B)}\\
+                        & = \frac{P(A \cap B)}{P(A)\ *\ P(B)}
+\end{split}
+\end{equation}
+$$
+
+## Convicção
+
+Convicção mede se a associação entre RHS (*right hand side*) e LHS(*left hand side*).
+
+Conviction = \\frac{1\\ -\\ Support(Y)}{1\\ -\\ Confidence(X-\>Y)}
+
+## Algoritmo arules
+
+*Arules* é um algoritmo que mapeia todas as associações possíveis entre as variáveis existentes e assim permite que seja feita uma análise de mineração de regras significativas.

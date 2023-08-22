@@ -11,7 +11,7 @@ citation:
   url: https://abreums.github.io/posts/2022-05-02-ggplot-curves/
   language: pt-br
 images: "all_together.png"
-categories: [Rstat]
+categories: [Rstats]
 ---
 
 Here is a list of basic curves drawn with ggplot2.
