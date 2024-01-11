@@ -87,8 +87,6 @@ Support & = \frac{Número\ de\ transações\ na\ qual\ X\ aparece}{Número\ tota
 \end{aligned}
 $$
 
-No nosso exemplo, podemos teríamos para cada um dos elementos:
-
 Suporte também pode ser calculado para regras.
 
 O suporte de uma regra indica a probabilidade de uma regra aparecer dentro do conjunto de todas as transações.
@@ -106,6 +104,8 @@ Por exemplo, podemos calcular o supporte para as seguintes regras do nosso exemp
 -   supp(headphone -\> radio) =?
 
 ```{r}
+#| include:false
+
 # rule1: "shirt", "umbrella", "headphones" 
 # rule2: "flask", "radio", "shirt"
 # rule3: "book", "flask"
