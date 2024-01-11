@@ -104,7 +104,7 @@ Por exemplo, podemos calcular o supporte para as seguintes regras do nosso exemp
 -   supp(headphone -\> radio) =?
 
 ```{r}
-#| include:false
+#| include: false
 
 # rule1: "shirt", "umbrella", "headphones" 
 # rule2: "flask", "radio", "shirt"
