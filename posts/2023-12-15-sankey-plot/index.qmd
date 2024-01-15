@@ -1,0 +1,231 @@
+---
+title: "Gráficos Sankey ou Alluvial"
+description: "Representação do fluxo"
+date: 2019-02-25
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2012-12-15-sankey-plot/
+  language: pt-br
+categories: [News]
+---
+
+Sankey plot representes the information flow.
+
+The plot below shows how information from different business areas were addressed during the Fit & Gap Sesssions.
+
+```{r}
+library(tidyverse)
+library(gt)
+library(gtsummary)
+library(readxl)
+library(networkD3)
+
+in_data1 <- read_excel(path = "~/workspace/ALA/fit and bid analysis/ABR BID and Change Impact Tracker.xlsx",
+                 sheet = "Parking Lot") |> 
+  janitor::clean_names() 
+
+links <- 
+  in_data1 |> 
+  select(stream, moved_to) |> 
+  rename(source = stream, target = moved_to) |> 
+  select(source, target) |> 
+  mutate(value = 1,
+         target = if_else(is.na(target) | str_detect(target, "N/A"), "Closed", target)) |>
+  filter(!is.na(source)) 
+
+links <- 
+  links |> 
+  mutate(group = factor(source))
+  
+nodes <- tibble(
+  name = c(as.character(links$source), as.character(links$target)) |> unique()
+)
+
+links <- 
+  links |> 
+  mutate(IDsource = match(links$source, nodes$name)-1,
+         IDtarget = match(links$target, nodes$name)-1)
+
+
+colors_group <- links$group |> unique() |> as.character() 
+my_color <- 'd3.scaleOrdinal() .domain(["MAS", "DTC", "B2B/ O2C/ DTC", "O2C", "B2B", "SCM", "SCM/MAS", "DTC/ FIN", "FIN/ SCM", "FIN", "MAS/ O2C", "DTC/ MAS", "SCM/REP", "B2B/ O2C", "FIN/ MAS", "FIN/ O2C", "SCM/FIN"]) .range(["#ffff55", "#cc4444", "#33aabb",  "#bb9988", "#ea7766", "#bf4499", "#33aabb", "#33aabb", "#33aabb", "#9f4400", "#33aabb", "#33aabb", "#33aabb", "#33aabb", "#33aabb", "#33aabb", "#33aabb"])'
+
+sankeyNetwork(Links = links, 
+              Nodes = nodes,
+              Source = "IDsource",
+              Target = "IDtarget",
+              Value = "value",
+              NodeID = "name",
+             # colourScale = my_color,
+              LinkGroup = "group",
+              sinksRight = FALSE,
+            nodeWidth = 40,
+            fontSize = 14)
+
+```
+
+Taken the information that was carried to a BID evaluation process - FMS GAPs (BIDs) - this is how they were addressed during the evaluation of BIDs process:
+
+```{r}
+
+in_data_s2 <- read_excel(path = "~/workspace/ALA/fit and bid analysis/ABR BID and Change Impact Tracker.xlsx",
+                 sheet = "FMS GAPs (BIDs)",
+                 skip = 1) |> 
+  janitor::clean_names()
+
+links <- 
+  in_data_s2 |> 
+  filter(!is.na(stream)) |> 
+  select(stream, status, effort_days_total, description, comment) |> 
+  rename(source = stream, target = status, value = effort_days_total) |> 
+  filter(!is.na(value))
+
+
+links <- 
+  links |> 
+  mutate(group = factor(source),
+         value = 1)
+  
+nodes <- tibble(
+  name = c(as.character(links$source), as.character(links$target)) |> unique()
+)
+
+links <- 
+  links |> 
+  mutate(IDsource = match(links$source, nodes$name)-1,
+         IDtarget = match(links$target, nodes$name)-1)
+
+sankeyNetwork(Links = links, 
+              Nodes = nodes,
+              Source = "IDsource",
+              Target = "IDtarget",
+              Value = "value",
+              NodeID = "name",
+              LinkGroup = "group",
+               sinksRight = FALSE,
+            nodeWidth = 40,
+              fontSize = 22)
+
+```
+
+O que foi Cancelado?
+
+```{r}
+links |> 
+  filter(str_detect(target, "Cancel")) |> 
+  arrange(source) |> 
+  gt()
+
+
+```
+
+Deviation from the Global Way of Working
+
+```{r}
+in_data_s2 |> 
+  filter(!is.na(stream)) |> 
+  filter(!str_detect(status, "99. Cancelled")) |> 
+  filter(!is.na(charm_number)) |> 
+  filter(!str_detect(charm_number, "Wait")) |> 
+  filter(!str_detect(charm_number, "NA")) |> 
+  select(stream, charm_number, bid_classification) |> 
+  count(stream, bid_classification, sort = T) |> 
+  filter(!is.na(bid_classification)) |>
+  filter(!str_detect(bid_classification, "NA")) |>
+  filter(!str_detect(bid_classification, "template")) |> 
+  mutate(bid_classification = case_when(
+    str_detect(bid_classification, "Legal") ~ "Legal Requirement",
+    str_detect(bid_classification, "Integration") ~ "3rd Party Integration",
+    str_detect(bid_classification, "Waiting") ~ "3rd Party Integration",
+    TRUE ~ bid_classification
+  )) |> 
+  count(stream, bid_classification, wt = n) |> 
+  group_by(stream) |> 
+  mutate(`Total by Area` = sum(n)) |> 
+  ungroup() |> 
+  pivot_wider(names_from = bid_classification,
+              values_from = n) |> 
+  relocate(`Legal Requirement`, .after = last_col()) |> 
+  relocate(`3rd Party Integration`, .after = last_col()) |> 
+  relocate(`Baseline & Localization`, .after = last_col()) |> 
+  relocate(`Deviation from Global way of working`, .after = last_col()) |> 
+  relocate(`Total by Area`, .after = last_col()) |> 
+  arrange(`Total by Area`) |>
+  # mutate(color = "") |> 
+  gt(rowname_col = "stream") |> 
+  tab_header(
+    title = md(paste("BID Quantities", fontawesome::fa("city") , "FMS-SAP")),
+    subtitle = "Status at 2023-12-19"
+  ) |>
+  sub_missing()  |> 
+  grand_summary_rows(
+    # columns = -c(color),
+     fns = list(
+      total = ~ sum(., na.rm = TRUE)
+    )
+  ) |> 
+  tab_options(
+    table.font.size = 24
+  ) |> 
+  tab_style(
+    style = list(
+      cell_fill(color = "darkred"),
+      cell_text(color = "white")),
+    locations = cells_grand_summary(
+      columns = `Deviation from Global way of working`,
+      rows = 1
+    )
+  ) |> 
+  # data_color(
+  #   columns = `3rd Party Integration`,
+  #   rows =  `3rd Party Integration` > 5,
+  #   method = "numeric",
+  #   palette = c("lightblue", "pink"),
+  #   domain = c(0, 10)
+  # )  |> 
+  cols_label(
+    `Legal Requirement` = "Legal<br>Requirement",
+    `3rd Party Integration` = "3rd Party<br>Integration",
+    `Baseline & Localization` = "Baseline &<br>Localization",
+    `Deviation from Global way of working` = "Deviation<br>from Global<br>way of<br>working",
+    `Total by Area` = "Totals",
+    .fn = md
+  ) |> 
+  data_color(
+    columns = `Total by Area`,
+    #rows =  `Total by Area` > 15,
+    method = "numeric",
+    palette = c("lightblue", "pink"),
+    domain = c(0, 16)
+  ) 
+
+```
+
+teste
+
+```{r}
+countrypops |>
+  dplyr::filter(country_code_3 %in% c("FRA", "GBR")) |>
+  dplyr::filter(year %% 10 == 0) |>
+  dplyr::select(-contains("code")) |>
+  dplyr::mutate(color = "") |>
+  gt(groupname_col = "country_name") |>
+  fmt_integer(columns = population) |>
+  data_color(
+    columns = population,
+    target_columns = color,
+    method = "numeric",
+    palette = "viridis",
+    domain = c(4E7, 7E7)
+  ) |>
+  cols_label(
+    year = "",
+    population = "Population",
+    color = ""
+  ) |>
+  opt_vertical_padding(scale = 0.65)
+```

@@ -1,0 +1,14 @@
+{
+  "hash": "6e4bd90e208c689facd0d8ec07cd519e",
+  "result": {
+    "markdown": "---\ntitle: \"Regras de Associação\"\ndescription: \"Pesquisas de opinião - vamos às compras\"\ndate: 2020-03-31\nauthor: \n  - name: Marcos Abreu\n    url: https://abreums.github.io\n    orcid: 0000-0003-4772-7955\ncitation:\n  type: post-weblog\n  url: https://abreums.github.io/posts/2020-03-31-regras-de-associacao/\n  language: pt-br\ncategories: [Rstats]\n---\n\n\nRegras de associação são utilizadas para análise de comportamento de compras. Permitem identificar quais produtos possuem maior probabilidade de aparecerem em conjunto numa mesma cesta de compras.\n\nNeste post, vou utilizar o mesmo cálculo probabilístico para identificar padrões de respostas de uma pesquisa sobre engajamento.\n\nAs análises serão realizadas com o pacote *arules*. A função *apriori* permite identificar facilmente os padrões ou regra (*rules*).\n\nMas primeiro, vamos às compras.\n\n## Análise de Cestas de Compras\n\nO que é uma *regra*?\n\nUma regra é uma notação para representar qual item(s) é frequentemente encontrado com qual outro item(s):\n\nLHS $\\rightarrow$ RHS\n\nIsto significa que os items da direita são frequentemente comprados com os itens da esquerda.\n\n### Como medir a força de uma regra\n\nA função *apriori* identifica o conjunto mais significativo\n\n$$\nSuporte = \\frac{Número.de.transações.com.A.e.B}{Número.total.de.transações} = \\frac{P(A \\cap B)}{N}\n$$\n\n$$\nConfiança = \\frac{Número.de.transações.com.A.e.B}{Número.de.transações.com.A} = \\frac{P(A \\cap B)}{P(A)}\n$$\n\n$$\nConfiança Esperada = \\frac{Número.de.transações.com.B}{Número.total.de.transações} = P(B)\n$$\n\n*lift*:\n\n$$\nElevação = \\frac{Confiança}{Confiança.Esperada} = \\frac{P(A \\cap B)}{P(A) . P(B)}\n$$\n\n### Exemplo:\n\nConsidere as associações:\n\nABC, ACD, BCD, ADE, BCE\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

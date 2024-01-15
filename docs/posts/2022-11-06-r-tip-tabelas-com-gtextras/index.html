@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,7 +92,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -139,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Rstat</div>
+                <div class="quarto-category">Rstats</div>
               </div>
                   </div>
   </div>
@@ -208,14 +209,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="hzatqpksze" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="mqlppwjbhg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mqlppwjbhg table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#hzatqpksze .gt_table {
+#mqlppwjbhg thead, #mqlppwjbhg tbody, #mqlppwjbhg tfoot, #mqlppwjbhg tr, #mqlppwjbhg td, #mqlppwjbhg th {
+  border-style: none;
+}
+
+#mqlppwjbhg p {
+  margin: 0;
+  padding: 0;
+}
+
+#mqlppwjbhg .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -238,19 +251,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#hzatqpksze .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
+#mqlppwjbhg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-#hzatqpksze .gt_title {
+#mqlppwjbhg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -262,25 +268,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#hzatqpksze .gt_subtitle {
+#mqlppwjbhg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#hzatqpksze .gt_bottom_border {
+#mqlppwjbhg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mqlppwjbhg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hzatqpksze .gt_col_headings {
+#mqlppwjbhg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -295,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#hzatqpksze .gt_col_heading {
+#mqlppwjbhg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -315,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#hzatqpksze .gt_column_spanner_outer {
+#mqlppwjbhg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -327,15 +345,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#hzatqpksze .gt_column_spanner_outer:first-child {
+#mqlppwjbhg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hzatqpksze .gt_column_spanner_outer:last-child {
+#mqlppwjbhg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hzatqpksze .gt_column_spanner {
+#mqlppwjbhg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -347,7 +365,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#hzatqpksze .gt_group_heading {
+#mqlppwjbhg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mqlppwjbhg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -370,9 +392,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-#hzatqpksze .gt_empty_group_heading {
+#mqlppwjbhg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -387,15 +410,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#hzatqpksze .gt_from_md > :first-child {
+#mqlppwjbhg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hzatqpksze .gt_from_md > :last-child {
+#mqlppwjbhg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hzatqpksze .gt_row {
+#mqlppwjbhg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -414,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#hzatqpksze .gt_stub {
+#mqlppwjbhg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -427,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hzatqpksze .gt_stub_row_group {
+#mqlppwjbhg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -441,11 +464,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#hzatqpksze .gt_row_group_first td {
+#mqlppwjbhg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hzatqpksze .gt_summary_row {
+#mqlppwjbhg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mqlppwjbhg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -455,16 +482,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hzatqpksze .gt_first_summary_row {
+#mqlppwjbhg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hzatqpksze .gt_first_summary_row.thick {
+#mqlppwjbhg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hzatqpksze .gt_last_summary_row {
+#mqlppwjbhg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -474,7 +501,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#hzatqpksze .gt_grand_summary_row {
+#mqlppwjbhg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -484,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hzatqpksze .gt_first_grand_summary_row {
+#mqlppwjbhg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -494,11 +521,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#hzatqpksze .gt_striped {
+#mqlppwjbhg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mqlppwjbhg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hzatqpksze .gt_table_body {
+#mqlppwjbhg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -507,7 +544,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#hzatqpksze .gt_footnotes {
+#mqlppwjbhg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -521,30 +558,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#hzatqpksze .gt_footnote {
+#mqlppwjbhg .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hzatqpksze .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hzatqpksze .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -552,99 +567,115 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#hzatqpksze .gt_left {
+#mqlppwjbhg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mqlppwjbhg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mqlppwjbhg .gt_left {
   text-align: left;
 }
 
-#hzatqpksze .gt_center {
+#mqlppwjbhg .gt_center {
   text-align: center;
 }
 
-#hzatqpksze .gt_right {
+#mqlppwjbhg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hzatqpksze .gt_font_normal {
+#mqlppwjbhg .gt_font_normal {
   font-weight: normal;
 }
 
-#hzatqpksze .gt_font_bold {
+#mqlppwjbhg .gt_font_bold {
   font-weight: bold;
 }
 
-#hzatqpksze .gt_font_italic {
+#mqlppwjbhg .gt_font_italic {
   font-style: italic;
 }
 
-#hzatqpksze .gt_super {
+#mqlppwjbhg .gt_super {
   font-size: 65%;
 }
 
-#hzatqpksze .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#mqlppwjbhg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#hzatqpksze .gt_asterisk {
+#mqlppwjbhg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hzatqpksze .gt_indent_1 {
+#mqlppwjbhg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hzatqpksze .gt_indent_2 {
+#mqlppwjbhg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hzatqpksze .gt_indent_3 {
+#mqlppwjbhg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hzatqpksze .gt_indent_4 {
+#mqlppwjbhg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hzatqpksze .gt_indent_5 {
+#mqlppwjbhg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-
-<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true">
-<thead class="gt_col_headings">
-<tr class="header">
-<th class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">species</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2007</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2008</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2009</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">52</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Chinstrap</td>
-<td class="gt_row gt_right">26</td>
-<td class="gt_row gt_right">18</td>
-<td class="gt_row gt_right">24</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">34</td>
-<td class="gt_row gt_right">46</td>
-<td class="gt_row gt_right">44</td>
-</tr>
-</tbody>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="species">species</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2007">2007</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2008">2008</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2009">2009</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="2007" class="gt_row gt_right">50</td>
+<td headers="2008" class="gt_row gt_right">50</td>
+<td headers="2009" class="gt_row gt_right">52</td></tr>
+    <tr><td headers="species" class="gt_row gt_center">Chinstrap</td>
+<td headers="2007" class="gt_row gt_right">26</td>
+<td headers="2008" class="gt_row gt_right">18</td>
+<td headers="2009" class="gt_row gt_right">24</td></tr>
+    <tr><td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="2007" class="gt_row gt_right">34</td>
+<td headers="2008" class="gt_row gt_right">46</td>
+<td headers="2009" class="gt_row gt_right">44</td></tr>
+  </tbody>
+  
+  
 </table>
-
 </div>
 </div>
 </div>
@@ -692,14 +723,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="betgtbjpgx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="blochilmue" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#blochilmue table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#betgtbjpgx) .gt_table {
+#blochilmue thead, #blochilmue tbody, #blochilmue tfoot, #blochilmue tr, #blochilmue td, #blochilmue th {
+  border-style: none;
+}
+
+#blochilmue p {
+  margin: 0;
+  padding: 0;
+}
+
+#blochilmue .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -722,19 +765,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-:where(#betgtbjpgx) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: left;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
+#blochilmue .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-:where(#betgtbjpgx) .gt_title {
+#blochilmue .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -746,25 +782,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-:where(#betgtbjpgx) .gt_subtitle {
+#blochilmue .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#betgtbjpgx) .gt_bottom_border {
+#blochilmue .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#blochilmue .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#betgtbjpgx) .gt_col_headings {
+#blochilmue .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -779,7 +827,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#betgtbjpgx) .gt_col_heading {
+#blochilmue .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -799,7 +847,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-:where(#betgtbjpgx) .gt_column_spanner_outer {
+#blochilmue .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -811,15 +859,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-:where(#betgtbjpgx) .gt_column_spanner_outer:first-child {
+#blochilmue .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#betgtbjpgx) .gt_column_spanner_outer:last-child {
+#blochilmue .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#betgtbjpgx) .gt_column_spanner {
+#blochilmue .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -831,7 +879,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-:where(#betgtbjpgx) .gt_group_heading {
+#blochilmue .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#blochilmue .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -854,9 +906,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-:where(#betgtbjpgx) .gt_empty_group_heading {
+#blochilmue .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -871,15 +924,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-:where(#betgtbjpgx) .gt_from_md > :first-child {
+#blochilmue .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#betgtbjpgx) .gt_from_md > :last-child {
+#blochilmue .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#betgtbjpgx) .gt_row {
+#blochilmue .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -898,7 +951,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-:where(#betgtbjpgx) .gt_stub {
+#blochilmue .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -911,7 +964,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#betgtbjpgx) .gt_stub_row_group {
+#blochilmue .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -925,11 +978,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-:where(#betgtbjpgx) .gt_row_group_first td {
+#blochilmue .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#betgtbjpgx) .gt_summary_row {
+#blochilmue .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#blochilmue .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -939,16 +996,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#betgtbjpgx) .gt_first_summary_row {
+#blochilmue .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#betgtbjpgx) .gt_first_summary_row.thick {
+#blochilmue .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#betgtbjpgx) .gt_last_summary_row {
+#blochilmue .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -958,7 +1015,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-:where(#betgtbjpgx) .gt_grand_summary_row {
+#blochilmue .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -968,7 +1025,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#betgtbjpgx) .gt_first_grand_summary_row {
+#blochilmue .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -978,11 +1035,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-:where(#betgtbjpgx) .gt_striped {
+#blochilmue .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#blochilmue .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#betgtbjpgx) .gt_table_body {
+#blochilmue .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -991,7 +1058,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-:where(#betgtbjpgx) .gt_footnotes {
+#blochilmue .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1005,30 +1072,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-:where(#betgtbjpgx) .gt_footnote {
+#blochilmue .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#betgtbjpgx) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#betgtbjpgx) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1036,106 +1081,125 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-:where(#betgtbjpgx) .gt_left {
+#blochilmue .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#blochilmue .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#blochilmue .gt_left {
   text-align: left;
 }
 
-:where(#betgtbjpgx) .gt_center {
+#blochilmue .gt_center {
   text-align: center;
 }
 
-:where(#betgtbjpgx) .gt_right {
+#blochilmue .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#betgtbjpgx) .gt_font_normal {
+#blochilmue .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#betgtbjpgx) .gt_font_bold {
+#blochilmue .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#betgtbjpgx) .gt_font_italic {
+#blochilmue .gt_font_italic {
   font-style: italic;
 }
 
-:where(#betgtbjpgx) .gt_super {
+#blochilmue .gt_super {
   font-size: 65%;
 }
 
-:where(#betgtbjpgx) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#blochilmue .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#betgtbjpgx) .gt_asterisk {
+#blochilmue .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#betgtbjpgx) .gt_indent_1 {
+#blochilmue .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#betgtbjpgx) .gt_indent_2 {
+#blochilmue .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#betgtbjpgx) .gt_indent_3 {
+#blochilmue .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#betgtbjpgx) .gt_indent_4 {
+#blochilmue .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#betgtbjpgx) .gt_indent_5 {
+#blochilmue .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table">
-  <thead class="gt_header">
-    <tr>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
       <td colspan="5" class="gt_heading gt_title gt_font_normal" style="">Pinguins no Arquipélago Palmer na Antártica</td>
     </tr>
-    <tr>
+    <tr class="gt_heading">
       <td colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">palmerpinguins in R dataset</td>
     </tr>
-  </thead>
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col">Espécie</th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup">
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="Espécie">Espécie</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="Ano de medição">
         <span class="gt_column_spanner">Ano de medição</span>
       </th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col">Evolução</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="Evolução">Evolução</th>
     </tr>
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">2007</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">2008</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col">2009</th>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2007">2007</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2008">2008</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2009">2009</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">Adelie</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">52</td>
-<td class="gt_row gt_center"><!--?xml version='1.0' encoding='UTF-8' ?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="85.04pt" height="14.17pt" viewbox="0 0 85.04 14.17"><defs>  <style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs>  <clippath id="cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3">    <rect x="0.00" y="0.00" width="85.04" height="14.17"></rect>  </clippath></defs><g clip-path="url(#cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3)"><text x="67.92" y="3.48" style="font-size: 5.69px; font-weight: 0; font-family: &quot;Courier&quot;;" textlength="13.65px" lengthadjust="spacingAndGlyphs">52.0</text><polyline points="20.43,2.45 42.52,2.45 64.61,1.84 " style="stroke-width: 1.07; stroke-linecap: butt;"></polyline><circle cx="64.61" cy="1.84" r="0.89" style="stroke-width: 0.71; fill: #000000;"></circle><circle cx="20.43" cy="2.45" r="0.89" style="stroke-width: 0.71; stroke: #A020F0; fill: #A020F0;"></circle><circle cx="42.52" cy="2.45" r="0.89" style="stroke-width: 0.71; stroke: #A020F0; fill: #A020F0;"></circle><circle cx="64.61" cy="1.84" r="0.89" style="stroke-width: 0.71; stroke: #00FF00; fill: #00FF00;"></circle></g></svg></td></tr>
-    <tr><td class="gt_row gt_left">Gentoo</td>
-<td class="gt_row gt_right">34</td>
-<td class="gt_row gt_right">46</td>
-<td class="gt_row gt_right">44</td>
-<td class="gt_row gt_center"><!--?xml version='1.0' encoding='UTF-8' ?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="85.04pt" height="14.17pt" viewbox="0 0 85.04 14.17"><defs>  <style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs>  <clippath id="cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3">    <rect x="0.00" y="0.00" width="85.04" height="14.17"></rect>  </clippath></defs><g clip-path="url(#cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3)"><text x="67.92" y="5.95" style="font-size: 5.69px; font-weight: 0; font-family: &quot;Courier&quot;;" textlength="13.65px" lengthadjust="spacingAndGlyphs">44.0</text><polyline points="20.43,7.40 42.52,3.69 64.61,4.31 " style="stroke-width: 1.07; stroke-linecap: butt;"></polyline><circle cx="64.61" cy="4.31" r="0.89" style="stroke-width: 0.71; fill: #000000;"></circle><circle cx="20.43" cy="7.40" r="0.89" style="stroke-width: 0.71; stroke: #A020F0; fill: #A020F0;"></circle><circle cx="42.52" cy="3.69" r="0.89" style="stroke-width: 0.71; stroke: #00FF00; fill: #00FF00;"></circle></g></svg></td></tr>
-    <tr><td class="gt_row gt_left">Chinstrap</td>
-<td class="gt_row gt_right">26</td>
-<td class="gt_row gt_right">18</td>
-<td class="gt_row gt_right">24</td>
-<td class="gt_row gt_center"><!--?xml version='1.0' encoding='UTF-8' ?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="85.04pt" height="14.17pt" viewbox="0 0 85.04 14.17"><defs>  <style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs>  <clippath id="cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3">    <rect x="0.00" y="0.00" width="85.04" height="14.17"></rect>  </clippath></defs><g clip-path="url(#cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3)"><text x="67.92" y="12.13" style="font-size: 5.69px; font-weight: 0; font-family: &quot;Courier&quot;;" textlength="13.65px" lengthadjust="spacingAndGlyphs">24.0</text><polyline points="20.43,9.87 42.52,12.34 64.61,10.48 " style="stroke-width: 1.07; stroke-linecap: butt;"></polyline><circle cx="64.61" cy="10.48" r="0.89" style="stroke-width: 0.71; fill: #000000;"></circle><circle cx="42.52" cy="12.34" r="0.89" style="stroke-width: 0.71; stroke: #A020F0; fill: #A020F0;"></circle><circle cx="20.43" cy="9.87" r="0.89" style="stroke-width: 0.71; stroke: #00FF00; fill: #00FF00;"></circle></g></svg></td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Adelie</td>
+<td headers="2007" class="gt_row gt_right">50</td>
+<td headers="2008" class="gt_row gt_right">50</td>
+<td headers="2009" class="gt_row gt_right">52</td>
+<td headers="evolution" class="gt_row gt_center"><!--?xml version='1.0' encoding='UTF-8' ?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="85.04pt" height="14.17pt" viewbox="0 0 85.04 14.17"><defs>  <style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs>  <clippath id="cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3">    <rect x="0.00" y="0.00" width="85.04" height="14.17"></rect>  </clippath></defs><g clip-path="url(#cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3)"><text x="67.92" y="3.46" style="font-size: 5.69px; font-family: &quot;Courier&quot;;" textlength="13.65px" lengthadjust="spacingAndGlyphs">52.0</text><polyline points="20.43,2.45 42.52,2.45 64.61,1.84 " style="stroke-width: 1.07; stroke-linecap: butt;"></polyline><circle cx="64.61" cy="1.84" r="0.89" style="stroke-width: 0.71; fill: #000000;"></circle><circle cx="20.43" cy="2.45" r="0.89" style="stroke-width: 0.71; stroke: #A020F0; fill: #A020F0;"></circle><circle cx="42.52" cy="2.45" r="0.89" style="stroke-width: 0.71; stroke: #A020F0; fill: #A020F0;"></circle><circle cx="64.61" cy="1.84" r="0.89" style="stroke-width: 0.71; stroke: #00FF00; fill: #00FF00;"></circle></g></svg></td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Gentoo</td>
+<td headers="2007" class="gt_row gt_right">34</td>
+<td headers="2008" class="gt_row gt_right">46</td>
+<td headers="2009" class="gt_row gt_right">44</td>
+<td headers="evolution" class="gt_row gt_center"><!--?xml version='1.0' encoding='UTF-8' ?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="85.04pt" height="14.17pt" viewbox="0 0 85.04 14.17"><defs>  <style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs>  <clippath id="cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3">    <rect x="0.00" y="0.00" width="85.04" height="14.17"></rect>  </clippath></defs><g clip-path="url(#cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3)"><text x="67.92" y="5.93" style="font-size: 5.69px; font-family: &quot;Courier&quot;;" textlength="13.65px" lengthadjust="spacingAndGlyphs">44.0</text><polyline points="20.43,7.40 42.52,3.69 64.61,4.31 " style="stroke-width: 1.07; stroke-linecap: butt;"></polyline><circle cx="64.61" cy="4.31" r="0.89" style="stroke-width: 0.71; fill: #000000;"></circle><circle cx="20.43" cy="7.40" r="0.89" style="stroke-width: 0.71; stroke: #A020F0; fill: #A020F0;"></circle><circle cx="42.52" cy="3.69" r="0.89" style="stroke-width: 0.71; stroke: #00FF00; fill: #00FF00;"></circle></g></svg></td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Chinstrap</td>
+<td headers="2007" class="gt_row gt_right">26</td>
+<td headers="2008" class="gt_row gt_right">18</td>
+<td headers="2009" class="gt_row gt_right">24</td>
+<td headers="evolution" class="gt_row gt_center"><!--?xml version='1.0' encoding='UTF-8' ?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="85.04pt" height="14.17pt" viewbox="0 0 85.04 14.17"><defs>  <style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs>  <clippath id="cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3">    <rect x="0.00" y="0.00" width="85.04" height="14.17"></rect>  </clippath></defs><g clip-path="url(#cpMC4wMHw4NS4wNHwwLjAwfDE0LjE3)"><text x="67.92" y="12.11" style="font-size: 5.69px; font-family: &quot;Courier&quot;;" textlength="13.65px" lengthadjust="spacingAndGlyphs">24.0</text><polyline points="20.43,9.87 42.52,12.34 64.61,10.48 " style="stroke-width: 1.07; stroke-linecap: butt;"></polyline><circle cx="64.61" cy="10.48" r="0.89" style="stroke-width: 0.71; fill: #000000;"></circle><circle cx="42.52" cy="12.34" r="0.89" style="stroke-width: 0.71; stroke: #A020F0; fill: #A020F0;"></circle><circle cx="20.43" cy="9.87" r="0.89" style="stroke-width: 0.71; stroke: #00FF00; fill: #00FF00;"></circle></g></svg></td></tr>
   </tbody>
   
   

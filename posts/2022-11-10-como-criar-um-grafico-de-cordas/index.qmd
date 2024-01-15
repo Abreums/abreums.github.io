@@ -89,18 +89,18 @@ Por fim, montamos o gráfico com pontos e linhas.
 library(scales) # for as.trans
 library(ggtext) # for markdown
 library(grid) # arrow
-c_trans <- function(a, b, breaks = b$breaks, format = b$format) {
-  a <- as.trans(a)
-  b <- as.trans(b)
-
-  name <- paste(a$name, b$name, sep = "-")
-
-  trans <- function(x) a$trans(b$trans(x))
-  inv <- function(x) b$inverse(a$inverse(x))
-
-  trans_new(name, trans, inverse = inv, breaks = breaks, format=format)
-}
-rev_date <- c_trans("reverse", "time")
+# c_trans <- function(a, b, breaks = b$breaks, format = b$format) {
+#   a <- as.trans(a)
+#   b <- as.trans(b)
+# 
+#   name <- paste(a$name, b$name, sep = "-")
+# 
+#   trans <- function(x) a$trans(b$trans(x))
+#   inv <- function(x) b$inverse(a$inverse(x))
+# 
+#   trans_new(name, trans, inverse = inv, breaks = breaks, format=format)
+# }
+# rev_date <- c_trans("reverse", "time")
 
 m_entregas <- 
   entregas %>% 
@@ -108,18 +108,31 @@ m_entregas <-
                names_to = "milestone", 
                values_to = "previsto")
 
-y_breaks <- m_entregas %>% distinct(status) %>% arrange(status) %>% pull() %>% as.POSIXct.Date()
+y_breaks <- m_entregas %>% distinct(status) %>% arrange(status) %>% pull()  #%>% as.POSIXct()
 
-m_labels <- m_entregas %>% filter(status <= min(status)) %>% mutate(status = as.POSIXct.Date(status - 2), previsto = as.POSIXct.Date(previsto + 3))
+m_labels <- m_entregas %>% filter(status <= min(status)) # %>% mutate(status = as.POSIXct(status - 2), previsto = as.POSIXct(previsto + 3))
+
+
+reverse2_trans <- function() {
+  trans_new(
+    "reverse2",
+    function(x) -1 * as.numeric(x), # Force values to be numeric for Date objects
+    function(x) -1 * as.numeric(x)
+  )
+}
+
 
 m_entregas %>% 
-  mutate(status = as.POSIXct.Date(status),
-         previsto = as.POSIXct.Date(previsto)) %>% 
+  # mutate(status = as.POSIXct(status),
+  #        previsto = as.POSIXct(previsto)) %>% 
   ggplot(aes(x = previsto, y = status, group = milestone, colour = milestone)) +
   geom_point() +
   geom_line() +
   geom_text(data = m_labels, aes(x = previsto, y = status, label = milestone)) +
-  scale_y_continuous(trans = rev_date, breaks = y_breaks, labels = scales::date_format()) +
+  scale_y_continuous(
+    trans = c("date", "reverse2")
+  ) +
+  #scale_y_reverse(trans = rev_date, breaks = y_breaks, labels = ~ strftime(., "%b %d")) +
   labs(title = "Previsão das Entregas",
        x = NULL,
        y = NULL) +

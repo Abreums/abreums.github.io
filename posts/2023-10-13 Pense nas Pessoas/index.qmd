@@ -1,0 +1,116 @@
+---
+title: "Não é um projeto de software"
+description: "Minha apresentação sobre o que envolve a Gestão de Mudanças num projeto de implantação de software"
+date: 2023-10-13
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2023-10-13-pense-nas-pessoas/
+categories: [Change Management]
+---
+
+Gostaria de compartihar três coisas que acho que serão importantes neste projeto.
+
+## Pessoas
+
+Gestão de mudanças começa o término de alguma coisa (a frase é do William Bridges, assim como os exemplos que seguem).
+
+Considere que você está mudando de casa. A casa para a qual você está se mudando é maior, mais nova e fica em um bairro melhor do que a casa atual. Você está feliz com a mudança. Mas ainda assim sente uma melancolia, uma tristeza que não consegue explicar.
+
+A casa nova parece ser melhor em todos os sentidos que a casa velha. Ainda assim, o que você está perdendo ao se mudar de casa?
+
+1.  Relacionamentos: você está perdendo as amizades que desenvolveu com a vizinhança.
+2.  Conhecimento: para a casa velha, você conhece os caminhos alternativos para usar nos dias de congestionamento, ou ainda onde encontrar uma farmácia aberta às 2h da madrugada para comprar um remério para seu filho.
+3.  Recordações: a pintura da casa nova pode ser melhor, mas você vai perder os risquinhos atrás da porta onde você anotou a altura do seu filho enquanto acompanhava ele crescer.
+
+O processo de absorver as perdas durante um momento de mudança é chamado de *Transição*. Este processo pode ser difícil às vezes. Podemos ficar irritados porque perdemos algo, e não aproveitar as oportunidades que se apresentam com os novos benefícios.
+
+Por isto é muito importante termos consciência do que estamos perdendo. E mais importante ainda saber que é importante deixar as coisas do passado irem.
+
+E no caso de você estar recebendo uma promoção ou se mudando para um emprego novo? O novo cargo vem cheio de desafios que você está ansioso para enfrentar, ele significa um avanço na sua carreira, novas resposabilidades e uma remuneração maior. Ainda assim, você o que você está perdendo?
+
+1.  Competência: você era considerado uma pessoa competente na sua posição antiga. Nesta nova posição você sente a expectativa dos outros e o questionamentos velados se você conseguirá repetir seu desempenho anterior.
+2.  Amigos: você estará trabalhando com outra equipe.
+
+O projeto SAP na ASICS será a nossa casa nova. Com mais espaço e mais opções. Ainda assim, no começo podemos sentir frustração ou raiva da casa nova por causa das perdas que ela nos traz.
+
+Vamos viver um período de especificações e customizações no novo sistema até o momento em que ele será ligado e passaremos a trabalhar sobre ele. Neste instante, perderemos toda a nossa competência. E isto trará bastante frustração e insatisfação.
+
+Temos que estar preparados para viver nossas perdas, e não deixar elas atrapalharem a oportunidade que temos com o novo que está vindo.
+
+Toda mudança começa com um fim.
+
+Nas próximas semanas, durante as atividades de *fit gap analysis* vocês estarão conversando sobre software, sobre funcionalidades de software, e configurações de software. Eu peço que vocês façam apenas uma coisa: de vez em quando, parem, fechem os olhos e pensem na Maria que trabalha na expedição, ou no João que trabalha na loja, ou na Bárbara que trabalha na contabilidade, e perguntem: o que ela/ele estão perdendo?
+
+Mesmo que uma funcionalidade do sistema novo não precisa de customização (deu *fit*! Não vamos precisar fazer nada!), não significa que a pessoa que vai utilizar aquela funcionalidade não precise fazer uma transição.
+
+Por isto, junto com a especificação de *fit gap analysis* vamos desenvolver uma segunda especificação chamada *Plano de Gestão de Impactos*. Onde vamos listar as ações para que as pessoas façam suas transições e os impactos não aconteçam.
+
+## Aprendizagem
+
+Lá em casa, pelo menos 1 vez por mês eu e minha esposa temos a mesma conversa. Quando a gente descobre que está falando de novo sobre a mesma coisa, começamos a dar risada. Às vezes o tema da conversa é a cozinha, às vezes o quartinho de despejo, mas na maior parte da vezes é o guarda-roupas. E o motivo é simples: não tem mais espaço no guarda-roupas.
+
+A gente sabe que a melhor coisa a fazer é separar aquelas roupas que não usamos para doar, e assim abrir espaço.
+
+Outro dia eu cheguei em casa e minha esposa tinha passado a tarde esvaziando o guarda-roupas e separando roupas para doar. Ela virou para mim e disse: como é difícil nos desfazermos das coisas!
+
+O primeiro passo no processo de aprendizagem é nos desfazermos de alguns conceitos e preconceitos para poder abrir espaço para novos conceitos.
+
+Outro ponto importante para entender como aprendemos, é entender como funciona nossos cérebros.
+
+Nossos cérebros possuem duas memórias, uma chamada de longo prazo, onde guardamos o que aprendemos, e outra chamada *memória de trabalho*, onde armazenamos apenas as informações que estamos utilizando num momento específico. O problema da memória de trabalho é que ela é muito limitada em espaço. Por este motivo é sabido que dirigir e usar o celular ao mesmo tempo não é possível, porque estas duas atividades consomem mais espaço do que há disponível em nossa memória de trabalho.
+
+Uma estratégia que utilizamos para conseguir colocar mais coisas na memória de trabalho é transformar algum tipo de informação de *informação intrínsica*, que é o nome que damos para as informações diretamente ligadas ao problema que queremos resolver, em *informação genuína*, que é um tipo de informação para a qual somos bastante treinados, ou especialistas. As informações genuínas ocupam menos espaço na nossa memória de trabalho, e ao nos especializarmos conseguimos colocar mais informação na memória de trabalho.
+
+O problema é que a transformação de informação intrínsica em informação genuína toma tempo e prática.
+
+Hoje, saber usar o sistema atual é uma informação genuína, não é ela que ocupa espaço na sua memória de trabalho quando você está resolvendo um problema como cadastrar um novo produto, ou emitir uma nota fiscal.
+
+A partir do momento em que passarmos a utilizar o novo sistema, este conhecimento que até agora era genuíno, passará a ser intrínsico, o que fará com que você realize as mesmas atividades que realiza hoje com uma performance muito pior.
+
+Chamamos isto de *Learning Curve*: o período durante o qual você estará se especializando no novo sistema. É muito importante escolher adequadamente este período, para diminuir a carga de trabalho relacionada com problemas de negócio, para que você possa utilizar mais espaço da sua memória de trabalho no processo de especialização.
+
+A queda de performance durante a *Learning Curve* deixará você frustrado e irritado. Não fique, faz parte do processo.
+
+## Engajamento
+
+Por fim, eu gostaria de falar sobre *engajamento*, e gostaria de deixar claro que não se trata de *torcida* ou *euforia*. Vou contar uma história para explicar o que significa engajamento.
+
+Gestão de Mudança não é uma disciplina nova. Ela começou na primeira metade do século XX através dos trabalhos de um psicólogo judeu-polonês chamado Kurt Lewin.
+
+Durante a segunda guerra mundial, para ter suprimentos para as tropas, o governo norte-americano instituiu um controle sobre a quantidade de comida que poderia ser comprada. E, para amenizar a situação, o governo criou um programa para incentivar as famílias a consumirem proteína animal não nobre. O que é proteína animal não nobre? São partes como rins, fígado, lingua, etc.
+
+O governo norte-americano realizada aulas de culinárias para as donas de casa, para ensiná-las receitas com estas carnes não nobres, uma das mais famosas ficou sendo a de torta de rins. Não é comum para nós, mas ainda é bastante apreciada na américa do norte.
+
+Num primeiro momento as donas de casa achavam estranho fazer torta de rins. Então os cozinheiros contratados pelos governo, ensinavam elas a preparar a receita, e elas se surpriendiam como a torta fica deliciosa.
+
+Passado algum tempo, o governo voltava e perguntava se elas haviam preparado torta de rins para suas famílias. E elas respondiam que não. "Mas você aprendeu a receita"? "Sim". "E gostou"? "Sim, é deliciosa". "Então porque não fez para sua família"?
+
+Para resolver este problema o governo chamou Kurt Lewin e disse: não sabemos o que está contecendo.
+
+O que Kurt Lewin sabia era que para uma dona de casa, não basta ela saber uma receita ou o resultado ser gostoso para ela servir para sua família - afinal, eu posso lhe ensinar uma receita deliciosa de torta de maconha e mesmo que você aprenda a fazer, você não vai servir isto para usa família. Uma dona de cada tem como *valor* fazer coisas boas para sua família.
+
+Para termos *engajamento* é importante que concordemos com o que significa *valor* em relação ao que fazemos.
+
+E *valor* não é alguma coisa que recebemos, mas é algo que construímos em conjunto. O *valor* está no *reconhecimento da comunidade* no que é aceito como algo bom.
+
+É por isto que as empresas hoje quando lançam produtos ou tecnologias correm para criar *comunidades de prática* dos usuários dos produtos e tecnologias, porque além da funcionalidade prática oferecida, é preciso construir um entendimento de valor entre os praticantes.
+
+Engajamento é construído através do compartilhamento de experiências e percepções, e ele é percebido pelo entendimento do que é valor para o coletivo.
+
+## Conclusão
+
+Em função de tudo isto que eu disse talvez fique mais claro a importância da comunicação no processo de gestão de mudanças. Uma comunicação baseada na escuta e compartilhamento.
+
+Em resumo, o que eu gostaria de falar sobre Gestão de Mudanças é:
+
+1.  Pensem nas pessoas: qual dor elas sentirão com esta mudança que estamos fazendo?
+2.  Limpem seus guarda-roupas: conhecimentos novos e desafiadores precisam de espaço para serem recebidos.
+3.  Compartilhem: o mudança individual é primordial, mas só vamos construir um novo conceito de valor se compartilharmos nossas experiências, ansiedades, preocupações e reultados.
+
+E minha mensagem final é:
+
+Este não é um projeto de software.

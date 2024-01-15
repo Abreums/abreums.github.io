@@ -2,6 +2,8 @@
 title: "Market Basket Analysis"
 description: "Conceitos de Market Basket Analysis"
 date: 2023-06-03
+execute:
+  echo: false
 author: 
   - name: Marcos Abreu
     url: https://abreums.github.io
@@ -106,9 +108,6 @@ Por exemplo, podemos calcular o supporte para as seguintes regras do nosso exemp
 ```{r}
 #| include: false
 
-# rule1: "shirt", "umbrella", "headphones" 
-# rule2: "flask", "radio", "shirt"
-# rule3: "book", "flask"
 
 trx_product_list <- 
   trx |> 
@@ -120,6 +119,10 @@ trx_product_list <-
   pivot_wider(names_from = product,
               values_from = content) |> 
   mutate(product_list = paste(shirt, umbrella, headphones, book, flask, radio, sep = " ")) |>   select(trx, product_list)
+
+# rule1: "shirt", "umbrella", "headphones" 
+# rule2: "flask", "radio", "shirt"
+# rule3: "book", "flask"
 
 n_total_trx <- nrow(trx_product_list)
 

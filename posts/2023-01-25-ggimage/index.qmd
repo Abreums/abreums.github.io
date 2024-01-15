@@ -84,8 +84,8 @@ ggplot(data = plot_data) +
                size = 1) +
   geom_image(mapping = aes(x = n,
                            y = species,
-                           # image = paste0("posts/2023-01-25-ggimage/images/", species, ".png")),
-                           image = paste0("images/", species, ".png")),
+                           #image = paste0("posts/2023-01-25-ggimage/images/", species, ".png")), # use this line to debug
+                           image = paste0("images/", species, ".png")), # use this line for render Website
              asp = 2,
              size = 0.12,
              image_fun = border) +

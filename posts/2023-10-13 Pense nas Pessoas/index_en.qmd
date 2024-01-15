@@ -1,0 +1,109 @@
+---
+title: "index_en"
+---
+
+I know Change Management is something new to most of you. So, I would like to share three things so you can understand better what I would be doing in this project.
+
+## People
+
+There's a change management author called William Bridges that use to say that *change begins with an ending*.
+
+Consider that you are moving to a different house. The house you are moving into is larger, newer, and it is located in a better neighborhood than your current home. You are happy with the change. But even with all the benefits of the new house you feel a little bit unhappy. Why?
+
+The new house seems to be better in every way than the old house. The question is: what are you losing moving to the new house?
+
+-   Relationships: You are losing the friendships you developed with your old neighborhood.
+
+-   Knowledge: for the old house, you know the alternative routes to use on busy days, or even where to find an opened pharmacy at 2am to buy a medicine for your child.
+
+-   Memories: the paint in the walls of the new house is brend new. But, in the old house there are those little scratches behind the door where you mark your children growing.
+
+The process of absorbing losses during a change is called Transition. This process can be difficult at times. We can get angry because we loosing something. Which makes us also loosing the opportunity to take advantage of the new benefits that comes with the change.
+
+This is why it is very important to be aware of what we are losing. And most importantly, to know how to let thinks go away.
+
+What if you're getting a promotion or moving to a new job? The new position comes full of challenges that you are eager to face, it means advancement in your career, new responsibilities and even a higher pay. Still, what are you losing?
+
+-   Competence: You were considered a competent person in your old position. In this new position you feel the expectations of others and the veiled questions about whether you will be able to repeat your previous performance.
+
+-   Friends: You will be working with another team.
+
+The SAP project at ASICS will be our new home. With more space and more options. Still, at first we may feel frustrated or angry with the new house because of the losses it brings us.
+
+We will go through a period of specifications and customizations in the new system until the moment it is turned on and we start working on it. At this moment, we will lose all our competence. And this will bring a lot of frustration and dissatisfaction.
+
+We have to be prepared to live with our losses, and not let them get in the way of the opportunity we have with the new thing that is coming.
+
+Every change begins with an end.
+
+In the coming weeks, during the activities of the fit gap analysis you will be talking about software, software features, and software configurations. What I ask you to do is this: for some moments stop, close your eyes, and think about Maria who works in shipping, or João who works in the store, or Bárbara who works in accounting, and ask: what are they losing?
+
+Even if a new system functionality does not need customization (it's a fit! We won't need to do anything!), it does not mean that the person who will use that functionality does not need to make a transition.
+
+Therefore, together with the fit gap analysis specification we will develop a second specification called the Impact Management Plan. Where we will list the actions so that people make their transitions and the impacts do not happen.
+
+## Learning
+
+At home, my wife and I have the same conversation at least once a month. When we discover that we are talking about the same thing again, we start to laugh. Sometimes the topic of conversation is the kitchen, sometimes the utility room, but most of the time it's the closet. And the reason is simple: there is no more space in the wardrobe.
+
+We know that the best thing to do is to separate those clothes that we don't use to donate, and thus make space.
+
+The other day I came home and my wife had spent the afternoon emptying the closet and sorting clothes to donate. She turned to me and said: how difficult it is to let things go!
+
+The first step in the learning process is to get rid of some concepts and prejudices in order to make room for new concepts.
+
+Another important point in understanding how we learn is understanding how our brains work.
+
+Our brains have two memories, one called long-term, where we store what we learnt, and another called working memory, where we store only the information we are using at a specific moment. The problem with working memory is that it is very limited in space. For this reason, it is known that driving and using a cell phone at the same time is not possible, because these two activities consume more space than is available in our working memory.
+
+A strategy we use to get more things into our memory work is transforming some type of information from intrinsic information, which is the name we give to information directly linked to the problem we want to solve, into genuine information, which is a type of information for which we are highly trained, and experts. Genuine information takes up less space in our working memory, and by specializing we can fit more information into working memory.
+
+The problem is that transforming intrinsic information into genuine information takes time and practice.
+
+Today, knowing how to use the current system is genuine information, it is not what takes up space in your working memory when you are solving a problem such as registering a new product or issuing an invoice.
+
+From the moment we start using the new system, this knowledge that until now was genuine, will become intrinsic, which will make you perform the same activities you do today in a much worse performance.
+
+We call this the Learning Curve: the period during which you will be specializing in the new system. It is very important to choose this period appropriately, to reduce the workload related to business problems, so that you can use more space in your working memory in the specialization process.
+
+The drop in performance during the Learning Curve will leave you frustrated and angry. Don't be, it's part of the process.
+
+## Engagement
+
+Finally, I would like to talk about engagement, and I would like to make it clear that it is not about cheering or euphoria. I'm going to tell a story to explain what engagement means.
+
+Change Management is not a new discipline. It began in the first half of the 20th century through the work of a Polish-Jewish psychologist named Kurt Lewin.
+
+During World War II, in order to have supplies for the troops, the United States government instituted controls on the amount of food that people could purchase. They also thought in some alternatives. One of them was to created a program to make United States families to consume not so noble animal protein. What is non-noble animal protein? These are animal parts such as kidneys, liver, tongue, etc.
+
+The North American government held cooking classes for housewives, to teach them recipes with these non-noble meats, one of the most famous of these recipies is the kidney pie. It is not common for us, but it is still very popular in North America.
+
+At first, the housewives thought it was strange to make kidney pie. So the United States goverment hired some cooks to theach cooking classes to the housewives to teach them how to cook kidney pies and other recipies. The housewives learned for their surprise they realised it was delicious.
+
+Passing some time, the government came back and asked the housewives if they had prepared kidney pie for their families. And they said no. "But did you learn the recipe"? "Yes". "And did you like it"? "Yes, it's delicious." "Then why didn't you cook it for your family"?
+
+To solve this problem, the government called Kurt Lewin and said: we don't know what's going on.
+
+What Kurt Lewin knew. And the short answer is that for a housewife, it is not enough for her to know how to cook a recipe or even if it is delicious or not - after all, I can teach you a delicious recipe for marijuana pie and even if you learn how to do it, you will not serve this to your family. Because housewives values doing things that are good for their families. And things that are perceived by the community as being good for their families.
+
+For us to be engaged, it is important that we agree on what **value** means in relation to what we do.
+
+And **value** is not something we receive, but it is something we build together. The value lies in the community's recognition of what is accepted as being good for everybody.
+
+This is why companies today, when they launch products or technologies, rush to create **communities of practice** for users of products and technologies, because in addition to the practical functionality offered, it is necessary to build an understanding of **value** among practitioners.
+
+Engagement - the perception of value - is built through the sharing of experiences and perceptions. Engament can be measured by the perception of **value** by the group.
+
+## Conclusion
+
+Given everything I've said, perhaps the importance of communication in the change management process will become clearer. Communication based on listening and sharing.
+
+In summary, what I would like to talk about Change Management is:
+
+1.  What ever you are doing keep the people in your mind: what pain will they feel with this change we are making? What are they losing?
+2.  Clean out your closets: new and challenging knowledge needs space to be received.
+3.  Share: individual change is essential, but the concept of **value** is a collective construction. It only happens through sharing..
+
+And my final message is:
+
+This is not a software project.

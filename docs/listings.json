@@ -2,12 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2023-10-13 Pense nas Pessoas/index_en.html",
+      "/posts/2023-10-13 Pense nas Pessoas/index.html",
       "/posts/2023-06-03-Market-Basket-Analysis/index.html",
       "/posts/2023-05-14-analysis-of-survey-results/index.html",
       "/posts/2023-04-02-data-storytelling/index.html",
       "/posts/2023-03-29-Curva-das-emocoes/index.html",
-      "/posts/2023-01-29-checking-model/index.html",
-      "/posts/2023-01-25-linear-regression/index.html",
       "/posts/2023-01-25-ggimage/index.html",
       "/posts/2022-11-25-itil-cadeia-de-valor/index.html",
       "/posts/2022-11-15-LGPD-1/index.html",
@@ -31,7 +31,8 @@
       "/posts/2020-12-01-indicador-da-intencao-de-mudanca/index.html",
       "/posts/2022-10-10-r-tip-counting-percentual-function-with-curly-curly/index.html",
       "/posts/2020-03-31-regras-de-associacao/index.html",
-      "/posts/2019-02-25-welcome/index.html"
+      "/posts/2019-02-25-welcome/index.html",
+      "/posts/2023-12-15-sankey-plot/index.html"
     ]
   }
 ]

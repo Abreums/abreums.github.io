@@ -20,6 +20,7 @@ categories: [Rstats]
 
 library(palmerpenguins)
 library(tidyverse)
+library(tidyselect)
 library(gt)
 ```
 
@@ -229,9 +230,7 @@ penguins_gt <-
     fns = fns_labels,
     formatter = fmt_number,
     decimals = 0
-    ) %>% 
-  tab_style(style = cell_fill(color = "lightgray"),
-            location = cells_summary())
+    ) 
 
 penguins_gt
 ```

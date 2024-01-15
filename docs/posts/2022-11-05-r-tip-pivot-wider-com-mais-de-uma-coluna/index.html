@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,7 +92,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -139,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Rstat</div>
+                <div class="quarto-category">Rstats</div>
               </div>
                   </div>
   </div>
@@ -199,14 +200,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="krjczrwevk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="ewumlnzsvy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ewumlnzsvy table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#krjczrwevk .gt_table {
+#ewumlnzsvy thead, #ewumlnzsvy tbody, #ewumlnzsvy tfoot, #ewumlnzsvy tr, #ewumlnzsvy td, #ewumlnzsvy th {
+  border-style: none;
+}
+
+#ewumlnzsvy p {
+  margin: 0;
+  padding: 0;
+}
+
+#ewumlnzsvy .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -229,19 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#krjczrwevk .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
+#ewumlnzsvy .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-#krjczrwevk .gt_title {
+#ewumlnzsvy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -253,25 +259,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#krjczrwevk .gt_subtitle {
+#ewumlnzsvy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#krjczrwevk .gt_bottom_border {
+#ewumlnzsvy .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ewumlnzsvy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#krjczrwevk .gt_col_headings {
+#ewumlnzsvy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -286,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#krjczrwevk .gt_col_heading {
+#ewumlnzsvy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -306,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#krjczrwevk .gt_column_spanner_outer {
+#ewumlnzsvy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -318,15 +336,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#krjczrwevk .gt_column_spanner_outer:first-child {
+#ewumlnzsvy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#krjczrwevk .gt_column_spanner_outer:last-child {
+#ewumlnzsvy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#krjczrwevk .gt_column_spanner {
+#ewumlnzsvy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -338,7 +356,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#krjczrwevk .gt_group_heading {
+#ewumlnzsvy .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ewumlnzsvy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -361,9 +383,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-#krjczrwevk .gt_empty_group_heading {
+#ewumlnzsvy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -378,15 +401,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#krjczrwevk .gt_from_md > :first-child {
+#ewumlnzsvy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#krjczrwevk .gt_from_md > :last-child {
+#ewumlnzsvy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#krjczrwevk .gt_row {
+#ewumlnzsvy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -405,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#krjczrwevk .gt_stub {
+#ewumlnzsvy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -418,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#krjczrwevk .gt_stub_row_group {
+#ewumlnzsvy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -432,11 +455,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#krjczrwevk .gt_row_group_first td {
+#ewumlnzsvy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#krjczrwevk .gt_summary_row {
+#ewumlnzsvy .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ewumlnzsvy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -446,16 +473,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#krjczrwevk .gt_first_summary_row {
+#ewumlnzsvy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#krjczrwevk .gt_first_summary_row.thick {
+#ewumlnzsvy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#krjczrwevk .gt_last_summary_row {
+#ewumlnzsvy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -465,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#krjczrwevk .gt_grand_summary_row {
+#ewumlnzsvy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -475,7 +502,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#krjczrwevk .gt_first_grand_summary_row {
+#ewumlnzsvy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -485,11 +512,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#krjczrwevk .gt_striped {
+#ewumlnzsvy .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ewumlnzsvy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#krjczrwevk .gt_table_body {
+#ewumlnzsvy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -498,7 +535,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#krjczrwevk .gt_footnotes {
+#ewumlnzsvy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -512,30 +549,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#krjczrwevk .gt_footnote {
+#ewumlnzsvy .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#krjczrwevk .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#krjczrwevk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -543,327 +558,279 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#krjczrwevk .gt_left {
+#ewumlnzsvy .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ewumlnzsvy .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ewumlnzsvy .gt_left {
   text-align: left;
 }
 
-#krjczrwevk .gt_center {
+#ewumlnzsvy .gt_center {
   text-align: center;
 }
 
-#krjczrwevk .gt_right {
+#ewumlnzsvy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#krjczrwevk .gt_font_normal {
+#ewumlnzsvy .gt_font_normal {
   font-weight: normal;
 }
 
-#krjczrwevk .gt_font_bold {
+#ewumlnzsvy .gt_font_bold {
   font-weight: bold;
 }
 
-#krjczrwevk .gt_font_italic {
+#ewumlnzsvy .gt_font_italic {
   font-style: italic;
 }
 
-#krjczrwevk .gt_super {
+#ewumlnzsvy .gt_super {
   font-size: 65%;
 }
 
-#krjczrwevk .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#ewumlnzsvy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#krjczrwevk .gt_asterisk {
+#ewumlnzsvy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#krjczrwevk .gt_indent_1 {
+#ewumlnzsvy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#krjczrwevk .gt_indent_2 {
+#ewumlnzsvy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#krjczrwevk .gt_indent_3 {
+#ewumlnzsvy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#krjczrwevk .gt_indent_4 {
+#ewumlnzsvy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#krjczrwevk .gt_indent_5 {
+#ewumlnzsvy .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-
-<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true">
-<thead class="gt_col_headings">
-<tr class="header">
-<th class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">island</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">year</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">sex</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">species</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">16</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">17</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">NA</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">1</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">22</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">23</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">NA</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">1</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">20</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">21</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">NA</td>
-<td class="gt_row gt_center">Gentoo</td>
-<td class="gt_row gt_right">3</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Chinstrap</td>
-<td class="gt_row gt_right">13</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">10</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Chinstrap</td>
-<td class="gt_row gt_right">13</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">NA</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">1</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Chinstrap</td>
-<td class="gt_row gt_right">9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Chinstrap</td>
-<td class="gt_row gt_right">9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">10</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Chinstrap</td>
-<td class="gt_row gt_right">12</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">10</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Chinstrap</td>
-<td class="gt_row gt_right">12</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">7</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_center">NA</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">female</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_center">male</td>
-<td class="gt_row gt_center">Adelie</td>
-<td class="gt_row gt_right">8</td>
-</tr>
-</tbody>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="island">island</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="year">year</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="sex">sex</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="species">species</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">n</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">5</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">16</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">5</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">17</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">NA</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">1</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">9</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">22</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">9</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">23</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">NA</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">1</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">20</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">21</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">NA</td>
+<td headers="species" class="gt_row gt_center">Gentoo</td>
+<td headers="n" class="gt_row gt_right">3</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">9</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Chinstrap</td>
+<td headers="n" class="gt_row gt_right">13</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">10</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Chinstrap</td>
+<td headers="n" class="gt_row gt_right">13</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">NA</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">1</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Chinstrap</td>
+<td headers="n" class="gt_row gt_right">9</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Chinstrap</td>
+<td headers="n" class="gt_row gt_right">9</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">10</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Chinstrap</td>
+<td headers="n" class="gt_row gt_right">12</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">10</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Chinstrap</td>
+<td headers="n" class="gt_row gt_right">12</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">7</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="sex" class="gt_row gt_center">NA</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">5</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">female</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="sex" class="gt_row gt_center">male</td>
+<td headers="species" class="gt_row gt_center">Adelie</td>
+<td headers="n" class="gt_row gt_right">8</td></tr>
+  </tbody>
+  
+  
 </table>
-
 </div>
 <p>Palmer Penguins - primeira versao</p>
 </div>
@@ -887,14 +854,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="zcgkhgghbe" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="cagxkomhcj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cagxkomhcj table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#zcgkhgghbe .gt_table {
+#cagxkomhcj thead, #cagxkomhcj tbody, #cagxkomhcj tfoot, #cagxkomhcj tr, #cagxkomhcj td, #cagxkomhcj th {
+  border-style: none;
+}
+
+#cagxkomhcj p {
+  margin: 0;
+  padding: 0;
+}
+
+#cagxkomhcj .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -917,19 +896,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#zcgkhgghbe .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
+#cagxkomhcj .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-#zcgkhgghbe .gt_title {
+#cagxkomhcj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -941,25 +913,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#zcgkhgghbe .gt_subtitle {
+#cagxkomhcj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#zcgkhgghbe .gt_bottom_border {
+#cagxkomhcj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cagxkomhcj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zcgkhgghbe .gt_col_headings {
+#cagxkomhcj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -974,7 +958,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#zcgkhgghbe .gt_col_heading {
+#cagxkomhcj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -994,7 +978,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#zcgkhgghbe .gt_column_spanner_outer {
+#cagxkomhcj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1006,15 +990,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#zcgkhgghbe .gt_column_spanner_outer:first-child {
+#cagxkomhcj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zcgkhgghbe .gt_column_spanner_outer:last-child {
+#cagxkomhcj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zcgkhgghbe .gt_column_spanner {
+#cagxkomhcj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1026,7 +1010,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#zcgkhgghbe .gt_group_heading {
+#cagxkomhcj .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cagxkomhcj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1049,9 +1037,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-#zcgkhgghbe .gt_empty_group_heading {
+#cagxkomhcj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1066,15 +1055,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#zcgkhgghbe .gt_from_md > :first-child {
+#cagxkomhcj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zcgkhgghbe .gt_from_md > :last-child {
+#cagxkomhcj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zcgkhgghbe .gt_row {
+#cagxkomhcj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1093,7 +1082,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#zcgkhgghbe .gt_stub {
+#cagxkomhcj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1106,7 +1095,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zcgkhgghbe .gt_stub_row_group {
+#cagxkomhcj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1120,11 +1109,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#zcgkhgghbe .gt_row_group_first td {
+#cagxkomhcj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zcgkhgghbe .gt_summary_row {
+#cagxkomhcj .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cagxkomhcj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1134,16 +1127,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zcgkhgghbe .gt_first_summary_row {
+#cagxkomhcj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zcgkhgghbe .gt_first_summary_row.thick {
+#cagxkomhcj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zcgkhgghbe .gt_last_summary_row {
+#cagxkomhcj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1153,7 +1146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#zcgkhgghbe .gt_grand_summary_row {
+#cagxkomhcj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1163,7 +1156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zcgkhgghbe .gt_first_grand_summary_row {
+#cagxkomhcj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1173,11 +1166,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#zcgkhgghbe .gt_striped {
+#cagxkomhcj .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cagxkomhcj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zcgkhgghbe .gt_table_body {
+#cagxkomhcj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1186,7 +1189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#zcgkhgghbe .gt_footnotes {
+#cagxkomhcj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1200,30 +1203,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#zcgkhgghbe .gt_footnote {
+#cagxkomhcj .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zcgkhgghbe .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#zcgkhgghbe .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1231,179 +1212,184 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zcgkhgghbe .gt_left {
+#cagxkomhcj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cagxkomhcj .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cagxkomhcj .gt_left {
   text-align: left;
 }
 
-#zcgkhgghbe .gt_center {
+#cagxkomhcj .gt_center {
   text-align: center;
 }
 
-#zcgkhgghbe .gt_right {
+#cagxkomhcj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zcgkhgghbe .gt_font_normal {
+#cagxkomhcj .gt_font_normal {
   font-weight: normal;
 }
 
-#zcgkhgghbe .gt_font_bold {
+#cagxkomhcj .gt_font_bold {
   font-weight: bold;
 }
 
-#zcgkhgghbe .gt_font_italic {
+#cagxkomhcj .gt_font_italic {
   font-style: italic;
 }
 
-#zcgkhgghbe .gt_super {
+#cagxkomhcj .gt_super {
   font-size: 65%;
 }
 
-#zcgkhgghbe .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#cagxkomhcj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#zcgkhgghbe .gt_asterisk {
+#cagxkomhcj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zcgkhgghbe .gt_indent_1 {
+#cagxkomhcj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zcgkhgghbe .gt_indent_2 {
+#cagxkomhcj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zcgkhgghbe .gt_indent_3 {
+#cagxkomhcj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zcgkhgghbe .gt_indent_4 {
+#cagxkomhcj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zcgkhgghbe .gt_indent_5 {
+#cagxkomhcj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-
-<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true">
-<thead class="gt_col_headings">
-<tr class="header">
-<th class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">island</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">year</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Adelie (female)</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Adelie (male)</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Gentoo (female)</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Gentoo (male)</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Chinstrap (female)</th>
-<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Chinstrap (male)</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_right">5</td>
-<td class="gt_row gt_right">5</td>
-<td class="gt_row gt_right">16</td>
-<td class="gt_row gt_right">17</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">22</td>
-<td class="gt_row gt_right">23</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Biscoe</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">20</td>
-<td class="gt_row gt_right">21</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">13</td>
-<td class="gt_row gt_right">13</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">9</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Dream</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_right">12</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">7</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center">Torgersen</td>
-<td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-</tr>
-</tbody>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="island">island</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="year">year</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Adelie (female)">Adelie (female)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Adelie (male)">Adelie (male)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Gentoo (female)">Gentoo (female)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Gentoo (male)">Gentoo (male)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Chinstrap (female)">Chinstrap (female)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Chinstrap (male)">Chinstrap (male)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="Adelie (female)" class="gt_row gt_right">5</td>
+<td headers="Adelie (male)" class="gt_row gt_right">5</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">16</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">17</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="Adelie (female)" class="gt_row gt_right">9</td>
+<td headers="Adelie (male)" class="gt_row gt_right">9</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">22</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">23</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="Adelie (female)" class="gt_row gt_right">8</td>
+<td headers="Adelie (male)" class="gt_row gt_right">8</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">20</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">21</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="Adelie (female)" class="gt_row gt_right">9</td>
+<td headers="Adelie (male)" class="gt_row gt_right">10</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">13</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">13</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="Adelie (female)" class="gt_row gt_right">8</td>
+<td headers="Adelie (male)" class="gt_row gt_right">8</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">9</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">9</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Dream</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="Adelie (female)" class="gt_row gt_right">10</td>
+<td headers="Adelie (male)" class="gt_row gt_right">10</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">12</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">12</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2007</td>
+<td headers="Adelie (female)" class="gt_row gt_right">8</td>
+<td headers="Adelie (male)" class="gt_row gt_right">7</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2008</td>
+<td headers="Adelie (female)" class="gt_row gt_right">8</td>
+<td headers="Adelie (male)" class="gt_row gt_right">8</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
+<td headers="year" class="gt_row gt_right">2009</td>
+<td headers="Adelie (female)" class="gt_row gt_right">8</td>
+<td headers="Adelie (male)" class="gt_row gt_right">8</td>
+<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
+<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
+<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
+  </tbody>
+  
+  
 </table>
-
 </div>
 <p>Quantidade de pinguins por espécie e sexo</p>
 </div>
 </div>
+<p>Ainda pode melhorar, veja como formatar tabelas com o pacote <em>gt</em> neste [post](https://abreums.github.io/posts/2022-11-05-r-tip-criando-tabelas-com-o-pacote-gt/).</p>
 
 
 
