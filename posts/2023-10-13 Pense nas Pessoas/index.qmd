@@ -16,36 +16,57 @@ Gostaria de compartihar três coisas que acho que serão importantes neste proje
 
 ## Pessoas
 
-Gestão de mudanças começa o término de alguma coisa (a frase é do William Bridges, assim como os exemplos que seguem). Considere que você está mudando de casa. A casa para a qual você está se mudando é maior, mais nova e fica em um bairro melhor do que a casa atual. Você está feliz com a mudança. Mas ainda assim sente uma melancolia, uma tristeza que não consegue explicar.
+>> Gestão de mudanças começa o término de alguma coisa.
+
+A frase é do William Bridges, e reflete a importância de sabermos o impacto das perdas na Gestão de Mudanças.
+
+Considere o seguinte exemplo: você está mudando de casa. A casa para a qual você está se mudando é maior, mais nova e fica em um bairro melhor do que a casa atual. Você está feliz com a mudança. Mas ainda assim sente uma melancolia, uma tristeza que não consegue explicar.
 
 A casa nova parece ser melhor em todos os sentidos que a casa velha. Ainda assim, o que você está perdendo ao se mudar de casa?
+
+.
+.
+.
+.
+.
+.
+
+.
+
+.
+
+...
 
 1.  Relacionamentos: você está perdendo as amizades que desenvolveu com a vizinhança.
 2.  Conhecimento: para a casa velha, você conhece os caminhos alternativos para usar nos dias de congestionamento, ou ainda onde encontrar uma farmácia aberta às 2h da madrugada para comprar um remério para seu filho.
 3.  Recordações: a pintura da casa nova pode ser melhor, mas você vai perder os risquinhos atrás da porta onde você anotou a altura do seu filho enquanto acompanhava ele crescer.
 
-O processo de absorver as perdas durante um momento de mudança é chamado de *Transição*. Este processo pode ser difícil às vezes. Podemos ficar irritados porque perdemos algo, e não aproveitar as oportunidades que se apresentam com os novos benefícios.
+O processo de absorver as perdas durante um momento de mudança é chamado de *Transição*. Este processo pode ser difícil. Quando não lidamos adequadamente com a transição, ficamos presos nas nossas perdas e deixamos de aproveitar as oportunidades que se apresentam com a mudança.
 
-Por isto é muito importante termos consciência do que estamos perdendo. E mais importante ainda saber que é importante deixar as coisas do passado irem.
+Para não cairmos nesta armadilha é preciso ter consciência do processo de perda, e dos sentimentos relacionados a ele. 
 
-E no caso de você estar recebendo uma promoção ou se mudando para um emprego novo? O novo cargo vem cheio de desafios que você está ansioso para enfrentar, ele significa um avanço na sua carreira, novas resposabilidades e uma remuneração maior. Ainda assim, você o que você está perdendo?
+Considere este outro exemplo: você foi promovido no trabalho. O novo cargo vem cheio de desafios que você está ansioso para enfrentar, ele significa um avanço na sua carreira, novas resposabilidades e uma remuneração maior. Ainda assim, você sente tristeza e melancolia. O que você está perdendo?
+
+.
+.
+.
+.
+.
+.
+.
+
+.
+
+.
+
+...
+
+Você pode estar sentido a perda de coisas como:
 
 1.  Competência: você era considerado uma pessoa competente na sua posição antiga. Nesta nova posição você sente a expectativa dos outros e o questionamentos velados se você conseguirá repetir seu desempenho anterior.
 2.  Amigos: você estará trabalhando com outra equipe.
 
-O projeto SAP na ASICS será a nossa casa nova. Com mais espaço e mais opções. Ainda assim, no começo podemos sentir frustração ou raiva da casa nova por causa das perdas que ela nos traz.
-
-Vamos viver um período de especificações e customizações no novo sistema até o momento em que ele será ligado e passaremos a trabalhar sobre ele. Neste instante, perderemos toda a nossa competência. E isto trará bastante frustração e insatisfação.
-
 Temos que estar preparados para viver nossas perdas, e não deixar elas atrapalharem a oportunidade que temos com o novo que está vindo.
-
-Toda mudança começa com um fim.
-
-Nas próximas semanas, durante as atividades de *fit gap analysis* vocês estarão conversando sobre software, sobre funcionalidades de software, e configurações de software. Eu peço que vocês façam apenas uma coisa: de vez em quando, parem, fechem os olhos e pensem na Maria que trabalha na expedição, ou no João que trabalha na loja, ou na Bárbara que trabalha na contabilidade, e perguntem: o que ela/ele estão perdendo?
-
-Mesmo que uma funcionalidade do sistema novo não precisa de customização (deu *fit*! Não vamos precisar fazer nada!), não significa que a pessoa que vai utilizar aquela funcionalidade não precise fazer uma transição.
-
-Por isto, junto com a especificação de *fit gap analysis* vamos desenvolver uma segunda especificação chamada *Plano de Gestão de Impactos*. Onde vamos listar as ações para que as pessoas façam suas transições e os impactos não aconteçam.
 
 ## Aprendizagem
 
@@ -77,7 +98,7 @@ A queda de performance durante a *Learning Curve* deixará você frustrado e irr
 
 Por fim, eu gostaria de falar sobre *engajamento*, e gostaria de deixar claro que não se trata de *torcida* ou *euforia*. Vou contar uma história para explicar o que significa engajamento.
 
-Gestão de Mudança não é uma disciplina nova. Ela começou na primeira metade do século XX através dos trabalhos de um psicólogo judeu-polonês chamado Kurt Lewin.
+Gestão de Mudança não é uma disciplina nova. Ela começou na primeira metade do século XX através dos trabalhos de um psicólogo chamado Kurt Lewin.
 
 Durante a segunda guerra mundial, para ter suprimentos para as tropas, o governo norte-americano instituiu um controle sobre a quantidade de comida que poderia ser comprada. E, para amenizar a situação, o governo criou um programa para incentivar as famílias a consumirem proteína animal não nobre. O que é proteína animal não nobre? São partes como rins, fígado, lingua, etc.
 
