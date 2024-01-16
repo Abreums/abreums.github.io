@@ -1,6 +1,6 @@
 ---
-title: "Não é um projeto de software"
-description: "Minha apresentação sobre o que envolve a Gestão de Mudanças num projeto de implantação de software"
+title: "Gestão de Mudanças"
+description: "Os desafios da Gestão de Mudanças nos projetos."
 date: 2023-10-13
 author: 
   - name: Marcos Abreu
@@ -16,9 +16,7 @@ Gostaria de compartihar três coisas que acho que serão importantes neste proje
 
 ## Pessoas
 
-Gestão de mudanças começa o término de alguma coisa (a frase é do William Bridges, assim como os exemplos que seguem).
-
-Considere que você está mudando de casa. A casa para a qual você está se mudando é maior, mais nova e fica em um bairro melhor do que a casa atual. Você está feliz com a mudança. Mas ainda assim sente uma melancolia, uma tristeza que não consegue explicar.
+Gestão de mudanças começa o término de alguma coisa (a frase é do William Bridges, assim como os exemplos que seguem). Considere que você está mudando de casa. A casa para a qual você está se mudando é maior, mais nova e fica em um bairro melhor do que a casa atual. Você está feliz com a mudança. Mas ainda assim sente uma melancolia, uma tristeza que não consegue explicar.
 
 A casa nova parece ser melhor em todos os sentidos que a casa velha. Ainda assim, o que você está perdendo ao se mudar de casa?
 
@@ -110,7 +108,3 @@ Em resumo, o que eu gostaria de falar sobre Gestão de Mudanças é:
 1.  Pensem nas pessoas: qual dor elas sentirão com esta mudança que estamos fazendo?
 2.  Limpem seus guarda-roupas: conhecimentos novos e desafiadores precisam de espaço para serem recebidos.
 3.  Compartilhem: o mudança individual é primordial, mas só vamos construir um novo conceito de valor se compartilharmos nossas experiências, ansiedades, preocupações e reultados.
-
-E minha mensagem final é:
-
-Este não é um projeto de software.
