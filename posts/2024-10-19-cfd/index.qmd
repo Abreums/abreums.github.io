@@ -1,0 +1,16 @@
+---
+title: "Diagrama de Fluxo Acumulado"
+description: "Como construir um CFD em R"
+date: 2024-10-19
+author: 
+  - name: Marcos Abreu
+    url: https://abreums.github.io
+    orcid: 0000-0003-4772-7955
+citation:
+  type: post-weblog
+  url: https://abreums.github.io/posts/2024-10-19-cfd/
+  language: pt-br
+categories: [Rstats]
+---
+
+Vamos montar um Diagrama de Fluxo Acumulado (CFD - *Cummulative Flow Diagram*) em R.
