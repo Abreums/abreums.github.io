@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2022-11-05">
 <meta name="description" content="pivot_wider com mais de uma coluna">
 
-<title>Marcos Abreu’s blog - R tip: como fazer pivot_wider com mais de uma coluna</title>
+<title>R tip: como fazer pivot_wider com mais de uma coluna – Marcos Abreu’s blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +82,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -104,28 +111,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Marcos Abreu’s blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -176,30 +183,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">library(palmerpenguins)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">library(gt)</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>É possível usar a função pivot_wider com mais de uma coluna.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Palmer Penguins - primeira versao"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: palmer1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Palmer Penguins - primeira versao"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: palmer1</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>palmerpenguins<span class="sc">::</span>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(island, year, sex,species) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">palmerpenguins::penguins %&gt;% </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="in">  count(island, year, sex,species) %&gt;% </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="in">  gt()</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div id="ewumlnzsvy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ewumlnzsvy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -640,197 +647,266 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="island">island</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="year">year</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="sex">sex</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="species">species</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">n</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">5</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">16</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">5</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">17</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">NA</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">1</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">9</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">22</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">9</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">23</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">NA</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">1</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">20</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">21</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">NA</td>
-<td headers="species" class="gt_row gt_center">Gentoo</td>
-<td headers="n" class="gt_row gt_right">3</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">9</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Chinstrap</td>
-<td headers="n" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Chinstrap</td>
-<td headers="n" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">NA</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">1</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Chinstrap</td>
-<td headers="n" class="gt_row gt_right">9</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Chinstrap</td>
-<td headers="n" class="gt_row gt_right">9</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Chinstrap</td>
-<td headers="n" class="gt_row gt_right">12</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Chinstrap</td>
-<td headers="n" class="gt_row gt_right">12</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">7</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="sex" class="gt_row gt_center">NA</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">5</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">female</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="sex" class="gt_row gt_center">male</td>
-<td headers="species" class="gt_row gt_center">Adelie</td>
-<td headers="n" class="gt_row gt_right">8</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="island" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">island</th>
+<th id="year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">year</th>
+<th id="sex" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">sex</th>
+<th id="species" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">species</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">16</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">17</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">NA</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">22</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">23</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">NA</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">20</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">21</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">NA</td>
+<td class="gt_row gt_center" headers="species">Gentoo</td>
+<td class="gt_row gt_right" headers="n">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Chinstrap</td>
+<td class="gt_row gt_right" headers="n">13</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Chinstrap</td>
+<td class="gt_row gt_right" headers="n">13</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">NA</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Chinstrap</td>
+<td class="gt_row gt_right" headers="n">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Chinstrap</td>
+<td class="gt_row gt_right" headers="n">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">10</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Chinstrap</td>
+<td class="gt_row gt_right" headers="n">12</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">10</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Chinstrap</td>
+<td class="gt_row gt_right" headers="n">12</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">7</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_center" headers="sex">NA</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_center" headers="species">Adelie</td>
+<td class="gt_row gt_right" headers="n">8</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 <p>Palmer Penguins - primeira versao</p>
 </div>
@@ -838,22 +914,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Vamos fazer <em>pivot_wider</em> com as colunas <em>species</em> e <em>sex</em>. Queremos que o resultado tenha as colunas com nomes como “Adele (female)”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Quantidade de pinguins por espécie e sexo"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: palmer2</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Quantidade de pinguins por espécie e sexo"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: palmer2</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(island, year, species, sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sex)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(species, sex),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> n,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_glue =</span> <span class="st">"{species} ({sex})"</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="in">penguins %&gt;% </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">  count(island, year, species, sex) %&gt;% </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="in">  filter(!is.na(sex)) %&gt;% </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="in">  pivot_wider(names_from = c(species, sex),</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="in">              values_from = n,</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="in">              names_glue = "{species} ({sex})",</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="in">              values_fill = 0) %&gt;% </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="in">  gt()</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div id="cagxkomhcj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#cagxkomhcj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1294,97 +1369,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="island">island</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="year">year</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Adelie (female)">Adelie (female)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Adelie (male)">Adelie (male)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Gentoo (female)">Gentoo (female)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Gentoo (male)">Gentoo (male)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Chinstrap (female)">Chinstrap (female)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Chinstrap (male)">Chinstrap (male)</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="Adelie (female)" class="gt_row gt_right">5</td>
-<td headers="Adelie (male)" class="gt_row gt_right">5</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">16</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">17</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="Adelie (female)" class="gt_row gt_right">9</td>
-<td headers="Adelie (male)" class="gt_row gt_right">9</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">22</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">23</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Biscoe</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="Adelie (female)" class="gt_row gt_right">8</td>
-<td headers="Adelie (male)" class="gt_row gt_right">8</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">20</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">21</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="Adelie (female)" class="gt_row gt_right">9</td>
-<td headers="Adelie (male)" class="gt_row gt_right">10</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">13</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="Adelie (female)" class="gt_row gt_right">8</td>
-<td headers="Adelie (male)" class="gt_row gt_right">8</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">9</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">9</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Dream</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="Adelie (female)" class="gt_row gt_right">10</td>
-<td headers="Adelie (male)" class="gt_row gt_right">10</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">12</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">12</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2007</td>
-<td headers="Adelie (female)" class="gt_row gt_right">8</td>
-<td headers="Adelie (male)" class="gt_row gt_right">7</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2008</td>
-<td headers="Adelie (female)" class="gt_row gt_right">8</td>
-<td headers="Adelie (male)" class="gt_row gt_right">8</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
-    <tr><td headers="island" class="gt_row gt_center">Torgersen</td>
-<td headers="year" class="gt_row gt_right">2009</td>
-<td headers="Adelie (female)" class="gt_row gt_right">8</td>
-<td headers="Adelie (male)" class="gt_row gt_right">8</td>
-<td headers="Gentoo (female)" class="gt_row gt_right">0</td>
-<td headers="Gentoo (male)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (female)" class="gt_row gt_right">0</td>
-<td headers="Chinstrap (male)" class="gt_row gt_right">0</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="island" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">island</th>
+<th id="year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">year</th>
+<th id="Adelie (female)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Adelie (female)</th>
+<th id="Adelie (male)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Adelie (male)</th>
+<th id="Gentoo (female)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Gentoo (female)</th>
+<th id="Gentoo (male)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Gentoo (male)</th>
+<th id="Chinstrap (female)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Chinstrap (female)</th>
+<th id="Chinstrap (male)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Chinstrap (male)</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_right" headers="Adelie (female)">5</td>
+<td class="gt_row gt_right" headers="Adelie (male)">5</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">16</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">17</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="Adelie (female)">9</td>
+<td class="gt_row gt_right" headers="Adelie (male)">9</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">22</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">23</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_right" headers="Adelie (female)">8</td>
+<td class="gt_row gt_right" headers="Adelie (male)">8</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">20</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">21</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_right" headers="Adelie (female)">9</td>
+<td class="gt_row gt_right" headers="Adelie (male)">10</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">0</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">13</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">13</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="Adelie (female)">8</td>
+<td class="gt_row gt_right" headers="Adelie (male)">8</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">0</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">9</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_right" headers="Adelie (female)">10</td>
+<td class="gt_row gt_right" headers="Adelie (male)">10</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">0</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">12</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">12</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2007</td>
+<td class="gt_row gt_right" headers="Adelie (female)">8</td>
+<td class="gt_row gt_right" headers="Adelie (male)">7</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">0</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="Adelie (female)">8</td>
+<td class="gt_row gt_right" headers="Adelie (male)">8</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">0</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="year">2009</td>
+<td class="gt_row gt_right" headers="Adelie (female)">8</td>
+<td class="gt_row gt_right" headers="Adelie (male)">8</td>
+<td class="gt_row gt_right" headers="Gentoo (female)">0</td>
+<td class="gt_row gt_right" headers="Gentoo (male)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (female)">0</td>
+<td class="gt_row gt_right" headers="Chinstrap (male)">0</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 <p>Quantidade de pinguins por espécie e sexo</p>
 </div>
@@ -1393,7 +1485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2022,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2022,
   author = {Abreu, Marcos},
   title = {R tip: como fazer pivot\_wider com mais de uma coluna},
   date = {2022-11-05},
@@ -1439,18 +1531,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1482,11 +1563,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1496,8 +1616,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1509,7 +1638,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1553,6 +1805,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1578,6 +1831,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1638,6 +1917,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2019-02-25">
 <meta name="description" content="Representação do fluxo">
 
-<title>Marcos Abreu’s blog - Gráficos Sankey ou Alluvial</title>
+<title>Gráficos Sankey ou Alluvial – Marcos Abreu’s blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +82,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -108,28 +115,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Marcos Abreu’s blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -176,6 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -308,7 +316,6 @@ Nodes is a tbl_df. Converting to a plain data frame.</code></pre>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(source) <span class="sc">|&gt;</span> </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div id="twxgmehwsx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#twxgmehwsx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -749,239 +756,234 @@ Nodes is a tbl_df. Converting to a plain data frame.</code></pre>
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="source">source</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="target">target</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="value">value</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="description">description</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="comment">comment</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="group">group</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IDsource">IDsource</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="IDtarget">IDtarget</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="source" class="gt_row gt_left">B2B</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Order confirmation report</td>
-<td headers="comment" class="gt_row gt_left">Order confirmations are not sent per sales order. Currently the customer checks his orders on Asics.net.  Global BID planned for 2024
-- Cancelled as orders are created live to FMS the user can see immediately in order history. No confirmation required</td>
-<td headers="group" class="gt_row gt_center">B2B</td>
-<td headers="IDsource" class="gt_row gt_right">7</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">B2B</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Brand portal assets - 360 images on B2B</td>
-<td headers="comment" class="gt_row gt_left">06/12 TZ: to be covered by 101772 in item 97
-22/11 BO: Global requirement. Effort 4 days. Will be delivered as part of the 2024 portfolio.
-Not all assets are shot and loaded into the brand portal. This would need to be approved by ADI currently the quality doesn't not meet global standards.
-Is Brazil able to load images to Brand portal for locally produced product. 360 image are a nice to have but not a must have.</td>
-<td headers="group" class="gt_row gt_center">B2B</td>
-<td headers="IDsource" class="gt_row gt_right">7</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">DTC</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">ABR - Baseline configuration - Localization</td>
-<td headers="comment" class="gt_row gt_left">01/12 BO: Integrated in BID 101484. Cancelled this one.
-Setup localization topics for DTC</td>
-<td headers="group" class="gt_row gt_center">DTC</td>
-<td headers="IDsource" class="gt_row gt_right">3</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">FIN</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Tax calculation mismatches</td>
-<td headers="comment" class="gt_row gt_left">22/11 BO: Replaced by (Base) Location per Team, this is covered by the FIN Localization topic.
-Generic GAP for possible mismatches related to tax in both SCM and O2C pricing.</td>
-<td headers="group" class="gt_row gt_center">FIN</td>
-<td headers="IDsource" class="gt_row gt_right">4</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">FIN</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Approval of journal entries</td>
-<td headers="comment" class="gt_row gt_left">29/11: JS: Provided solution of Park/Post is accepted by the ABR team (Ives and Fabricio).
-22/12 BO: Currently there is a solution in BPM. In my view this requirement must be challenged. Not part of Global template. Park/ Post functionality or Report to review executed manual posting.
-Journal entries are currently being approved by the business. We don't have a solution in FMS for this. Will this be covered in the BPM tool?</td>
-<td headers="group" class="gt_row gt_center">FIN</td>
-<td headers="IDsource" class="gt_row gt_right">4</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">FIN</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">ABR - Baseline configuration - Localization</td>
-<td headers="comment" class="gt_row gt_left">01/12 BO: Integrated in BID 101485. Cancelled this one.
-Setup localization topics for FIN, for now the tax benefit topic is part of this estimate but it depends if standard SAP can cover dealing with this.</td>
-<td headers="group" class="gt_row gt_center">FIN</td>
-<td headers="IDsource" class="gt_row gt_right">4</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">MAS</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Local pictures management</td>
-<td headers="comment" class="gt_row gt_left">07/12 BO I cancelled this FMS Gap. No software topic
-29/11 BO: No software change needed
-More process related</td>
-<td headers="group" class="gt_row gt_center">MAS</td>
-<td headers="IDsource" class="gt_row gt_right">0</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">MAS</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Customer delivery schedule</td>
-<td headers="comment" class="gt_row gt_left">Customers can indicate when they want to be delivered (days &amp; time)
-16/11 - CM: discussed with O2C. Requirement will be covered with Customer VAS.</td>
-<td headers="group" class="gt_row gt_center">MAS</td>
-<td headers="IDsource" class="gt_row gt_right">0</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">MAS</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Customised assortments in Brazil</td>
-<td headers="comment" class="gt_row gt_left">This will be solved with GAP#52 or stadard solution will be used.</td>
-<td headers="group" class="gt_row gt_center">MAS</td>
-<td headers="IDsource" class="gt_row gt_right">0</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">MAS</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Product description in PT</td>
-<td headers="comment" class="gt_row gt_left">Needed at product creation - to be discussed if we can use the existing FMS upload or we need to intervene upstream
-23/11 - CM:</td>
-<td headers="group" class="gt_row gt_center">MAS</td>
-<td headers="IDsource" class="gt_row gt_right">0</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">O2C</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Sales order upload tool</td>
-<td headers="comment" class="gt_row gt_left">07/12 BO: Cancelled this Gap. Effort estimation was 4 days in total.
-07/12 LSC: this functionality is already supported by the current SO Upload
-The sales order upload tool splits on PO number. ABR wants it to split on RDD</td>
-<td headers="group" class="gt_row gt_center">O2C</td>
-<td headers="IDsource" class="gt_row gt_right">2</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">O2C</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">ABR - Baseline configuration - Localization</td>
-<td headers="comment" class="gt_row gt_left">01/12 BO: Integrated in BID 101483. Cancelled this one.
-Setup localization topics for O2C other than pricing:
-'- NFe generation, setup DRC for O2C
-- XML generation and mapping
-- Printing and form of DANFE, CCC (NF correction letter) and Simplified NFe (PL SAP BE: OTC_011_BR)
-- XML for carrier
-                                                                                                                                                                                                                                                               
-PL SAP BR OTC_007_BR</td>
-<td headers="group" class="gt_row gt_center">O2C</td>
-<td headers="IDsource" class="gt_row gt_right">2</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">O2C</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">O2C-E-Invoicing and DRC</td>
-<td headers="comment" class="gt_row gt_left">included in #89
-'- NFe generation, setup DRC for O2C
-- XML generation and mapping
-- Printing and form of DANFE, CCC (NF correction letter) and Simplified NFe (PL SAP BE: OTC_011_BR)
-- XML for carrier
-                                                                                                                                                                                                                                                                PL SAP BR OTC_007_BR</td>
-<td headers="group" class="gt_row gt_center">O2C</td>
-<td headers="IDsource" class="gt_row gt_right">2</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">SCM</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Different purchase prices needed for Fedex and WilsonSons for local purchasing. Both DC's have the same site.</td>
-<td headers="comment" class="gt_row gt_left">13/12 WV: Vanessa confirmed that 1 Purchasing price will be negociated for both Fedex and Wilson Sons --&gt; Closed. (No estimate was given)
-29/11 BO: Wilder will discuss this topic with rBPO.
-- Having 1 price for both Fedex and Wilson Sons is costing R$ 240.000 in 10 months.
-- Manual pricing in the PO is not an option according to Vanessa. Frequency to WS Cleared is once a month
-- To check with Tatiana if an additional price condition is an option with DRC</td>
-<td headers="group" class="gt_row gt_center">SCM</td>
-<td headers="IDsource" class="gt_row gt_right">1</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">SCM</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Possibility needed to change address on Ecom delivery after Goods Issue</td>
-<td headers="comment" class="gt_row gt_left">30/11 WV: Aligned with Vanessa. Can be cancelled
-24/11 BO: Challenged by Alberto if really needed.
-Used for re-delivery of ecom deliveries with incorrect address</td>
-<td headers="group" class="gt_row gt_center">SCM</td>
-<td headers="IDsource" class="gt_row gt_right">1</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">SCM</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Several interfaces</td>
-<td headers="comment" class="gt_row gt_left">Partner = Brokers
-Brokers will work in Thomson Reuters</td>
-<td headers="group" class="gt_row gt_center">SCM</td>
-<td headers="IDsource" class="gt_row gt_right">1</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">SCM</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Several interfaces</td>
-<td headers="comment" class="gt_row gt_left">Partner = Arquivei
-Out of scope - replaced by VIM &amp; DRC (Jurriaan and Bert)</td>
-<td headers="group" class="gt_row gt_center">SCM</td>
-<td headers="IDsource" class="gt_row gt_right">1</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">SCM</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Several interfaces</td>
-<td headers="comment" class="gt_row gt_left">Partner = VTEX - Tracking information to VTEX
-Included in the DTC stream</td>
-<td headers="group" class="gt_row gt_center">SCM</td>
-<td headers="IDsource" class="gt_row gt_right">1</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">SCM</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Adapt Buy-Via process for ZPB Back-to-Back via Wilson Sons (ACL/ACO buy from local ABR vendor)</td>
-<td headers="comment" class="gt_row gt_left">24/11 BO: Ward discussed with Vanessa and they agreed to do this manual. BID cancelled.</td>
-<td headers="group" class="gt_row gt_center">SCM</td>
-<td headers="IDsource" class="gt_row gt_right">1</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">SCM</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">Support change of direct shipment to purchasing for stockm, based on use of Back to back process:
-- Change output to local vendor
-- Changes related AOS
-- Changes in APL interface
-- Remove sales order assignment of stock
-- Change of site of PO
-- …....</td>
-<td headers="comment" class="gt_row gt_left">12/12 WV: Processes discussed in case orders are cancelled. Standard SAP with a lot of work. Import process still to be checked. ==&gt; Cancelled (Estimate was 45 days)
-24/11 BO: How do other regions handle this exception? In my view the customer should accept the goods and if the customer doesn't want the goods, they can return it. Ward will discuss further if this process is really needed.
 
-Used in case a customer of Back-to-Back stock cancels the purchase. Should work for warehouses with a WM and Without a WM</td>
-<td headers="group" class="gt_row gt_center">SCM</td>
-<td headers="IDsource" class="gt_row gt_right">1</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="source" class="gt_row gt_left">SCM</td>
-<td headers="target" class="gt_row gt_left">99. Cancelled</td>
-<td headers="value" class="gt_row gt_right">1</td>
-<td headers="description" class="gt_row gt_left">ABR - Baseline configuration - Localization</td>
-<td headers="comment" class="gt_row gt_left">01/12 BO: Integrated in BID 101482. Cancelled this one.
-Setup localization topics for SCM</td>
-<td headers="group" class="gt_row gt_center">SCM</td>
-<td headers="IDsource" class="gt_row gt_right">1</td>
-<td headers="IDtarget" class="gt_row gt_right">11</td></tr>
-  </tbody>
-  
-  
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="source" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">source</th>
+<th id="target" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">target</th>
+<th id="value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">value</th>
+<th id="description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">description</th>
+<th id="comment" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">comment</th>
+<th id="group" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">group</th>
+<th id="IDsource" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IDsource</th>
+<th id="IDtarget" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IDtarget</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">B2B</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Order confirmation report</td>
+<td class="gt_row gt_left" headers="comment">Order confirmations are not sent per sales order. Currently the customer checks his orders on Asics.net. Global BID planned for 2024 - Cancelled as orders are created live to FMS the user can see immediately in order history. No confirmation required</td>
+<td class="gt_row gt_center" headers="group">B2B</td>
+<td class="gt_row gt_right" headers="IDsource">7</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">B2B</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Brand portal assets - 360 images on B2B</td>
+<td class="gt_row gt_left" headers="comment">06/12 TZ: to be covered by 101772 in item 97 22/11 BO: Global requirement. Effort 4 days. Will be delivered as part of the 2024 portfolio. Not all assets are shot and loaded into the brand portal. This would need to be approved by ADI currently the quality doesn't not meet global standards. Is Brazil able to load images to Brand portal for locally produced product. 360 image are a nice to have but not a must have.</td>
+<td class="gt_row gt_center" headers="group">B2B</td>
+<td class="gt_row gt_right" headers="IDsource">7</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">DTC</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">ABR - Baseline configuration - Localization</td>
+<td class="gt_row gt_left" headers="comment">01/12 BO: Integrated in BID 101484. Cancelled this one. Setup localization topics for DTC</td>
+<td class="gt_row gt_center" headers="group">DTC</td>
+<td class="gt_row gt_right" headers="IDsource">3</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">FIN</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Tax calculation mismatches</td>
+<td class="gt_row gt_left" headers="comment">22/11 BO: Replaced by (Base) Location per Team, this is covered by the FIN Localization topic. Generic GAP for possible mismatches related to tax in both SCM and O2C pricing.</td>
+<td class="gt_row gt_center" headers="group">FIN</td>
+<td class="gt_row gt_right" headers="IDsource">4</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">FIN</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Approval of journal entries</td>
+<td class="gt_row gt_left" headers="comment">29/11: JS: Provided solution of Park/Post is accepted by the ABR team (Ives and Fabricio). 22/12 BO: Currently there is a solution in BPM. In my view this requirement must be challenged. Not part of Global template. Park/ Post functionality or Report to review executed manual posting. Journal entries are currently being approved by the business. We don't have a solution in FMS for this. Will this be covered in the BPM tool?</td>
+<td class="gt_row gt_center" headers="group">FIN</td>
+<td class="gt_row gt_right" headers="IDsource">4</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">FIN</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">ABR - Baseline configuration - Localization</td>
+<td class="gt_row gt_left" headers="comment">01/12 BO: Integrated in BID 101485. Cancelled this one. Setup localization topics for FIN, for now the tax benefit topic is part of this estimate but it depends if standard SAP can cover dealing with this.</td>
+<td class="gt_row gt_center" headers="group">FIN</td>
+<td class="gt_row gt_right" headers="IDsource">4</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">MAS</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Local pictures management</td>
+<td class="gt_row gt_left" headers="comment">07/12 BO I cancelled this FMS Gap. No software topic 29/11 BO: No software change needed More process related</td>
+<td class="gt_row gt_center" headers="group">MAS</td>
+<td class="gt_row gt_right" headers="IDsource">0</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">MAS</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Customer delivery schedule</td>
+<td class="gt_row gt_left" headers="comment">Customers can indicate when they want to be delivered (days &amp; time) 16/11 - CM: discussed with O2C. Requirement will be covered with Customer VAS.</td>
+<td class="gt_row gt_center" headers="group">MAS</td>
+<td class="gt_row gt_right" headers="IDsource">0</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">MAS</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Customised assortments in Brazil</td>
+<td class="gt_row gt_left" headers="comment">This will be solved with GAP#52 or stadard solution will be used.</td>
+<td class="gt_row gt_center" headers="group">MAS</td>
+<td class="gt_row gt_right" headers="IDsource">0</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">MAS</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Product description in PT</td>
+<td class="gt_row gt_left" headers="comment">Needed at product creation - to be discussed if we can use the existing FMS upload or we need to intervene upstream 23/11 - CM:</td>
+<td class="gt_row gt_center" headers="group">MAS</td>
+<td class="gt_row gt_right" headers="IDsource">0</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">O2C</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Sales order upload tool</td>
+<td class="gt_row gt_left" headers="comment">07/12 BO: Cancelled this Gap. Effort estimation was 4 days in total. 07/12 LSC: this functionality is already supported by the current SO Upload The sales order upload tool splits on PO number. ABR wants it to split on RDD</td>
+<td class="gt_row gt_center" headers="group">O2C</td>
+<td class="gt_row gt_right" headers="IDsource">2</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">O2C</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">ABR - Baseline configuration - Localization</td>
+<td class="gt_row gt_left" headers="comment">01/12 BO: Integrated in BID 101483. Cancelled this one. Setup localization topics for O2C other than pricing: '- NFe generation, setup DRC for O2C - XML generation and mapping - Printing and form of DANFE, CCC (NF correction letter) and Simplified NFe (PL SAP BE: OTC_011_BR) - XML for carrier PL SAP BR OTC_007_BR</td>
+<td class="gt_row gt_center" headers="group">O2C</td>
+<td class="gt_row gt_right" headers="IDsource">2</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">O2C</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">O2C-E-Invoicing and DRC</td>
+<td class="gt_row gt_left" headers="comment">included in #89 '- NFe generation, setup DRC for O2C - XML generation and mapping - Printing and form of DANFE, CCC (NF correction letter) and Simplified NFe (PL SAP BE: OTC_011_BR) - XML for carrier PL SAP BR OTC_007_BR</td>
+<td class="gt_row gt_center" headers="group">O2C</td>
+<td class="gt_row gt_right" headers="IDsource">2</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">SCM</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Different purchase prices needed for Fedex and WilsonSons for local purchasing. Both DC's have the same site.</td>
+<td class="gt_row gt_left" headers="comment">13/12 WV: Vanessa confirmed that 1 Purchasing price will be negociated for both Fedex and Wilson Sons --&gt; Closed. (No estimate was given) 29/11 BO: Wilder will discuss this topic with rBPO. - Having 1 price for both Fedex and Wilson Sons is costing R$ 240.000 in 10 months. - Manual pricing in the PO is not an option according to Vanessa. Frequency to WS Cleared is once a month - To check with Tatiana if an additional price condition is an option with DRC</td>
+<td class="gt_row gt_center" headers="group">SCM</td>
+<td class="gt_row gt_right" headers="IDsource">1</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">SCM</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Possibility needed to change address on Ecom delivery after Goods Issue</td>
+<td class="gt_row gt_left" headers="comment">30/11 WV: Aligned with Vanessa. Can be cancelled 24/11 BO: Challenged by Alberto if really needed. Used for re-delivery of ecom deliveries with incorrect address</td>
+<td class="gt_row gt_center" headers="group">SCM</td>
+<td class="gt_row gt_right" headers="IDsource">1</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">SCM</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Several interfaces</td>
+<td class="gt_row gt_left" headers="comment">Partner = Brokers Brokers will work in Thomson Reuters</td>
+<td class="gt_row gt_center" headers="group">SCM</td>
+<td class="gt_row gt_right" headers="IDsource">1</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">SCM</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Several interfaces</td>
+<td class="gt_row gt_left" headers="comment">Partner = Arquivei Out of scope - replaced by VIM &amp; DRC (Jurriaan and Bert)</td>
+<td class="gt_row gt_center" headers="group">SCM</td>
+<td class="gt_row gt_right" headers="IDsource">1</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">SCM</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Several interfaces</td>
+<td class="gt_row gt_left" headers="comment">Partner = VTEX - Tracking information to VTEX Included in the DTC stream</td>
+<td class="gt_row gt_center" headers="group">SCM</td>
+<td class="gt_row gt_right" headers="IDsource">1</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">SCM</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Adapt Buy-Via process for ZPB Back-to-Back via Wilson Sons (ACL/ACO buy from local ABR vendor)</td>
+<td class="gt_row gt_left" headers="comment">24/11 BO: Ward discussed with Vanessa and they agreed to do this manual. BID cancelled.</td>
+<td class="gt_row gt_center" headers="group">SCM</td>
+<td class="gt_row gt_right" headers="IDsource">1</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="source">SCM</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">Support change of direct shipment to purchasing for stockm, based on use of Back to back process: - Change output to local vendor - Changes related AOS - Changes in APL interface - Remove sales order assignment of stock - Change of site of PO - …....</td>
+<td class="gt_row gt_left" headers="comment">12/12 WV: Processes discussed in case orders are cancelled. Standard SAP with a lot of work. Import process still to be checked. ==&gt; Cancelled (Estimate was 45 days) 24/11 BO: How do other regions handle this exception? In my view the customer should accept the goods and if the customer doesn't want the goods, they can return it. Ward will discuss further if this process is really needed. Used in case a customer of Back-to-Back stock cancels the purchase. Should work for warehouses with a WM and Without a WM</td>
+<td class="gt_row gt_center" headers="group">SCM</td>
+<td class="gt_row gt_right" headers="IDsource">1</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="source">SCM</td>
+<td class="gt_row gt_left" headers="target">99. Cancelled</td>
+<td class="gt_row gt_right" headers="value">1</td>
+<td class="gt_row gt_left" headers="description">ABR - Baseline configuration - Localization</td>
+<td class="gt_row gt_left" headers="comment">01/12 BO: Integrated in BID 101482. Cancelled this one. Setup localization topics for SCM</td>
+<td class="gt_row gt_center" headers="group">SCM</td>
+<td class="gt_row gt_right" headers="IDsource">1</td>
+<td class="gt_row gt_right" headers="IDtarget">11</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1064,7 +1066,6 @@ Setup localization topics for SCM</td>
 <span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">domain =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">16</span>)</span>
 <span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div id="xfnsqmmvfp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#xfnsqmmvfp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1505,82 +1506,118 @@ Setup localization topics for SCM</td>
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_heading">
-      <td colspan="6" class="gt_heading gt_title gt_font_normal" style="">BID Quantities <svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M480 48c0-26.5-21.5-48-48-48H336c-26.5 0-48 21.5-48 48V96H224V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V96H112V24c0-13.3-10.7-24-24-24S64 10.7 64 24V96H48C21.5 96 0 117.5 0 144v96V464c0 26.5 21.5 48 48 48H304h32 96H592c26.5 0 48-21.5 48-48V240c0-26.5-21.5-48-48-48H480V48zm96 320v32c0 8.8-7.2 16-16 16H528c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16zM240 416H208c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16zM128 400c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32zM560 256c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H528c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h32zM256 176v32c0 8.8-7.2 16-16 16H208c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16zM112 160c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h32zM256 304c0 8.8-7.2 16-16 16H208c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32zM112 320H80c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16zm304-48v32c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16zM400 64c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h32zm16 112v32c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16z"></path></svg> FMS-SAP</td>
-    </tr>
-    <tr class="gt_heading">
-      <td colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Status at 2023-12-19</td>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Legal<br>Requirement">Legal<br>Requirement</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="3rd Party<br>Integration">3rd Party<br>Integration</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Baseline &amp;amp;<br>Localization">Baseline &amp;<br>Localization</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Deviation<br>from Global<br>way of<br>working">Deviation<br>from Global<br>way of<br>working</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Totals">Totals</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">AUTH</th>
-<td headers="stub_1_1 Legal Requirement" class="gt_row gt_right">—</td>
-<td headers="stub_1_1 3rd Party Integration" class="gt_row gt_right">—</td>
-<td headers="stub_1_1 Baseline &amp; Localization" class="gt_row gt_right">1</td>
-<td headers="stub_1_1 Deviation from Global way of working" class="gt_row gt_right">—</td>
-<td headers="stub_1_1 Total by Area" class="gt_row gt_right" style="background-color: #B3D7E4; color: #000000;">1</td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">REP</th>
-<td headers="stub_1_2 Legal Requirement" class="gt_row gt_right">—</td>
-<td headers="stub_1_2 3rd Party Integration" class="gt_row gt_right">—</td>
-<td headers="stub_1_2 Baseline &amp; Localization" class="gt_row gt_right">1</td>
-<td headers="stub_1_2 Deviation from Global way of working" class="gt_row gt_right">—</td>
-<td headers="stub_1_2 Total by Area" class="gt_row gt_right" style="background-color: #B3D7E4; color: #000000;">1</td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">B2B</th>
-<td headers="stub_1_3 Legal Requirement" class="gt_row gt_right">1</td>
-<td headers="stub_1_3 3rd Party Integration" class="gt_row gt_right">—</td>
-<td headers="stub_1_3 Baseline &amp; Localization" class="gt_row gt_right">—</td>
-<td headers="stub_1_3 Deviation from Global way of working" class="gt_row gt_right">1</td>
-<td headers="stub_1_3 Total by Area" class="gt_row gt_right" style="background-color: #B9D5E3; color: #000000;">2</td></tr>
-    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">O2C</th>
-<td headers="stub_1_4 Legal Requirement" class="gt_row gt_right">4</td>
-<td headers="stub_1_4 3rd Party Integration" class="gt_row gt_right">—</td>
-<td headers="stub_1_4 Baseline &amp; Localization" class="gt_row gt_right">3</td>
-<td headers="stub_1_4 Deviation from Global way of working" class="gt_row gt_right">3</td>
-<td headers="stub_1_4 Total by Area" class="gt_row gt_right" style="background-color: #E4CAD5; color: #000000;">10</td></tr>
-    <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">DTC</th>
-<td headers="stub_1_5 Legal Requirement" class="gt_row gt_right">2</td>
-<td headers="stub_1_5 3rd Party Integration" class="gt_row gt_right">7</td>
-<td headers="stub_1_5 Baseline &amp; Localization" class="gt_row gt_right">1</td>
-<td headers="stub_1_5 Deviation from Global way of working" class="gt_row gt_right">2</td>
-<td headers="stub_1_5 Total by Area" class="gt_row gt_right" style="background-color: #EDC7D2; color: #000000;">12</td></tr>
-    <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub">FIN</th>
-<td headers="stub_1_6 Legal Requirement" class="gt_row gt_right">4</td>
-<td headers="stub_1_6 3rd Party Integration" class="gt_row gt_right">5</td>
-<td headers="stub_1_6 Baseline &amp; Localization" class="gt_row gt_right">1</td>
-<td headers="stub_1_6 Deviation from Global way of working" class="gt_row gt_right">2</td>
-<td headers="stub_1_6 Total by Area" class="gt_row gt_right" style="background-color: #EDC7D2; color: #000000;">12</td></tr>
-    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub">MAS</th>
-<td headers="stub_1_7 Legal Requirement" class="gt_row gt_right">3</td>
-<td headers="stub_1_7 3rd Party Integration" class="gt_row gt_right">5</td>
-<td headers="stub_1_7 Baseline &amp; Localization" class="gt_row gt_right">3</td>
-<td headers="stub_1_7 Deviation from Global way of working" class="gt_row gt_right">1</td>
-<td headers="stub_1_7 Total by Area" class="gt_row gt_right" style="background-color: #EDC7D2; color: #000000;">12</td></tr>
-    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub">SCM</th>
-<td headers="stub_1_8 Legal Requirement" class="gt_row gt_right">4</td>
-<td headers="stub_1_8 3rd Party Integration" class="gt_row gt_right">8</td>
-<td headers="stub_1_8 Baseline &amp; Localization" class="gt_row gt_right">2</td>
-<td headers="stub_1_8 Deviation from Global way of working" class="gt_row gt_right">2</td>
-<td headers="stub_1_8 Total by Area" class="gt_row gt_right" style="background-color: #FFC0CB; color: #000000;">16</td></tr>
-    <tr><th id="grand_summary_stub_1" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">total</th>
-<td headers="grand_summary_stub_1 Legal Requirement" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">18</td>
-<td headers="grand_summary_stub_1 3rd Party Integration" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">25</td>
-<td headers="grand_summary_stub_1 Baseline &amp; Localization" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">12</td>
-<td headers="grand_summary_stub_1 Deviation from Global way of working" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" style="background-color: #8B0000; color: #FFFFFF;">11</td>
-<td headers="grand_summary_stub_1 Total by Area" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">66</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header gt_heading">
+<th colspan="6" class="gt_heading gt_title gt_font_normal">BID Quantities
+<svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;">
+<path d="M480 48c0-26.5-21.5-48-48-48H336c-26.5 0-48 21.5-48 48V96H224V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V96H112V24c0-13.3-10.7-24-24-24S64 10.7 64 24V96H48C21.5 96 0 117.5 0 144v96V464c0 26.5 21.5 48 48 48H304h32 96H592c26.5 0 48-21.5 48-48V240c0-26.5-21.5-48-48-48H480V48zm96 320v32c0 8.8-7.2 16-16 16H528c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16zM240 416H208c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16zM128 400c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32zM560 256c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H528c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h32zM256 176v32c0 8.8-7.2 16-16 16H208c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16zM112 160c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h32zM256 304c0 8.8-7.2 16-16 16H208c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32zM112 320H80c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16zm304-48v32c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16zM400 64c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h32zm16 112v32c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16z"></path>
+</svg>
+FMS-SAP</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Status at 2023-12-19</th>
+</tr>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Legal<br>Requirement" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Legal<br>
+Requirement</th>
+<th id="3rd Party<br>Integration" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">3rd Party<br>
+Integration</th>
+<th id="Baseline &amp;amp;<br>Localization" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Baseline &amp;<br>
+Localization</th>
+<th id="Deviation<br>from Global<br>way of<br>working" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Deviation<br>
+from Global<br>
+way of<br>
+working</th>
+<th id="Totals" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Totals</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">AUTH</td>
+<td class="gt_row gt_right" headers="stub_1_1 Legal Requirement">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 3rd Party Integration">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 Baseline &amp; Localization">1</td>
+<td class="gt_row gt_right" headers="stub_1_1 Deviation from Global way of working">—</td>
+<td class="gt_row gt_right" headers="stub_1_1 Total by Area" style="background-color: #B3D7E4; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">REP</td>
+<td class="gt_row gt_right" headers="stub_1_2 Legal Requirement">—</td>
+<td class="gt_row gt_right" headers="stub_1_2 3rd Party Integration">—</td>
+<td class="gt_row gt_right" headers="stub_1_2 Baseline &amp; Localization">1</td>
+<td class="gt_row gt_right" headers="stub_1_2 Deviation from Global way of working">—</td>
+<td class="gt_row gt_right" headers="stub_1_2 Total by Area" style="background-color: #B3D7E4; color: #000000">1</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">B2B</td>
+<td class="gt_row gt_right" headers="stub_1_3 Legal Requirement">1</td>
+<td class="gt_row gt_right" headers="stub_1_3 3rd Party Integration">—</td>
+<td class="gt_row gt_right" headers="stub_1_3 Baseline &amp; Localization">—</td>
+<td class="gt_row gt_right" headers="stub_1_3 Deviation from Global way of working">1</td>
+<td class="gt_row gt_right" headers="stub_1_3 Total by Area" style="background-color: #B9D5E3; color: #000000">2</td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">O2C</td>
+<td class="gt_row gt_right" headers="stub_1_4 Legal Requirement">4</td>
+<td class="gt_row gt_right" headers="stub_1_4 3rd Party Integration">—</td>
+<td class="gt_row gt_right" headers="stub_1_4 Baseline &amp; Localization">3</td>
+<td class="gt_row gt_right" headers="stub_1_4 Deviation from Global way of working">3</td>
+<td class="gt_row gt_right" headers="stub_1_4 Total by Area" style="background-color: #E4CAD5; color: #000000">10</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_5" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">DTC</td>
+<td class="gt_row gt_right" headers="stub_1_5 Legal Requirement">2</td>
+<td class="gt_row gt_right" headers="stub_1_5 3rd Party Integration">7</td>
+<td class="gt_row gt_right" headers="stub_1_5 Baseline &amp; Localization">1</td>
+<td class="gt_row gt_right" headers="stub_1_5 Deviation from Global way of working">2</td>
+<td class="gt_row gt_right" headers="stub_1_5 Total by Area" style="background-color: #EDC7D2; color: #000000">12</td>
+</tr>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">FIN</td>
+<td class="gt_row gt_right" headers="stub_1_6 Legal Requirement">4</td>
+<td class="gt_row gt_right" headers="stub_1_6 3rd Party Integration">5</td>
+<td class="gt_row gt_right" headers="stub_1_6 Baseline &amp; Localization">1</td>
+<td class="gt_row gt_right" headers="stub_1_6 Deviation from Global way of working">2</td>
+<td class="gt_row gt_right" headers="stub_1_6 Total by Area" style="background-color: #EDC7D2; color: #000000">12</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_7" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">MAS</td>
+<td class="gt_row gt_right" headers="stub_1_7 Legal Requirement">3</td>
+<td class="gt_row gt_right" headers="stub_1_7 3rd Party Integration">5</td>
+<td class="gt_row gt_right" headers="stub_1_7 Baseline &amp; Localization">3</td>
+<td class="gt_row gt_right" headers="stub_1_7 Deviation from Global way of working">1</td>
+<td class="gt_row gt_right" headers="stub_1_7 Total by Area" style="background-color: #EDC7D2; color: #000000">12</td>
+</tr>
+<tr class="even">
+<td id="stub_1_8" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row">SCM</td>
+<td class="gt_row gt_right" headers="stub_1_8 Legal Requirement">4</td>
+<td class="gt_row gt_right" headers="stub_1_8 3rd Party Integration">8</td>
+<td class="gt_row gt_right" headers="stub_1_8 Baseline &amp; Localization">2</td>
+<td class="gt_row gt_right" headers="stub_1_8 Deviation from Global way of working">2</td>
+<td class="gt_row gt_right" headers="stub_1_8 Total by Area" style="background-color: #FFC0CB; color: #000000">16</td>
+</tr>
+<tr class="odd">
+<td id="grand_summary_stub_1" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" data-quarto-table-cell-role="th" scope="row">total</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Legal Requirement">18</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 3rd Party Integration">25</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Baseline &amp; Localization">12</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Deviation from Global way of working" style="background-color: #8B0000; color: #FFFFFF">11</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Total by Area">66</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1607,7 +1644,6 @@ Setup localization topics for SCM</td>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_vertical_padding</span>(<span class="at">scale =</span> <span class="fl">0.65</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div id="vwbkundmea" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#vwbkundmea table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -2048,75 +2084,102 @@ Setup localization topics for SCM</td>
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Population">Population</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id=""></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="France">France</th>
-    </tr>
-    <tr class="gt_row_group_first"><td headers="France  year" class="gt_row gt_right">1960</td>
-<td headers="France  population" class="gt_row gt_right">46,649,927</td>
-<td headers="France  color" class="gt_row gt_right" style="background-color: #3E4A89; color: #FFFFFF;"></td></tr>
-    <tr><td headers="France  year" class="gt_row gt_right">1970</td>
-<td headers="France  population" class="gt_row gt_right">51,724,116</td>
-<td headers="France  color" class="gt_row gt_right" style="background-color: #2A768E; color: #FFFFFF;"></td></tr>
-    <tr><td headers="France  year" class="gt_row gt_right">1980</td>
-<td headers="France  population" class="gt_row gt_right">55,052,582</td>
-<td headers="France  color" class="gt_row gt_right" style="background-color: #21918C; color: #FFFFFF;"></td></tr>
-    <tr><td headers="France  year" class="gt_row gt_right">1990</td>
-<td headers="France  population" class="gt_row gt_right">58,044,701</td>
-<td headers="France  color" class="gt_row gt_right" style="background-color: #22A884; color: #FFFFFF;"></td></tr>
-    <tr><td headers="France  year" class="gt_row gt_right">2000</td>
-<td headers="France  population" class="gt_row gt_right">60,921,384</td>
-<td headers="France  color" class="gt_row gt_right" style="background-color: #42BE71; color: #000000;"></td></tr>
-    <tr><td headers="France  year" class="gt_row gt_right">2010</td>
-<td headers="France  population" class="gt_row gt_right">65,030,575</td>
-<td headers="France  color" class="gt_row gt_right" style="background-color: #90D743; color: #000000;"></td></tr>
-    <tr><td headers="France  year" class="gt_row gt_right">2020</td>
-<td headers="France  population" class="gt_row gt_right">67,571,107</td>
-<td headers="France  color" class="gt_row gt_right" style="background-color: #C9E020; color: #000000;"></td></tr>
-    <tr class="gt_group_heading_row">
-      <th colspan="3" class="gt_group_heading" scope="colgroup" id="United Kingdom">United Kingdom</th>
-    </tr>
-    <tr class="gt_row_group_first"><td headers="United Kingdom  year" class="gt_row gt_right">1960</td>
-<td headers="United Kingdom  population" class="gt_row gt_right">52,400,000</td>
-<td headers="United Kingdom  color" class="gt_row gt_right" style="background-color: #297B8E; color: #FFFFFF;"></td></tr>
-    <tr><td headers="United Kingdom  year" class="gt_row gt_right">1970</td>
-<td headers="United Kingdom  population" class="gt_row gt_right">55,663,250</td>
-<td headers="United Kingdom  color" class="gt_row gt_right" style="background-color: #1F958B; color: #FFFFFF;"></td></tr>
-    <tr><td headers="United Kingdom  year" class="gt_row gt_right">1980</td>
-<td headers="United Kingdom  population" class="gt_row gt_right">56,314,216</td>
-<td headers="United Kingdom  color" class="gt_row gt_right" style="background-color: #1E9B8A; color: #FFFFFF;"></td></tr>
-    <tr><td headers="United Kingdom  year" class="gt_row gt_right">1990</td>
-<td headers="United Kingdom  population" class="gt_row gt_right">57,247,586</td>
-<td headers="United Kingdom  color" class="gt_row gt_right" style="background-color: #1FA287; color: #FFFFFF;"></td></tr>
-    <tr><td headers="United Kingdom  year" class="gt_row gt_right">2000</td>
-<td headers="United Kingdom  population" class="gt_row gt_right">58,892,514</td>
-<td headers="United Kingdom  color" class="gt_row gt_right" style="background-color: #29AF7F; color: #FFFFFF;"></td></tr>
-    <tr><td headers="United Kingdom  year" class="gt_row gt_right">2010</td>
-<td headers="United Kingdom  population" class="gt_row gt_right">62,766,365</td>
-<td headers="United Kingdom  color" class="gt_row gt_right" style="background-color: #62CB5F; color: #000000;"></td></tr>
-    <tr><td headers="United Kingdom  year" class="gt_row gt_right">2020</td>
-<td headers="United Kingdom  population" class="gt_row gt_right">67,081,234</td>
-<td headers="United Kingdom  color" class="gt_row gt_right" style="background-color: #BEDF26; color: #000000;"></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Population" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Population</th>
+<th class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col"></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd gt_group_heading_row">
+<td colspan="3" id="France" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">France</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_right" headers="France  year">1960</td>
+<td class="gt_row gt_right" headers="France  population">46,649,927</td>
+<td class="gt_row gt_right" headers="France  color" style="background-color: #3E4A89; color: #FFFFFF"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="France  year">1970</td>
+<td class="gt_row gt_right" headers="France  population">51,724,116</td>
+<td class="gt_row gt_right" headers="France  color" style="background-color: #2A768E; color: #FFFFFF"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="France  year">1980</td>
+<td class="gt_row gt_right" headers="France  population">55,052,582</td>
+<td class="gt_row gt_right" headers="France  color" style="background-color: #21918C; color: #FFFFFF"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="France  year">1990</td>
+<td class="gt_row gt_right" headers="France  population">58,044,701</td>
+<td class="gt_row gt_right" headers="France  color" style="background-color: #22A884; color: #FFFFFF"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="France  year">2000</td>
+<td class="gt_row gt_right" headers="France  population">60,921,384</td>
+<td class="gt_row gt_right" headers="France  color" style="background-color: #42BE71; color: #000000"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="France  year">2010</td>
+<td class="gt_row gt_right" headers="France  population">65,030,575</td>
+<td class="gt_row gt_right" headers="France  color" style="background-color: #90D743; color: #000000"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="France  year">2020</td>
+<td class="gt_row gt_right" headers="France  population">67,571,107</td>
+<td class="gt_row gt_right" headers="France  color" style="background-color: #C9E020; color: #000000"></td>
+</tr>
+<tr class="odd gt_group_heading_row">
+<td colspan="3" id="United Kingdom" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">United Kingdom</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_right" headers="United Kingdom  year">1960</td>
+<td class="gt_row gt_right" headers="United Kingdom  population">52,400,000</td>
+<td class="gt_row gt_right" headers="United Kingdom  color" style="background-color: #297B8E; color: #FFFFFF"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="United Kingdom  year">1970</td>
+<td class="gt_row gt_right" headers="United Kingdom  population">55,663,250</td>
+<td class="gt_row gt_right" headers="United Kingdom  color" style="background-color: #1F958B; color: #FFFFFF"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="United Kingdom  year">1980</td>
+<td class="gt_row gt_right" headers="United Kingdom  population">56,314,216</td>
+<td class="gt_row gt_right" headers="United Kingdom  color" style="background-color: #1E9B8A; color: #FFFFFF"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="United Kingdom  year">1990</td>
+<td class="gt_row gt_right" headers="United Kingdom  population">57,247,586</td>
+<td class="gt_row gt_right" headers="United Kingdom  color" style="background-color: #1FA287; color: #FFFFFF"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="United Kingdom  year">2000</td>
+<td class="gt_row gt_right" headers="United Kingdom  population">58,892,514</td>
+<td class="gt_row gt_right" headers="United Kingdom  color" style="background-color: #29AF7F; color: #FFFFFF"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="United Kingdom  year">2010</td>
+<td class="gt_row gt_right" headers="United Kingdom  population">62,766,365</td>
+<td class="gt_row gt_right" headers="United Kingdom  color" style="background-color: #62CB5F; color: #000000"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="United Kingdom  year">2020</td>
+<td class="gt_row gt_right" headers="United Kingdom  population">67,081,234</td>
+<td class="gt_row gt_right" headers="United Kingdom  color" style="background-color: #BEDF26; color: #000000"></td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2019,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2019,
   author = {Abreu, Marcos},
   title = {Gráficos Sankey ou Alluvial},
   date = {2019-02-25},
@@ -2162,18 +2225,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2205,11 +2257,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2219,8 +2310,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2232,7 +2332,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2276,6 +2499,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2301,6 +2525,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2361,6 +2611,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2022-11-10">
 <meta name="description" content="Esta técnica ajuda a visualizar a expectativa para término do trabalho.">
 
-<title>Marcos Abreu’s blog - Rastreando a performance do trabalho</title>
+<title>Rastreando a performance do trabalho – Marcos Abreu’s blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,14 +63,42 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -72,28 +106,28 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Marcos Abreu’s blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -144,6 +178,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <p>“Quando acaba?”</p>
 <p>Esta é a principal pergunta que um gerente de projetos deve conseguir responder.</p>
 <p>Quando uma data de término é estimada é possível inferir outras informações, como o custo final esperado e os benefícios. E, é por isso que as pessoas preferem saber a estimativa da data de término do que outras estimativas.</p>
@@ -173,11 +208,15 @@ SPI &amp;= \frac{EV}{PV} \\
 <h2 class="anchored" data-anchor-id="como-estimar-o-prazo-de-término-de-um-projeto">Como estimar o prazo de término de um projeto</h2>
 <p>Para seguirmos na nossa tentativa de conseguir avaliar a data de término do projeto, precisamos de uma outra estratégia.</p>
 <p>Uma forma de conseguir estimar o prazo de entrega do projeto é através de um gráfico de tendências de entregas intermediárias. Ou seja, eu ainda estou medindo escopo, mas desta vez numa perspectiva um pouco diferente. Neste <em>post</em> vou apresentar a lógica para utilizar esta técnica - para entender como construir o gráfico veja este <a href="https://abreums.github.io/posts/2022-11-10-como-criar-um-grafico-de-cordas//"><em>link</em></a>.</p>
-<p>Considere uma série de entregas intermediárias do projeto, previstas para ocorrer em datas específicas, aqui representadas pelos indicadores <em>m1</em>, <em>m2</em>, <em>m3</em>, etc. Cada entrega possui um planejamento original e conforme o projeto avança, a expectativa de prazo de entrega é replanejada, conforme mostrado na tabela <a href="#tbl-inicial">Table&nbsp;1</a>.</p>
+<p>Considere uma série de entregas intermediárias do projeto, previstas para ocorrer em datas específicas, aqui representadas pelos indicadores <em>m1</em>, <em>m2</em>, <em>m3</em>, etc. Cada entrega possui um planejamento original e conforme o projeto avança, a expectativa de prazo de entrega é replanejada, conforme mostrado na tabela <a href="#tbl-inicial" class="quarto-xref">Table&nbsp;1</a>.</p>
 <div class="cell">
+<div id="tbl-inicial" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-inicial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Planejamento inicial
+</figcaption>
+<div aria-describedby="tbl-inicial-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-inicial" class="anchored">
-
 <div id="ietigvuhtp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ietigvuhtp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -618,49 +657,54 @@ SPI &amp;= \frac{EV}{PV} \\
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;1:  <p>Planejamento inicial</p> </caption>
-  <thead>
-    <tr class="gt_heading">
-      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
-    </tr>
-    
-    <tr class="gt_col_headings gt_spanner_row">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="Data de Status">Data de Status</th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5" scope="colgroup" id="Entregas">
-        <span class="gt_column_spanner">Entregas</span>
-      </th>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m1">m1</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m2">m2</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m3">m3</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m4">m4</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m5">m5</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="status" class="gt_row gt_right">Mar 1, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 10, 2000</td>
-<td headers="m2" class="gt_row gt_right">Mar 25, 2000</td>
-<td headers="m3" class="gt_row gt_right">Mar 31, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 10, 2000</td>
-<td headers="m5" class="gt_row gt_right">Apr 30, 2000</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border">Planejamento de entregas</th>
+</tr>
+<tr class="odd gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Data de Status" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Data de Status</th>
+<th colspan="5" id="Entregas" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Entregas</span></th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="m1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m1</th>
+<th id="m2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m2</th>
+<th id="m3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m3</th>
+<th id="m4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m4</th>
+<th id="m5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m5</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="status">Mar 1, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 10, 2000</td>
+<td class="gt_row gt_right" headers="m2">Mar 25, 2000</td>
+<td class="gt_row gt_right" headers="m3">Mar 31, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 10, 2000</td>
+<td class="gt_row gt_right" headers="m5">Apr 30, 2000</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</figure>
 </div>
 </div>
 <p>Esta tabela deve ser lida da seguinte forma: no dia 1 de março (data e status) a entrega m1 estava prevista para ocorrer no dia 10 de março, a entrega m2 estava prevista para ocorrer no dia 25 de março, a entrega m3 estava prevista para ocorrer no dia 31 de março, e assim por diante.</p>
 <p>Periodicamente (vamos considerar revisões quinzenais neste exemplo), os prazos são reavaliados ou a data real de conclusão é registrada.</p>
 <p>Assim, considere que no dia 15 de março foi feita uma verificação dos resultados obtidos e constatou-se que m1 não foi entregue na data prevista do dia 10, e que foi replanejado para ser entregue no dia 20. E que, em função deste atraso, não seria possível manter a data de m2 para o dia 25. Neste caso, m2 também teve sua data modificada para ser entregue no dia 30 de março. Apesar destes dois atrasos, vamos considerar que a equipe avaliou que poderia compensar o atraso e manter todas as demais entregas nas datas originalmente previstas.</p>
-<p>O resultado disto está mostrado na tabela <a href="#tbl-status-1">Table&nbsp;2</a>.</p>
+<p>O resultado disto está mostrado na tabela <a href="#tbl-status-1" class="quarto-xref">Table&nbsp;2</a>.</p>
 <div class="cell">
+<div id="tbl-status-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-status-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Datas revistas após primeira reunião de acompanhamento
+</figcaption>
+<div aria-describedby="tbl-status-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-status-1" class="anchored">
-
 <div id="eahsrzjhfm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#eahsrzjhfm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1101,54 +1145,61 @@ SPI &amp;= \frac{EV}{PV} \\
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;2:  <p>Datas revistas após primeira reunião de acompanhamento</p> </caption>
-  <thead>
-    <tr class="gt_heading">
-      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
-    </tr>
-    
-    <tr class="gt_col_headings gt_spanner_row">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="Data de Status">Data de Status</th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5" scope="colgroup" id="Entregas">
-        <span class="gt_column_spanner">Entregas</span>
-      </th>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m1">m1</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m2">m2</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m3">m3</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m4">m4</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m5">m5</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="status" class="gt_row gt_right">Mar 1, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 10, 2000</td>
-<td headers="m2" class="gt_row gt_right">Mar 25, 2000</td>
-<td headers="m3" class="gt_row gt_right">Mar 31, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 10, 2000</td>
-<td headers="m5" class="gt_row gt_right">Apr 30, 2000</td></tr>
-    <tr><td headers="status" class="gt_row gt_right">Mar 15, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 20, 2000</td>
-<td headers="m2" class="gt_row gt_right">Mar 30, 2000</td>
-<td headers="m3" class="gt_row gt_right">Mar 31, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 10, 2000</td>
-<td headers="m5" class="gt_row gt_right">Apr 30, 2000</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border">Planejamento de entregas</th>
+</tr>
+<tr class="odd gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Data de Status" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Data de Status</th>
+<th colspan="5" id="Entregas" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Entregas</span></th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="m1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m1</th>
+<th id="m2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m2</th>
+<th id="m3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m3</th>
+<th id="m4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m4</th>
+<th id="m5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m5</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="status">Mar 1, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 10, 2000</td>
+<td class="gt_row gt_right" headers="m2">Mar 25, 2000</td>
+<td class="gt_row gt_right" headers="m3">Mar 31, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 10, 2000</td>
+<td class="gt_row gt_right" headers="m5">Apr 30, 2000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="status">Mar 15, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 20, 2000</td>
+<td class="gt_row gt_right" headers="m2">Mar 30, 2000</td>
+<td class="gt_row gt_right" headers="m3">Mar 31, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 10, 2000</td>
+<td class="gt_row gt_right" headers="m5">Apr 30, 2000</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
+</figure>
 </div>
-<p>Os dados desta tabela podem ser colocados num gráfico mostrado na <a href="#fig-1">Figure&nbsp;1</a> onde os eixos x e y são ambos “tempo”, mostrando a evolução histórica das previsões realizadas.</p>
+</div>
+<p>Os dados desta tabela podem ser colocados num gráfico mostrado na <a href="#fig-1" class="quarto-xref">Figure&nbsp;1</a> onde os eixos x e y são ambos “tempo”, mostrando a evolução histórica das previsões realizadas.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Evolução das datas previsas após primeira avaliação de status do projeto</figcaption>
+<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Evolução das datas previsas após primeira avaliação de status do projeto
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1158,11 +1209,15 @@ SPI &amp;= \frac{EV}{PV} \\
 <section id="estimativa-visual-das-datas-de-compromisso-do-projeto" class="level2">
 <h2 class="anchored" data-anchor-id="estimativa-visual-das-datas-de-compromisso-do-projeto">Estimativa visual das datas de compromisso do projeto</h2>
 <p>O processo de aferir as datas de entrega e de avaliar o impacto do realizado sobre as entregas futuras deve ser repetido regularmente.</p>
-<p>Por exemplo, nossa história segue até a próxima data de avaliação do status no dia 1 de abril. Neste dia, registramos que m1 foi entregue de fato no dia 22 de março. Também m2 não foi entregue e foi replanejado para ser terminado no dia 5 de abril. E, m3 foi replanejado para o dia 15 de abril. Estes atrasos afetaram as previsões de entregas futuras que foram refeitas conforme: m4 foi reestimado para o dia 22 de abril, e m5 para o dia 5 de maio. Estas datas estão na <a href="#tbl-status-2">Table&nbsp;3</a> abaixo.</p>
+<p>Por exemplo, nossa história segue até a próxima data de avaliação do status no dia 1 de abril. Neste dia, registramos que m1 foi entregue de fato no dia 22 de março. Também m2 não foi entregue e foi replanejado para ser terminado no dia 5 de abril. E, m3 foi replanejado para o dia 15 de abril. Estes atrasos afetaram as previsões de entregas futuras que foram refeitas conforme: m4 foi reestimado para o dia 22 de abril, e m5 para o dia 5 de maio. Estas datas estão na <a href="#tbl-status-2" class="quarto-xref">Table&nbsp;3</a> abaixo.</p>
 <div class="cell">
+<div id="tbl-status-2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-status-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Datas revistas após segunda reunião de acompanhamento
+</figcaption>
+<div aria-describedby="tbl-status-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-status-2" class="anchored">
-
 <div id="ikokpvubga" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ikokpvubga table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1603,69 +1658,82 @@ SPI &amp;= \frac{EV}{PV} \\
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;3:  <p>Datas revistas após segunda reunião de acompanhamento</p> </caption>
-  <thead>
-    <tr class="gt_heading">
-      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
-    </tr>
-    
-    <tr class="gt_col_headings gt_spanner_row">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="Data de Status">Data de Status</th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5" scope="colgroup" id="Entregas">
-        <span class="gt_column_spanner">Entregas</span>
-      </th>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m1">m1</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m2">m2</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m3">m3</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m4">m4</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m5">m5</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="status" class="gt_row gt_right">Mar 1, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 10, 2000</td>
-<td headers="m2" class="gt_row gt_right">Mar 25, 2000</td>
-<td headers="m3" class="gt_row gt_right">Mar 31, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 10, 2000</td>
-<td headers="m5" class="gt_row gt_right">Apr 30, 2000</td></tr>
-    <tr><td headers="status" class="gt_row gt_right">Mar 15, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 20, 2000</td>
-<td headers="m2" class="gt_row gt_right">Mar 30, 2000</td>
-<td headers="m3" class="gt_row gt_right">Mar 31, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 10, 2000</td>
-<td headers="m5" class="gt_row gt_right">Apr 30, 2000</td></tr>
-    <tr><td headers="status" class="gt_row gt_right">Apr 1, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 22, 2000</td>
-<td headers="m2" class="gt_row gt_right">Apr 5, 2000</td>
-<td headers="m3" class="gt_row gt_right">Apr 15, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 22, 2000</td>
-<td headers="m5" class="gt_row gt_right">May 5, 2000</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border">Planejamento de entregas</th>
+</tr>
+<tr class="odd gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Data de Status" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Data de Status</th>
+<th colspan="5" id="Entregas" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Entregas</span></th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="m1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m1</th>
+<th id="m2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m2</th>
+<th id="m3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m3</th>
+<th id="m4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m4</th>
+<th id="m5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m5</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="status">Mar 1, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 10, 2000</td>
+<td class="gt_row gt_right" headers="m2">Mar 25, 2000</td>
+<td class="gt_row gt_right" headers="m3">Mar 31, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 10, 2000</td>
+<td class="gt_row gt_right" headers="m5">Apr 30, 2000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="status">Mar 15, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 20, 2000</td>
+<td class="gt_row gt_right" headers="m2">Mar 30, 2000</td>
+<td class="gt_row gt_right" headers="m3">Mar 31, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 10, 2000</td>
+<td class="gt_row gt_right" headers="m5">Apr 30, 2000</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="status">Apr 1, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 22, 2000</td>
+<td class="gt_row gt_right" headers="m2">Apr 5, 2000</td>
+<td class="gt_row gt_right" headers="m3">Apr 15, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 22, 2000</td>
+<td class="gt_row gt_right" headers="m5">May 5, 2000</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
+</figure>
 </div>
-<p>Os dados desta tabela podem ser colocados num gráfico mostrado na <a href="#fig-2">Figure&nbsp;2</a>.</p>
+</div>
+<p>Os dados desta tabela podem ser colocados num gráfico mostrado na <a href="#fig-2" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Evolução das datas previsas após segunda avaliação de status do projeto</figcaption>
+<div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Evolução das datas previsas após segunda avaliação de status do projeto
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Este processo de reavaliação de entregas intermediárias se repete durante a execução do projeto, produzindo um gráfico que com o tempo se assemelha ao mostrado abaixo.</p>
 <div class="cell">
+<div id="tbl-status-n" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-status-n-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Evolução das datas de entregas durante o projeto
+</figcaption>
+<div aria-describedby="tbl-status-n-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="tbl-status-n" class="anchored">
-
 <div id="euevcgsklv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#euevcgsklv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -2106,77 +2174,92 @@ SPI &amp;= \frac{EV}{PV} \\
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;4:  <p>Evolução das datas de entregas durante o projeto</p> </caption>
-  <thead>
-    <tr class="gt_heading">
-      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="">Planejamento de entregas</td>
-    </tr>
-    
-    <tr class="gt_col_headings gt_spanner_row">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="Data de Status">Data de Status</th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5" scope="colgroup" id="Entregas">
-        <span class="gt_column_spanner">Entregas</span>
-      </th>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m1">m1</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m2">m2</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m3">m3</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m4">m4</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="m5">m5</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="status" class="gt_row gt_right">Mar 1, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 10, 2000</td>
-<td headers="m2" class="gt_row gt_right">Mar 25, 2000</td>
-<td headers="m3" class="gt_row gt_right">Mar 31, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 10, 2000</td>
-<td headers="m5" class="gt_row gt_right">Apr 30, 2000</td></tr>
-    <tr><td headers="status" class="gt_row gt_right">Mar 15, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 20, 2000</td>
-<td headers="m2" class="gt_row gt_right">Mar 30, 2000</td>
-<td headers="m3" class="gt_row gt_right">Mar 31, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 10, 2000</td>
-<td headers="m5" class="gt_row gt_right">Apr 30, 2000</td></tr>
-    <tr><td headers="status" class="gt_row gt_right">Apr 1, 2000</td>
-<td headers="m1" class="gt_row gt_right">Mar 22, 2000</td>
-<td headers="m2" class="gt_row gt_right">Apr 5, 2000</td>
-<td headers="m3" class="gt_row gt_right">Apr 15, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 22, 2000</td>
-<td headers="m5" class="gt_row gt_right">May 5, 2000</td></tr>
-    <tr><td headers="status" class="gt_row gt_right">Apr 15, 2000</td>
-<td headers="m1" class="gt_row gt_right">—</td>
-<td headers="m2" class="gt_row gt_right">Apr 10, 2000</td>
-<td headers="m3" class="gt_row gt_right">Apr 20, 2000</td>
-<td headers="m4" class="gt_row gt_right">Apr 30, 2000</td>
-<td headers="m5" class="gt_row gt_right">May 20, 2000</td></tr>
-    <tr><td headers="status" class="gt_row gt_right">May 1, 2000</td>
-<td headers="m1" class="gt_row gt_right">—</td>
-<td headers="m2" class="gt_row gt_right">—</td>
-<td headers="m3" class="gt_row gt_right">Apr 25, 2000</td>
-<td headers="m4" class="gt_row gt_right">May 10, 2000</td>
-<td headers="m5" class="gt_row gt_right">May 30, 2000</td></tr>
-    <tr><td headers="status" class="gt_row gt_right">May 15, 2000</td>
-<td headers="m1" class="gt_row gt_right">—</td>
-<td headers="m2" class="gt_row gt_right">—</td>
-<td headers="m3" class="gt_row gt_right">—</td>
-<td headers="m4" class="gt_row gt_right">May 25, 2000</td>
-<td headers="m5" class="gt_row gt_right">May 30, 2000</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border">Planejamento de entregas</th>
+</tr>
+<tr class="odd gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Data de Status" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Data de Status</th>
+<th colspan="5" id="Entregas" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Entregas</span></th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="m1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m1</th>
+<th id="m2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m2</th>
+<th id="m3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m3</th>
+<th id="m4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m4</th>
+<th id="m5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">m5</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="status">Mar 1, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 10, 2000</td>
+<td class="gt_row gt_right" headers="m2">Mar 25, 2000</td>
+<td class="gt_row gt_right" headers="m3">Mar 31, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 10, 2000</td>
+<td class="gt_row gt_right" headers="m5">Apr 30, 2000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="status">Mar 15, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 20, 2000</td>
+<td class="gt_row gt_right" headers="m2">Mar 30, 2000</td>
+<td class="gt_row gt_right" headers="m3">Mar 31, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 10, 2000</td>
+<td class="gt_row gt_right" headers="m5">Apr 30, 2000</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="status">Apr 1, 2000</td>
+<td class="gt_row gt_right" headers="m1">Mar 22, 2000</td>
+<td class="gt_row gt_right" headers="m2">Apr 5, 2000</td>
+<td class="gt_row gt_right" headers="m3">Apr 15, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 22, 2000</td>
+<td class="gt_row gt_right" headers="m5">May 5, 2000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="status">Apr 15, 2000</td>
+<td class="gt_row gt_right" headers="m1">—</td>
+<td class="gt_row gt_right" headers="m2">Apr 10, 2000</td>
+<td class="gt_row gt_right" headers="m3">Apr 20, 2000</td>
+<td class="gt_row gt_right" headers="m4">Apr 30, 2000</td>
+<td class="gt_row gt_right" headers="m5">May 20, 2000</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="status">May 1, 2000</td>
+<td class="gt_row gt_right" headers="m1">—</td>
+<td class="gt_row gt_right" headers="m2">—</td>
+<td class="gt_row gt_right" headers="m3">Apr 25, 2000</td>
+<td class="gt_row gt_right" headers="m4">May 10, 2000</td>
+<td class="gt_row gt_right" headers="m5">May 30, 2000</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="status">May 15, 2000</td>
+<td class="gt_row gt_right" headers="m1">—</td>
+<td class="gt_row gt_right" headers="m2">—</td>
+<td class="gt_row gt_right" headers="m3">—</td>
+<td class="gt_row gt_right" headers="m4">May 25, 2000</td>
+<td class="gt_row gt_right" headers="m5">May 30, 2000</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
+</div>
+</figure>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-n" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-n-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Evolução das datas previsas</figcaption>
+<div id="fig-n" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-n-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-n-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-n-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Evolução das datas previsas
+</figcaption>
 </figure>
 </div>
 </div>
@@ -2187,10 +2270,10 @@ SPI &amp;= \frac{EV}{PV} \\
 <p>A visibilidade da evolução dos compromissos intermediários durante a execução do projeto contribuem com 2 fatores importantes.</p>
 <p>O primeiro deles é que é possível identificar diferentes padrões de evolução de datas de compromissos, que podem ser mapeados em fatores como tecnologias diferentes, equipes, escopo, etc. E isto fornece percepções que ajudam a equipe a endereçar problemas localizados (ao invés de generalizá-los).</p>
 <p>Ou, em sentido contrário ajudam a identificar problemas gerais.</p>
-<p>Por exemplo, a <a href="#fig-n">Figure&nbsp;3</a> mostra que existe uma inclinação nas diversas curvas de entrega dos resultados intermediários muito similar. Isto pode ser um indicativo de que a causa dos atrasos está mais relacionada com uma estimativa original errada da capacidade de realização. Diferente, por exemplo de problemas com a performance da equipe, o que geraria inclinações diferentes para equipes diferentes.</p>
+<p>Por exemplo, a <a href="#fig-n" class="quarto-xref">Figure&nbsp;3</a> mostra que existe uma inclinação nas diversas curvas de entrega dos resultados intermediários muito similar. Isto pode ser um indicativo de que a causa dos atrasos está mais relacionada com uma estimativa original errada da capacidade de realização. Diferente, por exemplo de problemas com a performance da equipe, o que geraria inclinações diferentes para equipes diferentes.</p>
 <p>O segundo fator é que a visibilidade das evoluções históricas ajuda na construção de um entendimento e de um ambiente para a discussão de ajustes mais estratégicos.</p>
 <p>Parte da dificuldade em negociar cortes ou mudanças de escopo nos projetos, vêm do fato de que há sempre uma sensação de que as variações e atrasos ocorridos não são suficientes para justificar estas mudanças e cortes, principalmente porque é difícil visualizar o impacto destas variações no todo. E como é difícil enxergar estes impactos, escolhe-se a alternativa de vê-los como variações menores cujo impacto deve-se buscar compensar, a fim de se manter o compromisso original”.</p>
-<p>Um gráfico como o <a href="#fig-n">Figure&nbsp;3</a> ajuda na construção de uma visão mais realista do progresso do projeto, o que é muito útil para negociar mudanças e até mesmo cortes no escopo, ou aceitação da prorrogação de datas.</p>
+<p>Um gráfico como o <a href="#fig-n" class="quarto-xref">Figure&nbsp;3</a> ajuda na construção de uma visão mais realista do progresso do projeto, o que é muito útil para negociar mudanças e até mesmo cortes no escopo, ou aceitação da prorrogação de datas.</p>
 </section>
 <section id="planejando-para-poder-controlar-as-entregas" class="level2">
 <h2 class="anchored" data-anchor-id="planejando-para-poder-controlar-as-entregas">Planejando para poder controlar as entregas</h2>
@@ -2207,7 +2290,7 @@ SPI &amp;= \frac{EV}{PV} \\
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2022,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2022,
   author = {Abreu, Marcos},
   title = {Rastreando a performance do trabalho},
   date = {2022-11-10},
@@ -2253,18 +2336,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2296,11 +2368,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2310,8 +2421,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2323,7 +2443,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2367,6 +2610,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2392,6 +2636,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2452,6 +2722,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
