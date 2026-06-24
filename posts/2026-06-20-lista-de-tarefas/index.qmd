@@ -57,6 +57,15 @@ As colunas possuem os seguintes propósitos:
 
 ## Informações sobre o Fluxo de Trabalho
 
-A partir da lista de tarefas é possível obter:
+A partir da lista de tarefas é possível obter as seguintes informações sobre o fluxo e trabalho:
 
-### Trabalho em Progresso (WIP)
+1.  Diagrama de Fluxo Acumulado (CFD - *Cumulative Flow Diagram*)
+    1.  O CFD provê uma visão clara tanto da evolução do fluxo de trabalho quanto das variáveis a seguir.
+2.  Trabalho em Progresso (WIP)
+    1.  Precisamos tanto do WIP calculado na data de status quanto do histórico de evolução do mesmo.
+3.  Tempo de Entrega (Lead Time)
+    1.  Precisamos tanto do Lead Time na data de status quanto do histórico de evolução do mesmo.
+4.  Tarefas Bloqueadas
+    1.  Um indicador quantitativo do número de tarefas que estão bloqueadas.
+
+Ao final queremos um *dashboard* com as informações acima semelhante ao da figura yy.
