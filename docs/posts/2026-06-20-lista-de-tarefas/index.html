@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marcos Abreu">
-<meta name="dcterms.date" content="2023-06-03">
-<meta name="description" content="Conceitos de Market Basket Analysis">
+<meta name="dcterms.date" content="2026-06-20">
+<meta name="description" content="Gerenciando projetos com Listas de Tarefas">
 
-<title>Market Basket Analysis – Marcos Abreu’s blog</title>
+<title>Lista de Tarefas – Marcos Abreu’s blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -139,10 +110,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Market Basket Analysis</h1>
+      <h1 class="title">Lista de Tarefas</h1>
                   <div>
         <div class="description">
-          Conceitos de Market Basket Analysis
+          Gerenciando projetos com Listas de Tarefas
         </div>
       </div>
                           <div class="quarto-categories">
@@ -164,7 +135,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 3, 2023</p>
+        <p class="date">June 20, 2026</p>
       </div>
     </div>
     
@@ -183,105 +154,73 @@ window.Quarto = {
 
 
 
-<p><em>Market Basket Analysis</em> ou Análise de Cesta de Compras (também é conhecida como <em>Association Rule Mining</em> - mineração de regras de associação) permite a análise de associações de elementos.</p>
-<p>O valor desta técnica é descobrir associações não-óbvias que sirvam de insumo para a tomada de decisões.</p>
-<p>Para apresentar os principais conceitos vamos utilizar um universo de transações compostas por 6 transações cada uma com os itens:</p>
-<section id="principais-conceitos-para-análise-de-associações" class="level2">
-<h2 class="anchored" data-anchor-id="principais-conceitos-para-análise-de-associações">Principais conceitos para análise de associações</h2>
-<p>Para realizarmos a análise vamos utilizar alguns conceitos.</p>
-<p>O primeiro dele é o de <strong>Regra de Associação</strong>, ou simplesmente <strong>regra</strong>. Uma regra é uma relação entre 2 ou mais produtos. A regra <strong>A -&gt; B</strong> significa a associação dos dois produtos A e B serem comprados juntos. Ou ainda <strong>(A,C) -&gt; B</strong> significa a análise se a compra de B e C está associada à compra de B.</p>
-<p>Na regra <strong>A -&gt; B</strong>, A é chamado LHS (<em>Left Hand Side</em>) e B é chamado de RHS (<em>Right Hand Side</em>).</p>
-<p>Para um produto ou uma regra podemos determinar as seguintes medições:</p>
-<ol type="1">
-<li>Suporte (<em>Support</em>)</li>
-<li>Confiança (<em>Confidence</em>)</li>
-<li>Sustentação (<em>Sustentação</em>)</li>
-<li>Convicção (<em>Conviction</em>)</li>
-</ol>
-<p>Vamos analisar o significado de cada um deles.</p>
-<section id="suporte" class="level3">
-<h3 class="anchored" data-anchor-id="suporte">Suporte</h3>
-<p>Suporte é a probabilidade com que um produto ou regra de aparecer no universo de transações analisadas.</p>
-<p><span class="math display">\[
-\begin{aligned}
-\begin{split}
-Support &amp; = \frac{Número\ de\ transações\ na\ qual\ X\ aparece}{Número\ total\ de\ transações}\\
-        &amp; = P(X)
-\end{split}
-\end{aligned}
-\]</span></p>
-<p>Suporte também pode ser calculado para regras.</p>
-<p>O suporte de uma regra indica a probabilidade de uma regra aparecer dentro do conjunto de todas as transações.</p>
-<p><span class="math display">\[
-supp(A\ \rightarrow\ B) = P(A \cap B)
-\]</span></p>
-<p>Por exemplo, podemos calcular o supporte para as seguintes regras do nosso exemplo:</p>
+<p>O uso de listas de tarefas é uma opção simples e fácil para se gerenciar o trabalho em projetos.</p>
+<p>É possível obter-se informações sobre o fluxo do trabalho (WIP, Lead Time, etc), e sobre a qualidade dos resultados como forma de avaliar e controlar a execução do trabalho.</p>
+<section id="estrutura-da-lista-de-trabalho" class="level2">
+<h2 class="anchored" data-anchor-id="estrutura-da-lista-de-trabalho">Estrutura da Lista de Trabalho</h2>
+<p>A Lista de Trabalho pode ser mantida em uma planilha de Excel ou Google-Calc utilizando uma estrutura semelhante a da figura x.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lista-tarefas.png" class="img-fluid figure-img"></p>
+<figcaption>Lista de Tarefas</figcaption>
+</figure>
+</div>
+<p>As colunas possuem os seguintes propósitos:</p>
 <ul>
-<li><p>supp((shirt, umbrella) -&gt; headphones) = ?</p></li>
-<li><p>supp(flask, radio) -&gt; shirt) = ?</p></li>
-<li><p>supp(headphone -&gt; radio) =?</p></li>
+<li><p>id: identificador único da tarefa</p></li>
+<li><p>Criação: a data da criação da tarefa será útil para avaliar o fluxo de controle do escopo do projeto.</p></li>
+<li><p>Criador: o nome do criado será importante para determinar o responsável pela validação da conclusão da tarefa.</p></li>
+<li><p>Área: em alguma situações vamos preferir fazer análises por área ao invés da visão geral das atividades.</p></li>
+<li><p>Assunto: sempre que possível vamos padronizar os assuntos permitindo agrupar as tarefas e avaliar a estabilidade de um determinado tema/assunto.</p></li>
+<li><p>Descrição: descrição breve da tarefa dentro do assunto.</p></li>
+<li><p>Responsável: nome do responsável por conduzir a tarefa. O responsável pode mudar durante a execução da mesma. Nestes casos um comentário a respeito da mudança deve constar na coluna Registros.</p></li>
+<li><p>Status: um dentre os estados</p>
+<ul>
+<li><p>Aberto: estado inicial</p></li>
+<li><p>Em execução: tarefa começou a ser executada</p></li>
+<li><p>Bloqueado: tarefa está bloqueada aguardando resolução de pendência</p></li>
+<li><p>Encerrado: tarefa foi concluída</p></li>
+</ul></li>
+<li><p>Início: data do início (importante para cálculo de indicadores de fluxo)</p></li>
+<li><p>Encerramento: data de término (importante para cálculo de indicadores de fluxo)</p></li>
+<li><p>Registros: informações sobre o fluxo do trabalho e decisões tomadas durante a execução da tarefa. Os registros devem sempre ser anotados no formato &lt;data&gt;;&lt;nome&gt;:&lt;descrição&gt;.</p></li>
 </ul>
-<p>Um conceito derivado do suporte é o do <strong>limite do suporte</strong> (<em>support threashold</em>).</p>
-<p>Chamamos de limite do suporte ao valor do suporte de um item ou regra que possua valor significativo para os lucros.</p>
-<p>Neste caso, consideraremos apenas as demais regras e items que estejam acima deste limite.</p>
 </section>
-</section>
-<section id="confiança" class="level2">
-<h2 class="anchored" data-anchor-id="confiança">Confiança</h2>
-<p>A confiança de uma regra indica a probabilidade condicional de A e B serem comprados dado que A é comprado.</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-Confidence(A\ \rightarrow\ B) &amp; = \frac{Support(A, B)}{Support(A)}\\
-           &amp; = \frac{P(A \cap B)}{P{A}}\\
-           &amp; = P(B|A)
-\end{split}
-\end{equation}
-\]</span></p>
-<p>No nosso exemplo, podemos perguntar “Qual a confiança de que quando <em>umbrella</em> e <em>headphones</em> são comoprados, <em>radio</em> também será comprado”?</p>
-<p><span class="math display">\[
-Confidence((umbrella, headphones)\ \rightarrow\ radio) = ?
-\]</span></p>
-<p>Confiança é uma medida que traz um pequeno problema.</p>
-<p>Eventualmente o produto RHS (<em>right hand side</em>) possui um forte poder de venda por si só.</p>
-<p>Neste caso, a informação sobre a confiança não é necessariamente verdadeira: não sabemos se RHS (<em>right hand side</em>) está sendo comprado em função de LHS (<em>left hand side</em>) ou por si só.</p>
-<p>Para resolvermos isto, utilizamos outra medição chamada Sustentação (<em>lift</em>).</p>
-<section id="sustentação" class="level3">
-<h3 class="anchored" data-anchor-id="sustentação">Sustentação</h3>
-<p>A sustentação mede se a ocorrência da regra <span class="math inline">\(A\ \rightarrow\ B\)</span> é maior do que as ocorrências de <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> individualmente.</p>
-<p>O valor da sustentação indica quantas vezes é mais provável encontrarmos a regra do que seus componentes. Isto significa que se o valor for maior que 1, a regra é significativa. Se o valor for menor do que 1 a regra não é significativa.</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-Lift(A\ \rightarrow\ B) &amp; = \frac{Confiança(A\ \rightarrow\ B)}{Support(B)}\\
-                        &amp; = \frac{P(A \cap B)}{P(A)\ *\ P(B)}
-\end{split}
-\end{equation}
-\]</span></p>
-</section>
-</section>
-<section id="convicção" class="level2">
-<h2 class="anchored" data-anchor-id="convicção">Convicção</h2>
-<p>Convicção mede se a associação entre RHS (<em>right hand side</em>) e LHS(<em>left hand side</em>).</p>
-<p>Conviction = \frac{1\ -\ Support(Y)}{1\ -\ Confidence(X-&gt;Y)}</p>
-</section>
-<section id="algoritmo-arules" class="level2">
-<h2 class="anchored" data-anchor-id="algoritmo-arules">Algoritmo arules</h2>
-<p><em>Arules</em> é um algoritmo que mapeia todas as associações possíveis entre as variáveis existentes e assim permite que seja feita uma análise de mineração de regras significativas.</p>
+<section id="informações-sobre-o-fluxo-de-trabalho" class="level2">
+<h2 class="anchored" data-anchor-id="informações-sobre-o-fluxo-de-trabalho">Informações sobre o Fluxo de Trabalho</h2>
+<p>A partir da lista de tarefas é possível obter as seguintes informações sobre o fluxo e trabalho:</p>
+<ol type="1">
+<li>Diagrama de Fluxo Acumulado (CFD - <em>Cumulative Flow Diagram</em>)
+<ol type="1">
+<li>O CFD provê uma visão clara tanto da evolução do fluxo de trabalho quanto das variáveis a seguir.</li>
+</ol></li>
+<li>Trabalho em Progresso (WIP)
+<ol type="1">
+<li>Precisamos tanto do WIP calculado na data de status quanto do histórico de evolução do mesmo.</li>
+</ol></li>
+<li>Tempo de Entrega (Lead Time)
+<ol type="1">
+<li>Precisamos tanto do Lead Time na data de status quanto do histórico de evolução do mesmo.</li>
+</ol></li>
+<li>Tarefas Bloqueadas
+<ol type="1">
+<li>Um indicador quantitativo do número de tarefas que estão bloqueadas.</li>
+</ol></li>
+</ol>
+<p>Ao final queremos um <em>dashboard</em> com as informações acima semelhante ao da figura yy.</p>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2026,
   author = {Abreu, Marcos},
-  title = {Market Basket Analysis},
-  date = {2023-06-03},
-  url = {https://abreums.github.io/posts/2023-06-03-Market-Basket-Analysis/},
+  title = {Lista de Tarefas},
+  date = {2026-06-20},
+  url = {https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/},
   langid = {pt-br}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abreu2023" class="csl-entry quarto-appendix-citeas" role="listitem">
-Abreu, Marcos. 2023. <em>Market Basket Analysis</em>. accepted, June 3.
-<a href="https://abreums.github.io/posts/2023-06-03-Market-Basket-Analysis/">https://abreums.github.io/posts/2023-06-03-Market-Basket-Analysis/</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abreu2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Abreu, Marcos. 2026. <em>Lista de Tarefas</em>. accepted, June 20. <a href="https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/">https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

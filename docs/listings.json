@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2026-06-20-lista-de-tarefas/index.html",
       "/posts/2024-10-19-cfd/index.html",
       "/posts/2023-10-13 Pense nas Pessoas/index.html",
       "/posts/2023-06-03-Market-Basket-Analysis/index.html",
@@ -11,8 +12,8 @@
       "/posts/2023-01-25-ggimage/index.html",
       "/posts/2022-11-25-itil-cadeia-de-valor/index.html",
       "/posts/2022-11-15-LGPD-1/index.html",
-      "/posts/2022-11-10-como-criar-um-grafico-de-cordas/index.html",
       "/posts/2022-11-10-rastreando-a-performance-do-trabalho/index.html",
+      "/posts/2022-11-10-como-criar-um-grafico-de-cordas/index.html",
       "/posts/2022-11-09-ADKAR/index.html",
       "/posts/2022-11-08-r-tip-dumbbell-plot/index.html",
       "/posts/2022-11-06-r-tip-tabelas-com-gtextras/index.html",
@@ -31,9 +32,8 @@
       "/posts/2020-12-01-indicador-da-intencao-de-mudanca/index.html",
       "/posts/2022-10-10-r-tip-counting-percentual-function-with-curly-curly/index.html",
       "/posts/2020-03-31-regras-de-associacao/index.html",
-      "/posts/2019-02-25-welcome/index.html",
       "/posts/2023-12-15-sankey-plot/index.html",
-      "/posts/2026-06-20-lista-de-tarefas/index.html"
+      "/posts/2019-02-25-welcome/index.html"
     ]
   }
 ]
