@@ -13,17 +13,11 @@ citation:
 categories: [Rstats]
 ---
 
-Um Diagrama de Fluxo Acumulado (ou *Cumulative Flow Diagram* - CFD) oferece uma forma fácil e rápida de identificar tanto o WIP quanto o Lead Time de um fluxo de trabalho. O primeiro se dá pela diferença vertical entre as curvas de início de tarefas e término de tarefas. O segundo é calculado pela diferença horizontal das mesmas curvas.
+O Lead Time fornece a percepção do cliente do tempo de resposta da equipe do projeto. Por este motivo é uma medida importante de acompanhar.
 
-![CFD](CFD.png)
+Em projetos controlados por Lista de atividades, como descrito neste [neste post](https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/), o Lead Time deve ser considerado a partir do momento de início da execução da atividade.
 
-## CFD a partir de lista de tarefas
-
-Para se obter um CFD a partir de uma Lista de Tarefas conforme descrita [neste post](https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/) e representada na imagem abaixo utilizamos as informações das colunas Status, Data de Início e Data de Encerramento.
-
-![Lista de Tarefas](lista-tarefas.png)
-
-A função abaixo recupera as informações das tarefas iniciadas e encerradas:
+A função abaixo calcula a média móvel do Lead Time e gera um gráfico com a tendência da evolução da mesma.
 
 ```{r}
 #| eval: false

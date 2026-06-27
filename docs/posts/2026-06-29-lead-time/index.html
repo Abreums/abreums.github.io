@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marcos Abreu">
-<meta name="dcterms.date" content="2026-06-27">
-<meta name="description" content="Gerando um Diagrama de Fluxo Acumulado a partir de uma lista de tarefas">
+<meta name="dcterms.date" content="2026-06-29">
+<meta name="description" content="Gerando um Diagrama com a Média Móvel do Lead Time, a partir de uma Lista de Tarefas, como forma de obter a tendência da medição">
 
-<title>Diagrama de Fluxo Acumulado – Marcos Abreu’s blog</title>
+<title>Lead Time - Média Móvel – Marcos Abreu’s blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -145,10 +145,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Diagrama de Fluxo Acumulado</h1>
+      <h1 class="title">Lead Time - Média Móvel</h1>
                   <div>
         <div class="description">
-          Gerando um Diagrama de Fluxo Acumulado a partir de uma lista de tarefas
+          Gerando um Diagrama com a Média Móvel do Lead Time, a partir de uma Lista de Tarefas, como forma de obter a tendência da medição
         </div>
       </div>
                           <div class="quarto-categories">
@@ -170,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 27, 2026</p>
+        <p class="date">June 29, 2026</p>
       </div>
     </div>
     
@@ -189,23 +189,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Um Diagrama de Fluxo Acumulado (ou <em>Cumulative Flow Diagram</em> - CFD) oferece uma forma fácil e rápida de identificar tanto o WIP quanto o Lead Time de um fluxo de trabalho. O primeiro se dá pela diferença vertical entre as curvas de início de tarefas e término de tarefas. O segundo é calculado pela diferença horizontal das mesmas curvas.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="CFD.png" class="img-fluid figure-img"></p>
-<figcaption>CFD</figcaption>
-</figure>
-</div>
-<section id="cfd-a-partir-de-lista-de-tarefas" class="level2">
-<h2 class="anchored" data-anchor-id="cfd-a-partir-de-lista-de-tarefas">CFD a partir de lista de tarefas</h2>
-<p>Para se obter um CFD a partir de uma Lista de Tarefas conforme descrita <a href="https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/">neste post</a> e representada na imagem abaixo utilizamos as informações das colunas Status, Data de Início e Data de Encerramento.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="lista-tarefas.png" class="img-fluid figure-img"></p>
-<figcaption>Lista de Tarefas</figcaption>
-</figure>
-</div>
-<p>A função abaixo recupera as informações das tarefas iniciadas e encerradas:</p>
+<p>O Lead Time fornece a percepção do cliente do tempo de resposta da equipe do projeto. Por este motivo é uma medida importante de acompanhar.</p>
+<p>Em projetos controlados por Lista de atividades, como descrito neste <a href="https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/">neste post</a>, o Lead Time deve ser considerado a partir do momento de início da execução da atividade.</p>
+<p>A função abaixo calcula a média móvel do Lead Time e gera um gráfico com a tendência da evolução da mesma.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get_cfd_tasks - A partir de uma lista de tarefas,</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#                 a função conta o número de tarefas</span></span>
@@ -326,18 +312,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{abreu2026,
   author = {Abreu, Marcos},
-  title = {Diagrama de Fluxo Acumulado},
-  date = {2026-06-27},
-  url = {https://abreums.github.io/posts/2026-06-27-cfd/},
+  title = {Lead Time - Média Móvel},
+  date = {2026-06-29},
+  url = {https://abreums.github.io/posts/2026-06-29-lead-time/},
   langid = {pt-br}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abreu2026" class="csl-entry quarto-appendix-citeas" role="listitem">
-Abreu, Marcos. 2026. <em>Diagrama de Fluxo Acumulado</em>. accepted,
-June 27. <a href="https://abreums.github.io/posts/2026-06-27-cfd/">https://abreums.github.io/posts/2026-06-27-cfd/</a>.
+Abreu, Marcos. 2026. <em>Lead Time - Média Móvel</em>. accepted, June
+29. <a href="https://abreums.github.io/posts/2026-06-29-lead-time/">https://abreums.github.io/posts/2026-06-29-lead-time/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
