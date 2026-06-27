@@ -13,23 +13,25 @@ citation:
 categories: [Rstats]
 ---
 
-O controle do WIP (Work In Progress) é fundamental para avaliar a efetividade do fluxo do trabalho.
+O controle do WIP (Work In Progress) é fundamental para avaliar a efetividade do fluxo do trabalho. 
 
-A análise do histórico do WIP provê uma visão se o mesmo é estável ou possui alguma tendência.
+A forma correta de medir o WIP pode depender da estrutura da equipe ou ainda do momento do projeto. Considere um projeto com várias equipes que trabalham em áreas diferentes mas possuem pontos de intersecção entre suas ações. Onde o WIP deve ser medido? No conjunto total de tarefas ou devemos avaliar as tarefas por área? 
 
-Vamos construir uma gráfico com a tendência do WIP considerando uma lista de tarefas conforme descrita [neste post](https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/).
+Uma ferramenta comum para planejamento e acompanhamento de projetos com estas características é a lista de tarefas. Uma descrição de como uma lista de tarefas deve ser construída pode ser encontrada [neste post](https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/).
 
-O gráfico que queremos gerar é este:
+Como não há uma forma única de se considerar a medição e análise do WIP, podemos considerar a tendência do mesmo no tempo, ao invés de um valor absoluto. 
+
+Vamos construir uma gráfico com a tendência do WIP considerando uma lista de tarefas. O gráfico que queremos gerar é este:
 
 ![Tendência do WIP](wip.png)
 
 ## Histórico do WIP a partir de uma Lista de Tarefas
 
-Para se obter um CFD a partir de uma Lista de Tarefas conforme descrita [neste post](https://abreums.github.io/posts/2026-06-20-lista-de-tarefas/) e representada na imagem abaixo utilizamos as informações das colunas Status, Data de Início e Data de Encerramento.
+Não é esperado que uma lista de tarefas contenham tarefas iniciando e terminando todos os dias. É mais comum que isto aconteça dentro de intervalos de tempo. Desta forma a análise da tendência do WIP precisa considerar uma média móvel de seu valor.
 
 A função abaixo utiliza uma contagem de tarefas iniciadas e encerradas por dia, conforme apresentado [neste post](https://abreums.github.io/posts/2026-06-27-cfd/).
 
-A contagem é feita considerando a média móvel calculada através do pacote **slider**.
+A partir da lista de tarefas iniciadas e encerradas podemos calcular a média móvel para uma janela de tempo utilizando a função **slider::slide_index_mean**  do pacote **slider**.
 
 ```{r}
 #| eval: FALSE
@@ -48,13 +50,12 @@ get_wip_sequence <- function(cfd_tsk_count) {
       rolling_mean = slider::slide_index_mean(
         x = wip,
         i = dt_status,
-        before = lubridate::as.difftime(6, units = "days"), # 6 days before + current day = 7 days
+        # 6 days before + current day = 7 days
+        before = lubridate::as.difftime(6, units = "days"), 
         after = 0
       )
     )
 }
-
-
 ```
 
 Para gerar um diagrama da Média Móvel do WIP podemos utilizar a função abaixo:
@@ -82,5 +83,10 @@ plot_wip_rolling_mean <- function(wip_sequence) {
     ) +
     ggplot2::theme(legend.position = 'none')
 }
-
 ```
+
+O gráfico da média móvel do WIP para um intervalo de 7 dias mostra a tendência da medição e pode ser utilizado como alternativa para o valor absoluto do WIP numa determinada data.
+
+O objetivo de acompanharmos este indicador é avaliar se a eficiência do trabalho da equipe se mantém conforme o projeto progride.
+
+Alternativamente, podemos realizar a mesma medição considerando a serparação por equipes ou áreas de atuação.
